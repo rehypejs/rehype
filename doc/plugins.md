@@ -13,8 +13,14 @@
 
 ## List of Plugins
 
-There currently aren’t any plug-ins.  Soon, they’ll come.  Have a good
-idea?  Let’s [chat on Gitter][gitter] and make it happn!
+There currently aren’t ~~any~~ that many plug-ins.  Soon, ~~they’ll~~
+more will come.  Have a good idea?  Let’s [chat on Gitter][gitter] and
+make it happen!
+
+*   [`wooorm/rehype-document`](https://github.com/wooorm/rehype-document)
+    — Wrap in a document;
+*   [`wooorm/rehype-highlight`](https://github.com/wooorm/rehype-highlight)
+    — Syntax highlight code blocks.
 
 ## List of Utilities
 
