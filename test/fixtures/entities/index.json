@@ -1,0 +1,33 @@
+{
+  "type": "root",
+  "children": [
+    {
+      "type": "text",
+      "value": "© & baz. AT&T.\n",
+      "position": {
+        "start": {
+          "line": 1,
+          "column": 1,
+          "offset": 0
+        },
+        "end": {
+          "line": 2,
+          "column": 1,
+          "offset": 23
+        }
+      }
+    }
+  ],
+  "position": {
+    "start": {
+      "line": 1,
+      "column": 1,
+      "offset": 0
+    },
+    "end": {
+      "line": 2,
+      "column": 1,
+      "offset": 23
+    }
+  }
+}
