@@ -7,3 +7,13 @@ node_js:
 - '6.0'
 after_success:
 - bash <(curl -s https://codecov.io/bash)
+deploy:
+  - provider: releases
+    api_key:
+      secure: W8h+HeEEnRVhnaeXBVRQ9Em0CssLvy9mEw/McIU8NO4CAY5vAhsnc9LSpP6M6QP08VdOcBHDoaQGy6SZSIxzWgGyoQbiMMMG3sEnGd03DDlhGQxpYNX5KgSBbbcnwalkXeZETyG5VI164lJayEoZ2nkj4emSF5RuGwWI/5bYWv4Z3nQ1Nk4ulekvsoAGjfp7KFkV8tf+bxWU1kR2wiOziFwxe+BnVscx7mhQM8bZwiS+8UELSExRN+oZ7O+VE+5gM2GGEUbMuHdn9XGDNSftcWtOPM8slvChZuS899EYRjPydwj1vhlMC6rtvMQlFq7u6wVddKfFOjZbHCw7xMiT0S/UU9AHNv+MNTHgCAAVjoQ4OzkYZJZ7xV7BEbGf1NTbRObYASqSzi4WQwJBo9gepmX1MwjfYtUda/RUxulL7XmCdQSK2WlEgE0DpIZ68sI/IGn5lxL4v3KDUFP4/mD3/dxuHfC9/wRbrJNXqZRCBn3AB5Opm/6DZcqZPiDwFQP5UL6Z0ls/Pb1EstTORjH356UKRf1XL7IMqlwHGkwjAZL5Nne2nyb5olwCEMeb1HJOiGuX2plMu7Xfbl38gXO7T3ZpEP8HeEl17s6Ylbl2W+Ozm/ryAu9keEwdd3eJcO43DGMJKiMK46jeZ3cQHpRiJxjomqrAqe3sq2vH93MfGTA=
+    file:
+      - "rehype.js"
+      - "rehype.min.js"
+    on:
+      tags: true
+      node: '6.0'
