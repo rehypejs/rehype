@@ -16,7 +16,7 @@
 
 <!-- Definitions -->
 
-[logo]: https://cdn.rawgit.com/wooorm/rehype/master/logo.svg
+[logo]: https://cdn.rawgit.com/wooorm/rehype/master/logo.svg?
 
 [build-badge]: https://img.shields.io/travis/wooorm/rehype.svg
 
