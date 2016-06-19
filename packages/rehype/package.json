@@ -1,6 +1,6 @@
 {
   "name": "rehype",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "HTML processor powered by plugins",
   "license": "MIT",
   "keywords": [
@@ -15,8 +15,8 @@
   ],
   "dependencies": {
     "html-void-elements": "^1.0.0",
-    "rehype-parse": "^0.0.0",
-    "rehype-stringify": "^0.0.0",
+    "rehype-parse": "^1.0.0",
+    "rehype-stringify": "^1.0.0",
     "unified": "^4.1.1"
   },
   "homepage": "https://github.com/wooorm/rehype",
