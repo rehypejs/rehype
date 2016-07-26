@@ -31,12 +31,6 @@ process.stdin
   });
 ```
 
-## Table of Contents
-
-*   [API](#api)
-    *   [processor.use(stringify\[, options\])](#processorusestringify-options)
-*   [License](#license)
-
 ## API
 
 ### `processor.use(stringify[, options])`

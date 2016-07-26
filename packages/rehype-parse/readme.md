@@ -26,13 +26,6 @@ process.stdin
   .pipe(process.stdout);
 ```
 
-## Table of Contents
-
-*   [API](#api)
-    *   [processor.use(parse)](#processoruseparse)
-    *   [parse.Parser](#parseparser)
-*   [License](#license)
-
 ## API
 
 ### `processor.use(parse)`
