@@ -8,10 +8,12 @@
 
 'use strict';
 
-/* eslint-env commonjs */
-
 /* Dependencies. */
 var Parser = require('./lib/parser.js');
+
+/* Expose */
+module.exports = exports = parse;
+exports = Parser;
 
 /**
  * Attacher.
@@ -19,11 +21,5 @@ var Parser = require('./lib/parser.js');
  * @param {unified} processor - Unified processor.
  */
 function parse(processor) {
-    processor.Parser = Parser;
+  processor.Parser = Parser;
 }
-
-/* Patch `Parser`. */
-parse.Parser = Parser;
-
-/* Expose */
-module.exports = parse;

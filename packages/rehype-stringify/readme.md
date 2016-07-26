@@ -20,15 +20,15 @@ var parse = require('rehype-parse');
 var stringify = require('rehype-stringify');
 
 process.stdin
-    .pipe(unified())
-    .use(parse)
-    .use(stringify)
-    .pipe(process.stdout, {
-        closeSelfClosing: true,
-        entities: {
-            useNamedReferences: true
-        }
-    });
+  .pipe(unified())
+  .use(parse)
+  .use(stringify)
+  .pipe(process.stdout, {
+    quoteSmart: true,
+    closeSelfClosing: true,
+    omitOptionalTags: true,
+    entities: {useShortestReferences: true}
+  });
 ```
 
 ## Table of Contents

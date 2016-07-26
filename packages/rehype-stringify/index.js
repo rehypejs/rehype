@@ -8,11 +8,12 @@
 
 'use strict';
 
-/* eslint-env commonjs */
-
 /* Dependencies. */
 var xtend = require('xtend');
 var toHTML = require('hast-util-to-html');
+
+/* Expose. */
+module.exports = stringify;
 
 /**
  * Attacher.
@@ -21,34 +22,29 @@ var toHTML = require('hast-util-to-html');
  * @param {Object?} [config={}] - Configuration.
  */
 function stringify(processor, config) {
-    /**
-     * Construct a new compiler.
-     *
-     * @param {File} file - Virtual file.
-     * @param {Object?} options - Configuration.
-     * @param {Rehype} processor - Processor.
-     */
-    function Compiler(file, options, processor) {
-        this.options = options;
-        this.data = processor.data;
-        this.file = file;
-    }
+  /* Patch. */
+  processor.Compiler = Compiler;
+  Compiler.prototype.compile = compile;
 
-    /**
-     * Compile the bound file.
-     *
-     * @param {Node} tree - HAST node.
-     * @return {string} - HTML.
-     */
-    function compile(tree) {
-        return toHTML(tree, xtend(config, this.options));
-    }
+  /**
+   * Construct a new compiler.
+   *
+   * @param {File} file - Virtual file.
+   * @param {Object?} options - Configuration.
+   * @param {Rehype} processor - Processor.
+   */
+  function Compiler(file, options) {
+    this.options = options;
+    this.file = file;
+  }
 
-    /* Expose methods. */
-    Compiler.prototype.compile = compile;
-
-    processor.Compiler = Compiler;
+  /**
+   * Compile the bound file.
+   *
+   * @param {Node} tree - HAST node.
+   * @return {string} - HTML.
+   */
+  function compile(tree) {
+    return toHTML(tree, xtend(config, this.options));
+  }
 }
-
-/* Expose. */
-module.exports = stringify;

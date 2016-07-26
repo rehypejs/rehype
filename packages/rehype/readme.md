@@ -26,8 +26,8 @@ var rehype = require('rehype');
 var report = require('vfile-reporter');
 
 rehype().process('<title>Hi</title><h2>Hello world!', function (err, file) {
-    console.log(report(err || file));
-    console.log(String(file));
+  console.log(report(err || file));
+  console.log(String(file));
 });
 ```
 

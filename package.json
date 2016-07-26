@@ -10,12 +10,9 @@
     "bundle-collapser": "^1.2.1",
     "chalk": "^1.1.3",
     "escodegen": "^1.7.0",
-    "eslint": "^2.0.0",
     "esmangle": "^1.0.0",
     "esprima": "^2.6.0",
     "hast-util-assert": "^1.0.0",
-    "jscs": "^3.0.0",
-    "jscs-jsdoc": "^2.0.0",
     "lerna": "2.0.0-beta.20",
     "nyc": "^7.1.0",
     "remark-cli": "^1.0.0",
@@ -26,7 +23,8 @@
     "remark-validate-links": "^4.0.0",
     "tape": "^4.5.1",
     "uglifyify": "^3.0.1",
-    "unist-util-remove-position": "^1.0.0"
+    "unist-util-remove-position": "^1.0.0",
+    "xo": "^0.16.0"
   },
   "nyc": {
     "check-coverage": true,
@@ -39,11 +37,16 @@
     "build-md": "remark . --frail --quiet",
     "build-bundle": "node script/build-bundle.js",
     "build": "npm run build-md && npm run build-bundle",
-    "lint-api": "eslint .",
-    "lint-style": "jscs --reporter inline .",
-    "lint": "npm run lint-api && npm run lint-style",
+    "lint": "xo",
     "test-api": "node test",
     "test-coverage": "nyc --reporter lcov tape test/index.js",
     "test": "npm run build && npm run lint && npm run test-coverage"
+  },
+  "xo": {
+    "space": true,
+    "ignores": [
+      "rehype.js",
+      "rehype.min.js"
+    ]
   }
 }

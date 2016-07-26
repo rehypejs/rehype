@@ -8,8 +8,6 @@
 
 'use strict';
 
-/* eslint-env commonjs */
-
 /* Dependencies. */
 var fromParse5 = require('hast-util-from-parse5');
 var Parser5 = require('parse5/lib/parser');
@@ -18,26 +16,21 @@ var Parser5 = require('parse5/lib/parser');
 module.exports = Parser;
 
 /* Parse5 Configuration. */
-var config = {
-    locationInfo: true
-};
+var config = {locationInfo: true};
+
+/* Methods. */
+Parser.prototype.parse = parse;
 
 /**
  * Construct a new parser.
  *
- * @example
- *   var file = new VFile('<span>Hello</span>.');
- *   var parser = new Parser(file);
- *
- * @constructor
- * @class {Parser}
  * @param {File} file - Virtual file.
  * @param {Object?} options - Configuration.
  */
 function Parser(file, options) {
-    this.parser = new Parser5(config);
-    this.file = file;
-    this.options = options;
+  this.parser = new Parser5(config);
+  this.file = file;
+  this.options = options;
 }
 
 /**
@@ -47,13 +40,11 @@ function Parser(file, options) {
  * @return {HastRoot} - Hast root-node.
  */
 function parse() {
-    var settings = this.options || {};
-    var fn = settings.fragment ? 'parseFragment' : 'parse';
+  var settings = this.options || {};
+  var fn = settings.fragment ? 'parseFragment' : 'parse';
 
-    return fromParse5(this.parser[fn](String(this.file)), {
-        file: this.file,
-        verbose: settings.verbose
-    });
+  return fromParse5(this.parser[fn](String(this.file)), {
+    file: this.file,
+    verbose: settings.verbose
+  });
 }
-
-Parser.prototype.parse = parse;

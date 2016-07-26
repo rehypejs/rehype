@@ -20,10 +20,10 @@ var parse = require('rehype-parse');
 var stringify = require('rehype-stringify');
 
 process.stdin
-    .pipe(unified())
-    .use(parse)
-    .use(stringify)
-    .pipe(process.stdout);
+  .pipe(unified())
+  .use(parse)
+  .use(stringify)
+  .pipe(process.stdout);
 ```
 
 ## Table of Contents

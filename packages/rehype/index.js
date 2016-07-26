@@ -8,8 +8,6 @@
 
 'use strict';
 
-/* eslint-env commonjs */
-
 /* Dependencies. */
 var unified = require('unified');
 var parse = require('rehype-parse');
@@ -17,6 +15,6 @@ var stringify = require('rehype-stringify');
 
 /* Expose. */
 module.exports = unified()
-    .use(parse)
-    .use(stringify)
-    .abstract();
+  .use(parse)
+  .use(stringify)
+  .abstract();
