@@ -48,5 +48,26 @@
       "rehype.js",
       "rehype.min.js"
     ]
+  },
+  "remarkConfig": {
+    "output": true,
+    "plugins": {
+      "comment-config": null,
+      "github": null,
+      "validate-links": null,
+      "toc": {
+        "maxDepth": 3,
+        "tight": true
+      },
+      "lint": {
+        "heading-increment": false,
+        "list-item-spacing": false
+      },
+      "github": null,
+      "comment-config": null
+    },
+    "settings": {
+      "bullet": "*"
+    }
   }
 }
