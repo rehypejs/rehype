@@ -34,29 +34,23 @@ process.stdin
 ## Table of Contents
 
 *   [API](#api)
-    *   [processor.use(stringify\[, config\])](#processorusestringify-config)
+    *   [processor.use(stringify\[, options\])](#processorusestringify-options)
 *   [License](#license)
 
 ## API
 
-### `processor.use(stringify[, config])`
+### `processor.use(stringify[, options])`
 
 Configure the `processor` to stringify [**hast**][hast] syntax trees
 to HTML.
 
 ###### `options`
 
-Options can be passed when using `processor.use(stringify, config)`, or
-later through [`processor.stringify()`][stringify],
+Options can be passed when using `processor.use(stringify, options)`,
+and later through [`processor.stringify()`][stringify],
 [`processor.process()`][process], or [`processor.pipe()`][pipe].
 
-The following settings are supported:
-
-*   `closeSelfClosing`;
-*   `allowDangerousHTML`;
-*   `entities`;
-
-These are all passed to [`hast-util-to-html`][hast-util-to-html].
+All settings are passed to [`hast-util-to-html`][hast-util-to-html].
 
 ## License
 

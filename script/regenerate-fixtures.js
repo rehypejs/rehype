@@ -36,14 +36,18 @@ fs.readdir(join(root), function (err, files) {
 
     files.forEach(function (name) {
         var base = join(root, name);
+        var config;
 
         if (name.charAt(0) === '.') {
             return;
         }
 
+        config = fs.readFileSync(join(base, 'config.json'), 'utf8');
+        config = JSON.parse(config);
+
         fs.readFile(join(base, 'index.html'), 'utf8', function (err, doc) {
-            var tree = rehype.parse(doc);
-            var result = rehype.stringify(tree);
+            var tree = rehype.parse(doc, config);
+            var result = rehype.stringify(tree, config);
 
             bail(err);
 
@@ -58,6 +62,11 @@ fs.readdir(join(root), function (err, files) {
                     join(base, 'result.html'),
                     result,
                     bail
+                );
+            } else {
+                fs.unlink(
+                    join(base, 'result.html'),
+                    function () {}
                 );
             }
         });

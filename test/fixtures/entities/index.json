@@ -3,7 +3,7 @@
   "children": [
     {
       "type": "text",
-      "value": "© & baz. AT&T.\n",
+      "value": "© & baz. AT&T.\nalpha < bravo ' charlie > delta.\n",
       "position": {
         "start": {
           "line": 1,
@@ -11,13 +11,16 @@
           "offset": 0
         },
         "end": {
-          "line": 2,
+          "line": 3,
           "column": 1,
-          "offset": 23
+          "offset": 67
         }
       }
     }
   ],
+  "data": {
+    "quirksMode": false
+  },
   "position": {
     "start": {
       "line": 1,
@@ -25,9 +28,9 @@
       "offset": 0
     },
     "end": {
-      "line": 2,
+      "line": 3,
       "column": 1,
-      "offset": 23
+      "offset": 67
     }
   }
 }

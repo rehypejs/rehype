@@ -25,23 +25,22 @@ npm install rehype
 var rehype = require('rehype');
 var report = require('vfile-reporter');
 
-rehype().process('<h2>Hello world!', function (err, file) {
-    file.filename = 'example';
-    file.extension = 'html';
-    console.log(file.toString());
-    console.error(report(file));
+rehype().process('<title>Hi</title><h2>Hello world!', function (err, file) {
+    console.log(report(err || file));
+    console.log(String(file));
 });
 ```
 
 Yields:
 
 ```txt
-<h2>Hello world!</h2>
-example.html
-     1-1:17  warning  Unclosed element `h2`       require-close-tag
-
-⚠ 1 warning
+no issues found
+<html><head><title>Hi</title></head><body><h2>Hello world!</h2></body></html>
 ```
+
+Configuration for [**rehype-parse**][parse] and
+[**rehype-stringify**][stringify] can be given as an object between the
+document and the callback.
 
 ## License
 

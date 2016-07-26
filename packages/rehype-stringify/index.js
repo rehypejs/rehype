@@ -13,7 +13,6 @@
 /* Dependencies. */
 var xtend = require('xtend');
 var toHTML = require('hast-util-to-html');
-var voids = require('html-void-elements');
 
 /**
  * Attacher.
@@ -42,9 +41,7 @@ function stringify(processor, config) {
      * @return {string} - HTML.
      */
     function compile(tree) {
-        return toHTML(tree, xtend(config, this.options, {
-            voids: this.data('void') || voids
-        }));
+        return toHTML(tree, xtend(config, this.options));
     }
 
     /* Expose methods. */

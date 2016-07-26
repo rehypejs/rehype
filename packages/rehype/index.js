@@ -14,11 +14,9 @@
 var unified = require('unified');
 var parse = require('rehype-parse');
 var stringify = require('rehype-stringify');
-var voids = require('html-void-elements');
 
 /* Expose. */
 module.exports = unified()
-    .data('void', voids)
     .use(parse)
     .use(stringify)
     .abstract();

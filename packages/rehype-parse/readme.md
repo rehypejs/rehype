@@ -1,6 +1,6 @@
 # rehype-parse [![Build Status][build-badge]][build-status] [![Coverage Status][coverage-badge]][coverage-status] [![Chat][chat-badge]][chat]
 
-[Parser][] for [**unified**][unified].  Parses HTML to an
+[Parser][] for [**unified**][unified].  Parses HTML to a
 [**hast**][hast] syntax tree.  Used in the [**rehype**
 processor][processor].
 
@@ -40,148 +40,38 @@ process.stdin
 Configure the `processor` to read HTML as input and process an
 [**hast**][hast] syntax tree.
 
-There is no configuration for the parser.
+##### `options`
 
-The parser [warn][]s about potential code-style violations, which are
-patched on the processed file’s [`messages`][vfile-messages].
+###### `options.fragment`
 
-###### `tag-case`
+Specify whether to parse a fragment (`boolean`, default: `false`),
+instead of a complete document.  In document mode, unopened `html`,
+`head`, and `body` elements are opened in just the right places.
 
-Warn if element tag-names are not lower-cased.
+###### `options.verbose`
 
-```html
-<DIV foo="bar"></Div>
-```
-
-Yields:
-
-```txt
-1:5 Expected opening tag-name `DIV` to be lower-cased (`div`)
-1:21 Expected closing tag-name `Div` to be lower-cased (`div`)
-```
-
-###### `attribute-name-case`
-
-Warn if attribute names are not lower-cased.
+Patch extra positional information (`boolean`, default: `false`).
+If specified, the following element:
 
 ```html
-<div Foo="bar"></div>
+<img src="#" alt>
 ```
 
-Yields:
+...has the following `data`:
 
-```txt
-1:9 Expected attribute name `Foo` to be lower-cased (`foo`)
-```
-
-###### `no-duplicate-attribute`
-
-Warn if attribute names are used multiple times.
-
-```html
-<div foo="bar" foo="baz"></div>
-<div qux="quux" QuX="QUUUX"></div>
-```
-
-Yields:
-
-```txt
-1:19 Duplicate attribute `foo`
-2:20 Duplicate attribute `qux`
-```
-
-###### `no-boolean-value`
-
-Warn if boolean attributes have superfluous values.
-
-```html
-<div disabled hidden="" download="download"></div>
-```
-
-Yields:
-
-```txt
-1:23 Found superfluous value for boolean `hidden`
-1:43 Found superfluous value for boolean `download`
-```
-
-###### `require-attribute-value`
-
-Warn if non-boolean attributes miss their value.
-
-```html
-<div id name="" download="picture.png"></div>
-```
-
-Yields:
-
-```txt
-1:9 Missing value for non-boolean attribute `id`
-```
-
-###### `no-close-tag-attributes`
-
-Warn if attributes on element closing-tags are found.
-
-```html
-<footer></footer id="baz">
-```
-
-Yields:
-
-```txt
-1:18 Did not expect `i` after closing tag
-```
-
-###### `require-open-tag`
-
-Warn if elements are closed without being open.
-
-```html
-</div>
-
-</br>
-```
-
-Yields:
-
-```txt
-1:1 Stray end tag `div`
-3:1 Stray end tag `br`
-```
-
-###### `require-close-tag`
-
-Warn if open elements are not closed.
-
-```html
-<header>
-
-<div><span></div>
-```
-
-Yields:
-
-```txt
-1:1-4:1 Unclosed element `header`
-3:6-3:12 Expected closing tag for `span`
-```
-
-###### `no-self-closing`
-
-Warn if self-closing syntax is used in HTML.
-
-```html
-<img />
-
-<article/>
-```
-
-Yields:
-
-```txt
-1:7 Did not expect self-closing syntax in HTML
-3:10 Did not expect self-closing syntax in HTML
+```js
+{ position:
+   { opening:
+      { start: { line: 1, column: 1, offset: 0 },
+        end: { line: 1, column: 18, offset: 17 } },
+     closing: null,
+     properties:
+      { src:
+         { start: { line: 1, column: 6, offset: 5 },
+           end: { line: 1, column: 13, offset: 12 } },
+        alt:
+         { start: { line: 1, column: 14, offset: 13 },
+           end: { line: 1, column: 17, offset: 16 } } } } }
 ```
 
 ### `parse.Parser`
@@ -219,7 +109,3 @@ Access to the [parser][], if you need it.
 [hast]: https://github.com/wooorm/hast
 
 [parser]: https://github.com/wooorm/unified#processorparser
-
-[warn]: https://github.com/wooorm/vfile#vfilewarnreason-position
-
-[vfile-messages]: https://github.com/wooorm/vfile#vfilemessages

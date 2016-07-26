@@ -1797,6 +1797,9 @@
       }
     }
   ],
+  "data": {
+    "quirksMode": false
+  },
   "position": {
     "start": {
       "line": 1,

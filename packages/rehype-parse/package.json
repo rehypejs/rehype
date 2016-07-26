@@ -26,11 +26,7 @@
     "lib"
   ],
   "dependencies": {
-    "bail": "^1.0.0",
-    "hastscript": "^3.0.0",
-    "html-void-elements": "^1.0.0",
-    "htmlparser2": "^3.9.1",
-    "property-information": "^3.0.0",
-    "web-namespaces": "^1.0.0"
+    "hast-util-from-parse5": "^1.0.0",
+    "parse5": "^2.1.5"
   }
 }

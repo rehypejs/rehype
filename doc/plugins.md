@@ -28,7 +28,7 @@ See [**hast**][hast-util] for a list of utilities for working with
 the AST.  See [`unist`][unist-util] for other utilities which work with
 **hast** nodes, too.
 
-And finally, see [`wooorm/vfile`][vfile-util] for a list of utilities
+And finally, see [**vfile**][vfile-util] for a list of utilities
 for working with virtual files and
 
 ## Using plugins
@@ -45,7 +45,13 @@ stuck, [issues][] and [Gitter][] are good places to get help.
 
 A good place for publishing plug-ins is [npm][npm-publish].
 
-You should pick a name prefixed by `"rehype-"`, such as `rehype-lint`.
+You should pick a name prefixed by `'rehype-'`, such as `rehype-lint`.
+
+Note that, if the thing you create cannot be given to `rehype().use()`,
+it not a “plug-in”.  Don’t use the `rehype-` prefix as that could
+confuse users.  If it works with the HAST tree, use `'hast-util-'`, if
+it works with any Unist tree, use `unist-util-`, if it works with virtual
+files, use `vfile-`.
 
 When publishing a plug-in, you should use the package manager’s keywords
 functionality and include `"rehype"` in the list.

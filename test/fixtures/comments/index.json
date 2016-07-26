@@ -131,7 +131,7 @@
     },
     {
       "type": "text",
-      "value": "\n",
+      "value": "\n\nValid: ",
       "position": {
         "start": {
           "line": 5,
@@ -139,13 +139,176 @@
           "offset": 77
         },
         "end": {
-          "line": 6,
+          "line": 7,
+          "column": 8,
+          "offset": 86
+        }
+      }
+    },
+    {
+      "type": "comment",
+      "value": "My favourite operators are > and <!",
+      "position": {
+        "start": {
+          "line": 7,
+          "column": 8,
+          "offset": 86
+        },
+        "end": {
+          "line": 7,
+          "column": 50,
+          "offset": 128
+        }
+      }
+    },
+    {
+      "type": "text",
+      "value": "\n\nInvalid: ",
+      "position": {
+        "start": {
+          "line": 7,
+          "column": 50,
+          "offset": 128
+        },
+        "end": {
+          "line": 9,
+          "column": 10,
+          "offset": 139
+        }
+      }
+    },
+    {
+      "type": "comment",
+      "value": "",
+      "position": {
+        "start": {
+          "line": 9,
+          "column": 10,
+          "offset": 139
+        },
+        "end": {
+          "line": 9,
+          "column": 15,
+          "offset": 144
+        }
+      }
+    },
+    {
+      "type": "text",
+      "value": ".\nInvalid: ",
+      "position": {
+        "start": {
+          "line": 9,
+          "column": 15,
+          "offset": 144
+        },
+        "end": {
+          "line": 10,
+          "column": 10,
+          "offset": 155
+        }
+      }
+    },
+    {
+      "type": "comment",
+      "value": "",
+      "position": {
+        "start": {
+          "line": 10,
+          "column": 10,
+          "offset": 155
+        },
+        "end": {
+          "line": 10,
+          "column": 16,
+          "offset": 161
+        }
+      }
+    },
+    {
+      "type": "text",
+      "value": ".\nInvalid: ",
+      "position": {
+        "start": {
+          "line": 10,
+          "column": 16,
+          "offset": 161
+        },
+        "end": {
+          "line": 11,
+          "column": 10,
+          "offset": 172
+        }
+      }
+    },
+    {
+      "type": "comment",
+      "value": "alpha<!--bravo",
+      "position": {
+        "start": {
+          "line": 11,
+          "column": 10,
+          "offset": 172
+        },
+        "end": {
+          "line": 11,
+          "column": 31,
+          "offset": 193
+        }
+      }
+    },
+    {
+      "type": "text",
+      "value": ".\nInvalid: ",
+      "position": {
+        "start": {
+          "line": 11,
+          "column": 31,
+          "offset": 193
+        },
+        "end": {
+          "line": 12,
+          "column": 10,
+          "offset": 204
+        }
+      }
+    },
+    {
+      "type": "comment",
+      "value": "charlie<!-",
+      "position": {
+        "start": {
+          "line": 12,
+          "column": 10,
+          "offset": 204
+        },
+        "end": {
+          "line": 12,
+          "column": 27,
+          "offset": 221
+        }
+      }
+    },
+    {
+      "type": "text",
+      "value": ".\n",
+      "position": {
+        "start": {
+          "line": 12,
+          "column": 27,
+          "offset": 221
+        },
+        "end": {
+          "line": 13,
           "column": 1,
-          "offset": 78
+          "offset": 223
         }
       }
     }
   ],
+  "data": {
+    "quirksMode": false
+  },
   "position": {
     "start": {
       "line": 1,
@@ -153,9 +316,9 @@
       "offset": 0
     },
     "end": {
-      "line": 6,
+      "line": 13,
       "column": 1,
-      "offset": 78
+      "offset": 223
     }
   }
 }

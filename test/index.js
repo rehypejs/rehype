@@ -17,11 +17,13 @@ var fs = require('fs');
 var path = require('path');
 var test = require('tape');
 var clean = require('unist-util-remove-position');
+var hast = require('hast-util-assert');
 var unified = require('../packages/rehype/node_modules/unified');
 var parse = require('../packages/rehype-parse');
 var stringify = require('../packages/rehype-stringify');
 var rehype = require('../packages/rehype');
-var hast = require('./hast.js');
+
+var fragment = {fragment: true};
 
 /* Test `rehype-parse`. */
 test('rehype().parse(file)', function (t) {
@@ -34,29 +36,27 @@ test('rehype().parse(file)', function (t) {
     );
 
     t.deepEqual(
-        clean(processor.parse('<img><span></span>')),
+        clean(processor.parse('<img><span></span>', fragment), true),
         {
             type: 'root',
             children: [{
                 type: 'element',
                 tagName: 'img',
                 properties: {},
-                children: [],
-                position: undefined
+                children: []
             }, {
                 type: 'element',
                 tagName: 'span',
                 properties: {},
-                children: [],
-                position: undefined
+                children: []
             }],
-            position: undefined
+            data: {quirksMode: false}
         },
         'should close void elements'
     );
 
     t.deepEqual(
-        clean(processor.parse('<foo><span></span>')),
+        clean(processor.parse('<foo><span></span>', fragment), true),
         {
             type: 'root',
             children: [{
@@ -67,65 +67,13 @@ test('rehype().parse(file)', function (t) {
                     type: 'element',
                     tagName: 'span',
                     properties: {},
-                    children: [],
-                    position: undefined
-                }],
-                position: undefined
+                    children: []
+                }]
             }],
-            position: undefined
+            data: {quirksMode: false}
         },
         'should not close unknown elements by default'
     );
-
-    t.deepEqual(
-        clean(processor().data('void', ['foo']).parse('<foo><span></span>')),
-        {
-            type: 'root',
-            children: [{
-                type: 'element',
-                tagName: 'foo',
-                properties: {},
-                children: [],
-                position: undefined
-            }, {
-                type: 'element',
-                tagName: 'span',
-                properties: {},
-                children: [],
-                position: undefined
-            }],
-            position: undefined
-        },
-        'should close elements in `voids`'
-    );
-
-    t.test('should warn about malformed HTML', function (st) {
-        var filePath = path.join(__dirname, 'checker.html');
-        var doc = fs.readFileSync(filePath, 'utf8');
-
-        st.plan(2);
-
-        rehype().process(doc, function (err, file) {
-            st.ifErr(err);
-
-            st.deepEqual(file.messages.map(String), [
-                '6:5: Expected opening tag-name `DIV` to be lower-cased (`div`)',
-                '6:9: Expected attribute name `Foo` to be lower-cased (`foo`)',
-                '6:21: Expected closing tag-name `Div` to be lower-cased (`div`)',
-                '10:23: Found superfluous value for boolean `hidden`',
-                '10:43: Found superfluous value for boolean `download`',
-                '14:9: Missing value for non-boolean attribute `id`',
-                '18:9: Expected attribute name `Foo` to be lower-cased (`foo`)',
-                '18:19: Duplicate attribute `foo`',
-                '22:18: Did not expect `i` after closing tag',
-                '26:1: Stray end tag `div`', '28:1: Stray end tag `br`',
-                '34:10: Did not expect self-closing syntax in HTML',
-                '36:6-36:12: Expected closing tag for `span`',
-                '34:1-37:1: Unclosed element `article`',
-                '32:1-37:1: Unclosed element `header`'
-            ], 'should warn');
-        });
-    });
 
     t.end();
 });
@@ -155,33 +103,33 @@ test('rehype().stringify(ast, file, options?)', function (t) {
     t.equal(
         processor.stringify({
             type: 'text',
-            value: 'alpha © bravo ≠ at&t 𝌆 delta'
+            value: 'alpha < bravo'
         }),
-        'alpha © bravo ≠ at&#x26;t 𝌆 delta',
+        'alpha &#x3C; bravo',
         'should escape entities'
     );
 
     t.equal(
         processor.stringify({
             type: 'text',
-            value: 'alpha © bravo ≠ at&t 𝌆 delta'
+            value: 'alpha < bravo'
         }, {
             entities: {}
         }),
-        'alpha &#xA9; bravo &#x2260; at&#x26;t &#x1D306; delta',
+        'alpha &#x3C; bravo',
         'should encode entities (numbered by default)'
     );
 
     t.equal(
         processor.stringify({
             type: 'text',
-            value: 'alpha © bravo ≠ at&t 𝌆 delta'
+            value: 'alpha < bravo'
         }, {
             entities: {
                 useNamedReferences: true
             }
         }),
-        'alpha &copy; bravo &ne; at&amp;t &#x1D306; delta',
+        'alpha &lt; bravo',
         'should encode entities (numbered by default)'
     );
 
@@ -214,15 +162,6 @@ test('rehype().stringify(ast, file, options?)', function (t) {
         'should close unknown elements by default'
     );
 
-    t.equal(
-        processor().data('void', ['foo']).stringify({
-            type: 'element',
-            tagName: 'foo'
-        }),
-        '<foo>',
-        'should not close elements in `voids`'
-    );
-
     t.end();
 });
 
@@ -253,10 +192,12 @@ test('fixtures', function (t) {
             t.test(fixture, function (st) {
                 var input = fs.readFileSync(path.join(fp, 'index.html'), 'utf8');
                 var tree = fs.readFileSync(path.join(fp, 'index.json'), 'utf8');
+                var config = fs.readFileSync(path.join(fp, 'config.json'), 'utf8');
                 var node;
                 var out;
-                var renode;
                 var result;
+
+                config = JSON.parse(config);
 
                 try {
                     result = fs.readFileSync(path.join(fp, 'result.html'), 'utf8');
@@ -264,29 +205,26 @@ test('fixtures', function (t) {
 
                 tree = JSON.parse(tree);
 
-                node = processor.parse(input);
+                node = processor.parse(input, config);
 
                 hast(node);
 
-                st.deepEqual(
-                    node,
-                    tree,
-                    'should parse `' + fixture + '` correctly'
-                );
+                st.deepEqual(tree, node, 'should parse `' + fixture + '`');
 
-                out = processor.stringify(node);
-                renode = processor.parse(out);
-
-                st.deepEqual(
-                    clean(renode),
-                    clean(node),
-                    'should re-parse `' + fixture + '`'
-                );
+                out = processor.stringify(node, config);
 
                 if (result) {
                     st.equal(out, result, 'should stringify `' + fixture + '`');
                 } else {
                     st.equal(out, input, 'should stringify `' + fixture + '` exact');
+                }
+
+                if (config.reprocess !== false) {
+                    st.deepEqual(
+                        clean(node),
+                        clean(processor.parse(out, config)),
+                        'should re-parse `' + fixture + '`'
+                    );
                 }
 
                 st.end()

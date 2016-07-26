@@ -2,8 +2,7 @@
   "type": "root",
   "children": [
     {
-      "type": "directive",
-      "name": "?xml",
+      "type": "comment",
       "value": "?xml version=\"1.0\" encoding=\"UTF-8\"?",
       "position": {
         "start": {
@@ -35,6 +34,9 @@
       }
     }
   ],
+  "data": {
+    "quirksMode": false
+  },
   "position": {
     "start": {
       "line": 1,

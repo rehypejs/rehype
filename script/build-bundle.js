@@ -59,6 +59,7 @@ browserify(input('index.js'), opts)
         global: true,
         sourcemap: false
     })
+    .plugin('bundle-collapser/plugin')
     .bundle(function (err, buf) {
         var ast;
 
