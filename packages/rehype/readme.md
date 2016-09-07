@@ -1,6 +1,6 @@
 # rehype [![Build Status][build-badge]][build-status] [![Coverage Status][coverage-badge]][coverage-status] [![Chat][chat-badge]][chat]
 
-The [**rehype**][rehype] processor is a HTML processor powered by
+The [**rehype**][rehype] processor is an HTML processor powered by
 [plug-ins][plugins].
 
 *   Interface by [**unified**][unified];

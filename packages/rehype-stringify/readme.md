@@ -1,7 +1,7 @@
 # rehype-stringify [![Build Status][build-badge]][build-status] [![Coverage Status][coverage-badge]][coverage-status] [![Chat][chat-badge]][chat]
 
 [Compiler][] for [**unified**][unified].  Stringifies an
-[**hast**][hast] syntax tree to HTML.  Used in the [**rehype**
+[**HAST**][hast] syntax tree to HTML.  Used in the [**rehype**
 processor][processor].
 
 ## Installation

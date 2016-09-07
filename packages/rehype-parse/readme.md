@@ -1,7 +1,7 @@
 # rehype-parse [![Build Status][build-badge]][build-status] [![Coverage Status][coverage-badge]][coverage-status] [![Chat][chat-badge]][chat]
 
 [Parser][] for [**unified**][unified].  Parses HTML to a
-[**hast**][hast] syntax tree.  Used in the [**rehype**
+[**HAST**][hast] syntax tree.  Used in the [**rehype**
 processor][processor].
 
 ## Installation
@@ -31,7 +31,7 @@ process.stdin
 ### `processor.use(parse)`
 
 Configure the `processor` to read HTML as input and process an
-[**hast**][hast] syntax tree.
+[**HAST**][hast] syntax tree.
 
 ##### `options`
 

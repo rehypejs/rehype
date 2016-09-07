@@ -11,26 +11,16 @@
     "chalk": "^1.1.3",
     "escodegen": "^1.7.0",
     "esmangle": "^1.0.0",
-    "esprima": "^2.6.0",
+    "esprima": "^3.0.0",
     "hast-util-assert": "^1.0.0",
     "lerna": "2.0.0-beta.20",
-    "nyc": "^7.1.0",
-    "remark-cli": "^1.0.0",
-    "remark-comment-config": "^4.0.0",
-    "remark-github": "^5.0.0",
-    "remark-lint": "^4.0.0",
-    "remark-toc": "^3.0.0",
-    "remark-validate-links": "^4.0.0",
+    "nyc": "^8.1.0",
+    "remark-cli": "^2.0.0",
+    "remark-preset-wooorm": "^1.0.0",
     "tape": "^4.5.1",
     "uglifyify": "^3.0.1",
     "unist-util-remove-position": "^1.0.0",
     "xo": "^0.16.0"
-  },
-  "nyc": {
-    "check-coverage": true,
-    "lines": 100,
-    "functions": 100,
-    "branches": 100
   },
   "scripts": {
     "postinstall": "lerna bootstrap",
@@ -42,32 +32,20 @@
     "test-coverage": "nyc --reporter lcov tape test/index.js",
     "test": "npm run build && npm run lint && npm run test-coverage"
   },
+  "nyc": {
+    "check-coverage": true,
+    "lines": 100,
+    "functions": 100,
+    "branches": 100
+  },
   "xo": {
     "space": true,
     "ignores": [
-      "rehype.js",
-      "rehype.min.js"
+      "rehype.js"
     ]
   },
   "remarkConfig": {
     "output": true,
-    "plugins": {
-      "comment-config": null,
-      "github": null,
-      "validate-links": null,
-      "toc": {
-        "maxDepth": 3,
-        "tight": true
-      },
-      "lint": {
-        "heading-increment": false,
-        "list-item-spacing": false
-      },
-      "github": null,
-      "comment-config": null
-    },
-    "settings": {
-      "bullet": "*"
-    }
+    "presets": "wooorm"
   }
 }
