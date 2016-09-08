@@ -6,7 +6,8 @@
 
 **rehype** is an ecosystem of [plug-ins][plugins] for processing HTML.
 
-*   [`rehype`][api] — Programmatic interface.
+*   [`rehype`][api] — Programmatic interface;
+*   [`rehype-cli`][cli] — Command-line interface.
 
 [Get started »][getting-started]
 
@@ -37,6 +38,8 @@
 [chat]: https://gitter.im/wooorm/rehype
 
 [api]: https://github.com/wooorm/rehype/tree/master/packages/rehype
+
+[cli]: https://github.com/wooorm/rehype/tree/master/packages/rehype-cli
 
 [plugins]: https://github.com/wooorm/rehype/tree/master/doc/plugins.md
 

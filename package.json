@@ -12,6 +12,7 @@
     "escodegen": "^1.7.0",
     "esmangle": "^1.0.0",
     "esprima": "^3.0.0",
+    "execa": "^0.4.0",
     "hast-util-assert": "^1.0.0",
     "lerna": "2.0.0-beta.27",
     "nyc": "^8.1.0",

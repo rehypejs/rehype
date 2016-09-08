@@ -1,0 +1,32 @@
+{
+  "name": "rehype-cli",
+  "version": "0.0.0",
+  "description": "CLI to process HTML with rehype using plugins",
+  "license": "MIT",
+  "keywords": [
+    "html",
+    "rehype",
+    "cli",
+    "bin"
+  ],
+  "dependencies": {
+    "rehype": "^3.0.0",
+    "unified-args": "^2.0.0"
+  },
+  "repository": "https://github.com/wooorm/rehype/tree/master/packages/rehype-cli",
+  "bugs": "https://github.com/wooorm/rehype/issues",
+  "author": "Titus Wormer <tituswormer@gmail.com> (http://wooorm.com)",
+  "contributors": [
+    "Titus Wormer <tituswormer@gmail.com> (http://wooorm.com)"
+  ],
+  "engines": {
+    "node": ">=0.11.0"
+  },
+  "bin": {
+    "rehype": "cli.js"
+  },
+  "files": [
+    "cli.js"
+  ],
+  "scripts": {}
+}
