@@ -8,6 +8,7 @@ If you get stuck, [issues][] and [Gitter][] are good places to get help.
 ## Table of Contents
 
 *   [Introduction](#introduction)
+*   [Command-line](#command-line)
 *   [Programmatic usage](#programmatic-usage)
 
 ## Introduction
@@ -26,6 +27,39 @@ Yields (in fragment mode):
 ```
 
 But, much can be done, [through plug-ins][plugins].
+
+## Command-line
+
+**rehype**’s CLI is a simple way to process HTML files from the
+command line.  Its interface is provided by [**unified-args**][unified-args].
+
+Install [`rehype-cli`][cli] and dependencies with [npm][]:
+
+```bash
+npm install --global rehype-cli rehype-minify
+```
+
+`index.html` contains:
+
+```md
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Hello</title>
+  </head>
+  <body>
+    <p>World!</p>
+  </body>
+</html>
+```
+
+`rehype index.html --preset minify` yields:
+
+```txt
+<!DOCTYPE html><meta charset=utf8><title>Hello</title><p>World!
+index.html: no issues found
+```
 
 ## Programmatic usage
 
@@ -77,3 +111,7 @@ no issues found
 [parse]: https://github.com/wooorm/rehype/tree/master/packages/rehype-parse
 
 [stringify]: https://github.com/wooorm/rehype/tree/master/packages/rehype-stringify
+
+[unified-args]: https://github.com/wooorm/unified-args
+
+[cli]: https://github.com/wooorm/rehype/tree/master/packages/rehype-cli

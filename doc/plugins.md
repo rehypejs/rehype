@@ -13,14 +13,15 @@
 
 ## List of Plugins
 
-There currently aren’t ~~any~~ that many plug-ins.  Soon, ~~they’ll~~
-more will come.  Have a good idea?  Let’s [chat on Gitter][gitter] and
-make it happen!
+There currently aren’t that many plug-ins.  More will come soon.  Have
+a good idea?  Let’s [chat][gitter] and make it happen!
 
 *   [`wooorm/rehype-document`](https://github.com/wooorm/rehype-document)
     — Wrap in a document;
 *   [`wooorm/rehype-highlight`](https://github.com/wooorm/rehype-highlight)
-    — Syntax highlight code blocks.
+    — Syntax highlight code blocks;
+*   [`wooorm/rehype-minify`](https://github.com/wooorm/rehype-minify)
+    — Minify HTML.
 
 ## List of Utilities
 
@@ -29,12 +30,15 @@ the AST.  See [`unist`][unist-util] for other utilities which work with
 **hast** nodes, too.
 
 And finally, see [**vfile**][vfile-util] for a list of utilities
-for working with virtual files and
+for working with virtual files.
 
 ## Using plugins
 
 To use a plug-in programmatically, invoke the [`use()`][unified-use]
 function.
+
+To use plug-in with `rehype-cli`, pass [a `--use`][use] flag or specify
+it in a [configuration file][rcfile].
 
 ## Creating plugins
 
@@ -77,3 +81,7 @@ functionality and include `"rehype"` in the list.
 [issues]: https://github.com/wooorm/rehype/issues
 
 [gitter]: https://gitter.im/wooorm/rehype
+
+[use]: https://github.com/wooorm/unified-args#--use-plugin
+
+[rcfile]: https://github.com/wooorm/unified-engine/blob/master/doc/configure.md#plugins
