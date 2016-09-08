@@ -11,7 +11,7 @@
   ],
   "dependencies": {
     "rehype": "^3.0.0",
-    "unified-args": "^2.0.0"
+    "unified-args": "^2.1.0"
   },
   "repository": "https://github.com/wooorm/rehype/tree/master/packages/rehype-cli",
   "bugs": "https://github.com/wooorm/rehype/issues",
