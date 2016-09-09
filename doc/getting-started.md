@@ -94,7 +94,7 @@ no issues found
 
 <!-- Definitions -->
 
-[logo]: https://cdn.rawgit.com/wooorm/rehype/master/logo.svg
+[logo]: https://cdn.rawgit.com/wooorm/rehype/5835753/logo.svg
 
 [issues]: https://github.com/wooorm/rehype/issues
 

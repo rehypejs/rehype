@@ -62,7 +62,7 @@ functionality and include `"rehype"` in the list.
 
 <!--Definitions:-->
 
-[logo]: https://cdn.rawgit.com/wooorm/rehype/master/logo.svg
+[logo]: https://cdn.rawgit.com/wooorm/rehype/5835753/logo.svg
 
 [plugins]: #list-of-plugins
 
