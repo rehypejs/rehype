@@ -13,7 +13,7 @@ var Parser = require('./lib/parser.js');
 
 /* Expose */
 module.exports = exports = parse;
-exports = Parser;
+exports.Parser = Parser;
 
 /**
  * Attacher.
