@@ -22,6 +22,8 @@ a good idea?  Let’s [chat][gitter] and make it happen!
     — Syntax highlight code blocks;
 *   [`wooorm/rehype-minify`](https://github.com/wooorm/rehype-minify)
     — Minify HTML;
+*   [`wooorm/rehype-retext`](https://github.com/wooorm/rehype-retext)
+    — [`retext`](https://github.com/wooorm/retext) support;
 *   [`wooorm/rehype-raw`](https://github.com/wooorm/rehype-raw)
     — Parse the tree again (and raw nodes).
 
