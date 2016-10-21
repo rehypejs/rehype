@@ -18,6 +18,8 @@ a good idea?  Let’s [chat][gitter] and make it happen!
 
 *   [`wooorm/rehype-document`](https://github.com/wooorm/rehype-document)
     — Wrap in a document;
+*   [`wooorm/rehype-format`](https://github.com/wooorm/rehype-format)
+    — Format HTML;
 *   [`wooorm/rehype-highlight`](https://github.com/wooorm/rehype-highlight)
     — Syntax highlight code blocks;
 *   [`wooorm/rehype-minify`](https://github.com/wooorm/rehype-minify)
