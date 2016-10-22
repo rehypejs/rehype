@@ -28,6 +28,8 @@ a good idea?  Let’s [chat][gitter] and make it happen!
     — [`retext`](https://github.com/wooorm/retext) support;
 *   [`wooorm/rehype-raw`](https://github.com/wooorm/rehype-raw)
     — Parse the tree again (and raw nodes);
+*   [`rhysd/rehype-react`](https://github.com/rhysd/rehype-react)
+    — Compile to React;
 *   [`wooorm/rehype-slug`](https://github.com/wooorm/rehype-slug)
     — Add `id` attributes to headings.
 
