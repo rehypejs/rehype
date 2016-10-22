@@ -16,6 +16,8 @@
 There currently aren’t that many plug-ins.  More will come soon.  Have
 a good idea?  Let’s [chat][gitter] and make it happen!
 
+*   [`wooorm/rehype-autolink-headings`](https://github.com/wooorm/rehype-autolink-headings)
+    — Add links to headings;
 *   [`wooorm/rehype-document`](https://github.com/wooorm/rehype-document)
     — Wrap in a document;
 *   [`wooorm/rehype-format`](https://github.com/wooorm/rehype-format)
