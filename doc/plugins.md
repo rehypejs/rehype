@@ -27,7 +27,9 @@ a good idea?  Let’s [chat][gitter] and make it happen!
 *   [`wooorm/rehype-retext`](https://github.com/wooorm/rehype-retext)
     — [`retext`](https://github.com/wooorm/retext) support;
 *   [`wooorm/rehype-raw`](https://github.com/wooorm/rehype-raw)
-    — Parse the tree again (and raw nodes).
+    — Parse the tree again (and raw nodes);
+*   [`wooorm/rehype-slug`](https://github.com/wooorm/rehype-slug)
+    — Add `id` attributes to headings.
 
 ## List of Utilities
 
