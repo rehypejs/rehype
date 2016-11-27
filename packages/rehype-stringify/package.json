@@ -25,7 +25,7 @@
     "index.js"
   ],
   "dependencies": {
-    "hast-util-to-html": "^2.1.0",
+    "hast-util-to-html": "^3.0.0",
     "xtend": "^4.0.1"
   }
 }
