@@ -24,16 +24,14 @@ var fragment = {fragment: true};
 
 /* Test `rehype-parse`. */
 test('rehype().parse(file)', function (t) {
-  var processor = unified().use(parse);
-
   t.equal(
-    processor.parse('Alfred').children.length,
+    unified().use(parse).parse('Alfred').children.length,
     1,
     'should accept a `string`'
   );
 
   t.deepEqual(
-    clean(processor.parse('<img><span></span>', fragment), true),
+    clean(unified().use(parse, fragment).parse('<img><span></span>'), true),
     {
       type: 'root',
       children: [{
@@ -53,7 +51,7 @@ test('rehype().parse(file)', function (t) {
   );
 
   t.deepEqual(
-    clean(processor.parse('<foo><span></span>', fragment), true),
+    clean(unified().use(parse, fragment).parse('<foo><span></span>'), true),
     {
       type: 'root',
       children: [{
@@ -77,11 +75,11 @@ test('rehype().parse(file)', function (t) {
 
 /* Test `rehype-stringify`. */
 test('rehype().stringify(ast, file, options?)', function (t) {
-  var processor = unified().use(stringify);
-
   t.throws(
     function () {
-      processor.stringify(false);
+      unified()
+        .use(stringify)
+        .stringify(false);
     },
     /false/,
     'should throw when `ast` is not a node'
@@ -89,60 +87,66 @@ test('rehype().stringify(ast, file, options?)', function (t) {
 
   t.throws(
     function () {
-      processor.stringify({type: 'unicorn'});
+      unified()
+        .use(stringify)
+        .stringify({type: 'unicorn'});
     },
     /unicorn/,
     'should throw when `ast` is not a valid node'
   );
 
   t.equal(
-    processor.stringify({type: 'text', value: 'alpha < bravo'}),
+    unified()
+      .use(stringify)
+      .stringify({type: 'text', value: 'alpha < bravo'}),
     'alpha &#x3C; bravo',
     'should escape entities'
   );
 
   t.equal(
-    processor.stringify({type: 'text', value: 'alpha < bravo'}, {
-      entities: {}
-    }),
+    unified()
+      .use(stringify, {entities: {}})
+      .stringify({type: 'text', value: 'alpha < bravo'}),
     'alpha &#x3C; bravo',
     'should encode entities (numbered by default)'
   );
 
   t.equal(
-    processor.stringify({type: 'text', value: 'alpha < bravo'}, {
-      entities: {
-        useNamedReferences: true
-      }
-    }),
+    unified()
+      .use(stringify, {entities: {useNamedReferences: true}})
+      .stringify({type: 'text', value: 'alpha < bravo'}),
     'alpha &lt; bravo',
     'should encode entities (numbered by default)'
   );
 
   t.equal(
-    processor.stringify({type: 'element', tagName: 'img'}),
+    unified()
+      .use(stringify)
+      .stringify({type: 'element', tagName: 'img'}),
     '<img>',
     'should not close void elements'
   );
 
   t.equal(
-    processor.stringify({type: 'element', tagName: 'img'}, {
-      closeSelfClosing: true
-    }),
+    unified()
+      .use(stringify, {closeSelfClosing: true})
+      .stringify({type: 'element', tagName: 'img'}),
     '<img />',
     'should close void elements if `closeSelfClosing` is given'
   );
 
   t.equal(
-    processor().stringify({type: 'element', tagName: 'foo'}),
+    unified()
+      .use(stringify)
+      .stringify({type: 'element', tagName: 'foo'}),
     '<foo></foo>',
     'should not close unknown elements by default'
   );
 
   t.equal(
-    processor().stringify({type: 'element', tagName: 'foo'}, {
-      voids: 'foo'
-    }),
+    unified()
+      .use(stringify, {voids: 'foo'})
+      .stringify({type: 'element', tagName: 'foo'}),
     '<foo>',
     'should close void elements if configured'
   );
@@ -152,7 +156,6 @@ test('rehype().stringify(ast, file, options?)', function (t) {
 
 /* Test all fixtures. */
 test('fixtures', function (t) {
-  var processor = rehype();
   var index = -1;
   var root = path.join(__dirname, 'fixtures');
   var fixtures = fs.readdirSync(root);
@@ -191,12 +194,12 @@ test('fixtures', function (t) {
       } catch (err) { /* Empty */ }
 
       tree = JSON.parse(tree);
-      node = processor.parse(input, config);
+      node = rehype().data('settings', config).parse(input);
       hast(node);
 
       st.deepEqual(tree, node, 'should parse `' + fixture + '`');
 
-      out = processor.stringify(node, config);
+      out = rehype().data('settings', config).stringify(node);
 
       if (result) {
         st.equal(out, result, 'should stringify `' + fixture + '`');
@@ -207,7 +210,7 @@ test('fixtures', function (t) {
       if (config.reprocess !== false) {
         st.deepEqual(
           clean(node),
-          clean(processor.parse(out, config)),
+          clean(rehype().data('settings', config).parse(out)),
           'should re-parse `' + fixture + '`'
         );
       }

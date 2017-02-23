@@ -17,4 +17,4 @@ var stringify = require('rehype-stringify');
 module.exports = unified()
   .use(parse)
   .use(stringify)
-  .abstract();
+  .freeze();

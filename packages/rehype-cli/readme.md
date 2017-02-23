@@ -21,7 +21,7 @@ npm install rehype-cli
 
 ```bash
 # Minify `index.html` with `rehype-preset-minify`
-$ rehype index.html --preset minify --output
+$ rehype index.html -u preset-minify --output
 ```
 
 ## CLI
@@ -44,7 +44,6 @@ Options:
   -s  --setting <settings>  specify settings
   -e  --ext <extensions>    specify extensions
   -u  --use <plugins>       use plugins
-  -p  --preset <presets>    use presets
   -w  --watch               watch for changes and reprocess
   -q  --quiet               output only warnings and errors
   -S  --silent              output only errors
@@ -98,8 +97,8 @@ Examples:
 
 [plugins]: https://github.com/wooorm/rehype/blob/master/doc/plugins.md
 
-[config-file]: https://github.com/wooorm/unified-engine/blob/master/doc/configure.md
+[config-file]: https://github.com/unifiedjs/unified-engine/blob/master/doc/configure.md
 
-[ignore-file]: https://github.com/wooorm/unified-engine/blob/master/doc/ignore.md
+[ignore-file]: https://github.com/unifiedjs/unified-engine/blob/master/doc/ignore.md
 
-[unified-args]: https://github.com/wooorm/unified-args#cli
+[unified-args]: https://github.com/unifiedjs/unified-args#cli

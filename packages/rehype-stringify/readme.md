@@ -16,19 +16,23 @@ npm install rehype-stringify
 
 ```js
 var unified = require('unified');
+var createStream = require('unified-stream');
 var parse = require('rehype-parse');
 var stringify = require('rehype-stringify');
 
-process.stdin
-  .pipe(unified())
+var processor = unified()
   .use(parse)
-  .use(stringify)
-  .pipe(process.stdout, {
+  .use(stringify, {
     quoteSmart: true,
     closeSelfClosing: true,
     omitOptionalTags: true,
     entities: {useShortestReferences: true}
-  });
+  })
+
+
+process.stdin
+  .pipe(createStream(processor))
+  .pipe(process.stdout);
 ```
 
 ## API
@@ -40,10 +44,7 @@ to HTML.
 
 ###### `options`
 
-Options can be passed when using `processor.use(stringify, options)`,
-and later through [`processor.stringify()`][stringify],
-[`processor.process()`][process], or [`processor.pipe()`][pipe].
-
+Options can be passed when using `processor.use(stringify, options)`.
 All settings are passed to [`hast-util-to-html`][hast-util-to-html].
 
 ## License
@@ -70,18 +71,12 @@ All settings are passed to [`hast-util-to-html`][hast-util-to-html].
 
 [npm]: https://docs.npmjs.com/cli/install
 
-[unified]: https://github.com/wooorm/unified
+[unified]: https://github.com/unifiedjs/unified
 
 [processor]: https://github.com/wooorm/rehype
 
-[stringify]: https://github.com/wooorm/unified#processorstringifynode-filevalue-options
+[compiler]: https://github.com/unifiedjs/unified#processorcompiler
 
-[process]: https://github.com/wooorm/unified#processorprocessfilevalue-options-done
+[hast]: https://github.com/syntax-tree/hast
 
-[pipe]: https://github.com/wooorm/unified#processorpipestream-options
-
-[compiler]: https://github.com/wooorm/unified#processorcompiler
-
-[hast]: https://github.com/wooorm/hast
-
-[hast-util-to-html]: https://github.com/wooorm/hast-util-to-html#tohtmlnode-options
+[hast-util-to-html]: https://github.com/syntax-tree/hast-util-to-html#tohtmlnode-options

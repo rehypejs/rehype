@@ -39,8 +39,8 @@ no issues found
 ```
 
 Configuration for [**rehype-parse**][parse] and
-[**rehype-stringify**][stringify] can be given as an object between the
-document and the callback.
+[**rehype-stringify**][stringify] can be set with
+`.data('settings', {/*...*/})`.
 
 ## License
 

@@ -22,11 +22,12 @@
     "node": ">=0.11.0"
   },
   "files": [
-    "index.js",
-    "lib"
+    "index.js"
   ],
   "dependencies": {
     "hast-util-from-parse5": "^1.0.0",
-    "parse5": "^2.1.5"
-  }
+    "parse5": "^2.1.5",
+    "xtend": "^4.0.1"
+  },
+  "xo": false
 }

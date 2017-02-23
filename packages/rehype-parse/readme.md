@@ -16,19 +16,18 @@ npm install rehype-parse
 
 ```js
 var unified = require('unified');
+var createStream = require('unified-stream');
 var parse = require('rehype-parse');
 var stringify = require('rehype-stringify');
 
 process.stdin
-  .pipe(unified())
-  .use(parse)
-  .use(stringify)
+  .pipe(createStream(unified().use(parse).use(stringify)))
   .pipe(process.stdout);
 ```
 
 ## API
 
-### `processor.use(parse)`
+### `processor.use(parse[, options])`
 
 Configure the `processor` to read HTML as input and process an
 [**HAST**][hast] syntax tree.
@@ -95,10 +94,10 @@ Access to the [parser][], if you need it.
 
 [npm]: https://docs.npmjs.com/cli/install
 
-[unified]: https://github.com/wooorm/unified
+[unified]: https://github.com/unifiedjs/unified
 
 [processor]: https://github.com/wooorm/rehype/blob/master/packages/rehype
 
-[hast]: https://github.com/wooorm/hast
+[hast]: https://github.com/syntax-tree/hast
 
-[parser]: https://github.com/wooorm/unified#processorparser
+[parser]: https://github.com/unifiedjs/unified#processorparser

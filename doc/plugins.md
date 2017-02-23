@@ -78,15 +78,15 @@ functionality and include `"rehype"` in the list.
 
 [plugins]: #list-of-plugins
 
-[hast-util]: https://github.com/wooorm/hast#list-of-utilities
+[hast-util]: https://github.com/syntax-tree/hast#list-of-utilities
 
-[unist-util]: https://github.com/wooorm/unist#unist-node-utilties
+[unist-util]: https://github.com/syntax-tree/unist#unist-node-utilties
 
-[vfile-util]: https://github.com/wooorm/vfile#related-tools
+[vfile-util]: https://github.com/vfile/vfile#related-tools
 
-[unified-use]: https://github.com/wooorm/unified#processoruseplugin-options
+[unified-use]: https://github.com/unifiedjs/unified#processoruseplugin-options
 
-[unified-plugins]: https://github.com/wooorm/unified#plugin
+[unified-plugins]: https://github.com/unifiedjs/unified#plugin
 
 [npm-publish]: https://docs.npmjs.com/getting-started/publishing-npm-packages
 
@@ -94,6 +94,6 @@ functionality and include `"rehype"` in the list.
 
 [gitter]: https://gitter.im/wooorm/rehype
 
-[use]: https://github.com/wooorm/unified-args#--use-plugin
+[use]: https://github.com/unifiedjs/unified-args#--use-plugin
 
-[rcfile]: https://github.com/wooorm/unified-engine/blob/master/doc/configure.md#plugins
+[rcfile]: https://github.com/unifiedjs/unified-engine/blob/master/doc/configure.md#plugins

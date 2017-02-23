@@ -54,7 +54,7 @@ npm install --global rehype-cli rehype-minify
 </html>
 ```
 
-`rehype index.html --preset minify` yields:
+`rehype index.html --use preset-minify` yields:
 
 ```txt
 <!DOCTYPE html><meta charset=utf8><title>Hello</title><p>World!
@@ -106,12 +106,12 @@ no issues found
 
 [plugins]: https://github.com/wooorm/rehype/tree/master/doc/plugins.md
 
-[unified]: https://github.com/wooorm/unified
+[unified]: https://github.com/unifiedjs/unified
 
 [parse]: https://github.com/wooorm/rehype/tree/master/packages/rehype-parse
 
 [stringify]: https://github.com/wooorm/rehype/tree/master/packages/rehype-stringify
 
-[unified-args]: https://github.com/wooorm/unified-args
+[unified-args]: https://github.com/unifiedjs/unified-args
 
 [cli]: https://github.com/wooorm/rehype/tree/master/packages/rehype-cli
