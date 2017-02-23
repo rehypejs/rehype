@@ -1,6 +1,6 @@
 {
   "name": "rehype-cli",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "CLI to process HTML with rehype using plugins",
   "license": "MIT",
   "keywords": [
@@ -10,7 +10,7 @@
     "bin"
   ],
   "dependencies": {
-    "rehype": "^3.0.0",
+    "rehype": "^4.0.0",
     "unified-args": "^3.0.0"
   },
   "repository": "https://github.com/wooorm/rehype/tree/master/packages/rehype-cli",
