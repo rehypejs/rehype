@@ -8,7 +8,8 @@ module.exports = parse;
 
 function parse(options) {
   var settings = xtend(options, this.data('settings'));
-  var parse5 = new Parser5({locationInfo: true});
+  var position = typeof settings.position === 'boolean' ? settings.position : true;
+  var parse5 = new Parser5({locationInfo: position});
 
   this.Parser = parser;
 
