@@ -1,0 +1,23 @@
+{
+  "type": "root",
+  "children": [
+    {
+      "type": "element",
+      "tagName": "strong",
+      "properties": {},
+      "children": [
+        {
+          "type": "text",
+          "value": "Hello World."
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "value": "\n"
+    }
+  ],
+  "data": {
+    "quirksMode": false
+  }
+}
