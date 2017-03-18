@@ -177,7 +177,7 @@ test('fixtures', function (t) {
 
     fp = path.join(root, fixture);
 
-    setImmediate(next); // queue next.
+    setImmediate(next); // Queue next.
 
     t.test(fixture, function (st) {
       var input = fs.readFileSync(path.join(fp, 'index.html'), 'utf8');
