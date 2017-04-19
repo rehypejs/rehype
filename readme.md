@@ -1,5 +1,7 @@
 # ![rehype][logo]
 
+[![Join the chat at https://gitter.im/wooorm/rehype](https://badges.gitter.im/wooorm/rehype.svg)](https://gitter.im/wooorm/rehype?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 [![Build Status][build-badge]][build-status]
 [![Coverage Status][coverage-badge]][coverage-status]
 [![Chat][chat-badge]][chat]
