@@ -28,6 +28,8 @@ a good idea?  Let’s [chat][gitter] and make it happen!
     — Render math inline and block with [KaTeX](https://github.com/Khan/KaTeX)
 *   [`rehype-minify`](https://github.com/wooorm/rehype-minify)
     — Minify HTML
+*   [`rehype-picture`](https://github.com/wooorm/rehype-picture)
+    — Wrap images in `<picture>`s
 *   [`rehype-raw`](https://github.com/wooorm/rehype-raw)
     — Parse the tree again (and raw nodes)
 *   [`rehype-react`](https://github.com/rhysd/rehype-react)
