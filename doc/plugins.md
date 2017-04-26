@@ -32,6 +32,8 @@ a good idea?  Let’s [chat][gitter] and make it happen!
     — Parse the tree again (and raw nodes)
 *   [`rehype-react`](https://github.com/rhysd/rehype-react)
     — Compile to React
+*   [`rehype-remark`](https://github.com/wooorm/rehype-remark)
+    — [`remark`](https://github.com/wooorm/remark) support
 *   [`rehype-retext`](https://github.com/wooorm/rehype-retext)
     — [`retext`](https://github.com/wooorm/retext) support
 *   [`rehype-slug`](https://github.com/wooorm/rehype-slug)
