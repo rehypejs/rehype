@@ -28,12 +28,12 @@ a good idea?  Let’s [chat][gitter] and make it happen!
     — Render math inline and block with [KaTeX](https://github.com/Khan/KaTeX)
 *   [`rehype-minify`](https://github.com/wooorm/rehype-minify)
     — Minify HTML
-*   [`rehype-retext`](https://github.com/wooorm/rehype-retext)
-    — [`retext`](https://github.com/wooorm/retext) support
 *   [`rehype-raw`](https://github.com/wooorm/rehype-raw)
     — Parse the tree again (and raw nodes)
 *   [`rehype-react`](https://github.com/rhysd/rehype-react)
     — Compile to React
+*   [`rehype-retext`](https://github.com/wooorm/rehype-retext)
+    — [`retext`](https://github.com/wooorm/retext) support
 *   [`rehype-slug`](https://github.com/wooorm/rehype-slug)
     — Add `id` attributes to headings
 
