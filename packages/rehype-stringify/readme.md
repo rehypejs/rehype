@@ -29,7 +29,6 @@ var processor = unified()
     entities: {useShortestReferences: true}
   })
 
-
 process.stdin
   .pipe(createStream(processor))
   .pipe(process.stdout);

@@ -36,7 +36,7 @@ command line.  Its interface is provided by [**unified-args**][unified-args].
 Install [`rehype-cli`][cli] and dependencies with [npm][]:
 
 ```bash
-npm install --global rehype-cli rehype-minify
+npm install --global rehype-cli rehype-preset-minify
 ```
 
 `index.html` contains:

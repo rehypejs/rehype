@@ -21,7 +21,7 @@ npm install rehype-cli
 
 ```bash
 # Minify `index.html` with `rehype-preset-minify`
-$ rehype index.html -u preset-minify --output
+$ rehype index.html --use preset-minify --output
 ```
 
 ## CLI
