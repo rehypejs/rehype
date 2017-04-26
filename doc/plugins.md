@@ -24,7 +24,7 @@ a good idea?  Let’s [chat][gitter] and make it happen!
     — Format HTML
 *   [`rehype-highlight`](https://github.com/wooorm/rehype-highlight)
     — Syntax highlight code blocks
-*   [`rehype-katex`](https://github.com/rokt33r/remark-math/blob/master/packages/rehype-katex/readme.md)
+*   [`rehype-katex`](https://github.com/rokt33r/remark-math/blob/master/packages/rehype-katex)
     — Render math inline and block with [KaTeX](https://github.com/Khan/KaTeX)
 *   [`rehype-minify`](https://github.com/wooorm/rehype-minify)
     — Minify HTML
