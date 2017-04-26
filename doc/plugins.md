@@ -38,6 +38,8 @@ a good idea?  Let’s [chat][gitter] and make it happen!
     — [`remark`](https://github.com/wooorm/remark) support
 *   [`rehype-retext`](https://github.com/wooorm/rehype-retext)
     — [`retext`](https://github.com/wooorm/retext) support
+*   [`rehype-sanitize`](https://github.com/wooorm/rehype-sanitize)
+    — Sanitize HTML
 *   [`rehype-slug`](https://github.com/wooorm/rehype-slug)
     — Add `id` attributes to headings
 
