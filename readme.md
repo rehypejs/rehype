@@ -6,8 +6,8 @@
 
 **rehype** is an ecosystem of [plug-ins][plugins] for processing HTML.
 
-*   [`rehype`][api] — Programmatic interface;
-*   [`rehype-cli`][cli] — Command-line interface.
+*   [`rehype`][api] — Programmatic interface
+*   [`rehype-cli`][cli] — Command-line interface
 
 [Get started »][getting-started]
 

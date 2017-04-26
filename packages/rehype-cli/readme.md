@@ -2,12 +2,12 @@
 
 Command-line interface for [**rehype**][rehype].
 
-*   Loads [`rehype-` plugins][plugins];
-*   Searches for HTML extensions (`html`, `htm`, `xht`, `xhtml`);
-*   Ignores paths found in [`.rehypeignore` files][ignore-file];
-*   Loads configuration from [`.rehyperc`, `.rehyperc.js`, etc][config-file];
+*   Loads [`rehype-` plugins][plugins]
+*   Searches for HTML extensions (`html`, `htm`, `xht`, `xhtml`)
+*   Ignores paths found in [`.rehypeignore` files][ignore-file]
+*   Loads configuration from [`.rehyperc`, `.rehyperc.js`, etc][config-file]
 *   Uses configuration from [`rehype` fields in `package.json`
-    files][config-file].
+    files][config-file]
 
 ## Installation
 

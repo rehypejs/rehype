@@ -3,11 +3,11 @@
 The [**rehype**][rehype] processor is an HTML processor powered by
 [plug-ins][plugins].
 
-*   Interface by [**unified**][unified];
-*   [**hast**][hast] syntax tree;
-*   Parses HTML to the tree with [**rehype-parse**][parse];
-*   [Plug-ins][plugins] transform the tree;
-*   Compiles the tree to HTML using [**rehype-stringify**][stringify].
+*   Interface by [**unified**][unified]
+*   [**hast**][hast] syntax tree
+*   Parses HTML to the tree with [**rehype-parse**][parse]
+*   [Plug-ins][plugins] transform the tree
+*   Compiles the tree to HTML using [**rehype-stringify**][stringify]
 
 Don’t need the parser?  Or the compiler?  [That’s OK][unified-usage].
 

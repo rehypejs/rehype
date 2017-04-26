@@ -17,25 +17,25 @@ There currently aren’t that many plug-ins.  More will come soon.  Have
 a good idea?  Let’s [chat][gitter] and make it happen!
 
 *   [`wooorm/rehype-autolink-headings`](https://github.com/wooorm/rehype-autolink-headings)
-    — Add links to headings;
+    — Add links to headings
 *   [`wooorm/rehype-document`](https://github.com/wooorm/rehype-document)
-    — Wrap in a document;
+    — Wrap in a document
 *   [`wooorm/rehype-format`](https://github.com/wooorm/rehype-format)
-    — Format HTML;
+    — Format HTML
 *   [`wooorm/rehype-highlight`](https://github.com/wooorm/rehype-highlight)
-    — Syntax highlight code blocks;
+    — Syntax highlight code blocks
 *   [`rokt33r/rehype-katex`](https://github.com/rokt33r/remark-math/blob/master/packages/rehype-katex/readme.md)
-    — Render math inline and block with [KaTeX](https://github.com/Khan/KaTeX);
+    — Render math inline and block with [KaTeX](https://github.com/Khan/KaTeX)
 *   [`wooorm/rehype-minify`](https://github.com/wooorm/rehype-minify)
-    — Minify HTML;
+    — Minify HTML
 *   [`wooorm/rehype-retext`](https://github.com/wooorm/rehype-retext)
-    — [`retext`](https://github.com/wooorm/retext) support;
+    — [`retext`](https://github.com/wooorm/retext) support
 *   [`wooorm/rehype-raw`](https://github.com/wooorm/rehype-raw)
-    — Parse the tree again (and raw nodes);
+    — Parse the tree again (and raw nodes)
 *   [`rhysd/rehype-react`](https://github.com/rhysd/rehype-react)
-    — Compile to React;
+    — Compile to React
 *   [`wooorm/rehype-slug`](https://github.com/wooorm/rehype-slug)
-    — Add `id` attributes to headings.
+    — Add `id` attributes to headings
 
 ## List of Utilities
 
