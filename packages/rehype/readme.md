@@ -68,9 +68,9 @@ Configuration for [**rehype-parse**][parse] and
 
 [rehype]: https://github.com/wooorm/rehype
 
-[unified]: https://github.com/wooorm/unified
+[unified]: https://github.com/unifiedjs/unified
 
-[hast]: https://github.com/wooorm/hast
+[hast]: https://github.com/syntax-tree/hast
 
 [parse]: https://github.com/wooorm/rehype/blob/master/packages/rehype-parse
 
@@ -78,4 +78,4 @@ Configuration for [**rehype-parse**][parse] and
 
 [plugins]: https://github.com/wooorm/rehype/blob/master/doc/plugins.md
 
-[unified-usage]: https://github.com/wooorm/unified#usage
+[unified-usage]: https://github.com/unifiedjs/unified#usage

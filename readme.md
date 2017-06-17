@@ -13,7 +13,7 @@
 
 ## Related
 
-*   [`hast`](https://github.com/wooorm/hast)
+*   [`hast`](https://github.com/syntax-tree/hast)
 *   [`remark`](https://github.com/wooorm/remark)
 *   [`retext`](https://github.com/wooorm/retext)
 
