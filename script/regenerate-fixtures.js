@@ -12,7 +12,7 @@
 var fs = require('fs');
 var path = require('path');
 var bail = require('bail');
-var rehype = require('../packages/rehype')();
+var rehype = require('../packages/rehype');
 
 /* Methods. */
 var join = path.join;
@@ -35,8 +35,9 @@ fs.readdir(join(root), function (err, files) {
     config = JSON.parse(config);
 
     fs.readFile(join(base, 'index.html'), 'utf8', function (err, doc) {
-      var tree = rehype.parse(doc, config);
-      var result = rehype.stringify(tree, config);
+      var processor = rehype().use({settings: config});
+      var tree = processor.parse(doc);
+      var result = processor.stringify(tree);
 
       bail(err);
 
