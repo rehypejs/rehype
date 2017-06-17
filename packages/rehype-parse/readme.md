@@ -29,7 +29,7 @@ process.stdin
 
 ### `processor.use(parse[, options])`
 
-Configure the `processor` to read HTML as input and process an
+Configure the `processor` to read HTML as input and process a
 [**HAST**][hast] syntax tree.
 
 ##### `options`
