@@ -5,6 +5,8 @@
 **rehype** transforms HTML.  It’s an ecosystem of [plug-ins][plugins].
 If you get stuck, [issues][] and [Gitter][] are good places to get help.
 
+It’s built on [unified][], make sure to read it and its [website][] too.
+
 ## Table of Contents
 
 *   [Introduction](#introduction)
@@ -107,6 +109,8 @@ no issues found
 [plugins]: https://github.com/wooorm/rehype/tree/master/doc/plugins.md
 
 [unified]: https://github.com/unifiedjs/unified
+
+[website]: https://unifiedjs.github.io
 
 [parse]: https://github.com/wooorm/rehype/tree/master/packages/rehype-parse
 

@@ -2,7 +2,7 @@
 
 # Plugins
 
-**rehype** plug-ins lie at the core of **rehype**’s vision.
+**rehype** is an ecosystem of [plug-ins][plugins].
 
 ## Table of Contents
 
@@ -13,8 +13,7 @@
 
 ## List of Plugins
 
-There currently aren’t that many plug-ins.  More will come soon.  Have
-a good idea?  Let’s [chat][gitter] and make it happen!
+Have a good idea for a new plugin?  Let’s [chat][gitter] and make it happen!
 
 *   [`rehype-autolink-headings`](https://github.com/wooorm/rehype-autolink-headings)
     — Add links to headings
@@ -45,12 +44,12 @@ a good idea?  Let’s [chat][gitter] and make it happen!
 
 ## List of Utilities
 
-See [**hast**][hast-util] for a list of utilities for working with
-the AST.  See [`unist`][unist-util] for other utilities which work with
-**hast** nodes, too.
+See [**hast**][hast-util] for a list of utilities for working with the syntax
+tree.  See [`unist`][unist-util] for other utilities which work with **hast**
+nodes, too.
 
-And finally, see [**vfile**][vfile-util] for a list of utilities
-for working with virtual files.
+And finally, see [**vfile**][vfile-util] for a list of utilities for working
+with virtual files.
 
 ## Using plugins
 
@@ -62,23 +61,19 @@ it in a [configuration file][rcfile].
 
 ## Creating plugins
 
-First, read up on the [concept of plug-ins][unified-plugins].
-Then, I suggest taking one of existing [plug-ins][plugins], which looks
-similar to what you’re about to do, and work from there.  If you get
-stuck, [issues][] and [Gitter][] are good places to get help.
-
-A good place for publishing plug-ins is [npm][npm-publish].
+First, read up on the [concept of plug-ins][unified-plugins].  Then, read the
+[guide on “Creating a plugin with unified”][guide].  Finally, take one of
+existing [plug-ins][plugins], which looks similar to what you’re about to do,
+and work from there.  If you get stuck, [issues][] and [Gitter][] are good
+places to get help.
 
 You should pick a name prefixed by `'rehype-'`, such as `rehype-lint`.
 
 Note that, if the thing you create cannot be given to `rehype().use()`,
-it not a “plug-in”.  Don’t use the `rehype-` prefix as that could
+it isn’t a “plug-in”.  Don’t use the `rehype-` prefix as that could
 confuse users.  If it works with the HAST tree, use `'hast-util-'`, if
 it works with any Unist tree, use `unist-util-`, if it works with virtual
 files, use `vfile-`.
-
-When publishing a plug-in, you should use the package manager’s keywords
-functionality and include `"rehype"` in the list.
 
 <!--Definitions:-->
 
@@ -96,8 +91,6 @@ functionality and include `"rehype"` in the list.
 
 [unified-plugins]: https://github.com/unifiedjs/unified#plugin
 
-[npm-publish]: https://docs.npmjs.com/getting-started/publishing-npm-packages
-
 [issues]: https://github.com/wooorm/rehype/issues
 
 [gitter]: https://gitter.im/wooorm/rehype
@@ -105,3 +98,5 @@ functionality and include `"rehype"` in the list.
 [use]: https://github.com/unifiedjs/unified-args#--use-plugin
 
 [rcfile]: https://github.com/unifiedjs/unified-engine/blob/master/doc/configure.md#plugins
+
+[guide]: https://unifiedjs.github.io/create-a-plugin.html

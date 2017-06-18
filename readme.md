@@ -6,6 +6,8 @@
 
 **rehype** is an ecosystem of [plug-ins][plugins] for processing HTML.
 
+It’s built on [unified][], make sure to read it and its [website][] too.
+
 *   [`rehype`][api] — Programmatic interface
 *   [`rehype-cli`][cli] — Command-line interface
 
@@ -44,3 +46,7 @@
 [plugins]: https://github.com/wooorm/rehype/tree/master/doc/plugins.md
 
 [getting-started]: https://github.com/wooorm/rehype/tree/master/doc/getting-started.md
+
+[unified]: https://github.com/unifiedjs/unified
+
+[website]: https://unifiedjs.github.io
