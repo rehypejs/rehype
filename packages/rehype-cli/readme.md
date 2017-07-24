@@ -49,6 +49,7 @@ Options:
   -S  --silent              output only errors
   -f  --frail               exit with 1 on warnings
   -t  --tree                specify input and output as syntax tree
+      --report <reporter>   specify reporter
       --file-path <path>    specify path to process as
       --tree-in             specify input as syntax tree
       --tree-out            output syntax tree
