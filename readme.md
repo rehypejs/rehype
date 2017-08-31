@@ -25,7 +25,7 @@ It’s built on [unified][], make sure to read it and its [website][] too.
 
 <!-- Definitions -->
 
-[logo]: https://cdn.rawgit.com/wooorm/rehype/5835753/logo.svg
+[logo]: https://cdn.rawgit.com/wooorm/rehype/9222605/logo.svg
 
 [build-badge]: https://img.shields.io/travis/wooorm/rehype.svg
 

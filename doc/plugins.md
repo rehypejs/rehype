@@ -77,7 +77,7 @@ files, use `vfile-`.
 
 <!--Definitions:-->
 
-[logo]: https://cdn.rawgit.com/wooorm/rehype/5835753/logo.svg
+[logo]: https://cdn.rawgit.com/wooorm/rehype/9222605/logo.svg
 
 [plugins]: #list-of-plugins
 
