@@ -22,7 +22,9 @@ Have a good idea for a new plugin?  Let’s [chat][gitter] and make it happen!
 *   [`rehype-format`](https://github.com/wooorm/rehype-format)
     — Format HTML
 *   [`rehype-highlight`](https://github.com/wooorm/rehype-highlight)
-    — Syntax highlight code blocks
+    — Syntax highlight code blocks with [`lowlight`](https://github.com/wooorm/lowlight)
+*   [`rehype-highlight-code-block`](https://github.com/mapbox/rehype-highlight-code-block)
+    — Syntax highlight code blocks with any function you provide
 *   [`rehype-katex`](https://github.com/rokt33r/remark-math/blob/master/packages/rehype-katex)
     — Render math inline and block with [KaTeX](https://github.com/Khan/KaTeX)
 *   [`rehype-minify`](https://github.com/wooorm/rehype-minify)
