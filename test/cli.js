@@ -1,22 +1,11 @@
-/**
- * @author Titus Wormer
- * @copyright 2016 Titus Wormer
- * @license MIT
- * @module rehype
- * @fileoverview Test suite for rehype-cli.
- */
-
 'use strict';
 
-/* Dependencies. */
 var path = require('path');
 var execa = require('execa');
 var test = require('tape');
 
-/* Methods. */
 var join = path.join;
 
-/* Tests. */
 test('rehype-cli', function (t) {
   t.plan(2);
 

@@ -1,15 +1,5 @@
-/**
- * @author Titus Wormer
- * @copyright 2016 Titus Wormer
- * @license MIT
- * @module rehype
- * @fileoverview Test suite for rehype, rehype-parse,
- *   and rehype-stringify.
- */
-
 'use strict';
 
-/* Dependencies. */
 var fs = require('fs');
 var path = require('path');
 var test = require('tape');
@@ -22,7 +12,6 @@ var rehype = require('../packages/rehype');
 
 var fragment = {fragment: true};
 
-/* Test `rehype-parse`. */
 test('rehype().parse(file)', function (t) {
   t.equal(
     unified().use(parse).parse('Alfred').children.length,
@@ -73,7 +62,6 @@ test('rehype().parse(file)', function (t) {
   t.end();
 });
 
-/* Test `rehype-stringify`. */
 test('rehype().stringify(ast, file, options?)', function (t) {
   t.throws(
     function () {
@@ -154,7 +142,6 @@ test('rehype().stringify(ast, file, options?)', function (t) {
   t.end();
 });
 
-/* Test all fixtures. */
 test('fixtures', function (t) {
   var index = -1;
   var root = path.join(__dirname, 'fixtures');

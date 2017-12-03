@@ -1,23 +1,12 @@
-/**
- * @author Titus Wormer
- * @copyright 2016 Titus Wormer
- * @license MIT
- * @module rehype:regenerate-fixtures
- * @fileoverview Regenerate all fixtures.
- */
-
 'use strict';
 
-/* Dependencies. */
 var fs = require('fs');
 var path = require('path');
 var bail = require('bail');
 var rehype = require('../packages/rehype');
 
-/* Methods. */
 var join = path.join;
 
-/* Regenerate. */
 var root = join(__dirname, '..', 'test', 'fixtures');
 
 fs.readdir(join(root), function (err, files) {
