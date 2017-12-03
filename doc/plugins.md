@@ -79,7 +79,7 @@ files, use `vfile-`.
 
 <!--Definitions:-->
 
-[logo]: https://cdn.rawgit.com/wooorm/rehype/9222605/logo.svg
+[logo]: https://cdn.rawgit.com/rehypejs/rehype/9222605/logo.svg
 
 [plugins]: #list-of-plugins
 
@@ -93,9 +93,9 @@ files, use `vfile-`.
 
 [unified-plugins]: https://github.com/unifiedjs/unified#plugin
 
-[issues]: https://github.com/wooorm/rehype/issues
+[issues]: https://github.com/rehypejs/rehype/issues
 
-[gitter]: https://gitter.im/wooorm/rehype
+[gitter]: https://gitter.im/rehypejs/rehype
 
 [use]: https://github.com/unifiedjs/unified-args#--use-plugin
 

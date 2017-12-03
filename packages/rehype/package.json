@@ -18,9 +18,9 @@
     "rehype-stringify": "^3.0.0",
     "unified": "^6.0.0"
   },
-  "homepage": "https://github.com/wooorm/rehype",
-  "repository": "https://github.com/wooorm/rehype/tree/master/packages/rehype",
-  "bugs": "https://github.com/wooorm/rehype/issues",
+  "homepage": "https://github.com/rehypejs/rehype",
+  "repository": "https://github.com/rehypejs/rehype/tree/master/packages/rehype",
+  "bugs": "https://github.com/rehypejs/rehype/issues",
   "author": "Titus Wormer <tituswormer@gmail.com> (http://wooorm.com)",
   "contributors": [
     "Titus Wormer <tituswormer@gmail.com> (http://wooorm.com)"

@@ -1,9 +1,9 @@
 {
   "private": true,
   "license": "MIT",
-  "homepage": "https://github.com/wooorm/rehype",
-  "repository": "https://github.com/wooorm/rehype",
-  "bugs": "https://github.com/wooorm/rehype/issues",
+  "homepage": "https://github.com/rehypejs/rehype",
+  "repository": "rehypejs/rehype",
+  "bugs": "https://github.com/rehypejs/rehype/issues",
   "devDependencies": {
     "bail": "^1.0.0",
     "browser-pack-flat": "^2.5.0",

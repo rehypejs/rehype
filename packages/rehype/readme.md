@@ -48,34 +48,34 @@ Configuration for [**rehype-parse**][parse] and
 
 <!-- Definitions -->
 
-[build-badge]: https://img.shields.io/travis/wooorm/rehype.svg
+[build-badge]: https://img.shields.io/travis/rehypejs/rehype.svg
 
-[build-status]: https://travis-ci.org/wooorm/rehype
+[build-status]: https://travis-ci.org/rehypejs/rehype
 
-[coverage-badge]: https://img.shields.io/codecov/c/github/wooorm/rehype.svg
+[coverage-badge]: https://img.shields.io/codecov/c/github/rehypejs/rehype.svg
 
-[coverage-status]: https://codecov.io/github/wooorm/rehype
+[coverage-status]: https://codecov.io/github/rehypejs/rehype
 
-[chat-badge]: https://img.shields.io/gitter/room/wooorm/rehype.svg
+[chat-badge]: https://img.shields.io/gitter/room/rehypejs/Lobby.svg
 
-[chat]: https://gitter.im/wooorm/rehype
+[chat]: https://gitter.im/rehypejs/Lobby
 
-[license]: https://github.com/wooorm/rehype/blob/master/LICENSE
+[license]: https://github.com/rehypejs/rehype/blob/master/LICENSE
 
 [author]: http://wooorm.com
 
 [npm]: https://docs.npmjs.com/cli/install
 
-[rehype]: https://github.com/wooorm/rehype
+[rehype]: https://github.com/rehypejs/rehype
 
 [unified]: https://github.com/unifiedjs/unified
 
 [hast]: https://github.com/syntax-tree/hast
 
-[parse]: https://github.com/wooorm/rehype/blob/master/packages/rehype-parse
+[parse]: https://github.com/rehypejs/rehype/blob/master/packages/rehype-parse
 
-[stringify]: https://github.com/wooorm/rehype/blob/master/packages/rehype-stringify
+[stringify]: https://github.com/rehypejs/rehype/blob/master/packages/rehype-stringify
 
-[plugins]: https://github.com/wooorm/rehype/blob/master/doc/plugins.md
+[plugins]: https://github.com/rehypejs/rehype/blob/master/doc/plugins.md
 
 [unified-usage]: https://github.com/unifiedjs/unified#usage

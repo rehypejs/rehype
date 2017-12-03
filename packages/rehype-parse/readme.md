@@ -76,19 +76,19 @@ Access to the [parser][], if you need it.
 
 <!-- Definitions -->
 
-[build-badge]: https://img.shields.io/travis/wooorm/rehype.svg
+[build-badge]: https://img.shields.io/travis/rehypejs/rehype.svg
 
-[build-status]: https://travis-ci.org/wooorm/rehype
+[build-status]: https://travis-ci.org/rehypejs/rehype
 
-[coverage-badge]: https://img.shields.io/codecov/c/github/wooorm/rehype.svg
+[coverage-badge]: https://img.shields.io/codecov/c/github/rehypejs/rehype.svg
 
-[coverage-status]: https://codecov.io/github/wooorm/rehype
+[coverage-status]: https://codecov.io/github/rehypejs/rehype
 
-[chat-badge]: https://img.shields.io/gitter/room/wooorm/rehype.svg
+[chat-badge]: https://img.shields.io/gitter/room/rehypejs/Lobby.svg
 
-[chat]: https://gitter.im/wooorm/rehype
+[chat]: https://gitter.im/rehypejs/Lobby
 
-[license]: https://github.com/wooorm/rehype/blob/master/LICENSE
+[license]: https://github.com/rehypejs/rehype/blob/master/LICENSE
 
 [author]: http://wooorm.com
 
@@ -96,7 +96,7 @@ Access to the [parser][], if you need it.
 
 [unified]: https://github.com/unifiedjs/unified
 
-[processor]: https://github.com/wooorm/rehype/blob/master/packages/rehype
+[processor]: https://github.com/rehypejs/rehype/blob/master/packages/rehype
 
 [hast]: https://github.com/syntax-tree/hast
 

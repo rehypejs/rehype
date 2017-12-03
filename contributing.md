@@ -117,7 +117,7 @@ prevent you from doing unnecessary work.
 
 [remark]: https://github.com/wooorm/remark
 
-[rehype]: https://github.com/wooorm/rehype
+[rehype]: https://github.com/rehypejs/rehype
 
 [mdast-util-to-hast]: https://github.com/syntax-tree/mdast-util-to-hast
 

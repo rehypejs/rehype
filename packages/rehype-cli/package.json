@@ -13,8 +13,8 @@
     "rehype": "^5.0.0",
     "unified-args": "^4.0.0"
   },
-  "repository": "https://github.com/wooorm/rehype/tree/master/packages/rehype-cli",
-  "bugs": "https://github.com/wooorm/rehype/issues",
+  "repository": "https://github.com/rehypejs/rehype/tree/master/packages/rehype-cli",
+  "bugs": "https://github.com/rehypejs/rehype/issues",
   "author": "Titus Wormer <tituswormer@gmail.com> (http://wooorm.com)",
   "contributors": [
     "Titus Wormer <tituswormer@gmail.com> (http://wooorm.com)"

@@ -39,27 +39,27 @@ an issue in the [`rehypejs/ideas`][ideas] repository!
 
 <!-- Definitions -->
 
-[logo]: https://cdn.rawgit.com/wooorm/rehype/9222605/logo.svg
+[logo]: https://cdn.rawgit.com/rehypejs/rehype/9222605/logo.svg
 
-[build-badge]: https://img.shields.io/travis/wooorm/rehype.svg
+[build-badge]: https://img.shields.io/travis/rehypejs/rehype.svg
 
-[build-status]: https://travis-ci.org/wooorm/rehype
+[build-status]: https://travis-ci.org/rehypejs/rehype
 
-[coverage-badge]: https://img.shields.io/codecov/c/github/wooorm/rehype.svg
+[coverage-badge]: https://img.shields.io/codecov/c/github/rehypejs/rehype.svg
 
-[coverage-status]: https://codecov.io/github/wooorm/rehype
+[coverage-status]: https://codecov.io/github/rehypejs/rehype
 
-[chat-badge]: https://img.shields.io/gitter/room/wooorm/rehype.svg
+[chat-badge]: https://img.shields.io/gitter/room/rehypejs/Lobby.svg
 
-[chat]: https://gitter.im/wooorm/rehype
+[chat]: https://gitter.im/rehypejs/Lobby
 
-[api]: https://github.com/wooorm/rehype/tree/master/packages/rehype
+[api]: https://github.com/rehypejs/rehype/tree/master/packages/rehype
 
-[cli]: https://github.com/wooorm/rehype/tree/master/packages/rehype-cli
+[cli]: https://github.com/rehypejs/rehype/tree/master/packages/rehype-cli
 
-[plugins]: https://github.com/wooorm/rehype/tree/master/doc/plugins.md
+[plugins]: https://github.com/rehypejs/rehype/tree/master/doc/plugins.md
 
-[getting-started]: https://github.com/wooorm/rehype/tree/master/doc/getting-started.md
+[getting-started]: https://github.com/rehypejs/rehype/tree/master/doc/getting-started.md
 
 [unified]: https://github.com/unifiedjs/unified
 

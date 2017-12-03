@@ -96,26 +96,26 @@ no issues found
 
 <!-- Definitions -->
 
-[logo]: https://cdn.rawgit.com/wooorm/rehype/9222605/logo.svg
+[logo]: https://cdn.rawgit.com/rehypejs/rehype/9222605/logo.svg
 
-[issues]: https://github.com/wooorm/rehype/issues
+[issues]: https://github.com/rehypejs/rehype/issues
 
-[gitter]: https://gitter.im/wooorm/rehype
+[gitter]: https://gitter.im/rehypejs/Lobby
 
 [npm]: https://docs.npmjs.com/cli/install
 
-[api]: https://github.com/wooorm/rehype/tree/master/packages/rehype
+[api]: https://github.com/rehypejs/rehype/tree/master/packages/rehype
 
-[plugins]: https://github.com/wooorm/rehype/tree/master/doc/plugins.md
+[plugins]: https://github.com/rehypejs/rehype/tree/master/doc/plugins.md
 
 [unified]: https://github.com/unifiedjs/unified
 
 [website]: https://unifiedjs.github.io
 
-[parse]: https://github.com/wooorm/rehype/tree/master/packages/rehype-parse
+[parse]: https://github.com/rehypejs/rehype/tree/master/packages/rehype-parse
 
-[stringify]: https://github.com/wooorm/rehype/tree/master/packages/rehype-stringify
+[stringify]: https://github.com/rehypejs/rehype/tree/master/packages/rehype-stringify
 
 [unified-args]: https://github.com/unifiedjs/unified-args
 
-[cli]: https://github.com/wooorm/rehype/tree/master/packages/rehype-cli
+[cli]: https://github.com/rehypejs/rehype/tree/master/packages/rehype-cli
