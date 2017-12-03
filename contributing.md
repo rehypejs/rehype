@@ -103,7 +103,7 @@ prevent you from doing unnecessary work.
 *   [Using Pull Requests](https://help.github.com/articles/about-pull-requests/)
 *   [GitHub Help](https://help.github.com)
 
-[coc]: https://github.com/unifiedjs/unified/blob/master/code-of-conduct.md
+[coc]: https://github.com/rehypejs/rehype/blob/master/code-of-conduct.md
 
 [vfile]: https://github.com/vfile
 
