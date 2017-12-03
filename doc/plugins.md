@@ -15,33 +15,33 @@
 
 Have a good idea for a new plugin?  Let’s [chat][gitter] and make it happen!
 
-*   [`rehype-autolink-headings`](https://github.com/wooorm/rehype-autolink-headings)
+*   [`rehype-autolink-headings`](https://github.com/rehypejs/rehype-autolink-headings)
     — Add links to headings
-*   [`rehype-document`](https://github.com/wooorm/rehype-document)
+*   [`rehype-document`](https://github.com/rehypejs/rehype-document)
     — Wrap in a document
-*   [`rehype-format`](https://github.com/wooorm/rehype-format)
+*   [`rehype-format`](https://github.com/rehypejs/rehype-format)
     — Format HTML
-*   [`rehype-highlight`](https://github.com/wooorm/rehype-highlight)
+*   [`rehype-highlight`](https://github.com/rehypejs/rehype-highlight)
     — Syntax highlight code blocks with [`lowlight`](https://github.com/wooorm/lowlight)
 *   [`rehype-highlight-code-block`](https://github.com/mapbox/rehype-highlight-code-block)
     — Syntax highlight code blocks with any function you provide
 *   [`rehype-katex`](https://github.com/rokt33r/remark-math/blob/master/packages/rehype-katex)
     — Render math inline and block with [KaTeX](https://github.com/Khan/KaTeX)
-*   [`rehype-minify`](https://github.com/wooorm/rehype-minify)
+*   [`rehype-minify`](https://github.com/rehypejs/rehype-minify)
     — Minify HTML
-*   [`rehype-picture`](https://github.com/wooorm/rehype-picture)
+*   [`rehype-picture`](https://github.com/rehypejs/rehype-picture)
     — Wrap images in `<picture>`s
-*   [`rehype-raw`](https://github.com/wooorm/rehype-raw)
+*   [`rehype-raw`](https://github.com/rehypejs/rehype-raw)
     — Parse the tree again (and raw nodes)
 *   [`rehype-react`](https://github.com/rhysd/rehype-react)
     — Compile to React
-*   [`rehype-remark`](https://github.com/wooorm/rehype-remark)
+*   [`rehype-remark`](https://github.com/rehypejs/rehype-remark)
     — [`remark`](https://github.com/wooorm/remark) support
-*   [`rehype-retext`](https://github.com/wooorm/rehype-retext)
+*   [`rehype-retext`](https://github.com/rehypejs/rehype-retext)
     — [`retext`](https://github.com/wooorm/retext) support
-*   [`rehype-sanitize`](https://github.com/wooorm/rehype-sanitize)
+*   [`rehype-sanitize`](https://github.com/rehypejs/rehype-sanitize)
     — Sanitize HTML
-*   [`rehype-slug`](https://github.com/wooorm/rehype-slug)
+*   [`rehype-slug`](https://github.com/rehypejs/rehype-slug)
     — Add `id` attributes to headings
 
 ## List of Utilities
