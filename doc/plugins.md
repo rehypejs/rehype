@@ -23,7 +23,7 @@ Have a good idea for a new plugin?  Let’s [chat][gitter] and make it happen!
     — HTML processor that can
     [parse](https://github.com/kmck/rehype-dom/tree/master/packages/rehype-dom-parse) and
     [stringify](https://github.com/kmck/rehype-dom/tree/master/packages/rehype-dom-stringify)
-    using the browser's native DOM API instead of an external library
+    using the browser’s native DOM API instead of an external library
 *   [`rehype-format`](https://github.com/rehypejs/rehype-format)
     — Format HTML
 *   [`rehype-highlight`](https://github.com/rehypejs/rehype-highlight)
