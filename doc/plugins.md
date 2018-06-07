@@ -19,6 +19,11 @@ Have a good idea for a new plugin?  Let’s [chat][gitter] and make it happen!
     — Add links to headings
 *   [`rehype-document`](https://github.com/rehypejs/rehype-document)
     — Wrap in a document
+*   [`rehype-dom`](https://github.com/kmck/rehype-dom)
+    — HTML processor that can
+    [parse](https://github.com/kmck/rehype-dom/tree/master/packages/rehype-dom-parse) and
+    [stringify](https://github.com/kmck/rehype-dom/tree/master/packages/rehype-dom-stringify)
+    using the browser's native DOM API instead of an external library
 *   [`rehype-format`](https://github.com/rehypejs/rehype-format)
     — Format HTML
 *   [`rehype-highlight`](https://github.com/rehypejs/rehype-highlight)
