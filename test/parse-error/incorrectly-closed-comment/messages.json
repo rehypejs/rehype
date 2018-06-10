@@ -1,0 +1,27 @@
+[
+  {
+    "message": "Incorrectly closed comment",
+    "name": "index.html:3:9-3:9",
+    "reason": "Incorrectly closed comment",
+    "line": 3,
+    "column": 9,
+    "location": {
+      "start": {
+        "line": 3,
+        "column": 9,
+        "offset": 66
+      },
+      "end": {
+        "line": 3,
+        "column": 9,
+        "offset": 66
+      }
+    },
+    "source": "parse-error",
+    "ruleId": "incorrectly-closed-comment",
+    "file": "index.html",
+    "fatal": false,
+    "note": "Unexpected `!`. Expected `-->` to close the comment",
+    "url": "https://html.spec.whatwg.org/multipage/parsing.html#parse-error-incorrectly-closed-comment"
+  }
+]

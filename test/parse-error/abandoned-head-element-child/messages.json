@@ -1,0 +1,27 @@
+[
+  {
+    "message": "Unexpected metadata element after head",
+    "name": "index.html:4:1-4:9",
+    "reason": "Unexpected metadata element after head",
+    "line": 4,
+    "column": 1,
+    "location": {
+      "start": {
+        "line": 4,
+        "column": 1,
+        "offset": 68
+      },
+      "end": {
+        "line": 4,
+        "column": 9,
+        "offset": 76
+      }
+    },
+    "source": "parse-error",
+    "ruleId": "abandoned-head-element-child",
+    "file": "index.html",
+    "fatal": false,
+    "note": "Unexpected element after head. Expected the element before `</head>`",
+    "url": null
+  }
+]

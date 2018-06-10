@@ -1,0 +1,27 @@
+[
+  {
+    "message": "Unexpected noncharacter code point referenced by character reference",
+    "name": "index.html:3:9-3:9",
+    "reason": "Unexpected noncharacter code point referenced by character reference",
+    "line": 3,
+    "column": 9,
+    "location": {
+      "start": {
+        "line": 3,
+        "column": 9,
+        "offset": 72
+      },
+      "end": {
+        "line": 3,
+        "column": 9,
+        "offset": 72
+      }
+    },
+    "source": "parse-error",
+    "ruleId": "noncharacter-character-reference",
+    "file": "index.html",
+    "fatal": false,
+    "note": "Unexpected code point. Do not use noncharacters in HTML",
+    "url": "https://html.spec.whatwg.org/multipage/parsing.html#parse-error-noncharacter-character-reference"
+  }
+]

@@ -1,0 +1,52 @@
+[
+  {
+    "message": "Unexpected non-digit at start of numeric character reference",
+    "name": "index.html:3:3-3:3",
+    "reason": "Unexpected non-digit at start of numeric character reference",
+    "line": 3,
+    "column": 3,
+    "location": {
+      "start": {
+        "line": 3,
+        "column": 3,
+        "offset": 82
+      },
+      "end": {
+        "line": 3,
+        "column": 3,
+        "offset": 82
+      }
+    },
+    "source": "parse-error",
+    "ruleId": "absence-of-digits-in-numeric-character-reference",
+    "file": "index.html",
+    "fatal": false,
+    "note": "Unexpected `a`. Expected `[0-9]` for decimal references or `[0-9a-fA-F]` for hexadecimal references",
+    "url": "https://html.spec.whatwg.org/multipage/parsing.html#parse-error-absence-of-digits-in-numeric-character-reference"
+  },
+  {
+    "message": "Unexpected non-digit at start of numeric character reference",
+    "name": "index.html:4:4-4:4",
+    "reason": "Unexpected non-digit at start of numeric character reference",
+    "line": 4,
+    "column": 4,
+    "location": {
+      "start": {
+        "line": 4,
+        "column": 4,
+        "offset": 90
+      },
+      "end": {
+        "line": 4,
+        "column": 4,
+        "offset": 90
+      }
+    },
+    "source": "parse-error",
+    "ruleId": "absence-of-digits-in-numeric-character-reference",
+    "file": "index.html",
+    "fatal": false,
+    "note": "Unexpected `g`. Expected `[0-9]` for decimal references or `[0-9a-fA-F]` for hexadecimal references",
+    "url": "https://html.spec.whatwg.org/multipage/parsing.html#parse-error-absence-of-digits-in-numeric-character-reference"
+  }
+]

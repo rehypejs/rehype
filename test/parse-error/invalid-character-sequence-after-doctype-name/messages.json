@@ -1,0 +1,27 @@
+[
+  {
+    "message": "Invalid sequence after doctype name",
+    "name": "index.html:1:16-1:16",
+    "reason": "Invalid sequence after doctype name",
+    "line": 1,
+    "column": 16,
+    "location": {
+      "start": {
+        "line": 1,
+        "column": 16,
+        "offset": 15
+      },
+      "end": {
+        "line": 1,
+        "column": 16,
+        "offset": 15
+      }
+    },
+    "source": "parse-error",
+    "ruleId": "invalid-character-sequence-after-doctype-name",
+    "file": "index.html",
+    "fatal": false,
+    "note": "Unexpected sequence at `b`. Expected `public` or `system`",
+    "url": "https://html.spec.whatwg.org/multipage/parsing.html#parse-error-invalid-character-sequence-after-doctype-name"
+  }
+]

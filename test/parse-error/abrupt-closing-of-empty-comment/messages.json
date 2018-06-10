@@ -1,0 +1,52 @@
+[
+  {
+    "message": "Unexpected abruptly closed empty comment",
+    "name": "index.html:3:15-3:15",
+    "reason": "Unexpected abruptly closed empty comment",
+    "line": 3,
+    "column": 15,
+    "location": {
+      "start": {
+        "line": 3,
+        "column": 15,
+        "offset": 77
+      },
+      "end": {
+        "line": 3,
+        "column": 15,
+        "offset": 77
+      }
+    },
+    "source": "parse-error",
+    "ruleId": "abrupt-closing-of-empty-comment",
+    "file": "index.html",
+    "fatal": false,
+    "note": "Unexpected `>` or `->`. Expected `-->` to close comments",
+    "url": "https://html.spec.whatwg.org/multipage/parsing.html#parse-error-abrupt-closing-of-empty-comment"
+  },
+  {
+    "message": "Unexpected abruptly closed empty comment",
+    "name": "index.html:4:20-4:20",
+    "reason": "Unexpected abruptly closed empty comment",
+    "line": 4,
+    "column": 20,
+    "location": {
+      "start": {
+        "line": 4,
+        "column": 20,
+        "offset": 99
+      },
+      "end": {
+        "line": 4,
+        "column": 20,
+        "offset": 99
+      }
+    },
+    "source": "parse-error",
+    "ruleId": "abrupt-closing-of-empty-comment",
+    "file": "index.html",
+    "fatal": false,
+    "note": "Unexpected `>` or `->`. Expected `-->` to close comments",
+    "url": "https://html.spec.whatwg.org/multipage/parsing.html#parse-error-abrupt-closing-of-empty-comment"
+  }
+]

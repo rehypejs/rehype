@@ -1,0 +1,52 @@
+[
+  {
+    "message": "Invalid first character in tag name",
+    "name": "index.html:3:2-3:2",
+    "reason": "Invalid first character in tag name",
+    "line": 3,
+    "column": 2,
+    "location": {
+      "start": {
+        "line": 3,
+        "column": 2,
+        "offset": 68
+      },
+      "end": {
+        "line": 3,
+        "column": 2,
+        "offset": 68
+      }
+    },
+    "source": "parse-error",
+    "ruleId": "invalid-first-character-of-tag-name",
+    "file": "index.html",
+    "fatal": false,
+    "note": "Unexpected `4`. Expected an ASCII letter instead",
+    "url": "https://html.spec.whatwg.org/multipage/parsing.html#parse-error-invalid-first-character-of-tag-name"
+  },
+  {
+    "message": "Invalid first character in tag name",
+    "name": "index.html:3:7-3:7",
+    "reason": "Invalid first character in tag name",
+    "line": 3,
+    "column": 7,
+    "location": {
+      "start": {
+        "line": 3,
+        "column": 7,
+        "offset": 73
+      },
+      "end": {
+        "line": 3,
+        "column": 7,
+        "offset": 73
+      }
+    },
+    "source": "parse-error",
+    "ruleId": "invalid-first-character-of-tag-name",
+    "file": "index.html",
+    "fatal": false,
+    "note": "Unexpected `4`. Expected an ASCII letter instead",
+    "url": "https://html.spec.whatwg.org/multipage/parsing.html#parse-error-invalid-first-character-of-tag-name"
+  }
+]

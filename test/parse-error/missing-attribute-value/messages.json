@@ -1,0 +1,27 @@
+[
+  {
+    "message": "Missing attribute value",
+    "name": "index.html:2:11-2:11",
+    "reason": "Missing attribute value",
+    "line": 2,
+    "column": 11,
+    "location": {
+      "start": {
+        "line": 2,
+        "column": 11,
+        "offset": 26
+      },
+      "end": {
+        "line": 2,
+        "column": 11,
+        "offset": 26
+      }
+    },
+    "source": "parse-error",
+    "ruleId": "missing-attribute-value",
+    "file": "index.html",
+    "fatal": false,
+    "note": "Unexpected `=`. Expected an attribute value or no `=` instead",
+    "url": "https://html.spec.whatwg.org/multipage/parsing.html#parse-error-missing-attribute-value"
+  }
+]

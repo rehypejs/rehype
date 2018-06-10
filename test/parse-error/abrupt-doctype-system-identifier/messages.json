@@ -1,0 +1,52 @@
+[
+  {
+    "message": "Unexpected abruptly closed system identifier",
+    "name": "index.html:1:55-1:55",
+    "reason": "Unexpected abruptly closed system identifier",
+    "line": 1,
+    "column": 55,
+    "location": {
+      "start": {
+        "line": 1,
+        "column": 55,
+        "offset": 54
+      },
+      "end": {
+        "line": 1,
+        "column": 55,
+        "offset": 54
+      }
+    },
+    "source": "parse-error",
+    "ruleId": "abrupt-doctype-system-identifier",
+    "file": "index.html",
+    "fatal": false,
+    "note": "Unexpected `>`. Expected a closing `\"` or `'` after the identifier identifier",
+    "url": "https://html.spec.whatwg.org/multipage/parsing.html#parse-error-abrupt-doctype-system-identifier"
+  },
+  {
+    "message": "Unexpected non-conforming doctype declaration",
+    "name": "index.html:1:1-1:56",
+    "reason": "Unexpected non-conforming doctype declaration",
+    "line": 1,
+    "column": 1,
+    "location": {
+      "start": {
+        "line": 1,
+        "column": 1,
+        "offset": 0
+      },
+      "end": {
+        "line": 1,
+        "column": 56,
+        "offset": 55
+      }
+    },
+    "source": "parse-error",
+    "ruleId": "non-conforming-doctype",
+    "file": "index.html",
+    "fatal": false,
+    "note": "Expected `<!doctype html>` or `<!doctype html system \"about:legacy-compat\">`",
+    "url": null
+  }
+]

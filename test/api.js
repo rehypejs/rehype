@@ -140,6 +140,63 @@ test('rehype().stringify(ast, file, options?)', function (t) {
     'should close void elements if configured'
   );
 
+  t.deepEqual(
+    rehype()
+      .processSync('<!doctypehtml>')
+      .messages
+      .map(String),
+    [],
+    'should not emit parse errors by default'
+  );
+
+  t.deepEqual(
+    rehype()
+      .data('settings', {emitParseErrors: true})
+      .processSync('<!doctypehtml>')
+      .messages
+      .map(String),
+    ['1:10-1:10: Missing whitespace before doctype name'],
+    'should emit parse errors when `emitParseErrors: true`'
+  );
+
+  t.deepEqual(
+    rehype()
+      .data('settings', {emitParseErrors: true, missingWhitespaceBeforeDoctypeName: false})
+      .processSync('<!doctypehtml>')
+      .messages
+      .map(String),
+    [],
+    'should ignore parse errors when the specific rule is turned off'
+  );
+
+  t.deepEqual(
+    rehype()
+      .data('settings', {emitParseErrors: true, missingWhitespaceBeforeDoctypeName: true})
+      .processSync('<!doctypehtml>')
+      .messages
+      .map(String),
+    ['1:10-1:10: Missing whitespace before doctype name'],
+    'should emit parse errors when the specific rule is turned on'
+  );
+
+  t.deepEqual(
+    rehype()
+      .data('settings', {emitParseErrors: true, missingWhitespaceBeforeDoctypeName: 2})
+      .processSync('<!doctypehtml>')
+      .messages[0].fatal,
+    true,
+    'should emit fatal parse errors when the specific rule is `2`'
+  );
+
+  t.deepEqual(
+    rehype()
+      .data('settings', {emitParseErrors: true, missingWhitespaceBeforeDoctypeName: 1})
+      .processSync('<!doctypehtml>')
+      .messages[0].fatal,
+    false,
+    'should emit fatal parse errors when the specific rule is `1`'
+  );
+
   t.end();
 });
 

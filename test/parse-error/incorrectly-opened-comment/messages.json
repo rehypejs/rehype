@@ -1,0 +1,52 @@
+[
+  {
+    "message": "Incorrectly opened comment",
+    "name": "index.html:3:3-3:3",
+    "reason": "Incorrectly opened comment",
+    "line": 3,
+    "column": 3,
+    "location": {
+      "start": {
+        "line": 3,
+        "column": 3,
+        "offset": 60
+      },
+      "end": {
+        "line": 3,
+        "column": 3,
+        "offset": 60
+      }
+    },
+    "source": "parse-error",
+    "ruleId": "incorrectly-opened-comment",
+    "file": "index.html",
+    "fatal": false,
+    "note": "Unexpected `f`. Expected `<!--` to open the comment",
+    "url": "https://html.spec.whatwg.org/multipage/parsing.html#parse-error-incorrectly-opened-comment"
+  },
+  {
+    "message": "Incorrectly opened comment",
+    "name": "index.html:4:3-4:3",
+    "reason": "Incorrectly opened comment",
+    "line": 4,
+    "column": 3,
+    "location": {
+      "start": {
+        "line": 4,
+        "column": 3,
+        "offset": 68
+      },
+      "end": {
+        "line": 4,
+        "column": 3,
+        "offset": 68
+      }
+    },
+    "source": "parse-error",
+    "ruleId": "incorrectly-opened-comment",
+    "file": "index.html",
+    "fatal": false,
+    "note": "Unexpected `b`. Expected `<!--` to open the comment",
+    "url": "https://html.spec.whatwg.org/multipage/parsing.html#parse-error-incorrectly-opened-comment"
+  }
+]

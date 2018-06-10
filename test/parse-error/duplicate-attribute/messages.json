@@ -1,0 +1,27 @@
+[
+  {
+    "message": "Unexpected duplicate attribute",
+    "name": "index.html:2:15-2:15",
+    "reason": "Unexpected duplicate attribute",
+    "line": 2,
+    "column": 15,
+    "location": {
+      "start": {
+        "line": 2,
+        "column": 15,
+        "offset": 30
+      },
+      "end": {
+        "line": 2,
+        "column": 15,
+        "offset": 30
+      }
+    },
+    "source": "parse-error",
+    "ruleId": "duplicate-attribute",
+    "file": "index.html",
+    "fatal": false,
+    "note": "Unexpectedly double attribute. Expected attributes to occur only once",
+    "url": "https://html.spec.whatwg.org/multipage/parsing.html#parse-error-duplicate-attribute"
+  }
+]

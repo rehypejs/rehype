@@ -1,0 +1,27 @@
+[
+  {
+    "message": "Unexpected NULL character",
+    "name": "index.html:3:1-3:1",
+    "reason": "Unexpected NULL character",
+    "line": 3,
+    "column": 1,
+    "location": {
+      "start": {
+        "line": 3,
+        "column": 1,
+        "offset": 57
+      },
+      "end": {
+        "line": 3,
+        "column": 1,
+        "offset": 57
+      }
+    },
+    "source": "parse-error",
+    "ruleId": "unexpected-null-character",
+    "file": "index.html",
+    "fatal": false,
+    "note": "Unexpected code point `0x0`. Do not use NULL characters in HTML",
+    "url": "https://html.spec.whatwg.org/multipage/parsing.html#parse-error-unexpected-null-character"
+  }
+]

@@ -1,0 +1,27 @@
+[
+  {
+    "message": "Missing semicolon after character reference",
+    "name": "index.html:3:5-3:5",
+    "reason": "Missing semicolon after character reference",
+    "line": 3,
+    "column": 5,
+    "location": {
+      "start": {
+        "line": 3,
+        "column": 5,
+        "offset": 79
+      },
+      "end": {
+        "line": 3,
+        "column": 5,
+        "offset": 79
+      }
+    },
+    "source": "parse-error",
+    "ruleId": "missing-semicolon-after-character-reference",
+    "file": "index.html",
+    "fatal": false,
+    "note": "Unexpected `i`. Expected `;` instead",
+    "url": "https://html.spec.whatwg.org/multipage/parsing.html#parse-error-missing-semicolon-after-character-reference"
+  }
+]

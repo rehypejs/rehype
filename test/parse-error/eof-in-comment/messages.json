@@ -1,0 +1,27 @@
+[
+  {
+    "message": "Unexpected end of file in comment",
+    "name": "index.html:4:1-4:1",
+    "reason": "Unexpected end of file in comment",
+    "line": 4,
+    "column": 1,
+    "location": {
+      "start": {
+        "line": 4,
+        "column": 1,
+        "offset": 51
+      },
+      "end": {
+        "line": 4,
+        "column": 1,
+        "offset": 51
+      }
+    },
+    "source": "parse-error",
+    "ruleId": "eof-in-comment",
+    "file": "index.html",
+    "fatal": false,
+    "note": "Unexpected end of file. Expected `-->` to close the comment",
+    "url": "https://html.spec.whatwg.org/multipage/parsing.html#parse-error-eof-in-comment"
+  }
+]

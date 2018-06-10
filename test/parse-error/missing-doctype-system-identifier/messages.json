@@ -1,0 +1,27 @@
+[
+  {
+    "message": "Missing system identifier in doctype",
+    "name": "index.html:1:22-1:22",
+    "reason": "Missing system identifier in doctype",
+    "line": 1,
+    "column": 22,
+    "location": {
+      "start": {
+        "line": 1,
+        "column": 22,
+        "offset": 21
+      },
+      "end": {
+        "line": 1,
+        "column": 22,
+        "offset": 21
+      }
+    },
+    "source": "parse-error",
+    "ruleId": "missing-doctype-system-identifier",
+    "file": "index.html",
+    "fatal": false,
+    "note": "Unexpected `>`. Expected identifier for `system` instead (suggested: `\"about:legacy-compat\"`)",
+    "url": "https://html.spec.whatwg.org/multipage/parsing.html#parse-error-missing-doctype-system-identifier"
+  }
+]

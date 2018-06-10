@@ -1,0 +1,27 @@
+[
+  {
+    "message": "Missing whitespace between attributes",
+    "name": "index.html:2:16-2:16",
+    "reason": "Missing whitespace between attributes",
+    "line": 2,
+    "column": 16,
+    "location": {
+      "start": {
+        "line": 2,
+        "column": 16,
+        "offset": 31
+      },
+      "end": {
+        "line": 2,
+        "column": 16,
+        "offset": 31
+      }
+    },
+    "source": "parse-error",
+    "ruleId": "missing-whitespace-between-attributes",
+    "file": "index.html",
+    "fatal": false,
+    "note": "Unexpected `c`. Expected ASCII whitespace instead",
+    "url": "https://html.spec.whatwg.org/multipage/parsing.html#parse-error-missing-whitespace-between-attributes"
+  }
+]

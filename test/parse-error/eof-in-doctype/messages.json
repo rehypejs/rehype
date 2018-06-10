@@ -1,0 +1,52 @@
+[
+  {
+    "message": "Unexpected end of file in doctype",
+    "name": "index.html:2:1-2:1",
+    "reason": "Unexpected end of file in doctype",
+    "line": 2,
+    "column": 1,
+    "location": {
+      "start": {
+        "line": 2,
+        "column": 1,
+        "offset": 10
+      },
+      "end": {
+        "line": 2,
+        "column": 1,
+        "offset": 10
+      }
+    },
+    "source": "parse-error",
+    "ruleId": "eof-in-doctype",
+    "file": "index.html",
+    "fatal": false,
+    "note": "Unexpected end of file. Expected a valid doctype (such as `<!doctype html>`)",
+    "url": "https://html.spec.whatwg.org/multipage/parsing.html#parse-error-eof-in-doctype"
+  },
+  {
+    "message": "Unexpected non-conforming doctype declaration",
+    "name": "index.html:1:1-2:2",
+    "reason": "Unexpected non-conforming doctype declaration",
+    "line": 1,
+    "column": 1,
+    "location": {
+      "start": {
+        "line": 1,
+        "column": 1,
+        "offset": 0
+      },
+      "end": {
+        "line": 2,
+        "column": 2,
+        "offset": 11
+      }
+    },
+    "source": "parse-error",
+    "ruleId": "non-conforming-doctype",
+    "file": "index.html",
+    "fatal": false,
+    "note": "Expected `<!doctype html>` or `<!doctype html system \"about:legacy-compat\">`",
+    "url": null
+  }
+]

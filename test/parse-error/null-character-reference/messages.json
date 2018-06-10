@@ -1,0 +1,27 @@
+[
+  {
+    "message": "Unexpected NULL character referenced by character reference",
+    "name": "index.html:3:6-3:6",
+    "reason": "Unexpected NULL character referenced by character reference",
+    "line": 3,
+    "column": 6,
+    "location": {
+      "start": {
+        "line": 3,
+        "column": 6,
+        "offset": 61
+      },
+      "end": {
+        "line": 3,
+        "column": 6,
+        "offset": 61
+      }
+    },
+    "source": "parse-error",
+    "ruleId": "null-character-reference",
+    "file": "index.html",
+    "fatal": false,
+    "note": "Unexpected code point. Do not use NULL characters in HTML",
+    "url": "https://html.spec.whatwg.org/multipage/parsing.html#parse-error-null-character-reference"
+  }
+]

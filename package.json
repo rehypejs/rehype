@@ -17,10 +17,13 @@
     "execa": "^0.9.0",
     "hast-util-assert": "^1.0.0",
     "lerna": "^2.0.0",
+    "mdast-zone": "^3.0.1",
     "nyc": "^11.0.0",
     "remark-cli": "^5.0.0",
     "remark-preset-wooorm": "^4.0.0",
     "tape": "^4.5.1",
+    "to-vfile": "^4.0.0",
+    "unist-builder": "^1.0.2",
     "unist-util-remove-position": "^1.0.0",
     "xo": "^0.18.0"
   },
@@ -50,7 +53,8 @@
   },
   "remarkConfig": {
     "plugins": [
-      "preset-wooorm"
+      "preset-wooorm",
+      "./script/parse-error"
     ]
   }
 }

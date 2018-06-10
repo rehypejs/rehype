@@ -1,0 +1,27 @@
+[
+  {
+    "message": "Unexpected attribute on closing tag",
+    "name": "index.html:2:45-2:45",
+    "reason": "Unexpected attribute on closing tag",
+    "line": 2,
+    "column": 45,
+    "location": {
+      "start": {
+        "line": 2,
+        "column": 45,
+        "offset": 60
+      },
+      "end": {
+        "line": 2,
+        "column": 45,
+        "offset": 60
+      }
+    },
+    "source": "parse-error",
+    "ruleId": "end-tag-with-attributes",
+    "file": "index.html",
+    "fatal": false,
+    "note": "Unexpected attribute. Expected `>` instead",
+    "url": "https://html.spec.whatwg.org/multipage/parsing.html#parse-error-end-tag-with-attributes"
+  }
+]
