@@ -5,6 +5,9 @@
   "repository": "rehypejs/rehype",
   "bugs": "https://github.com/rehypejs/rehype/issues",
   "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "babelify": "^8.0.0",
     "bail": "^1.0.0",
     "browser-pack-flat": "^3.0.5",
     "browserify": "^15.0.0",
@@ -30,7 +33,7 @@
   "scripts": {
     "postinstall": "lerna bootstrap",
     "build-md": "remark . -qfo",
-    "build-bundle": "browserify -p browser-pack-flat/plugin -p [ common-shakeify -v ] -p bundle-collapser/plugin  -s rehype packages/rehype > rehype.js",
+    "build-bundle": "browserify packages/rehype -s rehype -p browser-pack-flat/plugin -p [ common-shakeify -v ] -p bundle-collapser/plugin -g [ babelify --presets [ \"babel-preset-env\" ] ] > rehype.js",
     "build-mangle": "esmangle rehype.js > rehype.min.js",
     "build": "npm run build-md && npm run build-bundle && npm run build-mangle",
     "lint": "xo",
