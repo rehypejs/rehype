@@ -25,8 +25,8 @@
     "index.js"
   ],
   "dependencies": {
-    "hast-util-from-parse5": "^2.0.1",
-    "parse5": "^4.0.0",
+    "hast-util-from-parse5": "^3.0.0",
+    "parse5": "^5.0.0",
     "xtend": "^4.0.1"
   },
   "xo": false

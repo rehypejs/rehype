@@ -9,14 +9,14 @@ module.exports = parse;
 function parse(options) {
   var settings = xtend(options, this.data('settings'));
   var position = typeof settings.position === 'boolean' ? settings.position : true;
-  var parse5 = new Parser5({locationInfo: position});
 
   this.Parser = parser;
 
   function parser(doc, file) {
     var fn = settings.fragment ? 'parseFragment' : 'parse';
+    var parse5 = new Parser5({sourceCodeLocationInfo: position});
 
-    return fromParse5(parse5[fn](String(file)), {
+    return fromParse5(parse5[fn](doc), {
       file: file,
       verbose: settings.verbose
     });

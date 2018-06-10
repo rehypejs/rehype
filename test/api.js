@@ -3,6 +3,7 @@
 var fs = require('fs');
 var path = require('path');
 var test = require('tape');
+var vfile = require('to-vfile');
 var clean = require('unist-util-remove-position');
 var hast = require('hast-util-assert');
 var unified = require('../packages/rehype/node_modules/unified');
@@ -144,7 +145,7 @@ test('rehype().stringify(ast, file, options?)', function (t) {
 
 test('fixtures', function (t) {
   var index = -1;
-  var root = path.join(__dirname, 'fixtures');
+  var root = path.join('test', 'fixtures');
   var fixtures = fs.readdirSync(root);
 
   /* Check the next fixture. */
@@ -158,7 +159,7 @@ test('fixtures', function (t) {
     }
 
     if (fixture.charAt(0) === '.') {
-      next();
+      setImmediate(next);
       return;
     }
 
@@ -167,21 +168,25 @@ test('fixtures', function (t) {
     setImmediate(next); // Queue next.
 
     t.test(fixture, function (st) {
-      var input = fs.readFileSync(path.join(fp, 'index.html'), 'utf8');
+      var file = vfile.readSync(path.join(fp, 'index.html'), 'utf8');
       var tree = fs.readFileSync(path.join(fp, 'index.json'), 'utf8');
-      var config = fs.readFileSync(path.join(fp, 'config.json'), 'utf8');
+      var config = {};
       var node;
       var out;
       var result;
 
-      config = JSON.parse(config);
+      file.dirname = '';
+
+      try {
+        config = JSON.parse(fs.readFileSync(path.join(fp, 'config.json')));
+      } catch (err) { /* Empty */ }
 
       try {
         result = fs.readFileSync(path.join(fp, 'result.html'), 'utf8');
       } catch (err) { /* Empty */ }
 
       tree = JSON.parse(tree);
-      node = rehype().data('settings', config).parse(input);
+      node = rehype().data('settings', config).parse(file);
       hast(node);
 
       st.deepEqual(tree, node, 'should parse `' + fixture + '`');
@@ -191,7 +196,7 @@ test('fixtures', function (t) {
       if (result) {
         st.equal(out, result, 'should stringify `' + fixture + '`');
       } else {
-        st.equal(out, input, 'should stringify `' + fixture + '` exact');
+        st.equal(out, String(file), 'should stringify `' + fixture + '` exact');
       }
 
       if (config.reprocess !== false) {
