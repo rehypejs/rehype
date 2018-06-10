@@ -20,7 +20,11 @@ function parse(options) {
   function parser(doc, file) {
     var fn = settings.fragment ? 'parseFragment' : 'parse';
     var onParseError = settings.emitParseErrors ? onerror : null;
-    var parse5 = new Parser5({sourceCodeLocationInfo: position, onParseError: onParseError});
+    var parse5 = new Parser5({
+      sourceCodeLocationInfo: position,
+      onParseError: onParseError,
+      scriptingEnabled: false
+    });
 
     return fromParse5(parse5[fn](doc), {
       file: file,
