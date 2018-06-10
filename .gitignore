@@ -5,3 +5,4 @@ node_modules
 coverage
 rehype.js
 rehype.min.js
+yarn.lock
