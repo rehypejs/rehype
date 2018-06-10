@@ -22,13 +22,13 @@ npm install rehype
 ## Usage
 
 ```js
-var rehype = require('rehype');
-var report = require('vfile-reporter');
+var rehype = require('rehype')
+var report = require('vfile-reporter')
 
-rehype().process('<title>Hi</title><h2>Hello world!', function (err, file) {
-  console.log(report(err || file));
-  console.log(String(file));
-});
+rehype().process('<title>Hi</title><h2>Hello world!', function(err, file) {
+  console.log(report(err || file))
+  console.log(String(file))
+})
 ```
 
 Yields:

@@ -15,14 +15,16 @@ npm install rehype-parse
 ## Usage
 
 ```js
-var unified = require('unified');
-var createStream = require('unified-stream');
-var parse = require('rehype-parse');
-var stringify = require('rehype-stringify');
+var unified = require('unified')
+var createStream = require('unified-stream')
+var parse = require('rehype-parse')
+var stringify = require('rehype-stringify')
 
-process.stdin
-  .pipe(createStream(unified().use(parse).use(stringify)))
-  .pipe(process.stdout);
+var processor = unified()
+  .use(parse)
+  .use(stringify)
+
+process.stdin.pipe(createStream(processor)).pipe(process.stdout)
 ```
 
 ## API

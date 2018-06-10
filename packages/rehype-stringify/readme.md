@@ -15,10 +15,10 @@ npm install rehype-stringify
 ## Usage
 
 ```js
-var unified = require('unified');
-var createStream = require('unified-stream');
-var parse = require('rehype-parse');
-var stringify = require('rehype-stringify');
+var unified = require('unified')
+var createStream = require('unified-stream')
+var parse = require('rehype-parse')
+var stringify = require('rehype-stringify')
 
 var processor = unified()
   .use(parse)
@@ -29,9 +29,7 @@ var processor = unified()
     entities: {useShortestReferences: true}
   })
 
-process.stdin
-  .pipe(createStream(processor))
-  .pipe(process.stdout);
+process.stdin.pipe(createStream(processor)).pipe(process.stdout)
 ```
 
 ## API

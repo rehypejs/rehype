@@ -1,20 +1,20 @@
-'use strict';
+'use strict'
 
-var path = require('path');
-var execa = require('execa');
-var test = require('tape');
+var path = require('path')
+var execa = require('execa')
+var test = require('tape')
 
-var join = path.join;
+var join = path.join
 
-test('rehype-cli', function (t) {
-  t.plan(2);
+test('rehype-cli', function(t) {
+  t.plan(2)
 
-  t.test('should show help on `--help`', function (st) {
-    var bin = join('packages', 'rehype-cli', 'cli.js');
+  t.test('should show help on `--help`', function(st) {
+    var bin = join('packages', 'rehype-cli', 'cli.js')
 
-    st.plan(1);
+    st.plan(1)
 
-    execa.stdout(bin, ['--help']).then(function (result) {
+    execa.stdout(bin, ['--help']).then(function(result) {
       st.equal(
         result,
         [
@@ -59,25 +59,25 @@ test('rehype-cli', function (t) {
           '  $ rehype . -o'
         ].join('\n'),
         'should show help'
-      );
-    });
-  });
+      )
+    })
+  })
 
-  t.test('should show version on `--version`', function (st) {
-    var bin = join('packages', 'rehype-cli', 'cli.js');
+  t.test('should show version on `--version`', function(st) {
+    var bin = join('packages', 'rehype-cli', 'cli.js')
 
-    st.plan(2);
+    st.plan(2)
 
-    execa.stdout(bin, ['--version']).then(function (result) {
+    execa.stdout(bin, ['--version']).then(function(result) {
       st.ok(
         /rehype: \d+\.\d+\.\d+/.test(result),
         'should include rehype version'
-      );
+      )
 
       st.ok(
         /rehype-cli: \d+\.\d+\.\d+/.test(result),
         'should include rehype-cli version'
-      );
-    });
-  });
-});
+      )
+    })
+  })
+})

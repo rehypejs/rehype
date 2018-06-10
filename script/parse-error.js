@@ -1,43 +1,40 @@
-'use strict';
+'use strict'
 
-var u = require('unist-builder');
-var zone = require('mdast-zone');
-var errors = require('../packages/rehype-parse/errors.json');
+var u = require('unist-builder')
+var zone = require('mdast-zone')
+var errors = require('../packages/rehype-parse/errors.json')
 
-var base = 'https://github.com/' + require('../package.json').repository + '/blob/master';
+var repo = require('../package.json').repository
 
-var whatwg = 'https://html.spec.whatwg.org/multipage/parsing.html#parse-error-';
+var whatwg = 'https://html.spec.whatwg.org/multipage/parsing.html#parse-error-'
+var base = 'https://github.com/' + repo + '/blob/master'
 
 var ignoreFixture = {
   surrogateInInputStream: true
-};
+}
 
-module.exports = parseErrors;
+module.exports = parseErrors
 
 function parseErrors() {
-  return transform;
+  return transform
 }
 
 function transform(tree) {
-  zone(tree, 'parse-error', visit);
+  zone(tree, 'parse-error', visit)
 }
 
 function visit(start, nodes, end) {
-  return [
-    start,
-    u('list', {ordered: false}, Object.keys(errors).map(map)),
-    end
-  ];
+  return [start, u('list', {ordered: false}, Object.keys(errors).map(map)), end]
 
   function map(name) {
-    var info = errors[name];
-    var kebab = name.replace(/[A-Z]/g, replacer);
-    var reason = info.reason.charAt(0).toLowerCase() + info.reason.slice(1);
-    var head = u('inlineCode', name);
+    var info = errors[name]
+    var kebab = name.replace(/[A-Z]/g, replacer)
+    var reason = info.reason.charAt(0).toLowerCase() + info.reason.slice(1)
+    var head = u('inlineCode', name)
     var fields = [
       info.url === false ? head : u('link', {url: whatwg + kebab}, [head]),
       u('text', ' — ' + reason)
-    ];
+    ]
 
     if (!ignoreFixture[name]) {
       fields.push(
@@ -46,13 +43,13 @@ function visit(start, nodes, end) {
           u('text', 'example')
         ]),
         u('text', ')')
-      );
+      )
     }
 
-    return u('listItem', [u('paragraph', fields)]);
+    return u('listItem', [u('paragraph', fields)])
   }
 
   function replacer($0) {
-    return '-' + $0.toLowerCase();
+    return '-' + $0.toLowerCase()
   }
 }

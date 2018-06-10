@@ -1,10 +1,10 @@
 #!/usr/bin/env node
-'use strict';
+'use strict'
 
-var start = require('unified-args');
-var processor = require('rehype');
-var proc = require('rehype/package.json');
-var cli = require('./package.json');
+var start = require('unified-args')
+var processor = require('rehype')
+var proc = require('rehype/package.json')
+var cli = require('./package.json')
 
 start({
   processor: processor,
@@ -18,10 +18,5 @@ start({
   packageField: proc.name,
   rcName: '.' + proc.name + 'rc',
   ignoreName: '.' + proc.name + 'ignore',
-  extensions: [
-    'html',
-    'htm',
-    'xht',
-    'xhtml'
-  ]
-});
+  extensions: ['html', 'htm', 'xht', 'xhtml']
+})

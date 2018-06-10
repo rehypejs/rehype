@@ -1,16 +1,16 @@
-'use strict';
+'use strict'
 
-var xtend = require('xtend');
-var toHTML = require('hast-util-to-html');
+var xtend = require('xtend')
+var toHTML = require('hast-util-to-html')
 
-module.exports = stringify;
+module.exports = stringify
 
 function stringify(config) {
-  var settings = xtend(config, this.data('settings'));
+  var settings = xtend(config, this.data('settings'))
 
-  this.Compiler = compiler;
+  this.Compiler = compiler
 
   function compiler(tree) {
-    return toHTML(tree, settings);
+    return toHTML(tree, settings)
   }
 }

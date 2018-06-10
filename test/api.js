@@ -1,88 +1,107 @@
-'use strict';
+'use strict'
 
-var fs = require('fs');
-var path = require('path');
-var test = require('tape');
-var vfile = require('to-vfile');
-var clean = require('unist-util-remove-position');
-var hast = require('hast-util-assert');
-var unified = require('../packages/rehype/node_modules/unified');
-var parse = require('../packages/rehype-parse');
-var stringify = require('../packages/rehype-stringify');
-var rehype = require('../packages/rehype');
+var fs = require('fs')
+var path = require('path')
+var test = require('tape')
+var vfile = require('to-vfile')
+var clean = require('unist-util-remove-position')
+var hast = require('hast-util-assert')
+var unified = require('../packages/rehype/node_modules/unified')
+var parse = require('../packages/rehype-parse')
+var stringify = require('../packages/rehype-stringify')
+var rehype = require('../packages/rehype')
 
-var fragment = {fragment: true};
+var fragment = {fragment: true}
 
-test('rehype().parse(file)', function (t) {
+test('rehype().parse(file)', function(t) {
   t.equal(
-    unified().use(parse).parse('Alfred').children.length,
+    unified()
+      .use(parse)
+      .parse('Alfred').children.length,
     1,
     'should accept a `string`'
-  );
+  )
 
   t.deepEqual(
-    clean(unified().use(parse, fragment).parse('<img><span></span>'), true),
+    clean(
+      unified()
+        .use(parse, fragment)
+        .parse('<img><span></span>'),
+      true
+    ),
     {
       type: 'root',
-      children: [{
-        type: 'element',
-        tagName: 'img',
-        properties: {},
-        children: []
-      }, {
-        type: 'element',
-        tagName: 'span',
-        properties: {},
-        children: []
-      }],
-      data: {quirksMode: false}
-    },
-    'should close void elements'
-  );
-
-  t.deepEqual(
-    clean(unified().use(parse, fragment).parse('<foo><span></span>'), true),
-    {
-      type: 'root',
-      children: [{
-        type: 'element',
-        tagName: 'foo',
-        properties: {},
-        children: [{
+      children: [
+        {
+          type: 'element',
+          tagName: 'img',
+          properties: {},
+          children: []
+        },
+        {
           type: 'element',
           tagName: 'span',
           properties: {},
           children: []
-        }]
-      }],
+        }
+      ],
+      data: {quirksMode: false}
+    },
+    'should close void elements'
+  )
+
+  t.deepEqual(
+    clean(
+      unified()
+        .use(parse, fragment)
+        .parse('<foo><span></span>'),
+      true
+    ),
+    {
+      type: 'root',
+      children: [
+        {
+          type: 'element',
+          tagName: 'foo',
+          properties: {},
+          children: [
+            {
+              type: 'element',
+              tagName: 'span',
+              properties: {},
+              children: []
+            }
+          ]
+        }
+      ],
       data: {quirksMode: false}
     },
     'should not close unknown elements by default'
-  );
+  )
 
-  t.end();
-});
+  t.end()
+})
 
-test('rehype().stringify(ast, file, options?)', function (t) {
+test('rehype().stringify(ast, file, options?)', function(t) {
   t.throws(
-    function () {
+    function() {
       unified()
         .use(stringify)
-        .stringify(false);
+        .stringify(false)
     },
     /false/,
     'should throw when `ast` is not a node'
-  );
+  )
 
   t.throws(
-    function () {
+    function() {
       unified()
         .use(stringify)
-        .stringify({type: 'unicorn'});
+        .stringify({type: 'unicorn'})
     },
     /unicorn/,
     'should throw when `ast` is not a valid node'
-  );
+  )
 
   t.equal(
     unified()
@@ -90,7 +109,7 @@ test('rehype().stringify(ast, file, options?)', function (t) {
       .stringify({type: 'text', value: 'alpha < bravo'}),
     'alpha &#x3C; bravo',
     'should escape entities'
-  );
+  )
 
   t.equal(
     unified()
@@ -98,7 +117,7 @@ test('rehype().stringify(ast, file, options?)', function (t) {
       .stringify({type: 'text', value: 'alpha < bravo'}),
     'alpha &#x3C; bravo',
     'should encode entities (numbered by default)'
-  );
+  )
 
   t.equal(
     unified()
@@ -106,7 +125,7 @@ test('rehype().stringify(ast, file, options?)', function (t) {
       .stringify({type: 'text', value: 'alpha < bravo'}),
     'alpha &lt; bravo',
     'should encode entities (numbered by default)'
-  );
+  )
 
   t.equal(
     unified()
@@ -114,7 +133,7 @@ test('rehype().stringify(ast, file, options?)', function (t) {
       .stringify({type: 'element', tagName: 'img'}),
     '<img>',
     'should not close void elements'
-  );
+  )
 
   t.equal(
     unified()
@@ -122,7 +141,7 @@ test('rehype().stringify(ast, file, options?)', function (t) {
       .stringify({type: 'element', tagName: 'img'}),
     '<img />',
     'should close void elements if `closeSelfClosing` is given'
-  );
+  )
 
   t.equal(
     unified()
@@ -130,7 +149,7 @@ test('rehype().stringify(ast, file, options?)', function (t) {
       .stringify({type: 'element', tagName: 'foo'}),
     '<foo></foo>',
     'should not close unknown elements by default'
-  );
+  )
 
   t.equal(
     unified()
@@ -138,135 +157,153 @@ test('rehype().stringify(ast, file, options?)', function (t) {
       .stringify({type: 'element', tagName: 'foo'}),
     '<foo>',
     'should close void elements if configured'
-  );
+  )
 
   t.deepEqual(
     rehype()
       .processSync('<!doctypehtml>')
-      .messages
-      .map(String),
+      .messages.map(String),
     [],
     'should not emit parse errors by default'
-  );
+  )
 
   t.deepEqual(
     rehype()
       .data('settings', {emitParseErrors: true})
       .processSync('<!doctypehtml>')
-      .messages
-      .map(String),
+      .messages.map(String),
     ['1:10-1:10: Missing whitespace before doctype name'],
     'should emit parse errors when `emitParseErrors: true`'
-  );
+  )
 
   t.deepEqual(
     rehype()
-      .data('settings', {emitParseErrors: true, missingWhitespaceBeforeDoctypeName: false})
+      .data('settings', {
+        emitParseErrors: true,
+        missingWhitespaceBeforeDoctypeName: false
+      })
       .processSync('<!doctypehtml>')
-      .messages
-      .map(String),
+      .messages.map(String),
     [],
     'should ignore parse errors when the specific rule is turned off'
-  );
+  )
 
   t.deepEqual(
     rehype()
-      .data('settings', {emitParseErrors: true, missingWhitespaceBeforeDoctypeName: true})
+      .data('settings', {
+        emitParseErrors: true,
+        missingWhitespaceBeforeDoctypeName: true
+      })
       .processSync('<!doctypehtml>')
-      .messages
-      .map(String),
+      .messages.map(String),
     ['1:10-1:10: Missing whitespace before doctype name'],
     'should emit parse errors when the specific rule is turned on'
-  );
+  )
 
   t.deepEqual(
     rehype()
-      .data('settings', {emitParseErrors: true, missingWhitespaceBeforeDoctypeName: 2})
-      .processSync('<!doctypehtml>')
-      .messages[0].fatal,
+      .data('settings', {
+        emitParseErrors: true,
+        missingWhitespaceBeforeDoctypeName: 2
+      })
+      .processSync('<!doctypehtml>').messages[0].fatal,
     true,
     'should emit fatal parse errors when the specific rule is `2`'
-  );
+  )
 
   t.deepEqual(
     rehype()
-      .data('settings', {emitParseErrors: true, missingWhitespaceBeforeDoctypeName: 1})
-      .processSync('<!doctypehtml>')
-      .messages[0].fatal,
+      .data('settings', {
+        emitParseErrors: true,
+        missingWhitespaceBeforeDoctypeName: 1
+      })
+      .processSync('<!doctypehtml>').messages[0].fatal,
     false,
     'should emit fatal parse errors when the specific rule is `1`'
-  );
+  )
 
-  t.end();
-});
+  t.end()
+})
 
-test('fixtures', function (t) {
-  var index = -1;
-  var root = path.join('test', 'fixtures');
-  var fixtures = fs.readdirSync(root);
+test('fixtures', function(t) {
+  var index = -1
+  var root = path.join('test', 'fixtures')
+  var fixtures = fs.readdirSync(root)
 
   /* Check the next fixture. */
   function next() {
-    var fixture = fixtures[++index];
-    var fp;
+    var fixture = fixtures[++index]
+    var fp
 
     if (!fixture) {
-      t.end();
-      return;
+      t.end()
+      return
     }
 
     if (fixture.charAt(0) === '.') {
-      setImmediate(next);
-      return;
+      setImmediate(next)
+      return
     }
 
-    fp = path.join(root, fixture);
+    fp = path.join(root, fixture)
 
-    setImmediate(next); // Queue next.
+    setImmediate(next) // Queue next.
 
-    t.test(fixture, function (st) {
-      var file = vfile.readSync(path.join(fp, 'index.html'), 'utf8');
-      var tree = fs.readFileSync(path.join(fp, 'index.json'), 'utf8');
-      var config = {};
-      var node;
-      var out;
-      var result;
+    t.test(fixture, function(st) {
+      var file = vfile.readSync(path.join(fp, 'index.html'), 'utf8')
+      var tree = fs.readFileSync(path.join(fp, 'index.json'), 'utf8')
+      var config = {}
+      var node
+      var out
+      var result
 
-      file.dirname = '';
-
-      try {
-        config = JSON.parse(fs.readFileSync(path.join(fp, 'config.json')));
-      } catch (err) { /* Empty */ }
+      file.dirname = ''
 
       try {
-        result = fs.readFileSync(path.join(fp, 'result.html'), 'utf8');
-      } catch (err) { /* Empty */ }
+        config = JSON.parse(fs.readFileSync(path.join(fp, 'config.json')))
+      } catch (err) {
+        /* Empty */
+      }
 
-      tree = JSON.parse(tree);
-      node = rehype().data('settings', config).parse(file);
-      hast(node);
+      try {
+        result = fs.readFileSync(path.join(fp, 'result.html'), 'utf8')
+      } catch (err) {
+        /* Empty */
+      }
 
-      st.deepEqual(tree, node, 'should parse `' + fixture + '`');
+      tree = JSON.parse(tree)
+      node = rehype()
+        .data('settings', config)
+        .parse(file)
+      hast(node)
 
-      out = rehype().data('settings', config).stringify(node);
+      st.deepEqual(tree, node, 'should parse `' + fixture + '`')
+
+      out = rehype()
+        .data('settings', config)
+        .stringify(node)
 
       if (result) {
-        st.equal(out, result, 'should stringify `' + fixture + '`');
+        st.equal(out, result, 'should stringify `' + fixture + '`')
       } else {
-        st.equal(out, String(file), 'should stringify `' + fixture + '` exact');
+        st.equal(out, String(file), 'should stringify `' + fixture + '` exact')
       }
 
       if (config.reprocess !== false) {
         st.deepEqual(
           clean(node),
-          clean(rehype().data('settings', config).parse(out)),
+          clean(
+            rehype()
+              .data('settings', config)
+              .parse(out)
+          ),
           'should re-parse `' + fixture + '`'
-        );
+        )
       }
 
-      st.end();
-    });
+      st.end()
+    })
   }
 
-  next();
-});
+  next()
+})
