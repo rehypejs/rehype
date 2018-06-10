@@ -41,6 +41,11 @@
     "reason": "Unexpected control character reference",
     "description": "Unexpectedly control character in reference. Expected a non-control code point, 0x00, or ASCII whitespace"
   },
+  "disallowedContentInNoscriptInHead": {
+    "reason": "Disallowed content inside `<noscript>` in `<head>`",
+    "description": "Unexpected text character `%c`. Only use text in `<noscript>`s in `<body>`",
+    "url": false
+  },
   "duplicateAttribute": {
     "reason": "Unexpected duplicate attribute",
     "description": "Unexpectedly double attribute. Expected attributes to occur only once"
@@ -174,10 +179,15 @@
     "reason": "Unexpected nested comment",
     "description": "Unexpected `<!--`. Expected `-->`"
   },
+  "nestedNoscriptInHead": {
+    "reason": "Unexpected nested `<noscript>` in `<head>`",
+    "description": "Unexpected `<noscript>`. Expected a closing tag or a meta element",
+    "url": false
+  },
   "nonConformingDoctype": {
-    "url": false,
     "reason": "Unexpected non-conforming doctype declaration",
-    "description": "Expected `<!doctype html>` or `<!doctype html system \"about:legacy-compat\">`"
+    "description": "Expected `<!doctype html>` or `<!doctype html system \"about:legacy-compat\">`",
+    "url": false
   },
   "nonVoidHtmlElementStartTagWithTrailingSolidus": {
     "reason": "Unexpected trailing slash on start tag of non-void element",
@@ -194,6 +204,11 @@
   "nullCharacterReference": {
     "reason": "Unexpected NULL character referenced by character reference",
     "description": "Unexpected code point. Do not use NULL characters in HTML"
+  },
+  "openElementsLeftAfterEof": {
+    "reason": "Unexpected end of file",
+    "description": "Unexpected end of file. Expected closing tag instead",
+    "url": false
   },
   "surrogateCharacterReference": {
     "reason": "Unexpected surrogate character referenced by character reference",

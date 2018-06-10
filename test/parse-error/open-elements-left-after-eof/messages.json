@@ -1,0 +1,27 @@
+[
+  {
+    "message": "Unexpected end of file",
+    "name": "index.html:4:1-4:1",
+    "reason": "Unexpected end of file",
+    "line": 4,
+    "column": 1,
+    "location": {
+      "start": {
+        "line": 4,
+        "column": 1,
+        "offset": 71
+      },
+      "end": {
+        "line": 4,
+        "column": 1,
+        "offset": 71
+      }
+    },
+    "source": "parse-error",
+    "ruleId": "open-elements-left-after-eof",
+    "file": "index.html",
+    "fatal": false,
+    "note": "Unexpected end of file. Expected closing tag instead",
+    "url": null
+  }
+]
