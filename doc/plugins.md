@@ -15,6 +15,8 @@
 
 Have a good idea for a new plugin?  Let’s [chat][gitter] and make it happen!
 
+*   [`rehype-add-classes`](https://github.com/martypdx/rehype-add-classes)
+    — Add class names by selector
 *   [`rehype-autolink-headings`](https://github.com/rehypejs/rehype-autolink-headings)
     — Add links to headings
 *   [`rehype-document`](https://github.com/rehypejs/rehype-document)
