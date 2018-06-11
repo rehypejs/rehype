@@ -14,17 +14,54 @@ npm install rehype-parse
 
 ## Usage
 
+This example shows how we parse HTML with this module and configure it to emit
+parse errors except for duplicate attributes.
+Then we transform HTML to markdown with [`rehype-remark`][rehype-remark] and
+finally compile that markdown with [`remark-stringify`][remark-stringify].
+
+Say we have the following file, `example.html`, with a few errors:
+
+```html
+<!doctypehtml>
+<title class="a" class="b">Hello…</title>
+<h1/>World!</h1>
+```
+
+And our script, `example.js`, looks as follows:
+
 ```js
+var vfile = require('to-vfile')
+var report = require('vfile-reporter')
 var unified = require('unified')
-var createStream = require('unified-stream')
 var parse = require('rehype-parse')
-var stringify = require('rehype-stringify')
+var rehype2remark = require('rehype-remark')
+var stringify = require('remark-stringify')
 
-var processor = unified()
-  .use(parse)
+unified()
+  .use(parse, {
+    emitParseErrors: true,
+    duplicateAttribute: false
+  })
+  .use(rehype2remark)
   .use(stringify)
+  .process(vfile.readSync('example.html'), function(err, file) {
+    console.error(report(err || file))
+    console.log(String(file))
+  })
+```
 
-process.stdin.pipe(createStream(processor)).pipe(process.stdout)
+Now, running `node example` yields:
+
+```txt
+example.html
+  1:10-1:10  warning  Missing whitespace before doctype name                      missing-whitespace-before-doctype-name                 parse-error
+    3:1-3:6  warning  Unexpected trailing slash on start tag of non-void element  non-void-html-element-start-tag-with-trailing-solidus  parse-error
+
+⚠ 2 warnings
+```
+
+```markdown
+# World!
 ```
 
 ## API
@@ -177,6 +214,10 @@ Access to the [parser][], if you need it.
 [author]: http://wooorm.com
 
 [npm]: https://docs.npmjs.com/cli/install
+
+[rehype-remark]: https://github.com/rehypejs/rehype-remark
+
+[remark-stringify]: https://github.com/remarkjs/remark/tree/master/packages/remark-stringify
 
 [unified]: https://github.com/unifiedjs/unified
 
