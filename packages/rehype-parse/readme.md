@@ -76,6 +76,20 @@ Specify whether to parse a fragment (`boolean`, default: `false`),
 instead of a complete document.  In document mode, unopened `html`,
 `head`, and `body` elements are opened in just the right places.
 
+###### `options.space`
+
+> ⚠️ rehype is not an XML parser.  It support SVG as embedded in HTML, but not
+> the features available in the rest of XML/SVG.  Passing SVG files could strip
+> useful information, but fragments of modern SVG should be fine.
+
+Whether the document is in the `'html'` or `'svg'` space (`'svg'` or `'html'`,
+default: `'html'`).
+
+If an `svg` element is found in the HTML space, `toHTML` automatically switches
+to the SVG space when entering the element, and switches back when leaving.
+
+**Note**: make sure to set `fragment: true` if `space: 'svg'`.
+
 ###### `options.emitParseErrors`
 
 > ⚠️ Parse errors are currently being added to HTML.

@@ -29,6 +29,7 @@ function parse(options) {
     })
 
     return fromParse5(parse5[fn](doc), {
+      space: settings.space,
       file: file,
       verbose: settings.verbose
     })
