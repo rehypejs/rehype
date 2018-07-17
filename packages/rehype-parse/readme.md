@@ -38,10 +38,7 @@ var rehype2remark = require('rehype-remark')
 var stringify = require('remark-stringify')
 
 unified()
-  .use(parse, {
-    emitParseErrors: true,
-    duplicateAttribute: false
-  })
+  .use(parse, {emitParseErrors: true, duplicateAttribute: false})
   .use(rehype2remark)
   .use(stringify)
   .process(vfile.readSync('example.html'), function(err, file) {

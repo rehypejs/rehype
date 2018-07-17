@@ -44,7 +44,7 @@ npm install --global rehype-cli rehype-preset-minify
 `index.html` contains:
 
 ```md
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
     <meta charset="utf-8">
@@ -59,7 +59,7 @@ npm install --global rehype-cli rehype-preset-minify
 `rehype index.html --use preset-minify` yields:
 
 ```txt
-<!DOCTYPE html><meta charset=utf8><title>Hello</title><p>World!
+<!doctype html><meta charset=utf8><title>Hello</title><p>World!
 index.html: no issues found
 ```
 

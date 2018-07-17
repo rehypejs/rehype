@@ -177,7 +177,7 @@
       "type": "element",
       "tagName": "a",
       "properties": {
-        "ngInit": ""
+        "ng-init": ""
       },
       "children": [],
       "position": {
@@ -213,7 +213,7 @@
       "type": "element",
       "tagName": "a",
       "properties": {
-        "ngRepeat": ""
+        "ng-repeat": ""
       },
       "children": [],
       "position": {
@@ -249,7 +249,7 @@
       "type": "element",
       "tagName": "a",
       "properties": {
-        "ngClick": "ctrl.onintentclick($scope)"
+        "ng-click": "ctrl.onintentclick($scope)"
       },
       "children": [
         {
