@@ -1,0 +1,286 @@
+{
+  "type": "root",
+  "children": [
+    {
+      "type": "doctype",
+      "name": "html",
+      "public": null,
+      "system": null,
+      "position": {
+        "start": {
+          "line": 1,
+          "column": 1,
+          "offset": 0
+        },
+        "end": {
+          "line": 1,
+          "column": 16,
+          "offset": 15
+        }
+      }
+    },
+    {
+      "type": "element",
+      "tagName": "html",
+      "properties": {},
+      "children": [
+        {
+          "type": "element",
+          "tagName": "head",
+          "properties": {},
+          "children": [
+            {
+              "type": "text",
+              "value": "\n    ",
+              "position": {
+                "start": {
+                  "line": 3,
+                  "column": 9,
+                  "offset": 31
+                },
+                "end": {
+                  "line": 4,
+                  "column": 5,
+                  "offset": 36
+                }
+              }
+            },
+            {
+              "type": "element",
+              "tagName": "title",
+              "properties": {},
+              "children": [
+                {
+                  "type": "text",
+                  "value": "The SVG `<circle>` element",
+                  "position": {
+                    "start": {
+                      "line": 4,
+                      "column": 12,
+                      "offset": 43
+                    },
+                    "end": {
+                      "line": 4,
+                      "column": 38,
+                      "offset": 69
+                    }
+                  }
+                }
+              ],
+              "position": {
+                "start": {
+                  "line": 4,
+                  "column": 5,
+                  "offset": 36
+                },
+                "end": {
+                  "line": 4,
+                  "column": 46,
+                  "offset": 77
+                }
+              }
+            },
+            {
+              "type": "text",
+              "value": "\n  ",
+              "position": {
+                "start": {
+                  "line": 4,
+                  "column": 46,
+                  "offset": 77
+                },
+                "end": {
+                  "line": 5,
+                  "column": 3,
+                  "offset": 80
+                }
+              }
+            }
+          ],
+          "position": {
+            "start": {
+              "line": 3,
+              "column": 3,
+              "offset": 25
+            },
+            "end": {
+              "line": 5,
+              "column": 10,
+              "offset": 87
+            }
+          }
+        },
+        {
+          "type": "text",
+          "value": "\n  ",
+          "position": {
+            "start": {
+              "line": 5,
+              "column": 10,
+              "offset": 87
+            },
+            "end": {
+              "line": 6,
+              "column": 3,
+              "offset": 90
+            }
+          }
+        },
+        {
+          "type": "element",
+          "tagName": "body",
+          "properties": {},
+          "children": [
+            {
+              "type": "text",
+              "value": "\n    ",
+              "position": {
+                "start": {
+                  "line": 6,
+                  "column": 9,
+                  "offset": 96
+                },
+                "end": {
+                  "line": 7,
+                  "column": 5,
+                  "offset": 101
+                }
+              }
+            },
+            {
+              "type": "element",
+              "tagName": "svg",
+              "properties": {
+                "xlmns": "http://www.w3.org/2000/svg",
+                "viewBox": "0 0 500 500"
+              },
+              "children": [
+                {
+                  "type": "text",
+                  "value": "\n      ",
+                  "position": {
+                    "start": {
+                      "line": 7,
+                      "column": 67,
+                      "offset": 163
+                    },
+                    "end": {
+                      "line": 8,
+                      "column": 7,
+                      "offset": 170
+                    }
+                  }
+                },
+                {
+                  "type": "element",
+                  "tagName": "circle",
+                  "properties": {
+                    "cx": "120",
+                    "cy": "120",
+                    "r": "100"
+                  },
+                  "children": [],
+                  "position": {
+                    "start": {
+                      "line": 8,
+                      "column": 7,
+                      "offset": 170
+                    },
+                    "end": {
+                      "line": 8,
+                      "column": 42,
+                      "offset": 205
+                    }
+                  }
+                },
+                {
+                  "type": "text",
+                  "value": "\n    ",
+                  "position": {
+                    "start": {
+                      "line": 8,
+                      "column": 42,
+                      "offset": 205
+                    },
+                    "end": {
+                      "line": 9,
+                      "column": 5,
+                      "offset": 210
+                    }
+                  }
+                }
+              ],
+              "position": {
+                "start": {
+                  "line": 7,
+                  "column": 5,
+                  "offset": 101
+                },
+                "end": {
+                  "line": 9,
+                  "column": 11,
+                  "offset": 216
+                }
+              }
+            },
+            {
+              "type": "text",
+              "value": "\n  \n\n",
+              "position": {
+                "start": {
+                  "line": 9,
+                  "column": 11,
+                  "offset": 216
+                },
+                "end": {
+                  "line": 12,
+                  "column": 1,
+                  "offset": 235
+                }
+              }
+            }
+          ],
+          "position": {
+            "start": {
+              "line": 6,
+              "column": 3,
+              "offset": 90
+            },
+            "end": {
+              "line": 12,
+              "column": 1,
+              "offset": 235
+            }
+          }
+        }
+      ],
+      "position": {
+        "start": {
+          "line": 2,
+          "column": 1,
+          "offset": 16
+        },
+        "end": {
+          "line": 12,
+          "column": 1,
+          "offset": 235
+        }
+      }
+    }
+  ],
+  "data": {
+    "quirksMode": false
+  },
+  "position": {
+    "start": {
+      "line": 1,
+      "column": 1,
+      "offset": 0
+    },
+    "end": {
+      "line": 12,
+      "column": 1,
+      "offset": 235
+    }
+  }
+}

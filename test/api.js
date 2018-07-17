@@ -250,9 +250,9 @@ test('fixtures', function(t) {
     setImmediate(next) // Queue next.
 
     t.test(fixture, function(st) {
-      var file = vfile.readSync(path.join(fp, 'index.html'), 'utf8')
-      var tree = fs.readFileSync(path.join(fp, 'index.json'), 'utf8')
+      var file = vfile.readSync(path.join(fp, 'index.html'))
       var config = {}
+      var tree
       var node
       var out
       var result
@@ -271,10 +271,20 @@ test('fixtures', function(t) {
         /* Empty */
       }
 
-      tree = JSON.parse(tree)
       node = rehype()
         .data('settings', config)
         .parse(file)
+
+      try {
+        tree = JSON.parse(fs.readFileSync(path.join(fp, 'index.json')))
+      } catch (err) {
+        fs.writeFileSync(
+          path.join(fp, 'index.json'),
+          JSON.stringify(node, 0, 2) + '\n'
+        )
+        return
+      }
+
       hast(node)
 
       st.deepEqual(tree, node, 'should parse `' + fixture + '`')
