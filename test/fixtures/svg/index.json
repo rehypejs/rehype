@@ -83,8 +83,8 @@
           "properties": {
             "x": "55",
             "y": "35",
-            "width": 40,
-            "height": 40
+            "width": "40",
+            "height": "40"
           },
           "children": [],
           "position": {

@@ -1,0 +1,21 @@
+<h1>HTML in SVG in HTML</h1>
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300">
+  <desc>
+    This example uses the `&#x3C;switch>` element to provide a fallback
+    graphical representation of a paragraph, if HTML is not supported.
+    The element will process the first child whose testing attributes
+    evaluate to true.
+    `[requiredExtensions]` is such a test to check if the user agent
+    supports an extensions.
+    The first child without tests is the default.
+  </desc>
+  <switch>
+    <foreignObject width="200" height="100" requiredExtensions="http://www.w3.org/1999/xhtml">
+      <p xmlns="http://www.w3.org/1999/xhtml">Here is an HTML paragraph that requires word wrap</p>
+    </foreignObject>
+    <text font-size="16">
+      <tspan x="0" y="14">Here is an SVG paragraph</tspan>
+      <tspan x="0" y="32">that requires word wrap.</tspan>
+    </text>
+  </switch>
+</svg>

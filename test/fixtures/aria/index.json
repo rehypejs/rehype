@@ -1,0 +1,656 @@
+{
+  "type": "root",
+  "children": [
+    {
+      "type": "element",
+      "tagName": "form",
+      "properties": {},
+      "children": [
+        {
+          "type": "text",
+          "value": "\n  ",
+          "position": {
+            "start": {
+              "line": 1,
+              "column": 7,
+              "offset": 6
+            },
+            "end": {
+              "line": 2,
+              "column": 3,
+              "offset": 9
+            }
+          }
+        },
+        {
+          "type": "comment",
+          "value": "See: http://heydonworks.com/practical_aria_examples/#input-tooltip",
+          "position": {
+            "start": {
+              "line": 2,
+              "column": 3,
+              "offset": 9
+            },
+            "end": {
+              "line": 2,
+              "column": 76,
+              "offset": 82
+            }
+          }
+        },
+        {
+          "type": "text",
+          "value": "\n  ",
+          "position": {
+            "start": {
+              "line": 2,
+              "column": 76,
+              "offset": 82
+            },
+            "end": {
+              "line": 3,
+              "column": 3,
+              "offset": 85
+            }
+          }
+        },
+        {
+          "type": "element",
+          "tagName": "style",
+          "properties": {},
+          "children": [
+            {
+              "type": "text",
+              "value": "\n    fieldset > div { position: relative }\n\n    [role=\"tooltip\"] {\n      display: none;\n      padding: 0.25em;\n      background-color: black;\n      color: white;\n      z-index: 1;\n    }\n\n    input:focus + [role=\"tooltip\"] { display: block; position: absolute }\n  ",
+              "position": {
+                "start": {
+                  "line": 3,
+                  "column": 10,
+                  "offset": 92
+                },
+                "end": {
+                  "line": 15,
+                  "column": 3,
+                  "offset": 355
+                }
+              }
+            }
+          ],
+          "position": {
+            "start": {
+              "line": 3,
+              "column": 3,
+              "offset": 85
+            },
+            "end": {
+              "line": 15,
+              "column": 11,
+              "offset": 363
+            }
+          }
+        },
+        {
+          "type": "text",
+          "value": "\n  ",
+          "position": {
+            "start": {
+              "line": 15,
+              "column": 11,
+              "offset": 363
+            },
+            "end": {
+              "line": 16,
+              "column": 3,
+              "offset": 366
+            }
+          }
+        },
+        {
+          "type": "element",
+          "tagName": "fieldset",
+          "properties": {},
+          "children": [
+            {
+              "type": "text",
+              "value": "\n    ",
+              "position": {
+                "start": {
+                  "line": 16,
+                  "column": 13,
+                  "offset": 376
+                },
+                "end": {
+                  "line": 17,
+                  "column": 5,
+                  "offset": 381
+                }
+              }
+            },
+            {
+              "type": "element",
+              "tagName": "legend",
+              "properties": {},
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Login",
+                  "position": {
+                    "start": {
+                      "line": 17,
+                      "column": 13,
+                      "offset": 389
+                    },
+                    "end": {
+                      "line": 17,
+                      "column": 18,
+                      "offset": 394
+                    }
+                  }
+                }
+              ],
+              "position": {
+                "start": {
+                  "line": 17,
+                  "column": 5,
+                  "offset": 381
+                },
+                "end": {
+                  "line": 17,
+                  "column": 27,
+                  "offset": 403
+                }
+              }
+            },
+            {
+              "type": "text",
+              "value": "\n    ",
+              "position": {
+                "start": {
+                  "line": 17,
+                  "column": 27,
+                  "offset": 403
+                },
+                "end": {
+                  "line": 18,
+                  "column": 5,
+                  "offset": 408
+                }
+              }
+            },
+            {
+              "type": "element",
+              "tagName": "div",
+              "properties": {},
+              "children": [
+                {
+                  "type": "text",
+                  "value": "\n      ",
+                  "position": {
+                    "start": {
+                      "line": 18,
+                      "column": 10,
+                      "offset": 413
+                    },
+                    "end": {
+                      "line": 19,
+                      "column": 7,
+                      "offset": 420
+                    }
+                  }
+                },
+                {
+                  "type": "element",
+                  "tagName": "label",
+                  "properties": {
+                    "htmlFor": [
+                      "username"
+                    ]
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Username",
+                      "position": {
+                        "start": {
+                          "line": 19,
+                          "column": 29,
+                          "offset": 442
+                        },
+                        "end": {
+                          "line": 19,
+                          "column": 37,
+                          "offset": 450
+                        }
+                      }
+                    }
+                  ],
+                  "position": {
+                    "start": {
+                      "line": 19,
+                      "column": 7,
+                      "offset": 420
+                    },
+                    "end": {
+                      "line": 19,
+                      "column": 45,
+                      "offset": 458
+                    }
+                  }
+                },
+                {
+                  "type": "text",
+                  "value": "\n      ",
+                  "position": {
+                    "start": {
+                      "line": 19,
+                      "column": 45,
+                      "offset": 458
+                    },
+                    "end": {
+                      "line": 20,
+                      "column": 7,
+                      "offset": 465
+                    }
+                  }
+                },
+                {
+                  "type": "element",
+                  "tagName": "input",
+                  "properties": {
+                    "id": "username",
+                    "ariaDescribedBy": [
+                      "username-tip"
+                    ],
+                    "required": true
+                  },
+                  "children": [],
+                  "position": {
+                    "start": {
+                      "line": 20,
+                      "column": 7,
+                      "offset": 465
+                    },
+                    "end": {
+                      "line": 20,
+                      "column": 69,
+                      "offset": 527
+                    }
+                  }
+                },
+                {
+                  "type": "text",
+                  "value": "\n      ",
+                  "position": {
+                    "start": {
+                      "line": 20,
+                      "column": 69,
+                      "offset": 527
+                    },
+                    "end": {
+                      "line": 21,
+                      "column": 7,
+                      "offset": 534
+                    }
+                  }
+                },
+                {
+                  "type": "element",
+                  "tagName": "div",
+                  "properties": {
+                    "role": "tooltip",
+                    "id": "username-tip"
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Your username is your email address",
+                      "position": {
+                        "start": {
+                          "line": 21,
+                          "column": 45,
+                          "offset": 572
+                        },
+                        "end": {
+                          "line": 21,
+                          "column": 80,
+                          "offset": 607
+                        }
+                      }
+                    }
+                  ],
+                  "position": {
+                    "start": {
+                      "line": 21,
+                      "column": 7,
+                      "offset": 534
+                    },
+                    "end": {
+                      "line": 21,
+                      "column": 86,
+                      "offset": 613
+                    }
+                  }
+                },
+                {
+                  "type": "text",
+                  "value": "\n    ",
+                  "position": {
+                    "start": {
+                      "line": 21,
+                      "column": 86,
+                      "offset": 613
+                    },
+                    "end": {
+                      "line": 22,
+                      "column": 5,
+                      "offset": 618
+                    }
+                  }
+                }
+              ],
+              "position": {
+                "start": {
+                  "line": 18,
+                  "column": 5,
+                  "offset": 408
+                },
+                "end": {
+                  "line": 22,
+                  "column": 11,
+                  "offset": 624
+                }
+              }
+            },
+            {
+              "type": "text",
+              "value": "\n    ",
+              "position": {
+                "start": {
+                  "line": 22,
+                  "column": 11,
+                  "offset": 624
+                },
+                "end": {
+                  "line": 23,
+                  "column": 5,
+                  "offset": 629
+                }
+              }
+            },
+            {
+              "type": "element",
+              "tagName": "div",
+              "properties": {},
+              "children": [
+                {
+                  "type": "text",
+                  "value": "\n      ",
+                  "position": {
+                    "start": {
+                      "line": 23,
+                      "column": 10,
+                      "offset": 634
+                    },
+                    "end": {
+                      "line": 24,
+                      "column": 7,
+                      "offset": 641
+                    }
+                  }
+                },
+                {
+                  "type": "element",
+                  "tagName": "label",
+                  "properties": {
+                    "htmlFor": [
+                      "password"
+                    ]
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Password",
+                      "position": {
+                        "start": {
+                          "line": 24,
+                          "column": 29,
+                          "offset": 663
+                        },
+                        "end": {
+                          "line": 24,
+                          "column": 37,
+                          "offset": 671
+                        }
+                      }
+                    }
+                  ],
+                  "position": {
+                    "start": {
+                      "line": 24,
+                      "column": 7,
+                      "offset": 641
+                    },
+                    "end": {
+                      "line": 24,
+                      "column": 45,
+                      "offset": 679
+                    }
+                  }
+                },
+                {
+                  "type": "text",
+                  "value": "\n      ",
+                  "position": {
+                    "start": {
+                      "line": 24,
+                      "column": 45,
+                      "offset": 679
+                    },
+                    "end": {
+                      "line": 25,
+                      "column": 7,
+                      "offset": 686
+                    }
+                  }
+                },
+                {
+                  "type": "element",
+                  "tagName": "input",
+                  "properties": {
+                    "id": "password",
+                    "ariaDescribedBy": [
+                      "password-tip"
+                    ],
+                    "required": true
+                  },
+                  "children": [],
+                  "position": {
+                    "start": {
+                      "line": 25,
+                      "column": 7,
+                      "offset": 686
+                    },
+                    "end": {
+                      "line": 25,
+                      "column": 69,
+                      "offset": 748
+                    }
+                  }
+                },
+                {
+                  "type": "text",
+                  "value": "\n      ",
+                  "position": {
+                    "start": {
+                      "line": 25,
+                      "column": 69,
+                      "offset": 748
+                    },
+                    "end": {
+                      "line": 26,
+                      "column": 7,
+                      "offset": 755
+                    }
+                  }
+                },
+                {
+                  "type": "element",
+                  "tagName": "div",
+                  "properties": {
+                    "role": "tooltip",
+                    "id": "password-tip"
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Was emailed to you when you signed up",
+                      "position": {
+                        "start": {
+                          "line": 26,
+                          "column": 45,
+                          "offset": 793
+                        },
+                        "end": {
+                          "line": 26,
+                          "column": 82,
+                          "offset": 830
+                        }
+                      }
+                    }
+                  ],
+                  "position": {
+                    "start": {
+                      "line": 26,
+                      "column": 7,
+                      "offset": 755
+                    },
+                    "end": {
+                      "line": 26,
+                      "column": 88,
+                      "offset": 836
+                    }
+                  }
+                },
+                {
+                  "type": "text",
+                  "value": "\n    ",
+                  "position": {
+                    "start": {
+                      "line": 26,
+                      "column": 88,
+                      "offset": 836
+                    },
+                    "end": {
+                      "line": 27,
+                      "column": 5,
+                      "offset": 841
+                    }
+                  }
+                }
+              ],
+              "position": {
+                "start": {
+                  "line": 23,
+                  "column": 5,
+                  "offset": 629
+                },
+                "end": {
+                  "line": 27,
+                  "column": 11,
+                  "offset": 847
+                }
+              }
+            },
+            {
+              "type": "text",
+              "value": "\n  ",
+              "position": {
+                "start": {
+                  "line": 27,
+                  "column": 11,
+                  "offset": 847
+                },
+                "end": {
+                  "line": 28,
+                  "column": 3,
+                  "offset": 850
+                }
+              }
+            }
+          ],
+          "position": {
+            "start": {
+              "line": 16,
+              "column": 3,
+              "offset": 366
+            },
+            "end": {
+              "line": 28,
+              "column": 14,
+              "offset": 861
+            }
+          }
+        },
+        {
+          "type": "text",
+          "value": "\n",
+          "position": {
+            "start": {
+              "line": 28,
+              "column": 14,
+              "offset": 861
+            },
+            "end": {
+              "line": 29,
+              "column": 1,
+              "offset": 862
+            }
+          }
+        }
+      ],
+      "position": {
+        "start": {
+          "line": 1,
+          "column": 1,
+          "offset": 0
+        },
+        "end": {
+          "line": 29,
+          "column": 8,
+          "offset": 869
+        }
+      }
+    },
+    {
+      "type": "text",
+      "value": "\n",
+      "position": {
+        "start": {
+          "line": 29,
+          "column": 8,
+          "offset": 869
+        },
+        "end": {
+          "line": 30,
+          "column": 1,
+          "offset": 870
+        }
+      }
+    }
+  ],
+  "data": {
+    "quirksMode": false
+  },
+  "position": {
+    "start": {
+      "line": 1,
+      "column": 1,
+      "offset": 0
+    },
+    "end": {
+      "line": 30,
+      "column": 1,
+      "offset": 870
+    }
+  }
+}

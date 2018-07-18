@@ -1,0 +1,500 @@
+{
+  "type": "root",
+  "children": [
+    {
+      "type": "element",
+      "tagName": "h1",
+      "properties": {},
+      "children": [
+        {
+          "type": "text",
+          "value": "HTML in SVG in HTML",
+          "position": {
+            "start": {
+              "line": 1,
+              "column": 5,
+              "offset": 4
+            },
+            "end": {
+              "line": 1,
+              "column": 24,
+              "offset": 23
+            }
+          }
+        }
+      ],
+      "position": {
+        "start": {
+          "line": 1,
+          "column": 1,
+          "offset": 0
+        },
+        "end": {
+          "line": 1,
+          "column": 29,
+          "offset": 28
+        }
+      }
+    },
+    {
+      "type": "text",
+      "value": "\n",
+      "position": {
+        "start": {
+          "line": 1,
+          "column": 29,
+          "offset": 28
+        },
+        "end": {
+          "line": 2,
+          "column": 1,
+          "offset": 29
+        }
+      }
+    },
+    {
+      "type": "element",
+      "tagName": "svg",
+      "properties": {
+        "xmlns": "http://www.w3.org/2000/svg",
+        "width": "400",
+        "height": "300",
+        "viewBox": "0 0 400 300"
+      },
+      "children": [
+        {
+          "type": "text",
+          "value": "\n  ",
+          "position": {
+            "start": {
+              "line": 2,
+              "column": 88,
+              "offset": 116
+            },
+            "end": {
+              "line": 3,
+              "column": 3,
+              "offset": 119
+            }
+          }
+        },
+        {
+          "type": "element",
+          "tagName": "desc",
+          "properties": {},
+          "children": [
+            {
+              "type": "text",
+              "value": "\n    This example uses the `<switch>` element to provide a fallback\n    graphical representation of a paragraph, if HTML is not supported.\n    The element will process the first child whose testing attributes\n    evaluate to true.\n    `[requiredExtensions]` is such a test to check if the user agent\n    supports an extensions.\n    The first child without tests is the default.\n  ",
+              "position": {
+                "start": {
+                  "line": 3,
+                  "column": 9,
+                  "offset": 125
+                },
+                "end": {
+                  "line": 11,
+                  "column": 3,
+                  "offset": 510
+                }
+              }
+            }
+          ],
+          "position": {
+            "start": {
+              "line": 3,
+              "column": 3,
+              "offset": 119
+            },
+            "end": {
+              "line": 11,
+              "column": 10,
+              "offset": 517
+            }
+          }
+        },
+        {
+          "type": "text",
+          "value": "\n  ",
+          "position": {
+            "start": {
+              "line": 11,
+              "column": 10,
+              "offset": 517
+            },
+            "end": {
+              "line": 12,
+              "column": 3,
+              "offset": 520
+            }
+          }
+        },
+        {
+          "type": "element",
+          "tagName": "switch",
+          "properties": {},
+          "children": [
+            {
+              "type": "text",
+              "value": "\n    ",
+              "position": {
+                "start": {
+                  "line": 12,
+                  "column": 11,
+                  "offset": 528
+                },
+                "end": {
+                  "line": 13,
+                  "column": 5,
+                  "offset": 533
+                }
+              }
+            },
+            {
+              "type": "element",
+              "tagName": "foreignObject",
+              "properties": {
+                "width": "200",
+                "height": "100",
+                "requiredExtensions": [
+                  "http://www.w3.org/1999/xhtml"
+                ]
+              },
+              "children": [
+                {
+                  "type": "text",
+                  "value": "\n      ",
+                  "position": {
+                    "start": {
+                      "line": 13,
+                      "column": 95,
+                      "offset": 623
+                    },
+                    "end": {
+                      "line": 14,
+                      "column": 7,
+                      "offset": 630
+                    }
+                  }
+                },
+                {
+                  "type": "element",
+                  "tagName": "p",
+                  "properties": {
+                    "xmlns": "http://www.w3.org/1999/xhtml"
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Here is an HTML paragraph that requires word wrap",
+                      "position": {
+                        "start": {
+                          "line": 14,
+                          "column": 47,
+                          "offset": 670
+                        },
+                        "end": {
+                          "line": 14,
+                          "column": 96,
+                          "offset": 719
+                        }
+                      }
+                    }
+                  ],
+                  "position": {
+                    "start": {
+                      "line": 14,
+                      "column": 7,
+                      "offset": 630
+                    },
+                    "end": {
+                      "line": 14,
+                      "column": 100,
+                      "offset": 723
+                    }
+                  }
+                },
+                {
+                  "type": "text",
+                  "value": "\n    ",
+                  "position": {
+                    "start": {
+                      "line": 14,
+                      "column": 100,
+                      "offset": 723
+                    },
+                    "end": {
+                      "line": 15,
+                      "column": 5,
+                      "offset": 728
+                    }
+                  }
+                }
+              ],
+              "position": {
+                "start": {
+                  "line": 13,
+                  "column": 5,
+                  "offset": 533
+                },
+                "end": {
+                  "line": 15,
+                  "column": 5,
+                  "offset": 728
+                }
+              }
+            },
+            {
+              "type": "text",
+              "value": "\n    ",
+              "position": {
+                "start": {
+                  "line": 15,
+                  "column": 21,
+                  "offset": 744
+                },
+                "end": {
+                  "line": 16,
+                  "column": 5,
+                  "offset": 749
+                }
+              }
+            },
+            {
+              "type": "element",
+              "tagName": "text",
+              "properties": {
+                "fontSize": "16"
+              },
+              "children": [
+                {
+                  "type": "text",
+                  "value": "\n      ",
+                  "position": {
+                    "start": {
+                      "line": 16,
+                      "column": 26,
+                      "offset": 770
+                    },
+                    "end": {
+                      "line": 17,
+                      "column": 7,
+                      "offset": 777
+                    }
+                  }
+                },
+                {
+                  "type": "element",
+                  "tagName": "tspan",
+                  "properties": {
+                    "x": "0",
+                    "y": "14"
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Here is an SVG paragraph",
+                      "position": {
+                        "start": {
+                          "line": 17,
+                          "column": 27,
+                          "offset": 797
+                        },
+                        "end": {
+                          "line": 17,
+                          "column": 51,
+                          "offset": 821
+                        }
+                      }
+                    }
+                  ],
+                  "position": {
+                    "start": {
+                      "line": 17,
+                      "column": 7,
+                      "offset": 777
+                    },
+                    "end": {
+                      "line": 17,
+                      "column": 59,
+                      "offset": 829
+                    }
+                  }
+                },
+                {
+                  "type": "text",
+                  "value": "\n      ",
+                  "position": {
+                    "start": {
+                      "line": 17,
+                      "column": 59,
+                      "offset": 829
+                    },
+                    "end": {
+                      "line": 18,
+                      "column": 7,
+                      "offset": 836
+                    }
+                  }
+                },
+                {
+                  "type": "element",
+                  "tagName": "tspan",
+                  "properties": {
+                    "x": "0",
+                    "y": "32"
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "that requires word wrap.",
+                      "position": {
+                        "start": {
+                          "line": 18,
+                          "column": 27,
+                          "offset": 856
+                        },
+                        "end": {
+                          "line": 18,
+                          "column": 51,
+                          "offset": 880
+                        }
+                      }
+                    }
+                  ],
+                  "position": {
+                    "start": {
+                      "line": 18,
+                      "column": 7,
+                      "offset": 836
+                    },
+                    "end": {
+                      "line": 18,
+                      "column": 59,
+                      "offset": 888
+                    }
+                  }
+                },
+                {
+                  "type": "text",
+                  "value": "\n    ",
+                  "position": {
+                    "start": {
+                      "line": 18,
+                      "column": 59,
+                      "offset": 888
+                    },
+                    "end": {
+                      "line": 19,
+                      "column": 5,
+                      "offset": 893
+                    }
+                  }
+                }
+              ],
+              "position": {
+                "start": {
+                  "line": 16,
+                  "column": 5,
+                  "offset": 749
+                },
+                "end": {
+                  "line": 19,
+                  "column": 12,
+                  "offset": 900
+                }
+              }
+            },
+            {
+              "type": "text",
+              "value": "\n  ",
+              "position": {
+                "start": {
+                  "line": 19,
+                  "column": 12,
+                  "offset": 900
+                },
+                "end": {
+                  "line": 20,
+                  "column": 3,
+                  "offset": 903
+                }
+              }
+            }
+          ],
+          "position": {
+            "start": {
+              "line": 12,
+              "column": 3,
+              "offset": 520
+            },
+            "end": {
+              "line": 20,
+              "column": 12,
+              "offset": 912
+            }
+          }
+        },
+        {
+          "type": "text",
+          "value": "\n",
+          "position": {
+            "start": {
+              "line": 20,
+              "column": 12,
+              "offset": 912
+            },
+            "end": {
+              "line": 21,
+              "column": 1,
+              "offset": 913
+            }
+          }
+        }
+      ],
+      "position": {
+        "start": {
+          "line": 2,
+          "column": 1,
+          "offset": 29
+        },
+        "end": {
+          "line": 21,
+          "column": 7,
+          "offset": 919
+        }
+      }
+    },
+    {
+      "type": "text",
+      "value": "\n",
+      "position": {
+        "start": {
+          "line": 21,
+          "column": 7,
+          "offset": 919
+        },
+        "end": {
+          "line": 22,
+          "column": 1,
+          "offset": 920
+        }
+      }
+    }
+  ],
+  "data": {
+    "quirksMode": false
+  },
+  "position": {
+    "start": {
+      "line": 1,
+      "column": 1,
+      "offset": 0
+    },
+    "end": {
+      "line": 22,
+      "column": 1,
+      "offset": 920
+    }
+  }
+}
