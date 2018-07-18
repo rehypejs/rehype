@@ -20,8 +20,11 @@ fs.readdir(join(root), function(err, files) {
       return
     }
 
-    config = fs.readFileSync(join(base, 'config.json'), 'utf8')
-    config = JSON.parse(config)
+    try {
+      config = JSON.parse(fs.readFileSync(join(base, 'config.json')))
+    } catch (err) {
+      config = {}
+    }
 
     fs.readFile(join(base, 'index.html'), 'utf8', function(err, doc) {
       var processor = rehype().use({settings: config})
