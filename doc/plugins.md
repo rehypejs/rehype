@@ -52,7 +52,7 @@ Have a good idea for a new plugin?  Let’s [chat][gitter] and make it happen!
     — Sanitize HTML
 *   [`rehype-slug`](https://github.com/rehypejs/rehype-slug)
     — Add `id` attributes to headings
-*  [`rehype-webparser`](https://github.com/Prettyhtml/prettyhtml/tree/master/packages/rehype-webparser)
+*   [`rehype-webparser`](https://github.com/Prettyhtml/prettyhtml/tree/master/packages/rehype-webparser)
     — Less strict HTML parser
 
 ## List of Utilities
