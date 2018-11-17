@@ -261,15 +261,11 @@ test('fixtures', function(t) {
 
       try {
         config = JSON.parse(fs.readFileSync(path.join(fp, 'config.json')))
-      } catch (err) {
-        /* Empty */
-      }
+      } catch (error) {}
 
       try {
         result = fs.readFileSync(path.join(fp, 'result.html'), 'utf8')
-      } catch (err) {
-        /* Empty */
-      }
+      } catch (error) {}
 
       node = rehype()
         .data('settings', config)
@@ -277,7 +273,7 @@ test('fixtures', function(t) {
 
       try {
         tree = JSON.parse(fs.readFileSync(path.join(fp, 'index.json')))
-      } catch (err) {
+      } catch (error) {
         fs.writeFileSync(
           path.join(fp, 'index.json'),
           JSON.stringify(node, 0, 2) + '\n'

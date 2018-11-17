@@ -22,7 +22,7 @@ fs.readdir(join(root), function(err, files) {
 
     try {
       config = JSON.parse(fs.readFileSync(join(base, 'config.json')))
-    } catch (err) {
+    } catch (error) {
       config = {}
     }
 
