@@ -88,7 +88,7 @@ Examples:
 
 [chat]: https://gitter.im/rehypejs/Lobby
 
-[license]: https://github.com/rehypejs/rehype/blob/master/LICENSE
+[license]: https://github.com/rehypejs/rehype/blob/master/license
 
 [author]: http://wooorm.com
 

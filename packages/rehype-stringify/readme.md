@@ -62,7 +62,7 @@ All settings are passed to [`hast-util-to-html`][hast-util-to-html].
 
 [chat]: https://gitter.im/rehypejs/Lobby
 
-[license]: https://github.com/rehypejs/rehype/blob/master/LICENSE
+[license]: https://github.com/rehypejs/rehype/blob/master/license
 
 [author]: http://wooorm.com
 

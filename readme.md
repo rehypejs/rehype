@@ -35,7 +35,7 @@ an issue in the [`rehypejs/ideas`][ideas] repository!
 
 ## License
 
-[MIT](LICENSE) © [Titus Wormer](http://wooorm.com)
+[MIT](license) © [Titus Wormer](http://wooorm.com)
 
 <!-- Definitions -->
 
