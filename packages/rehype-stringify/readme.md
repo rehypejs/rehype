@@ -64,7 +64,7 @@ All settings are passed to [`hast-util-to-html`][hast-util-to-html].
 
 [license]: https://github.com/rehypejs/rehype/blob/master/license
 
-[author]: http://wooorm.com
+[author]: https://wooorm.com
 
 [npm]: https://docs.npmjs.com/cli/install
 

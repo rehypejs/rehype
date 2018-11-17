@@ -14,9 +14,9 @@
   "homepage": "https://github.com/rehypejs/rehype",
   "repository": "https://github.com/rehypejs/rehype/tree/master/packages/rehype-stringify",
   "bugs": "https://github.com/rehypejs/rehype/issues",
-  "author": "Titus Wormer <tituswormer@gmail.com> (http://wooorm.com)",
+  "author": "Titus Wormer <tituswormer@gmail.com> (https://wooorm.com)",
   "contributors": [
-    "Titus Wormer <tituswormer@gmail.com> (http://wooorm.com)"
+    "Titus Wormer <tituswormer@gmail.com> (https://wooorm.com)"
   ],
   "files": [
     "index.js"

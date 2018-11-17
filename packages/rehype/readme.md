@@ -62,7 +62,7 @@ Configuration for [**rehype-parse**][parse] and
 
 [license]: https://github.com/rehypejs/rehype/blob/master/license
 
-[author]: http://wooorm.com
+[author]: https://wooorm.com
 
 [npm]: https://docs.npmjs.com/cli/install
 

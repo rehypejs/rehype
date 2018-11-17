@@ -31,7 +31,7 @@ Have a good idea for a new plugin?  Let’s [chat][gitter] and make it happen!
 *   [`rehype-highlight`](https://github.com/rehypejs/rehype-highlight)
     — Syntax highlight code blocks with [`lowlight`](https://github.com/wooorm/lowlight)
 *   [`rehype-prism`](https://github.com/mapbox/rehype-prism)
-    — Syntax highlight code blocks with [Prism](http://prismjs.com/), via [`refractor`](https://github.com/wooorm/refractor#browser)
+    — Syntax highlight code blocks with [Prism](https://prismjs.com), via [`refractor`](https://github.com/wooorm/refractor#browser)
 *   [`rehype-highlight-code-block`](https://github.com/mapbox/rehype-highlight-code-block)
     — Syntax highlight code blocks with any function you provide
 *   [`rehype-katex`](https://github.com/rokt33r/remark-math/blob/master/packages/rehype-katex)
