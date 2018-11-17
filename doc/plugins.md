@@ -90,7 +90,7 @@ files, use `vfile-`.
 
 <!--Definitions:-->
 
-[logo]: https://cdn.rawgit.com/rehypejs/rehype/9222605/logo.svg
+[logo]: https://raw.githubusercontent.com/rehypejs/rehype/90b8f34/logo.svg?sanitize=true
 
 [plugins]: #list-of-plugins
 

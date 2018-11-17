@@ -41,7 +41,7 @@ an issue in the [`rehypejs/ideas`][ideas] repository!
 
 <!-- Definitions -->
 
-[logo]: https://cdn.rawgit.com/rehypejs/rehype/9222605/logo.svg
+[logo]: https://raw.githubusercontent.com/rehypejs/rehype/90b8f34/logo.svg?sanitize=true
 
 [build-badge]: https://img.shields.io/travis/rehypejs/rehype/master.svg
 
