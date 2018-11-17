@@ -2,7 +2,8 @@
 
 # Plugins
 
-**rehype** is an ecosystem of [plug-ins][plugins].
+**rehype** is an HTML processor powered by plugins part of the [unified][]
+[collective][].
 
 ## Table of Contents
 
@@ -13,103 +14,118 @@
 
 ## List of Plugins
 
-Have a good idea for a new plugin?  Let’s [chat][gitter] and make it happen!
+See [awesome rehype][awesome] for the most awesome projects in the ecosystem.
+More plugins can be found on GitHub tagged with the [`rehype-plugin`
+topic][topic].
+
+Have a good idea for a new plugin?
+See [Creating plugins][create] below.
 
 *   [`rehype-add-classes`](https://github.com/martypdx/rehype-add-classes)
-    — Add class names by selector
+    — add classes by selector
 *   [`rehype-autolink-headings`](https://github.com/rehypejs/rehype-autolink-headings)
-    — Add links to headings
+    — add links to headings
 *   [`rehype-document`](https://github.com/rehypejs/rehype-document)
-    — Wrap in a document
+    — wrap in a document
 *   [`rehype-dom`](https://github.com/kmck/rehype-dom)
-    — HTML processor that can
-    [parse](https://github.com/kmck/rehype-dom/tree/master/packages/rehype-dom-parse) and
-    [stringify](https://github.com/kmck/rehype-dom/tree/master/packages/rehype-dom-stringify)
-    using the browser’s native DOM API instead of an external library
+    — use the native DOM API in browsers instead of parse5
 *   [`rehype-format`](https://github.com/rehypejs/rehype-format)
-    — Format HTML
+    — format HTML
 *   [`rehype-highlight`](https://github.com/rehypejs/rehype-highlight)
-    — Syntax highlight code blocks with [`lowlight`](https://github.com/wooorm/lowlight)
+    — syntax highlight code blocks with [`lowlight`](https://github.com/wooorm/lowlight)
 *   [`rehype-prism`](https://github.com/mapbox/rehype-prism)
-    — Syntax highlight code blocks with [Prism](https://prismjs.com), via [`refractor`](https://github.com/wooorm/refractor#browser)
+    — syntax highlight code blocks with [Prism](https://prismjs.com), via [`refractor`](https://github.com/wooorm/refractor#browser)
 *   [`rehype-highlight-code-block`](https://github.com/mapbox/rehype-highlight-code-block)
-    — Syntax highlight code blocks with any function you provide
+    — syntax highlight code blocks with any function you provide
 *   [`rehype-katex`](https://github.com/rokt33r/remark-math/blob/master/packages/rehype-katex)
-    — Render math inline and block with [KaTeX](https://github.com/Khan/KaTeX)
+    — render math inline and block with [KaTeX](https://github.com/Khan/KaTeX)
 *   [`rehype-minify`](https://github.com/rehypejs/rehype-minify)
-    — Minify HTML
+    — minify HTML
 *   [`rehype-picture`](https://github.com/rehypejs/rehype-picture)
-    — Wrap images in `<picture>`s
+    — wrap images in `<picture>`s
 *   [`rehype-raw`](https://github.com/rehypejs/rehype-raw)
-    — Parse the tree again (and raw nodes)
+    — parse the tree again (and raw nodes)
 *   [`rehype-react`](https://github.com/rhysd/rehype-react)
-    — Compile to React
+    — compile to React
 *   [`rehype-remark`](https://github.com/rehypejs/rehype-remark)
     — [`remark`](https://github.com/wooorm/remark) support
 *   [`rehype-retext`](https://github.com/rehypejs/rehype-retext)
     — [`retext`](https://github.com/wooorm/retext) support
 *   [`rehype-sanitize`](https://github.com/rehypejs/rehype-sanitize)
-    — Sanitize HTML
+    — sanitize HTML
 *   [`rehype-slug`](https://github.com/rehypejs/rehype-slug)
-    — Add `id` attributes to headings
+    — add `id`s to headings
 *   [`rehype-webparser`](https://github.com/Prettyhtml/prettyhtml/tree/master/packages/rehype-webparser)
-    — Less strict HTML parser
+    — less strict HTML parser
 
 ## List of Utilities
 
 See [**hast**][hast-util] for a list of utilities for working with the syntax
-tree.  See [`unist`][unist-util] for other utilities which work with **hast**
+tree.
+See [`unist`][unist-util] for other utilities which work with **hast**
 nodes, too.
-
-And finally, see [**vfile**][vfile-util] for a list of utilities for working
-with virtual files.
+Finally, see [**vfile**][vfile-util] for a list of utilities working with
+virtual files.
 
 ## Using plugins
 
-To use a plug-in programmatically, invoke the [`use()`][unified-use]
+To use a plugin programmatically, invoke the [`use()`][unified-use]
 function.
 
-To use plug-in with `rehype-cli`, pass [a `--use`][use] flag or specify
-it in a [configuration file][rcfile].
+To use plugin with `rehype-cli`, pass a [`--use` flag][unified-args-use]
+or specify it in a [configuration file][config-file-use].
 
 ## Creating plugins
 
-First, read up on the [concept of plug-ins][unified-plugins].  Then, read the
-[guide on “Creating a plugin with unified”][guide].  Finally, take one of
-existing [plug-ins][plugins], which looks similar to what you’re about to do,
-and work from there.  If you get stuck, [issues][] and [Gitter][] are good
-places to get help.
+Have an idea for a plugin?
+Post it on [spectrum][] or in [ideas][] and make it happen!
+
+To create a plugin, first read up on the [concept of plugins][unified-plugins].
+Then, read the [guide on “Creating a plugin with unified”][guide].
+Finally, take one of existing plugins, which looks similar to what you’re about
+to make, and work from there.
+If you get stuck, [spectrum][], [ideas][], and [issues][] are good places to get
+help.
 
 You should pick a name prefixed by `'rehype-'`, such as `rehype-lint`.
 
-Note that, if the thing you create cannot be given to `rehype().use()`,
-it isn’t a “plug-in”.  Don’t use the `rehype-` prefix as that could
-confuse users.  If it works with the HAST tree, use `'hast-util-'`, if
-it works with any Unist tree, use `unist-util-`, if it works with virtual
-files, use `vfile-`.
+**Do not use the `rehype-` prefix** if the thing you create doesn’t work with
+`rehype().use()`: it isn’t a “plugin” and will confuse users.
+If it works with hast, use `'hast-util-'`, if it works with any unist tree,
+use `unist-util-`, and if it works with virtual files, use `vfile-`.
 
 <!--Definitions:-->
 
 [logo]: https://raw.githubusercontent.com/rehypejs/rehype/90b8f34/logo.svg?sanitize=true
 
-[plugins]: #list-of-plugins
-
 [hast-util]: https://github.com/syntax-tree/hast#list-of-utilities
 
-[unist-util]: https://github.com/syntax-tree/unist#unist-node-utilties
+[unist-util]: https://github.com/syntax-tree/unist#unist-utilities
 
-[vfile-util]: https://github.com/vfile/vfile#related-tools
+[vfile-util]: https://github.com/vfile/vfile#utilities
 
 [unified-use]: https://github.com/unifiedjs/unified#processoruseplugin-options
+
+[unified-args-use]: https://github.com/unifiedjs/unified-args#--use-plugin
+
+[config-file-use]: https://github.com/unifiedjs/unified-engine/blob/master/doc/configure.md#plugins
 
 [unified-plugins]: https://github.com/unifiedjs/unified#plugin
 
 [issues]: https://github.com/rehypejs/rehype/issues
 
-[gitter]: https://gitter.im/rehypejs/rehype
+[spectrum]: https://spectrum.chat/unified/rehype
 
-[use]: https://github.com/unifiedjs/unified-args#--use-plugin
+[guide]: https://unified.js.org/create-a-plugin.html
 
-[rcfile]: https://github.com/unifiedjs/unified-engine/blob/master/doc/configure.md#plugins
+[awesome]: https://github.com/rehypejs/awesome
 
-[guide]: https://unifiedjs.github.io/create-a-plugin.html
+[ideas]: https://github.com/rehypejs/ideas
+
+[topic]: https://github.com/topics/rehype-plugin
+
+[unified]: https://github.com/unifiedjs/unified
+
+[collective]: https://opencollective.com/unified
+
+[create]: #creating-plugins

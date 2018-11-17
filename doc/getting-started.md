@@ -2,10 +2,11 @@
 
 # Getting Started
 
-**rehype** transforms HTML.  It’s an ecosystem of [plug-ins][plugins].
-If you get stuck, [issues][] and [Gitter][] are good places to get help.
+**rehype** transforms natural language.
+It’s an ecosystem of [plugins][plugins].
+If you get stuck, [issues][] and [spectrum][] are good places to get help.
 
-It’s built on [unified][], make sure to read it and its [website][] too.
+rehype is built on [unified][], make sure to read it and its [website][] too.
 
 ## Table of Contents
 
@@ -15,7 +16,7 @@ It’s built on [unified][], make sure to read it and its [website][] too.
 
 ## Introduction
 
-Out of the box, **rehype** doesn’t do much.  HTML is given, and
+Out of the box, **rehype** transpiles HTML: it’s given, reformatted, and
 written:
 
 ```html
@@ -28,12 +29,13 @@ Yields (in fragment mode):
 <p>Some <em>emphasis</em>, <strong>importance</strong>, and <code>code</code>.</p>
 ```
 
-But, much can be done, [through plug-ins][plugins].
+But much can be done [through plugins][plugins].
 
 ## Command-line
 
-**rehype**’s CLI is a simple way to process HTML files from the
-command line.  Its interface is provided by [**unified-args**][unified-args].
+**rehype**’s CLI is a simple way to process markdown files from the
+command line.
+Its interface is provided by [**unified-args**][unified-args].
 
 Install [`rehype-cli`][cli] and dependencies with [npm][]:
 
@@ -59,14 +61,14 @@ npm install --global rehype-cli rehype-preset-minify
 `rehype index.html --use preset-minify` yields:
 
 ```txt
-<!doctype html><meta charset=utf8><title>Hello</title><p>World!
+<!doctypehtml><meta charset=utf8><title>Hello</title><p>World!
 index.html: no issues found
 ```
 
 ## Programmatic usage
 
-The programmatic interface of **rehype** is provided by
-[**unified**][unified].  In fact, [`rehype`][api] is two plug-ins:
+The programmatic interface of **rehype** is provided by [**unified**][unified].
+In fact, [`rehype`][api] is two plugins:
 [`rehype-parse`][parse] and [`rehype-stringify`][stringify].
 
 Install [`rehype`][api] with [npm][]:
@@ -78,13 +80,13 @@ npm install rehype
 `index.js` contains:
 
 ```js
-var rehype = require('rehype');
-var report = require('vfile-reporter');
+var rehype = require('rehype')
+var report = require('vfile-reporter')
 
-rehype().process('<title>Hi</title><h2>Hello world!', function (err, file) {
-  console.log(report(err || file));
-  console.log(String(file));
-});
+rehype().process('<title>Hi</title><h2>Hello world!', function(err, file) {
+  console.log(report(err || file))
+  console.log(String(file))
+})
 ```
 
 `node index.js` yields:
@@ -100,7 +102,7 @@ no issues found
 
 [issues]: https://github.com/rehypejs/rehype/issues
 
-[gitter]: https://gitter.im/rehypejs/Lobby
+[spectrum]: https://spectrum.chat/unified/rehype
 
 [npm]: https://docs.npmjs.com/cli/install
 
@@ -110,7 +112,7 @@ no issues found
 
 [unified]: https://github.com/unifiedjs/unified
 
-[website]: https://unifiedjs.github.io
+[website]: https://unified.js.org
 
 [parse]: https://github.com/rehypejs/rehype/tree/master/packages/rehype-parse
 

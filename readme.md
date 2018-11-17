@@ -73,7 +73,7 @@ an issue in the [`rehypejs/ideas`][ideas] repository!
 
 [unified]: https://github.com/unifiedjs/unified
 
-[website]: https://unifiedjs.github.io
+[website]: https://unified.js.org
 
 [contributing]: contributing.md
 
