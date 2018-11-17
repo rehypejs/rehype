@@ -1,4 +1,10 @@
-# rehype [![Build Status][build-badge]][build-status] [![Coverage Status][coverage-badge]][coverage-status] [![Chat][chat-badge]][chat]
+# rehype
+
+[![Build][build-badge]][build]
+[![Coverage][coverage-badge]][coverage]
+[![Downloads][downloads-badge]][downloads]
+[![Size][size-badge]][size]
+[![Chat][chat-badge]][chat]
 
 The [**rehype**][rehype] processor is an HTML processor powered by
 [plug-ins][plugins].
@@ -48,17 +54,25 @@ Configuration for [**rehype-parse**][parse] and
 
 <!-- Definitions -->
 
-[build-badge]: https://img.shields.io/travis/rehypejs/rehype.svg
+[build-badge]: https://img.shields.io/travis/rehypejs/rehype/master.svg
 
-[build-status]: https://travis-ci.org/rehypejs/rehype
+[build]: https://travis-ci.org/rehypejs/rehype
 
 [coverage-badge]: https://img.shields.io/codecov/c/github/rehypejs/rehype.svg
 
-[coverage-status]: https://codecov.io/github/rehypejs/rehype
+[coverage]: https://codecov.io/github/rehypejs/rehype
 
-[chat-badge]: https://img.shields.io/gitter/room/rehypejs/Lobby.svg
+[downloads-badge]: https://img.shields.io/npm/dm/rehype.svg
 
-[chat]: https://gitter.im/rehypejs/Lobby
+[downloads]: https://www.npmjs.com/package/rehype
+
+[size-badge]: https://img.shields.io/bundlephobia/minzip/rehype.svg
+
+[size]: https://bundlephobia.com/result?p=rehype
+
+[chat-badge]: https://img.shields.io/badge/join%20the%20community-on%20spectrum-7b16ff.svg
+
+[chat]: https://spectrum.chat/unified/rehype
 
 [license]: https://github.com/rehypejs/rehype/blob/master/license
 
