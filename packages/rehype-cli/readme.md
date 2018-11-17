@@ -5,14 +5,51 @@
 [![Downloads][downloads-badge]][downloads]
 [![Chat][chat-badge]][chat]
 
-Command-line interface for [**rehype**][rehype].
+Command-line interface for **[rehype][]**.
 
 *   Loads [`rehype-` plugins][plugins]
 *   Searches for HTML extensions (`html`, `htm`, `xht`, `xhtml`)
 *   Ignores paths found in [`.rehypeignore` files][ignore-file]
-*   Loads configuration from [`.rehyperc`, `.rehyperc.js`, etc][config-file]
+*   Loads configuration from [`.rehyperc`, `.rehyperc.js` files][config-file]
 *   Uses configuration from [`rehype` fields in `package.json`
     files][config-file]
+
+* * *
+
+**Announcing the unified collective!  🎉
+[Read more about it on Medium »][announcement]**
+
+## Sponsors
+
+<!--lint ignore no-html maximum-line-length-->
+
+<table>
+  <tr valign="top">
+    <td width="20%" align="center">
+      <a href="https://zeit.co"><img src="https://avatars1.githubusercontent.com/u/14985020?s=400&v=4"></a>
+      <br><br>🥇
+      <a href="https://zeit.co">ZEIT</a>
+    </td>
+    <td width="20%" align="center">
+      <a href="https://www.gatsbyjs.org"><img src="https://avatars1.githubusercontent.com/u/12551863?s=400&v=4"></a>
+      <br><br>🥇
+      <a href="https://www.gatsbyjs.org">Gatsby</a></td>
+    <td width="20%" align="center">
+      <a href="https://compositor.io"><img src="https://avatars1.githubusercontent.com/u/19245838?s=400&v=4"></a>
+      <br><br>🥉
+      <a href="https://compositor.io">Compositor</a>
+    </td>
+    <td width="20%" align="center">
+      <a href="https://www.holloway.com"><img src="https://avatars1.githubusercontent.com/u/35904294?s=400&v=4"></a>
+      <br><br>
+      <a href="https://www.holloway.com">Holloway</a>
+    </td>
+    <td width="20%" align="center">
+      <br><br><br><br>
+      <a href="https://opencollective.com/unified"><strong>You?</strong>
+    </td>
+  </tr>
+</table>
 
 ## Installation
 
@@ -31,7 +68,7 @@ $ rehype index.html --use preset-minify --output
 
 ## CLI
 
-See [**unified-args**][unified-args], which provides the interface,
+See **[unified-args][]**, which provides the interface,
 for more information on all available options.
 
 ```txt
@@ -112,3 +149,5 @@ Examples:
 [ignore-file]: https://github.com/unifiedjs/unified-engine/blob/master/doc/ignore.md
 
 [unified-args]: https://github.com/unifiedjs/unified-args#cli
+
+[announcement]: https://medium.com/unifiedjs/collectively-evolving-through-crowdsourcing-22c359ea95cc

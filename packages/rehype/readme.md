@@ -6,16 +6,55 @@
 [![Size][size-badge]][size]
 [![Chat][chat-badge]][chat]
 
-The [**rehype**][rehype] processor is an HTML processor powered by
-[plugins][].
+**[rehype][]** is an HTML processor powered by [plugins][] part of the
+[unified][] [collective][].
 
-*   Interface by [**unified**][unified]
-*   [**hast**][hast] syntax tree
-*   Parses HTML to the tree with [**rehype-parse**][parse]
-*   [Plug-ins][plugins] transform the tree
-*   Compiles the tree to HTML using [**rehype-stringify**][stringify]
+*   API by [`unified`][unified]
+*   Parses HTML to the tree with [`rehype-parse`][parse]
+*   **[hast][]** syntax tree
+*   [Plugins][] transform the tree
+*   Compiles the tree to markdown using [`rehype-stringify`][stringify]
 
-Don’t need the parser?  Or the compiler?  [That’s OK][unified-usage].
+Don’t need the parser?
+Or the compiler?
+[That’s OK][unified-usage].
+
+* * *
+
+**Announcing the unified collective!  🎉
+[Read more about it on Medium »][announcement]**
+
+## Sponsors
+
+<!--lint ignore no-html maximum-line-length-->
+
+<table>
+  <tr valign="top">
+    <td width="20%" align="center">
+      <a href="https://zeit.co"><img src="https://avatars1.githubusercontent.com/u/14985020?s=400&v=4"></a>
+      <br><br>🥇
+      <a href="https://zeit.co">ZEIT</a>
+    </td>
+    <td width="20%" align="center">
+      <a href="https://www.gatsbyjs.org"><img src="https://avatars1.githubusercontent.com/u/12551863?s=400&v=4"></a>
+      <br><br>🥇
+      <a href="https://www.gatsbyjs.org">Gatsby</a></td>
+    <td width="20%" align="center">
+      <a href="https://compositor.io"><img src="https://avatars1.githubusercontent.com/u/19245838?s=400&v=4"></a>
+      <br><br>🥉
+      <a href="https://compositor.io">Compositor</a>
+    </td>
+    <td width="20%" align="center">
+      <a href="https://www.holloway.com"><img src="https://avatars1.githubusercontent.com/u/35904294?s=400&v=4"></a>
+      <br><br>
+      <a href="https://www.holloway.com">Holloway</a>
+    </td>
+    <td width="20%" align="center">
+      <br><br><br><br>
+      <a href="https://opencollective.com/unified"><strong>You?</strong>
+    </td>
+  </tr>
+</table>
 
 ## Installation
 
@@ -93,3 +132,7 @@ Configuration for [**rehype-parse**][parse] and
 [plugins]: https://github.com/rehypejs/rehype/blob/master/doc/plugins.md
 
 [unified-usage]: https://github.com/unifiedjs/unified#usage
+
+[collective]: https://opencollective.com/unified
+
+[announcement]: https://medium.com/unifiedjs/collectively-evolving-through-crowdsourcing-22c359ea95cc
