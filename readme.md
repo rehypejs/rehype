@@ -6,7 +6,7 @@
 [![Size][size-badge]][size]
 [![Chat][chat-badge]][chat]
 
-**rehype** is an ecosystem of [plug-ins][plugins] for processing HTML.
+**rehype** is an ecosystem of [plugins][] for processing HTML.
 
 It’s built on [unified][], make sure to read it and its [website][] too.
 

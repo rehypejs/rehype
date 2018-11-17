@@ -7,7 +7,7 @@
 [![Chat][chat-badge]][chat]
 
 The [**rehype**][rehype] processor is an HTML processor powered by
-[plug-ins][plugins].
+[plugins][].
 
 *   Interface by [**unified**][unified]
 *   [**hast**][hast] syntax tree
