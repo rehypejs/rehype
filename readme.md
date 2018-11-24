@@ -146,7 +146,7 @@ creating an issue in the [`rehypejs/ideas`][ideas] repository!
 
 [awesome]: https://github.com/retextjs/awesome
 
-[plugins]: https://github.com/retextjs/retext/tree/master/doc/plugins.md
+[plugins]: https://github.com/rehypejs/rehype/tree/master/doc/plugins.md
 
 [format]: https://github.com/rehypejs/rehype-format
 
