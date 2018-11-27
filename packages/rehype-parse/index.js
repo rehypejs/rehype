@@ -5,7 +5,7 @@ var Parser5 = require('parse5/lib/parser')
 var xtend = require('xtend')
 var errors = require('./errors.json')
 
-var base = 'https://html.spec.whatwg.org/multipage/parsing.html#parse-error-'
+var base = 'https://html.spec.whatwg.org/multipage/parsing.html#parse-errors'
 
 var fatalities = {2: true, 1: false, 0: null}
 
