@@ -142,9 +142,9 @@ creating an issue in the [`rehypejs/ideas`][ideas] repository!
 
 [cli]: https://github.com/rehypejs/rehype/tree/master/packages/rehype-cli
 
-[ideas]: https://github.com/retextjs/ideas
+[ideas]: https://github.com/rehypejs/ideas
 
-[awesome]: https://github.com/retextjs/awesome
+[awesome]: https://github.com/rehypejs/awesome
 
 [plugins]: https://github.com/rehypejs/rehype/tree/master/doc/plugins.md
 
