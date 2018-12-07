@@ -55,6 +55,8 @@ See [Creating plugins][create] below.
     — sanitize HTML
 *   [`rehype-slug`](https://github.com/rehypejs/rehype-slug)
     — add `id`s to headings
+*   [`rehype-urls`](https://github.com/brechtcs/rehype-urls)
+    — rewrite URLs of `href` and `src` attributes
 *   [`rehype-webparser`](https://github.com/Prettyhtml/prettyhtml/tree/master/packages/rehype-webparser)
     — less strict HTML parser
 
