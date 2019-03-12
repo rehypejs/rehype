@@ -49,6 +49,8 @@ See [Creating plugins][create] below.
     — compile to React
 *   [`rehype-remark`](https://github.com/rehypejs/rehype-remark)
     — [`remark`](https://github.com/wooorm/remark) support
+*   [`rehype-resolution`](https://github.com/michaelnisi/rehype-resolution)
+    — inject resolution `srcset` into images
 *   [`rehype-retext`](https://github.com/rehypejs/rehype-retext)
     — [`retext`](https://github.com/wooorm/retext) support
 *   [`rehype-sanitize`](https://github.com/rehypejs/rehype-sanitize)
