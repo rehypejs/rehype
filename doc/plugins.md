@@ -43,6 +43,8 @@ See [Creating plugins][create] below.
     — minify HTML
 *   [`rehype-picture`](https://github.com/rehypejs/rehype-picture)
     — wrap images in `<picture>`s
+*   [`rehype-partials`](https://github.com/mrzmmr/rehype-partials)
+    — partials support for rehype
 *   [`rehype-raw`](https://github.com/rehypejs/rehype-raw)
     — parse the tree again (and raw nodes)
 *   [`rehype-react`](https://github.com/rhysd/rehype-react)
