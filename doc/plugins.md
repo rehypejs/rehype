@@ -57,6 +57,8 @@ See [Creating plugins][create] below.
     — [`retext`](https://github.com/wooorm/retext) support
 *   [`rehype-sanitize`](https://github.com/rehypejs/rehype-sanitize)
     — sanitize HTML
+*   [`rehype-section`](https://github.com/agentofuser/rehype-section)
+    — wrap headings and their contents into nested `<section>` elements
 *   [`rehype-slug`](https://github.com/rehypejs/rehype-slug)
     — add `id`s to headings
 *   [`rehype-urls`](https://github.com/brechtcs/rehype-urls)
