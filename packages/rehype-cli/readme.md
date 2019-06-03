@@ -3,9 +3,11 @@
 [![Build][build-badge]][build]
 [![Coverage][coverage-badge]][coverage]
 [![Downloads][downloads-badge]][downloads]
+[![Sponsors][sponsors-badge]][collective]
+[![Backers][backers-badge]][collective]
 [![Chat][chat-badge]][chat]
 
-Command-line interface for **[rehype][]**.
+Command line interface for [**rehype**][rehype].
 
 *   Loads [`rehype-` plugins][plugins]
 *   Searches for HTML extensions (`html`, `htm`, `xht`, `xhtml`)
@@ -13,11 +15,6 @@ Command-line interface for **[rehype][]**.
 *   Loads configuration from [`.rehyperc`, `.rehyperc.js` files][config-file]
 *   Uses configuration from [`rehype` fields in `package.json`
     files][config-file]
-
-* * *
-
-**Announcing the unified collective!  🎉
-[Read more about it on Medium »][announcement]**
 
 ## Sponsors
 
@@ -51,25 +48,27 @@ Command-line interface for **[rehype][]**.
   </tr>
 </table>
 
-## Installation
+[**Read more about the unified collective on Medium »**][announcement]
+
+## Install
 
 [npm][]:
 
-```bash
+```sh
 npm install rehype-cli
 ```
 
-## Usage
+## Use
 
-```bash
-# Minify `index.html` with `rehype-preset-minify`
+```sh
+# Minify `index.html` with `rehype-preset-minify`:
 $ rehype index.html --use preset-minify --output
 ```
 
 ## CLI
 
-See **[unified-args][]**, which provides the interface,
-for more information on all available options.
+See [`unified-args`][unified-args], which provides the interface, for more
+information on all available options.
 
 ```txt
 Usage: rehype [options] [path | glob ...]
@@ -112,13 +111,27 @@ Examples:
   $ rehype . -o
 ```
 
+## Contribute
+
+See [`contributing.md`][contributing] in [`rehypejs/.github`][health] for ways
+to get started.
+See [`support.md`][support] for ways to get help.
+Ideas for new plugins and tools can be posted in [`rehypejs/ideas`][ideas].
+
+A curated list of awesome rehype resources can be found in [**awesome
+rehype**][awesome].
+
+This project has a [Code of Conduct][coc].
+By interacting with this repository, organisation, or community you agree to
+abide by its terms.
+
 ## License
 
 [MIT][license] © [Titus Wormer][author]
 
 <!-- Definitions -->
 
-[build-badge]: https://img.shields.io/travis/rehypejs/rehype/master.svg
+[build-badge]: https://img.shields.io/travis/rehypejs/rehype.svg
 
 [build]: https://travis-ci.org/rehypejs/rehype
 
@@ -130,9 +143,27 @@ Examples:
 
 [downloads]: https://www.npmjs.com/package/rehype-cli
 
+[sponsors-badge]: https://opencollective.com/unified/sponsors/badge.svg
+
+[backers-badge]: https://opencollective.com/unified/backers/badge.svg
+
+[collective]: https://opencollective.com/unified
+
 [chat-badge]: https://img.shields.io/badge/join%20the%20community-on%20spectrum-7b16ff.svg
 
 [chat]: https://spectrum.chat/unified/rehype
+
+[health]: https://github.com/rehypejs/.github
+
+[contributing]: https://github.com/rehypejs/.github/blob/master/contributing.md
+
+[support]: https://github.com/rehypejs/.github/blob/master/support.md
+
+[coc]: https://github.com/rehypejs/.github/blob/master/code-of-conduct.md
+
+[ideas]: https://github.com/rehypejs/ideas
+
+[awesome]: https://github.com/rehypejs/awesome-rehype
 
 [license]: https://github.com/rehypejs/rehype/blob/master/license
 

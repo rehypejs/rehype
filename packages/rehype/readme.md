@@ -4,25 +4,26 @@
 [![Coverage][coverage-badge]][coverage]
 [![Downloads][downloads-badge]][downloads]
 [![Size][size-badge]][size]
+[![Sponsors][sponsors-badge]][collective]
+[![Backers][backers-badge]][collective]
 [![Chat][chat-badge]][chat]
 
-**[rehype][]** is an HTML processor powered by [plugins][] part of the
-[unified][] [collective][].
+[**unified**][unified] processor to parse and compile HTML.
+Powered by [plugins][].
+Part of the [unified][] [collective][].
 
-*   API by [`unified`][unified]
+*   API by [**unified**][unified]
 *   Parses HTML to the tree with [`rehype-parse`][parse]
-*   **[hast][]** syntax tree
+*   [**hast**][hast] syntax tree
 *   [Plugins][] transform the tree
-*   Compiles the tree to markdown using [`rehype-stringify`][stringify]
+*   Compiles the tree to markdown with [`rehype-stringify`][stringify]
 
 Don’t need the parser?
 Or the compiler?
 [That’s OK][unified-usage].
 
-* * *
-
-**Announcing the unified collective!  🎉
-[Read more about it on Medium »][announcement]**
+If you’re in a browser, trust the content, and value a smaller bundle size, use
+[`rehype-dom`][rehype-dom] instead.
 
 ## Sponsors
 
@@ -56,15 +57,17 @@ Or the compiler?
   </tr>
 </table>
 
-## Installation
+[**Read more about the unified collective on Medium »**][announcement]
+
+## Install
 
 [npm][]:
 
-```bash
+```sh
 npm install rehype
 ```
 
-## Usage
+## Use
 
 ```js
 var rehype = require('rehype')
@@ -83,9 +86,22 @@ no issues found
 <html><head><title>Hi</title></head><body><h2>Hello world!</h2></body></html>
 ```
 
-Configuration for [**rehype-parse**][parse] and
-[**rehype-stringify**][stringify] can be set with
-`.data('settings', {/*...*/})`.
+Configuration for [`rehype-parse`][parse] and [`rehype-stringify`][stringify]
+can be set with `.data('settings', {/*...*/})`.
+
+## Contribute
+
+See [`contributing.md`][contributing] in [`rehypejs/.github`][health] for ways
+to get started.
+See [`support.md`][support] for ways to get help.
+Ideas for new plugins and tools can be posted in [`rehypejs/ideas`][ideas].
+
+A curated list of awesome rehype resources can be found in [**awesome
+rehype**][awesome].
+
+This project has a [Code of Conduct][coc].
+By interacting with this repository, organisation, or community you agree to
+abide by its terms.
 
 ## License
 
@@ -93,7 +109,7 @@ Configuration for [**rehype-parse**][parse] and
 
 <!-- Definitions -->
 
-[build-badge]: https://img.shields.io/travis/rehypejs/rehype/master.svg
+[build-badge]: https://img.shields.io/travis/rehypejs/rehype.svg
 
 [build]: https://travis-ci.org/rehypejs/rehype
 
@@ -109,17 +125,33 @@ Configuration for [**rehype-parse**][parse] and
 
 [size]: https://bundlephobia.com/result?p=rehype
 
+[sponsors-badge]: https://opencollective.com/unified/sponsors/badge.svg
+
+[backers-badge]: https://opencollective.com/unified/backers/badge.svg
+
+[collective]: https://opencollective.com/unified
+
 [chat-badge]: https://img.shields.io/badge/join%20the%20community-on%20spectrum-7b16ff.svg
 
 [chat]: https://spectrum.chat/unified/rehype
+
+[health]: https://github.com/rehypejs/.github
+
+[contributing]: https://github.com/rehypejs/.github/blob/master/contributing.md
+
+[support]: https://github.com/rehypejs/.github/blob/master/support.md
+
+[coc]: https://github.com/rehypejs/.github/blob/master/code-of-conduct.md
+
+[ideas]: https://github.com/rehypejs/ideas
+
+[awesome]: https://github.com/rehypejs/awesome-rehype
 
 [license]: https://github.com/rehypejs/rehype/blob/master/license
 
 [author]: https://wooorm.com
 
 [npm]: https://docs.npmjs.com/cli/install
-
-[rehype]: https://github.com/rehypejs/rehype
 
 [unified]: https://github.com/unifiedjs/unified
 
@@ -129,10 +161,10 @@ Configuration for [**rehype-parse**][parse] and
 
 [stringify]: https://github.com/rehypejs/rehype/blob/master/packages/rehype-stringify
 
+[rehype-dom]: https://github.com/rehypejs/rehype-dom/tree/master/packages/rehype-dom
+
 [plugins]: https://github.com/rehypejs/rehype/blob/master/doc/plugins.md
 
 [unified-usage]: https://github.com/unifiedjs/unified#usage
-
-[collective]: https://opencollective.com/unified
 
 [announcement]: https://medium.com/unifiedjs/collectively-evolving-through-crowdsourcing-22c359ea95cc

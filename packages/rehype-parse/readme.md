@@ -4,17 +4,18 @@
 [![Coverage][coverage-badge]][coverage]
 [![Downloads][downloads-badge]][downloads]
 [![Size][size-badge]][size]
+[![Sponsors][sponsors-badge]][collective]
+[![Backers][backers-badge]][collective]
 [![Chat][chat-badge]][chat]
 
-[Parser][] for **[unified][]**.
-Parses HTML to **[hast][]** syntax trees.
+[**rehype**][rehype] plugin to parse HTML.
+[Parser][] for [**unified**][unified].
+Parses HTML to [**hast**][hast] syntax trees.
 Used in the [**rehype** processor][processor] but can be used on its own as
 well.
 
-* * *
-
-**Announcing the unified collective!  🎉
-[Read more about it on Medium »][announcement]**
+If you’re in a browser, trust the content, and value a smaller bundle size, use
+[`rehype-dom-parse`][rehype-dom-parse].
 
 ## Sponsors
 
@@ -48,20 +49,22 @@ well.
   </tr>
 </table>
 
-## Installation
+[**Read more about the unified collective on Medium »**][announcement]
+
+## Install
 
 [npm][]:
 
-```bash
+```sh
 npm install rehype-parse
 ```
 
-## Usage
+## Use
 
-This example shows how we parse HTML with this module and configure it to emit
-parse errors except for duplicate attributes.
-Then we transform HTML to markdown with [`rehype-remark`][rehype-remark] and
-finally compile that markdown with [`remark-stringify`][remark-stringify].
+This example shows how we can parse HTML with this module and configure it to
+emit parse errors except for duplicate attributes.
+Then we transform HTML to Markdown with [`rehype-remark`][rehype-remark] and
+finally compile that Markdown with [`remark-stringify`][remark-stringify].
 
 Say we have the following file, `example.html`, with a few errors:
 
@@ -71,7 +74,7 @@ Say we have the following file, `example.html`, with a few errors:
 <h1/>World!</h1>
 ```
 
-And our script, `example.js`, looks as follows:
+…and our script, `example.js`, looks as follows:
 
 ```js
 var vfile = require('to-vfile')
@@ -109,28 +112,30 @@ example.html
 
 ### `processor.use(parse[, options])`
 
-Configure the `processor` to read HTML as input and process a
-**[hast][]** syntax tree.
+Configure `processor` to parse HTML and create a [**hast**][hast] syntax tree.
 
 ##### `options`
 
 ###### `options.fragment`
 
-Specify whether to parse a fragment (`boolean`, default: `false`),
-instead of a complete document.  In document mode, unopened `html`,
-`head`, and `body` elements are opened in just the right places.
+Specify whether to parse a fragment (`boolean`, default: `false`), instead of a
+complete document.
+In document mode, unopened `html`, `head`, and `body` elements are opened in
+just the right places.
 
 ###### `options.space`
 
-> ⚠️ rehype is not an XML parser.  It support SVG as embedded in HTML, but not
-> the features available in the rest of XML/SVG.  Passing SVG files could strip
-> useful information, but fragments of modern SVG should be fine.
+> ⚠️ rehype is not an XML parser.
+> It support SVG as embedded in HTML, but not the features available in the rest
+> of XML/SVG.
+> Passing SVG files could strip useful information, but fragments of modern SVG
+> should be fine.
 
-Whether the document is in the `'html'` or `'svg'` space (`'svg'` or `'html'`,
-default: `'html'`).
+Which space the document is in (`'svg'` or `'html'`, default: `'html'`).
 
-If an `svg` element is found in the HTML space, `toHTML` automatically switches
-to the SVG space when entering the element, and switches back when leaving.
+If an `svg` element is found in the HTML space, `stringify` automatically
+switches to the SVG space when [**entering**][enter] the element, and switches
+back when [**exiting**][exit].
 
 **Note**: make sure to set `fragment: true` if `space: 'svg'`.
 
@@ -225,7 +230,7 @@ If specified, the following element:
 <img src="#" alt>
 ```
 
-...has the following `data`:
+…has the following `data`:
 
 ```js
 { position:
@@ -246,13 +251,27 @@ If specified, the following element:
 
 Access to the [parser][], if you need it.
 
+## Contribute
+
+See [`contributing.md`][contributing] in [`rehypejs/.github`][health] for ways
+to get started.
+See [`support.md`][support] for ways to get help.
+Ideas for new plugins and tools can be posted in [`rehypejs/ideas`][ideas].
+
+A curated list of awesome rehype resources can be found in [**awesome
+rehype**][awesome].
+
+This project has a [Code of Conduct][coc].
+By interacting with this repository, organisation, or community you agree to
+abide by its terms.
+
 ## License
 
 [MIT][license] © [Titus Wormer][author]
 
 <!-- Definitions -->
 
-[build-badge]: https://img.shields.io/travis/rehypejs/rehype/master.svg
+[build-badge]: https://img.shields.io/travis/rehypejs/rehype.svg
 
 [build]: https://travis-ci.org/rehypejs/rehype
 
@@ -268,9 +287,27 @@ Access to the [parser][], if you need it.
 
 [size]: https://bundlephobia.com/result?p=rehype-parse
 
+[sponsors-badge]: https://opencollective.com/unified/sponsors/badge.svg
+
+[backers-badge]: https://opencollective.com/unified/backers/badge.svg
+
+[collective]: https://opencollective.com/unified
+
 [chat-badge]: https://img.shields.io/badge/join%20the%20community-on%20spectrum-7b16ff.svg
 
 [chat]: https://spectrum.chat/unified/rehype
+
+[health]: https://github.com/rehypejs/.github
+
+[contributing]: https://github.com/rehypejs/.github/blob/master/contributing.md
+
+[support]: https://github.com/rehypejs/.github/blob/master/support.md
+
+[coc]: https://github.com/rehypejs/.github/blob/master/code-of-conduct.md
+
+[ideas]: https://github.com/rehypejs/ideas
+
+[awesome]: https://github.com/rehypejs/awesome-rehype
 
 [license]: https://github.com/rehypejs/rehype/blob/master/license
 
@@ -288,10 +325,18 @@ Access to the [parser][], if you need it.
 
 [parse-errors]: https://html.spec.whatwg.org/multipage/parsing.html#parse-errors
 
-[processor]: https://github.com/rehypejs/rehype/blob/master/packages/rehype
+[rehype]: https://github.com/rehypejs/rehype
+
+[processor]: https://github.com/rehypejs/rehype/tree/master/packages/rehype
 
 [hast]: https://github.com/syntax-tree/hast
+
+[rehype-dom-parse]: https://github.com/rehypejs/rehype-dom/tree/master/packages/rehype-dom-parse
 
 [parser]: https://github.com/unifiedjs/unified#processorparser
 
 [announcement]: https://medium.com/unifiedjs/collectively-evolving-through-crowdsourcing-22c359ea95cc
+
+[enter]: https://github.com/syntax-tree/unist#enter
+
+[exit]: https://github.com/syntax-tree/unist#exit

@@ -4,17 +4,18 @@
 [![Coverage][coverage-badge]][coverage]
 [![Downloads][downloads-badge]][downloads]
 [![Size][size-badge]][size]
+[![Sponsors][sponsors-badge]][collective]
+[![Backers][backers-badge]][collective]
 [![Chat][chat-badge]][chat]
 
-[Compiler][] for **[unified][]**.
-Stringifies **[hast][]** syntax trees to HTML.
+[**rehype**][rehype] plugin to stringify HTML.
+[Compiler][] for [**unified**][unified].
+Stringifies [**hast**][hast] syntax trees to HTML.
 Used in the [**rehype** processor][processor] but can be used on its own as
 well.
 
-* * *
-
-**Announcing the unified collective!  🎉
-[Read more about it on Medium »][announcement]**
+If you’re in a browser, trust the content, and value a smaller bundle size, use
+[`rehype-dom-stringify`][rehype-dom-stringify] instead.
 
 ## Sponsors
 
@@ -48,15 +49,17 @@ well.
   </tr>
 </table>
 
-## Installation
+[**Read more about the unified collective on Medium »**][announcement]
+
+## Install
 
 [npm][]:
 
-```bash
+```sh
 npm install rehype-stringify
 ```
 
-## Usage
+## Use
 
 ```js
 var unified = require('unified')
@@ -80,13 +83,27 @@ process.stdin.pipe(createStream(processor)).pipe(process.stdout)
 
 ### `processor.use(stringify[, options])`
 
-Configure the `processor` to stringify [**hast**][hast] syntax trees
-to HTML.
+Configure `processor` to stringify [**hast**][hast] syntax trees to HTML.
 
 ###### `options`
 
-Options can be passed when using `processor.use(stringify, options)`.
+Options can be passed when using `processor.use(stringify, options)` or with
+`processor.data('settings', options)`.
 All settings are passed to [`hast-util-to-html`][hast-util-to-html].
+
+## Contribute
+
+See [`contributing.md`][contributing] in [`rehypejs/.github`][health] for ways
+to get started.
+See [`support.md`][support] for ways to get help.
+Ideas for new plugins and tools can be posted in [`rehypejs/ideas`][ideas].
+
+A curated list of awesome rehype resources can be found in [**awesome
+rehype**][awesome].
+
+This project has a [Code of Conduct][coc].
+By interacting with this repository, organisation, or community you agree to
+abide by its terms.
 
 ## License
 
@@ -94,7 +111,7 @@ All settings are passed to [`hast-util-to-html`][hast-util-to-html].
 
 <!-- Definitions -->
 
-[build-badge]: https://img.shields.io/travis/rehypejs/rehype/master.svg
+[build-badge]: https://img.shields.io/travis/rehypejs/rehype.svg
 
 [build]: https://travis-ci.org/rehypejs/rehype
 
@@ -110,9 +127,27 @@ All settings are passed to [`hast-util-to-html`][hast-util-to-html].
 
 [size]: https://bundlephobia.com/result?p=rehype-stringify
 
+[sponsors-badge]: https://opencollective.com/unified/sponsors/badge.svg
+
+[backers-badge]: https://opencollective.com/unified/backers/badge.svg
+
+[collective]: https://opencollective.com/unified
+
 [chat-badge]: https://img.shields.io/badge/join%20the%20community-on%20spectrum-7b16ff.svg
 
 [chat]: https://spectrum.chat/unified/rehype
+
+[health]: https://github.com/rehypejs/.github
+
+[contributing]: https://github.com/rehypejs/.github/blob/master/contributing.md
+
+[support]: https://github.com/rehypejs/.github/blob/master/support.md
+
+[coc]: https://github.com/rehypejs/.github/blob/master/code-of-conduct.md
+
+[ideas]: https://github.com/rehypejs/ideas
+
+[awesome]: https://github.com/rehypejs/awesome-rehype
 
 [license]: https://github.com/rehypejs/rehype/blob/master/license
 
@@ -122,12 +157,16 @@ All settings are passed to [`hast-util-to-html`][hast-util-to-html].
 
 [unified]: https://github.com/unifiedjs/unified
 
-[processor]: https://github.com/rehypejs/rehype
+[rehype]: https://github.com/rehypejs/rehype
+
+[processor]: https://github.com/rehypejs/rehype/tree/master/packages/rehype
 
 [compiler]: https://github.com/unifiedjs/unified#processorcompiler
 
 [hast]: https://github.com/syntax-tree/hast
 
 [hast-util-to-html]: https://github.com/syntax-tree/hast-util-to-html#tohtmlnode-options
+
+[rehype-dom-stringify]: https://github.com/rehypejs/rehype-dom/tree/master/packages/rehype-dom-stringify
 
 [announcement]: https://medium.com/unifiedjs/collectively-evolving-through-crowdsourcing-22c359ea95cc
