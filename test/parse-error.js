@@ -10,7 +10,7 @@ var rerrors = require('../packages/rehype-parse/errors.json')
 
 // Related to https://github.com/inikulin/parse5/issues/255
 // and https://github.com/inikulin/parse5/pull/257.
-test.skip('coverage', function(t) {
+test('coverage', function(t) {
   t.deepEqual(
     Object.keys(p5errors).sort(),
     Object.keys(rerrors).sort(),
