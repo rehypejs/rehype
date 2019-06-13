@@ -37,8 +37,6 @@ See [Creating plugins][create] below.
     — syntax highlight code blocks with [Prism](https://prismjs.com), via [`refractor`](https://github.com/wooorm/refractor#browser)
 *   [`rehype-highlight-code-block`](https://github.com/mapbox/rehype-highlight-code-block)
     — syntax highlight code blocks with any function you provide
-*   [`rehype-shiki`](https://github.com/rsclarke/rehype-shiki)
-    — syntax highlight code blocks with [Shiki](https://github.com/octref/shiki/)
 *   [`rehype-katex`](https://github.com/rokt33r/remark-math/blob/master/packages/rehype-katex)
     — render math inline and block with [KaTeX](https://github.com/Khan/KaTeX)
 *   [`rehype-minify`](https://github.com/rehypejs/rehype-minify)
@@ -61,6 +59,8 @@ See [Creating plugins][create] below.
     — sanitize HTML
 *   [`rehype-section`](https://github.com/agentofuser/rehype-section)
     — wrap headings and their contents into nested `<section>` elements
+*   [`rehype-shiki`](https://github.com/rsclarke/rehype-shiki)
+    — syntax highlight code blocks with [Shiki](https://github.com/octref/shiki/)
 *   [`rehype-slug`](https://github.com/rehypejs/rehype-slug)
     — add `id`s to headings
 *   [`rehype-urls`](https://github.com/brechtcs/rehype-urls)
