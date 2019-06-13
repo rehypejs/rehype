@@ -59,6 +59,8 @@ See [Creating plugins][create] below.
     — sanitize HTML
 *   [`rehype-section`](https://github.com/agentofuser/rehype-section)
     — wrap headings and their contents into nested `<section>` elements
+*   [`rehype-shiki`](https://github.com/rsclarke/rehype-shiki)
+    — syntax highlight code blocks with [Shiki](https://github.com/octref/shiki/)
 *   [`rehype-slug`](https://github.com/rehypejs/rehype-slug)
     — add `id`s to headings
 *   [`rehype-urls`](https://github.com/brechtcs/rehype-urls)
