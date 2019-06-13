@@ -33,18 +33,18 @@ See [Creating plugins][create] below.
     — format HTML
 *   [`rehype-highlight`](https://github.com/rehypejs/rehype-highlight)
     — syntax highlight code blocks with [`lowlight`](https://github.com/wooorm/lowlight)
-*   [`rehype-prism`](https://github.com/mapbox/rehype-prism)
-    — syntax highlight code blocks with [Prism](https://prismjs.com), via [`refractor`](https://github.com/wooorm/refractor#browser)
 *   [`rehype-highlight-code-block`](https://github.com/mapbox/rehype-highlight-code-block)
     — syntax highlight code blocks with any function you provide
 *   [`rehype-katex`](https://github.com/rokt33r/remark-math/blob/master/packages/rehype-katex)
     — render math inline and block with [KaTeX](https://github.com/Khan/KaTeX)
 *   [`rehype-minify`](https://github.com/rehypejs/rehype-minify)
     — minify HTML
-*   [`rehype-picture`](https://github.com/rehypejs/rehype-picture)
-    — wrap images in `<picture>`s
 *   [`rehype-partials`](https://github.com/mrzmmr/rehype-partials)
     — partials support for rehype
+*   [`rehype-picture`](https://github.com/rehypejs/rehype-picture)
+    — wrap images in `<picture>`s
+*   [`rehype-prism`](https://github.com/mapbox/rehype-prism)
+    — syntax highlight code blocks with [Prism](https://prismjs.com), via [`refractor`](https://github.com/wooorm/refractor#browser)
 *   [`rehype-raw`](https://github.com/rehypejs/rehype-raw)
     — parse the tree again (and raw nodes)
 *   [`rehype-react`](https://github.com/rhysd/rehype-react)
