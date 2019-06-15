@@ -128,7 +128,7 @@ use `unist-util-`, and if it works with virtual files, use `vfile-`.
 
 [guide]: https://unified.js.org/create-a-plugin.html
 
-[awesome]: https://github.com/rehypejs/awesome
+[awesome]: https://github.com/rehypejs/awesome-rehype
 
 [ideas]: https://github.com/rehypejs/ideas
 
