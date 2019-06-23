@@ -35,6 +35,8 @@ See [Creating plugins][create] below.
     — syntax highlight code blocks with [`lowlight`](https://github.com/wooorm/lowlight)
 *   [`rehype-highlight-code-block`](https://github.com/mapbox/rehype-highlight-code-block)
     — syntax highlight code blocks with any function you provide
+*   [`rehype-inline-svg`](https://github.com/JS-DevTools/rehype-inline-svg)
+    — Inlines and optimizes SVG images
 *   [`rehype-katex`](https://github.com/rokt33r/remark-math/blob/master/packages/rehype-katex)
     — render math inline and block with [KaTeX](https://github.com/Khan/KaTeX)
 *   [`rehype-minify`](https://github.com/rehypejs/rehype-minify)
@@ -63,6 +65,8 @@ See [Creating plugins][create] below.
     — syntax highlight code blocks with [Shiki](https://github.com/octref/shiki/)
 *   [`rehype-slug`](https://github.com/rehypejs/rehype-slug)
     — add `id`s to headings
+*   [`rehype-toc`](https://github.com/JS-DevTools/rehype-toc)
+    — Adds a table of contents (TOC) to the page
 *   [`rehype-urls`](https://github.com/brechtcs/rehype-urls)
     — rewrite URLs of `href` and `src` attributes
 *   [`rehype-webparser`](https://github.com/Prettyhtml/prettyhtml/tree/master/packages/rehype-webparser)
