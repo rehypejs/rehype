@@ -16,7 +16,7 @@ Part of the [unified][] [collective][].
 *   Parses HTML to the tree with [`rehype-parse`][parse]
 *   [**hast**][hast] syntax tree
 *   [Plugins][] transform the tree
-*   Compiles the tree to markdown with [`rehype-stringify`][stringify]
+*   Compiles the tree to HTML with [`rehype-stringify`][stringify]
 
 Don’t need the parser?
 Or the compiler?
