@@ -14,9 +14,9 @@ test('rehype-cli', function(t) {
 
     st.plan(1)
 
-    execa.stdout(bin, ['--help']).then(function(result) {
+    execa(bin, ['--help']).then(function(result) {
       st.equal(
-        result,
+        result.stdout,
         [
           'Usage: rehype [options] [path | glob ...]',
           '',
@@ -68,14 +68,14 @@ test('rehype-cli', function(t) {
 
     st.plan(2)
 
-    execa.stdout(bin, ['--version']).then(function(result) {
+    execa(bin, ['--version']).then(function(result) {
       st.ok(
-        /rehype: \d+\.\d+\.\d+/.test(result),
+        /rehype: \d+\.\d+\.\d+/.test(result.stdout),
         'should include rehype version'
       )
 
       st.ok(
-        /rehype-cli: \d+\.\d+\.\d+/.test(result),
+        /rehype-cli: \d+\.\d+\.\d+/.test(result.stdout),
         'should include rehype-cli version'
       )
     })

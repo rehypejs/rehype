@@ -7,7 +7,7 @@
   "devDependencies": {
     "bail": "^1.0.0",
     "browserify": "^16.0.0",
-    "execa": "^1.0.0",
+    "execa": "^2.0.0",
     "hast-util-assert": "^1.0.0",
     "lerna": "^3.0.0",
     "mdast-zone": "^3.0.0",
