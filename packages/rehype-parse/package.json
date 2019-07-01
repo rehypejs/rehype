@@ -1,6 +1,6 @@
 {
   "name": "rehype-parse",
-  "version": "6.0.0",
+  "version": "6.0.1",
   "description": "HTML parser for rehype",
   "license": "MIT",
   "keywords": [
