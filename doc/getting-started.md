@@ -3,7 +3,7 @@
 # Getting Started
 
 **rehype** transforms natural language.
-It’s an ecosystem of [plugins][plugins].
+It’s an ecosystem of [plugins][].
 If you get stuck, [issues][] and [spectrum][] are good places to get help.
 
 rehype is built on [unified][], make sure to read it and its [website][] too.

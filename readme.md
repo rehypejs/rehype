@@ -13,9 +13,9 @@
 
 ## Intro
 
-**rehype** is an ecosystem of [plugins][plugins] for processing
-HTML to do all kinds of things: [format it][format], [minify it][minify],
-or [wrap it programmatically into a document][document].
+**rehype** is an ecosystem of [plugins][] for processing HTML to do all kinds of
+things: [format it][format], [minify it][minify], or [wrap it programmatically
+into a document][document].
 
 *   Visit [`unified.js.org`][website] and try its [guides][] for an overview
 *   Read [unified][]’s readme for a technical intro
