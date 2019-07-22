@@ -21,7 +21,7 @@
             "className": [
               "c"
             ],
-            "onclick": "e"
+            "onClick": "e"
           },
           "children": [
             {
