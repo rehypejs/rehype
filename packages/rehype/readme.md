@@ -89,6 +89,12 @@ no issues found
 Configuration for [`rehype-parse`][parse] and [`rehype-stringify`][stringify]
 can be set with `.data('settings', {/*...*/})`.
 
+## Security
+
+As **rehype** works on HTML, and improper use of HTML can open you up to a
+[cross-site scripting (XSS)][xss] attack, use of rehype can also be unsafe.
+Use [`rehype-sanitize`][sanitize] to make the tree safe.
+
 ## Contribute
 
 See [`contributing.md`][contributing] in [`rehypejs/.github`][health] for ways
@@ -168,3 +174,7 @@ abide by its terms.
 [unified-usage]: https://github.com/unifiedjs/unified#usage
 
 [announcement]: https://medium.com/unifiedjs/collectively-evolving-through-crowdsourcing-22c359ea95cc
+
+[sanitize]: https://github.com/rehypejs/rehype-sanitize
+
+[xss]: https://en.wikipedia.org/wiki/Cross-site_scripting

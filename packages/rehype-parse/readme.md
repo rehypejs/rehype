@@ -251,6 +251,12 @@ If specified, the following element:
 
 Access to the [parser][], if you need it.
 
+## Security
+
+As **rehype** works on HTML, and improper use of HTML can open you up to a
+[cross-site scripting (XSS)][xss] attack, use of rehype can also be unsafe.
+Use [`rehype-sanitize`][sanitize] to make the tree safe.
+
 ## Contribute
 
 See [`contributing.md`][contributing] in [`rehypejs/.github`][health] for ways
@@ -340,3 +346,7 @@ abide by its terms.
 [enter]: https://github.com/syntax-tree/unist#enter
 
 [exit]: https://github.com/syntax-tree/unist#exit
+
+[sanitize]: https://github.com/rehypejs/rehype-sanitize
+
+[xss]: https://en.wikipedia.org/wiki/Cross-site_scripting

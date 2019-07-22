@@ -64,6 +64,12 @@ This repository contains the following projects:
 
 [**Read more about the unified collective on Medium »**][announcement]
 
+## Security
+
+As **rehype** works on HTML, and improper use of HTML can open you up to a
+[cross-site scripting (XSS)][xss] attack, use of rehype can also be unsafe.
+Use [`rehype-sanitize`][sanitize] to make the tree safe.
+
 ## Contribute
 
 See [`contributing.md`][contributing] in [`rehypejs/.github`][health] for ways
@@ -156,4 +162,8 @@ abide by its terms.
 
 [document]: https://github.com/rehypejs/rehype-document
 
+[sanitize]: https://github.com/rehypejs/rehype-sanitize
+
 [contribute]: #contribute
+
+[xss]: https://en.wikipedia.org/wiki/Cross-site_scripting
