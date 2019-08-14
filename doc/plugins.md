@@ -130,7 +130,7 @@ use `unist-util-`, and if it works with virtual files, use `vfile-`.
 
 [spectrum]: https://spectrum.chat/unified/rehype
 
-[guide]: https://unified.js.org/create-a-plugin.html
+[guide]: https://unifiedjs.com/create-a-plugin.html
 
 [awesome]: https://github.com/rehypejs/awesome-rehype
 

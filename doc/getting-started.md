@@ -112,7 +112,7 @@ no issues found
 
 [unified]: https://github.com/unifiedjs/unified
 
-[website]: https://unified.js.org
+[website]: https://unifiedjs.com
 
 [parse]: https://github.com/rehypejs/rehype/tree/master/packages/rehype-parse
 
