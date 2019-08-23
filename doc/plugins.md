@@ -69,6 +69,8 @@ See [Creating plugins][create] below.
     — Adds a table of contents (TOC) to the page
 *   [`rehype-urls`](https://github.com/brechtcs/rehype-urls)
     — rewrite URLs of `href` and `src` attributes
+*   [`rehype-url-inspector`](https://github.com/JS-DevTools/rehype-url-inspector)
+    — inspect, validate, or rewrite URLs anywhere in the document
 *   [`rehype-webparser`](https://github.com/Prettyhtml/prettyhtml/tree/master/packages/rehype-webparser)
     — less strict HTML parser
 
