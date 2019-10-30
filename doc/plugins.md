@@ -67,6 +67,9 @@ See [Creating plugins][create] below.
     — add `id`s to headings
 *   [`rehype-toc`](https://github.com/JS-DevTools/rehype-toc)
     — Adds a table of contents (TOC) to the page
+*   [`rehype-truncate`](https://github.com/luk707/rehype-truncate)
+    — truncates html to a specified number of characters whilst its preserving
+    structure
 *   [`rehype-urls`](https://github.com/brechtcs/rehype-urls)
     — rewrite URLs of `href` and `src` attributes
 *   [`rehype-url-inspector`](https://github.com/JS-DevTools/rehype-url-inspector)
