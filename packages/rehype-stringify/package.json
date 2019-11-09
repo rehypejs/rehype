@@ -1,6 +1,6 @@
 {
   "name": "rehype-stringify",
-  "version": "6.0.0",
+  "version": "6.0.1",
   "description": "HTML compiler for rehype",
   "license": "MIT",
   "keywords": [
