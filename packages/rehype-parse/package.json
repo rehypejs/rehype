@@ -25,7 +25,7 @@
   "dependencies": {
     "hast-util-from-parse5": "^5.0.0",
     "parse5": "^5.0.0",
-    "xtend": "^4.0.1"
+    "xtend": "^4.0.0"
   },
   "xo": false
 }
