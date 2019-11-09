@@ -40,7 +40,7 @@
     }
   ],
   "data": {
-    "quirksMode": false
+    "quirksMode": true
   },
   "position": {
     "start": {
