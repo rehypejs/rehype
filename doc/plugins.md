@@ -35,6 +35,8 @@ See [Creating plugins][create] below.
     — syntax highlight code blocks with [`lowlight`](https://github.com/wooorm/lowlight)
 *   [`rehype-highlight-code-block`](https://github.com/mapbox/rehype-highlight-code-block)
     — syntax highlight code blocks with any function you provide
+*   [`rehype-inline`](https://github.com/marko-knoebl/rehype-inline)
+    — inline js, css and img files
 *   [`rehype-inline-svg`](https://github.com/JS-DevTools/rehype-inline-svg)
     — Inlines and optimizes SVG images
 *   [`rehype-katex`](https://github.com/rokt33r/remark-math/blob/master/packages/rehype-katex)
