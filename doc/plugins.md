@@ -21,6 +21,8 @@ topic][topic].
 Have a good idea for a new plugin?
 See [Creating plugins][create] below.
 
+*   [`rehype-accessible-emojis`](https://github.com/GaiAma/Coding4GaiAma/tree/master/packages/rehype-accessible-emojis)
+    — make emojis accessible adding role & aria-label
 *   [`rehype-add-classes`](https://github.com/martypdx/rehype-add-classes)
     — add classes by selector
 *   [`rehype-autolink-headings`](https://github.com/rehypejs/rehype-autolink-headings)
