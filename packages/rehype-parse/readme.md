@@ -134,7 +134,7 @@ just the right places.
 
 Which space the document is in (`'svg'` or `'html'`, default: `'html'`).
 
-If an `svg` element is found in the HTML space, `stringify` automatically
+If an `svg` element is found in the HTML space, `parse` automatically
 switches to the SVG space when [**entering**][enter] the element, and switches
 back when [**exiting**][exit].
 
