@@ -1,9 +1,11 @@
 {
   "name": "rehype",
   "version": "9.0.1",
-  "description": "HTML processor powered by plugins",
+  "description": "HTML processor powered by plugins part of the unified collective",
   "license": "MIT",
   "keywords": [
+    "unified",
+    "rehype",
     "html",
     "abstract",
     "syntax",
@@ -11,6 +13,7 @@
     "ast",
     "parse",
     "stringify",
+    "serialize",
     "process"
   ],
   "dependencies": {

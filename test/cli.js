@@ -21,7 +21,7 @@ test('rehype-cli', function (t) {
         [
           'Usage: rehype [options] [path | glob ...]',
           '',
-          '  CLI to process HTML with rehype using plugins',
+          '  CLI to process HTML with rehype',
           '',
           'Options:',
           '',

@@ -1,11 +1,12 @@
 {
   "name": "rehype-cli",
   "version": "8.0.1",
-  "description": "CLI to process HTML with rehype using plugins",
+  "description": "CLI to process HTML with rehype",
   "license": "MIT",
   "keywords": [
-    "html",
+    "unified",
     "rehype",
+    "html",
     "cli",
     "bin"
   ],
