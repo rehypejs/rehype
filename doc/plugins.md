@@ -25,8 +25,12 @@ See [Create plugins][create] below.
     — make emojis accessible adding role & aria-label
 *   [`rehype-add-classes`](https://github.com/martypdx/rehype-add-classes)
     — add classes by selector
+*   [`rehype-annotate`](https://github.com/baldurbjarnason/rehype-annotate)
+    — add W3C-style annotations
 *   [`rehype-autolink-headings`](https://github.com/rehypejs/rehype-autolink-headings)
     — add links to headings
+*   [`rehype-components`](https://github.com/marekweb/rehype-components)
+    — render components (custom elements)
 *   [`rehype-document`](https://github.com/rehypejs/rehype-document)
     — wrap in a document
 *   [`rehype-dom`](https://github.com/kmck/rehype-dom)
@@ -41,8 +45,12 @@ See [Create plugins][create] below.
     — inline js, css and img files
 *   [`rehype-inline-svg`](https://github.com/JS-DevTools/rehype-inline-svg)
     — Inlines and optimizes SVG images
+*   [`rehype-join-line`](https://github.com/unix/rehype-join-line)
+    — resolve line breaks in Chinese paragraphs
 *   [`rehype-katex`](https://github.com/rokt33r/remark-math/blob/master/packages/rehype-katex)
     — render math inline and block with [KaTeX](https://github.com/Khan/KaTeX)
+*   [`rehype-meta`](https://github.com/rehypejs/rehype-meta)
+    — add metadata to the head of a document
 *   [`rehype-minify`](https://github.com/rehypejs/rehype-minify)
     — minify HTML
 *   [`rehype-partials`](https://github.com/mrzmmr/rehype-partials)
@@ -67,6 +75,8 @@ See [Create plugins][create] below.
     — wrap headings and their contents into nested `<section>` elements
 *   [`rehype-shiki`](https://github.com/rsclarke/rehype-shiki)
     — syntax highlight code blocks with [Shiki](https://github.com/octref/shiki/)
+*   [`rehype-slots`](https://github.com/marekweb/rehype-slots)
+    — replace slot elements with injected content
 *   [`rehype-slug`](https://github.com/rehypejs/rehype-slug)
     — add `id`s to headings
 *   [`rehype-toc`](https://github.com/JS-DevTools/rehype-toc)
@@ -80,6 +90,8 @@ See [Create plugins][create] below.
     — inspect, validate, or rewrite URLs anywhere in the document
 *   [`rehype-webparser`](https://github.com/Prettyhtml/prettyhtml/tree/master/packages/rehype-webparser)
     — less strict HTML parser
+*   [`rehype-wrap`](https://github.com/mrzmmr/rehype-wrap)
+    — wrap selected elements with a given element
 
 ## List of utilities
 
