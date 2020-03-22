@@ -10,7 +10,7 @@ var rerrors = require('../packages/rehype-parse/errors.json')
 
 // Related to https://github.com/inikulin/parse5/issues/255
 // and https://github.com/inikulin/parse5/pull/257.
-test('coverage', function(t) {
+test('coverage', function (t) {
   t.deepEqual(
     Object.keys(p5errors).sort(),
     Object.keys(rerrors).sort(),
@@ -20,20 +20,18 @@ test('coverage', function(t) {
   t.end()
 })
 
-test('parse-errors', function(t) {
+test('parse-errors', function (t) {
   var index = -1
   var root = path.join('test', 'parse-error')
   var fixtures = fs.readdirSync(root)
 
-  t.test('surrogate-in-input-stream', function(st) {
+  t.test('surrogate-in-input-stream', function (st) {
     var file = vfile({
       path: 'index.html',
       contents: '<!doctype html>\n' + String.fromCharCode(0xd800)
     })
 
-    rehype()
-      .data('settings', {emitParseErrors: true})
-      .parse(file)
+    rehype().data('settings', {emitParseErrors: true}).parse(file)
 
     st.deepEqual(
       JSON.parse(JSON.stringify(file.messages)),
@@ -81,7 +79,7 @@ test('parse-errors', function(t) {
 
     setImmediate(next) // Queue next.
 
-    t.test(fixture, function(st) {
+    t.test(fixture, function (st) {
       var file = vfile.readSync(path.join(fp, 'index.html'), 'utf8')
       var messages = JSON.parse(
         fs.readFileSync(path.join(fp, 'messages.json'), 'utf8')
@@ -89,9 +87,7 @@ test('parse-errors', function(t) {
 
       file.dirname = ''
 
-      rehype()
-        .data('settings', {emitParseErrors: true})
-        .parse(file)
+      rehype().data('settings', {emitParseErrors: true}).parse(file)
 
       st.deepEqual(
         JSON.parse(JSON.stringify(file.messages)),

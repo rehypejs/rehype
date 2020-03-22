@@ -74,10 +74,7 @@ function parse(options) {
       }
 
       function encodedChar() {
-        var char = doc
-          .charCodeAt(err.startOffset)
-          .toString(16)
-          .toUpperCase()
+        var char = doc.charCodeAt(err.startOffset).toString(16).toUpperCase()
 
         return '0x' + char
       }

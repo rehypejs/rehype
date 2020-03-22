@@ -9,10 +9,10 @@ var join = path.join
 
 var root = join(__dirname, '..', 'test', 'fixtures')
 
-fs.readdir(join(root), function(err, files) {
+fs.readdir(join(root), function (err, files) {
   bail(err)
 
-  files.forEach(function(name) {
+  files.forEach(function (name) {
     var base = join(root, name)
     var config
 
@@ -26,7 +26,7 @@ fs.readdir(join(root), function(err, files) {
       config = {}
     }
 
-    fs.readFile(join(base, 'index.html'), 'utf8', function(err, doc) {
+    fs.readFile(join(base, 'index.html'), 'utf8', function (err, doc) {
       var processor = rehype().use({settings: config})
       var tree = processor.parse(doc)
       var result = processor.stringify(tree)

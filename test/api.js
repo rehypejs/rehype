@@ -13,22 +13,15 @@ var rehype = require('../packages/rehype')
 
 var fragment = {fragment: true}
 
-test('rehype().parse(file)', function(t) {
+test('rehype().parse(file)', function (t) {
   t.equal(
-    unified()
-      .use(parse)
-      .parse('Alfred').children.length,
+    unified().use(parse).parse('Alfred').children.length,
     1,
     'should accept a `string`'
   )
 
   t.deepEqual(
-    clean(
-      unified()
-        .use(parse, fragment)
-        .parse('<img><span></span>'),
-      true
-    ),
+    clean(unified().use(parse, fragment).parse('<img><span></span>'), true),
     {
       type: 'root',
       children: [
@@ -51,12 +44,7 @@ test('rehype().parse(file)', function(t) {
   )
 
   t.deepEqual(
-    clean(
-      unified()
-        .use(parse, fragment)
-        .parse('<foo><span></span>'),
-      true
-    ),
+    clean(unified().use(parse, fragment).parse('<foo><span></span>'), true),
     {
       type: 'root',
       children: [
@@ -82,31 +70,25 @@ test('rehype().parse(file)', function(t) {
   t.end()
 })
 
-test('rehype().stringify(ast, file, options?)', function(t) {
+test('rehype().stringify(ast, file, options?)', function (t) {
   t.throws(
-    function() {
-      unified()
-        .use(stringify)
-        .stringify(false)
+    function () {
+      unified().use(stringify).stringify(false)
     },
     /false/,
     'should throw when `ast` is not a node'
   )
 
   t.throws(
-    function() {
-      unified()
-        .use(stringify)
-        .stringify({type: 'unicorn'})
+    function () {
+      unified().use(stringify).stringify({type: 'unicorn'})
     },
     /unicorn/,
     'should throw when `ast` is not a valid node'
   )
 
   t.equal(
-    unified()
-      .use(stringify)
-      .stringify({type: 'text', value: 'alpha < bravo'}),
+    unified().use(stringify).stringify({type: 'text', value: 'alpha < bravo'}),
     'alpha &#x3C; bravo',
     'should escape entities'
   )
@@ -128,9 +110,7 @@ test('rehype().stringify(ast, file, options?)', function(t) {
   )
 
   t.equal(
-    unified()
-      .use(stringify)
-      .stringify({type: 'element', tagName: 'img'}),
+    unified().use(stringify).stringify({type: 'element', tagName: 'img'}),
     '<img>',
     'should not close void elements'
   )
@@ -144,9 +124,7 @@ test('rehype().stringify(ast, file, options?)', function(t) {
   )
 
   t.equal(
-    unified()
-      .use(stringify)
-      .stringify({type: 'element', tagName: 'foo'}),
+    unified().use(stringify).stringify({type: 'element', tagName: 'foo'}),
     '<foo></foo>',
     'should not close unknown elements by default'
   )
@@ -160,9 +138,7 @@ test('rehype().stringify(ast, file, options?)', function(t) {
   )
 
   t.deepEqual(
-    rehype()
-      .processSync('<!doctypehtml>')
-      .messages.map(String),
+    rehype().processSync('<!doctypehtml>').messages.map(String),
     [],
     'should not emit parse errors by default'
   )
@@ -225,7 +201,7 @@ test('rehype().stringify(ast, file, options?)', function(t) {
   t.end()
 })
 
-test('fixtures', function(t) {
+test('fixtures', function (t) {
   var index = -1
   var root = path.join('test', 'fixtures')
   var fixtures = fs.readdirSync(root)
@@ -249,7 +225,7 @@ test('fixtures', function(t) {
 
     setImmediate(next) // Queue next.
 
-    t.test(fixture, function(st) {
+    t.test(fixture, function (st) {
       var file = vfile.readSync(path.join(fp, 'index.html'))
       var config = {}
       var tree
@@ -267,9 +243,7 @@ test('fixtures', function(t) {
         result = fs.readFileSync(path.join(fp, 'result.html'), 'utf8')
       } catch (_) {}
 
-      node = rehype()
-        .data('settings', config)
-        .parse(file)
+      node = rehype().data('settings', config).parse(file)
 
       try {
         tree = JSON.parse(fs.readFileSync(path.join(fp, 'index.json')))
@@ -285,9 +259,7 @@ test('fixtures', function(t) {
 
       st.deepEqual(tree, node, 'should parse `' + fixture + '`')
 
-      out = rehype()
-        .data('settings', config)
-        .stringify(node)
+      out = rehype().data('settings', config).stringify(node)
 
       if (result) {
         st.equal(out, result, 'should stringify `' + fixture + '`')
@@ -298,11 +270,7 @@ test('fixtures', function(t) {
       if (config.reprocess !== false) {
         st.deepEqual(
           clean(node),
-          clean(
-            rehype()
-              .data('settings', config)
-              .parse(out)
-          ),
+          clean(rehype().data('settings', config).parse(out)),
           'should re-parse `' + fixture + '`'
         )
       }

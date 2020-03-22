@@ -6,15 +6,15 @@ var test = require('tape')
 
 var join = path.join
 
-test('rehype-cli', function(t) {
+test('rehype-cli', function (t) {
   t.plan(2)
 
-  t.test('should show help on `--help`', function(st) {
+  t.test('should show help on `--help`', function (st) {
     var bin = join('packages', 'rehype-cli', 'cli.js')
 
     st.plan(1)
 
-    execa(bin, ['--help']).then(function(result) {
+    execa(bin, ['--help']).then(function (result) {
       st.equal(
         result.stdout,
         [
@@ -64,12 +64,12 @@ test('rehype-cli', function(t) {
     })
   })
 
-  t.test('should show version on `--version`', function(st) {
+  t.test('should show version on `--version`', function (st) {
     var bin = join('packages', 'rehype-cli', 'cli.js')
 
     st.plan(2)
 
-    execa(bin, ['--version']).then(function(result) {
+    execa(bin, ['--version']).then(function (result) {
       st.ok(
         /rehype: \d+\.\d+\.\d+/.test(result.stdout),
         'should include rehype version'

@@ -4,7 +4,4 @@ var unified = require('unified')
 var parse = require('rehype-parse')
 var stringify = require('rehype-stringify')
 
-module.exports = unified()
-  .use(parse)
-  .use(stringify)
-  .freeze()
+module.exports = unified().use(parse).use(stringify).freeze()
