@@ -1,7 +1,7 @@
 'use strict'
 
 var path = require('path')
-var execa = require('execa')
+var exec = require('child_process').exec
 var test = require('tape')
 
 var join = path.join
@@ -12,11 +12,12 @@ test('rehype-cli', function (t) {
   t.test('should show help on `--help`', function (st) {
     var bin = join('packages', 'rehype-cli', 'cli.js')
 
-    st.plan(1)
+    st.plan(2)
 
-    execa(bin, ['--help']).then(function (result) {
+    exec(bin + ' --help', function (error, stdout) {
+      st.ifErr(error)
       st.equal(
-        result.stdout,
+        stdout,
         [
           'Usage: rehype [options] [path | glob ...]',
           '',
@@ -57,7 +58,8 @@ test('rehype-cli', function (t) {
           '  $ rehype < input.html > output.html',
           '',
           '  # Rewrite all applicable files',
-          '  $ rehype . -o'
+          '  $ rehype . -o',
+          ''
         ].join('\n'),
         'should show help'
       )
@@ -67,16 +69,18 @@ test('rehype-cli', function (t) {
   t.test('should show version on `--version`', function (st) {
     var bin = join('packages', 'rehype-cli', 'cli.js')
 
-    st.plan(2)
+    st.plan(3)
 
-    execa(bin, ['--version']).then(function (result) {
+    exec(bin + ' --version', function (error, stdout) {
+      st.ifErr(error)
+
       st.ok(
-        /rehype: \d+\.\d+\.\d+/.test(result.stdout),
+        /rehype: \d+\.\d+\.\d+/.test(stdout),
         'should include rehype version'
       )
 
       st.ok(
-        /rehype-cli: \d+\.\d+\.\d+/.test(result.stdout),
+        /rehype-cli: \d+\.\d+\.\d+/.test(stdout),
         'should include rehype-cli version'
       )
     })
