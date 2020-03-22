@@ -1,22 +1,22 @@
 ![rehype][logo]
 
-# Getting Started
+# Getting started
 
-**rehype** transforms natural language.
+**rehype** transforms HTML.
 It’s an ecosystem of [plugins][].
 If you get stuck, [issues][] and [spectrum][] are good places to get help.
 
 rehype is built on [unified][], make sure to read it and its [website][] too.
 
-## Table of Contents
+## Contents
 
-*   [Introduction](#introduction)
-*   [Command-line](#command-line)
-*   [Programmatic usage](#programmatic-usage)
+*   [Intro](#intro)
+*   [Command line](#command-line)
+*   [Programmatic](#programmatic)
 
-## Introduction
+## Intro
 
-Out of the box, **rehype** transpiles HTML: it’s given, reformatted, and
+Out of the box, **rehype** processes HTML: it’s given, reformatted, and
 written:
 
 ```html
@@ -31,7 +31,7 @@ Yields (in fragment mode):
 
 But much can be done [through plugins][plugins].
 
-## Command-line
+## Command line
 
 **rehype**’s CLI is a simple way to process markdown files from the
 command line.
@@ -39,13 +39,13 @@ Its interface is provided by [**unified-args**][unified-args].
 
 Install [`rehype-cli`][cli] and dependencies with [npm][]:
 
-```bash
+```sh
 npm install --global rehype-cli rehype-preset-minify
 ```
 
 `index.html` contains:
 
-```md
+```html
 <!doctype html>
 <html>
   <head>
@@ -60,12 +60,15 @@ npm install --global rehype-cli rehype-preset-minify
 
 `rehype index.html --use preset-minify` yields:
 
-```txt
+```html
 <!doctypehtml><meta charset=utf8><title>Hello</title><p>World!
+```
+
+```txt
 index.html: no issues found
 ```
 
-## Programmatic usage
+## Programmatic
 
 The programmatic interface of **rehype** is provided by [**unified**][unified].
 In fact, [`rehype`][api] is two plugins:
@@ -73,7 +76,7 @@ In fact, [`rehype`][api] is two plugins:
 
 Install [`rehype`][api] with [npm][]:
 
-```bash
+```sh
 npm install rehype
 ```
 
@@ -84,16 +87,19 @@ var rehype = require('rehype')
 var report = require('vfile-reporter')
 
 rehype().process('<title>Hi</title><h2>Hello world!', function(err, file) {
-  console.log(report(err || file))
   console.log(String(file))
+  console.log(report(err || file))
 })
 ```
 
 `node index.js` yields:
 
+```html
+<html><head><title>Hi</title></head><body><h2>Hello world!</h2></body></html>
+```
+
 ```txt
 no issues found
-<html><head><title>Hi</title></head><body><h2>Hello world!</h2></body></html>
 ```
 
 <!-- Definitions -->

@@ -65,7 +65,7 @@ npm install rehype-parse
 This example shows how we can parse HTML with this module and configure it to
 emit parse errors except for duplicate attributes.
 Then we transform HTML to Markdown with [`rehype-remark`][rehype-remark] and
-finally compile that Markdown with [`remark-stringify`][remark-stringify].
+finally serialize that Markdown with [`remark-stringify`][remark-stringify].
 
 Say we have the following file, `example.html`, with a few errors:
 
@@ -268,8 +268,8 @@ Ideas for new plugins and tools can be posted in [`rehypejs/ideas`][ideas].
 A curated list of awesome rehype resources can be found in [**awesome
 rehype**][awesome].
 
-This project has a [Code of Conduct][coc].
-By interacting with this repository, organisation, or community you agree to
+This project has a [code of conduct][coc].
+By interacting with this repository, organization, or community you agree to
 abide by its terms.
 
 ## License
@@ -300,7 +300,7 @@ abide by its terms.
 
 [collective]: https://opencollective.com/unified
 
-[chat-badge]: https://img.shields.io/badge/join%20the%20community-on%20spectrum-7b16ff.svg
+[chat-badge]: https://img.shields.io/badge/chat-spectrum-7b16ff.svg
 
 [chat]: https://spectrum.chat/unified/rehype
 

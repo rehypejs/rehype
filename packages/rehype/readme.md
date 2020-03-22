@@ -8,7 +8,7 @@
 [![Backers][backers-badge]][collective]
 [![Chat][chat-badge]][chat]
 
-[**unified**][unified] processor to parse and compile HTML.
+[**unified**][unified] processor to parse and serialize HTML.
 Powered by [plugins][].
 Part of the [unified][] [collective][].
 
@@ -16,11 +16,11 @@ Part of the [unified][] [collective][].
 *   Parses HTML to the tree with [`rehype-parse`][parse]
 *   [**hast**][hast] syntax tree
 *   [Plugins][] transform the tree
-*   Compiles the tree to HTML with [`rehype-stringify`][stringify]
+*   Serializes the tree to HTML with [`rehype-stringify`][stringify]
 
 Don’t need the parser?
 Or the compiler?
-[That’s OK][unified-usage].
+[That’s OK][unified-use].
 
 If you’re in a browser, trust the content, and value a smaller bundle size, use
 [`rehype-dom`][rehype-dom] instead.
@@ -106,8 +106,8 @@ Ideas for new plugins and tools can be posted in [`rehypejs/ideas`][ideas].
 A curated list of awesome rehype resources can be found in [**awesome
 rehype**][awesome].
 
-This project has a [Code of Conduct][coc].
-By interacting with this repository, organisation, or community you agree to
+This project has a [code of conduct][coc].
+By interacting with this repository, organization, or community you agree to
 abide by its terms.
 
 ## License
@@ -138,7 +138,7 @@ abide by its terms.
 
 [collective]: https://opencollective.com/unified
 
-[chat-badge]: https://img.shields.io/badge/join%20the%20community-on%20spectrum-7b16ff.svg
+[chat-badge]: https://img.shields.io/badge/chat-spectrum-7b16ff.svg
 
 [chat]: https://spectrum.chat/unified/rehype
 
@@ -172,7 +172,7 @@ abide by its terms.
 
 [plugins]: https://github.com/rehypejs/rehype/blob/master/doc/plugins.md
 
-[unified-usage]: https://github.com/unifiedjs/unified#usage
+[unified-use]: https://github.com/unifiedjs/unified#use
 
 [announcement]: https://medium.com/unifiedjs/collectively-evolving-through-crowdsourcing-22c359ea95cc
 

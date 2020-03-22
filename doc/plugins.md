@@ -5,21 +5,21 @@
 **rehype** is an HTML processor powered by plugins part of the [unified][]
 [collective][].
 
-## Table of Contents
+## Contents
 
-*   [List of Plugins](#list-of-plugins)
-*   [List of Utilities](#list-of-utilities)
-*   [Using plugins](#using-plugins)
-*   [Creating plugins](#creating-plugins)
+*   [List of plugins](#list-of-plugins)
+*   [List of utilities](#list-of-utilities)
+*   [Use plugins](#use-plugins)
+*   [Create plugins](#create-plugins)
 
-## List of Plugins
+## List of plugins
 
 See [awesome rehype][awesome] for the most awesome projects in the ecosystem.
 More plugins can be found on GitHub tagged with the [`rehype-plugin`
 topic][topic].
 
 Have a good idea for a new plugin?
-See [Creating plugins][create] below.
+See [Create plugins][create] below.
 
 *   [`rehype-accessible-emojis`](https://github.com/GaiAma/Coding4GaiAma/tree/master/packages/rehype-accessible-emojis)
     — make emojis accessible adding role & aria-label
@@ -81,7 +81,7 @@ See [Creating plugins][create] below.
 *   [`rehype-webparser`](https://github.com/Prettyhtml/prettyhtml/tree/master/packages/rehype-webparser)
     — less strict HTML parser
 
-## List of Utilities
+## List of utilities
 
 See [**hast**][hast-util] for a list of utilities for working with the syntax
 tree.
@@ -90,7 +90,7 @@ nodes, too.
 Finally, see [**vfile**][vfile-util] for a list of utilities working with
 virtual files.
 
-## Using plugins
+## Use plugins
 
 To use a plugin programmatically, invoke the [`use()`][unified-use]
 function.
@@ -98,7 +98,7 @@ function.
 To use plugin with `rehype-cli`, pass a [`--use` flag][unified-args-use]
 or specify it in a [configuration file][config-file-use].
 
-## Creating plugins
+## Create plugins
 
 Have an idea for a plugin?
 Post it on [spectrum][] or in [ideas][] and make it happen!
@@ -151,4 +151,4 @@ use `unist-util-`, and if it works with virtual files, use `vfile-`.
 
 [collective]: https://opencollective.com/unified
 
-[create]: #creating-plugins
+[create]: #create-plugins
