@@ -22,7 +22,7 @@
     "tinyify": "^2.0.0",
     "to-vfile": "^6.0.0",
     "unist-builder": "^2.0.0",
-    "unist-util-remove-position": "^1.0.0",
+    "unist-util-remove-position": "^2.0.0",
     "xo": "^0.28.0"
   },
   "scripts": {
