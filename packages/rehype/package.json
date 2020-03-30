@@ -1,6 +1,6 @@
 {
   "name": "rehype",
-  "version": "9.0.1",
+  "version": "10.0.0",
   "description": "HTML processor powered by plugins part of the unified collective",
   "license": "MIT",
   "keywords": [
