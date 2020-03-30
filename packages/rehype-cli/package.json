@@ -12,7 +12,7 @@
   ],
   "dependencies": {
     "rehype": "^9.0.0",
-    "unified-args": "^7.0.0"
+    "unified-args": "^8.0.0"
   },
   "repository": "https://github.com/rehypejs/rehype/tree/master/packages/rehype-cli",
   "bugs": "https://github.com/rehypejs/rehype/issues",
