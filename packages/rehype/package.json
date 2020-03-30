@@ -19,7 +19,7 @@
   "dependencies": {
     "rehype-parse": "^6.0.0",
     "rehype-stringify": "^6.0.0",
-    "unified": "^8.0.0"
+    "unified": "^9.0.0"
   },
   "homepage": "https://github.com/rehypejs/rehype",
   "repository": "https://github.com/rehypejs/rehype/tree/master/packages/rehype",
