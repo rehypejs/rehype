@@ -34,7 +34,7 @@
     "build": "npm run build-bundle && npm run build-mangle",
     "test-api": "node test",
     "test-coverage": "nyc --reporter lcov tape test/index.js",
-    "test-types": "dtslint packages/rehype-parse/types && dtslint packages/rehype-stringify/types",
+    "test-types": "dtslint packages/rehype-parse/types && dtslint packages/rehype-stringify/types && dtslint packages/rehype/types",
     "test": "npm run format && npm run build && npm run test-coverage && npm run test-types"
   },
   "nyc": {
