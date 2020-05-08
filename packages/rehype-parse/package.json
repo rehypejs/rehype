@@ -28,8 +28,10 @@
   ],
   "files": [
     "index.js",
+    "types/index.d.ts",
     "errors.json"
   ],
+  "types": "types/index.d.ts",
   "dependencies": {
     "hast-util-from-parse5": "^5.0.0",
     "parse5": "^5.0.0",
