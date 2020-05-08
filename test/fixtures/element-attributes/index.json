@@ -38,9 +38,7 @@
       "tagName": "a",
       "properties": {
         "href": "http://alpha.com",
-        "className": [
-          "bravo"
-        ],
+        "className": ["bravo"],
         "download": true
       },
       "children": [],
@@ -402,10 +400,7 @@
       "type": "element",
       "tagName": "code",
       "properties": {
-        "className": [
-          "language-foo",
-          "bar"
-        ]
+        "className": ["language-foo", "bar"]
       },
       "children": [],
       "position": {
@@ -581,10 +576,7 @@
       "type": "element",
       "tagName": "img",
       "properties": {
-        "srcSet": [
-          "medium.jpg 1000w",
-          "large.jpg 2000w"
-        ]
+        "srcSet": ["medium.jpg 1000w", "large.jpg 2000w"]
       },
       "children": [],
       "position": {
@@ -620,9 +612,7 @@
       "type": "element",
       "tagName": "img",
       "properties": {
-        "srcSet": [
-          "medium.jpg 1000w"
-        ]
+        "srcSet": ["medium.jpg 1000w"]
       },
       "children": [],
       "position": {
@@ -730,9 +720,7 @@
       "type": "element",
       "tagName": "img",
       "properties": {
-        "srcSet": [
-          ""
-        ]
+        "srcSet": [""]
       },
       "children": [],
       "position": {
@@ -768,9 +756,7 @@
       "type": "element",
       "tagName": "img",
       "properties": {
-        "srcSet": [
-          ""
-        ]
+        "srcSet": [""]
       },
       "children": [],
       "position": {
@@ -806,10 +792,7 @@
       "type": "element",
       "tagName": "img",
       "properties": {
-        "srcSet": [
-          "",
-          "foo"
-        ]
+        "srcSet": ["", "foo"]
       },
       "children": [],
       "position": {
@@ -845,9 +828,7 @@
       "type": "element",
       "tagName": "img",
       "properties": {
-        "srcSet": [
-          "bar"
-        ]
+        "srcSet": ["bar"]
       },
       "children": [],
       "position": {
@@ -883,10 +864,7 @@
       "type": "element",
       "tagName": "img",
       "properties": {
-        "srcSet": [
-          "",
-          "baz"
-        ]
+        "srcSet": ["", "baz"]
       },
       "children": [],
       "position": {

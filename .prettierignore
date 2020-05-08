@@ -1,3 +1,5 @@
 coverage
 rehype.js
 rehype.min.js
+*.html
+*.md
