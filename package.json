@@ -11,6 +11,7 @@
   "devDependencies": {
     "bail": "^1.0.0",
     "browserify": "^16.0.0",
+    "dtslint": "^3.5.0",
     "hast-util-assert": "^2.0.0",
     "lerna": "^3.0.0",
     "mdast-zone": "^4.0.0",
@@ -33,7 +34,8 @@
     "build": "npm run build-bundle && npm run build-mangle",
     "test-api": "node test",
     "test-coverage": "nyc --reporter lcov tape test/index.js",
-    "test": "npm run format && npm run build && npm run test-coverage"
+    "test-types": "dtslint packages/rehype-stringify/types",
+    "test": "npm run format && npm run build && npm run test-coverage && npm run test-types"
   },
   "nyc": {
     "check-coverage": true,
@@ -58,7 +60,8 @@
       "unicorn/string-content": "off"
     },
     "ignores": [
-      "rehype.js"
+      "rehype.js",
+      "**/*.ts"
     ]
   },
   "remarkConfig": {

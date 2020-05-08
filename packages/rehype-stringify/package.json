@@ -29,10 +29,12 @@
     "Titus Wormer <tituswormer@gmail.com> (https://wooorm.com)"
   ],
   "files": [
-    "index.js"
+    "index.js",
+    "types/index.d.ts"
   ],
+  "types": "types/index.d.ts",
   "dependencies": {
-    "hast-util-to-html": "^7.0.0",
+    "hast-util-to-html": "^7.1.1",
     "xtend": "^4.0.0"
   },
   "xo": false
