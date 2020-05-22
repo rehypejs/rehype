@@ -5,7 +5,9 @@
       "type": "element",
       "tagName": "html",
       "properties": {
-        "className": ["d"],
+        "className": [
+          "d"
+        ],
         "onClick": "e"
       },
       "children": [
@@ -21,7 +23,9 @@
           "properties": {
             "id": "a",
             "title": "b",
-            "className": ["c"]
+            "className": [
+              "c"
+            ]
           },
           "children": [
             {
