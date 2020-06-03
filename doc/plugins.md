@@ -79,6 +79,8 @@ See [Create plugins][create] below.
     — replace slot elements with injected content
 *   [`rehype-slug`](https://github.com/rehypejs/rehype-slug)
     — add `id`s to headings
+*   [`rehype-template`](https://github.com/nzt/rehype-template)
+    — wrap content with template literal
 *   [`rehype-toc`](https://github.com/JS-DevTools/rehype-toc)
     — Adds a table of contents (TOC) to the page
 *   [`rehype-truncate`](https://github.com/luk707/rehype-truncate)
