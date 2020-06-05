@@ -8,7 +8,8 @@ declare namespace rehypeParse {
     Parser: Parser
   }
 
-  interface RehypeParserOptions extends HastUtilFromParse5Options {
+  interface RehypeParserOptions
+    extends Pick<HastUtilFromParse5Options, 'space' | 'verbose'> {
     /**
      * Specify whether to parse a fragment, instead of a complete document.
      * In document mode, unopened `html`, `head`, and `body` elements are opened in
