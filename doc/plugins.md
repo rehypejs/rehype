@@ -65,6 +65,8 @@ See [Create plugins][create] below.
     — compile to React
 *   [`rehype-remark`](https://github.com/rehypejs/rehype-remark)
     — [`remark`](https://github.com/wooorm/remark) support
+*   [`rehype-remove-unused-css`](https://github.com/nzt/rehype-remove-unused-css)
+    — Remove unused css
 *   [`rehype-resolution`](https://github.com/michaelnisi/rehype-resolution)
     — inject resolution `srcset` into images
 *   [`rehype-retext`](https://github.com/rehypejs/rehype-retext)
