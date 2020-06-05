@@ -6,15 +6,17 @@ import {HastUtilToHtmlOptions} from 'hast-util-to-html'
 declare class RehypeCompiler implements Compiler {
   compile(): string
   visitors: {
-    [key: string]: remarkStringify.Visitor
+    [key: string]: rehypeStringify.Visitor
   }
 }
 
-declare namespace remarkStringify {
+declare namespace rehypeStringify {
   interface Stringify extends Plugin<[HastUtilToHtmlOptions?]> {
     Compiler: typeof RehypeCompiler
     (this: Processor, options?: HastUtilToHtmlOptions): void
   }
+
+  type RehypeStringifyOptions = HastUtilToHtmlOptions
 
   type Compiler = RehypeCompiler
 

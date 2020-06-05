@@ -2,10 +2,10 @@
 
 import {Processor} from 'unified'
 import {RehypeParserOptions} from 'rehype-parse'
-import {HastUtilToHtmlOptions} from 'hast-util-to-html'
+import {RehypeStringifyOptions} from 'rehype-stringify'
 
 declare namespace rehype {
-  type RehypeOptions = HastUtilToHtmlOptions & RehypeParserOptions
+  type RehypeOptions = RehypeStringifyOptions & RehypeParserOptions
 }
 
 declare function rehype(): Processor<rehype.RehypeOptions>
