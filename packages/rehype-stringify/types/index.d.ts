@@ -23,6 +23,6 @@ declare namespace rehypeStringify {
   type Visitor = (node: Node, parent?: Parent) => string
 }
 
-declare const rehypeStringify: remarkStringify.Stringify
+declare const rehypeStringify: rehypeStringify.Stringify
 
 export = rehypeStringify
