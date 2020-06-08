@@ -2,7 +2,6 @@
 
 var fromParse5 = require('hast-util-from-parse5')
 var Parser5 = require('parse5/lib/parser')
-var xtend = require('xtend')
 var errors = require('./errors.json')
 
 var base = 'https://html.spec.whatwg.org/multipage/parsing.html#parse-error-'
@@ -12,7 +11,7 @@ var fatalities = {2: true, 1: false, 0: null}
 module.exports = parse
 
 function parse(options) {
-  var settings = xtend(options, this.data('settings'))
+  var settings = Object.assign({}, options, this.data('settings'))
   var position = settings.position
 
   position = typeof position === 'boolean' ? position : true
