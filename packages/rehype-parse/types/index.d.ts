@@ -4,11 +4,11 @@ import {Node, Parent} from 'unist'
 import {HastUtilFromParse5Options} from 'hast-util-from-parse5'
 
 declare namespace rehypeParse {
-  interface Parse extends Plugin<[RehypeParserOptions?]> {
+  interface Parse extends Plugin<[RehypeParseOptions?]> {
     Parser: Parser
   }
 
-  interface RehypeParserOptions
+  interface RehypeParseOptions
     extends Pick<HastUtilFromParse5Options, 'space' | 'verbose'> {
     /**
      * Specify whether to parse a fragment, instead of a complete document.
