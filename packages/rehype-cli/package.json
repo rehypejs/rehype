@@ -14,7 +14,7 @@
     "rehype": "^11.0.0",
     "unified-args": "^8.0.0"
   },
-  "repository": "https://github.com/rehypejs/rehype/tree/master/packages/rehype-cli",
+  "repository": "https://github.com/rehypejs/rehype/tree/main/packages/rehype-cli",
   "bugs": "https://github.com/rehypejs/rehype/issues",
   "funding": {
     "type": "opencollective",

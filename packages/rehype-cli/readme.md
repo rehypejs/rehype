@@ -172,17 +172,17 @@ abide by its terms.
 
 [health]: https://github.com/rehypejs/.github
 
-[contributing]: https://github.com/rehypejs/.github/blob/master/contributing.md
+[contributing]: https://github.com/rehypejs/.github/blob/HEAD/contributing.md
 
-[support]: https://github.com/rehypejs/.github/blob/master/support.md
+[support]: https://github.com/rehypejs/.github/blob/HEAD/support.md
 
-[coc]: https://github.com/rehypejs/.github/blob/master/code-of-conduct.md
+[coc]: https://github.com/rehypejs/.github/blob/HEAD/code-of-conduct.md
 
 [ideas]: https://github.com/rehypejs/ideas
 
 [awesome]: https://github.com/rehypejs/awesome-rehype
 
-[license]: https://github.com/rehypejs/rehype/blob/master/license
+[license]: https://github.com/rehypejs/rehype/blob/main/license
 
 [author]: https://wooorm.com
 
@@ -190,11 +190,11 @@ abide by its terms.
 
 [rehype]: https://github.com/rehypejs/rehype
 
-[plugins]: https://github.com/rehypejs/rehype/blob/master/doc/plugins.md
+[plugins]: https://github.com/rehypejs/rehype/blob/main/doc/plugins.md
 
-[config-file]: https://github.com/unifiedjs/unified-engine/blob/master/doc/configure.md
+[config-file]: https://github.com/unifiedjs/unified-engine/blob/HEAD/doc/configure.md
 
-[ignore-file]: https://github.com/unifiedjs/unified-engine/blob/master/doc/ignore.md
+[ignore-file]: https://github.com/unifiedjs/unified-engine/blob/HEAD/doc/ignore.md
 
 [unified-args]: https://github.com/unifiedjs/unified-args#cli
 

@@ -21,7 +21,7 @@ topic][topic].
 Have a good idea for a new plugin?
 See [Create plugins][create] below.
 
-*   [`rehype-accessible-emojis`](https://github.com/GaiAma/Coding4GaiAma/tree/master/packages/rehype-accessible-emojis)
+*   [`rehype-accessible-emojis`](https://github.com/GaiAma/Coding4GaiAma/tree/HEAD/packages/rehype-accessible-emojis)
     — make emojis accessible adding role & aria-label
 *   [`rehype-add-classes`](https://github.com/martypdx/rehype-add-classes)
     — add classes by selector
@@ -47,7 +47,7 @@ See [Create plugins][create] below.
     — Inlines and optimizes SVG images
 *   [`rehype-join-line`](https://github.com/unix/rehype-join-line)
     — resolve line breaks in Chinese paragraphs
-*   [`rehype-katex`](https://github.com/rokt33r/remark-math/blob/master/packages/rehype-katex)
+*   [`rehype-katex`](https://github.com/remarkjs/remark-math/tree/HEAD/packages/rehype-katex)
     — render math inline and block with [KaTeX](https://github.com/Khan/KaTeX)
 *   [`rehype-meta`](https://github.com/rehypejs/rehype-meta)
     — add metadata to the head of a document
@@ -92,7 +92,7 @@ See [Create plugins][create] below.
     — rewrite URLs of `href` and `src` attributes
 *   [`rehype-url-inspector`](https://github.com/JS-DevTools/rehype-url-inspector)
     — inspect, validate, or rewrite URLs anywhere in the document
-*   [`rehype-webparser`](https://github.com/Prettyhtml/prettyhtml/tree/master/packages/rehype-webparser)
+*   [`rehype-webparser`](https://github.com/Prettyhtml/prettyhtml/tree/HEAD/packages/rehype-webparser)
     — less strict HTML parser
 *   [`rehype-wrap`](https://github.com/mrzmmr/rehype-wrap)
     — wrap selected elements with a given element
@@ -147,7 +147,7 @@ use `unist-util-`, and if it works with virtual files, use `vfile-`.
 
 [unified-args-use]: https://github.com/unifiedjs/unified-args#--use-plugin
 
-[config-file-use]: https://github.com/unifiedjs/unified-engine/blob/master/doc/configure.md#plugins
+[config-file-use]: https://github.com/unifiedjs/unified-engine/blob/HEAD/doc/configure.md#plugins
 
 [unified-plugins]: https://github.com/unifiedjs/unified#plugin
 

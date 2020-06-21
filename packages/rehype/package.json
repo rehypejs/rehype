@@ -22,7 +22,7 @@
     "unified": "^9.0.0"
   },
   "homepage": "https://github.com/rehypejs/rehype",
-  "repository": "https://github.com/rehypejs/rehype/tree/master/packages/rehype",
+  "repository": "https://github.com/rehypejs/rehype/tree/main/packages/rehype",
   "bugs": "https://github.com/rehypejs/rehype/issues",
   "funding": {
     "type": "opencollective",

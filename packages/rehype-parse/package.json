@@ -16,7 +16,7 @@
     "parse"
   ],
   "homepage": "https://github.com/rehypejs/rehype",
-  "repository": "https://github.com/rehypejs/rehype/tree/master/packages/rehype-parse",
+  "repository": "https://github.com/rehypejs/rehype/tree/main/packages/rehype-parse",
   "bugs": "https://github.com/rehypejs/rehype/issues",
   "funding": {
     "type": "opencollective",

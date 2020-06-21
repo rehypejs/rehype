@@ -18,7 +18,7 @@
     "compile"
   ],
   "homepage": "https://github.com/rehypejs/rehype",
-  "repository": "https://github.com/rehypejs/rehype/tree/master/packages/rehype-stringify",
+  "repository": "https://github.com/rehypejs/rehype/tree/main/packages/rehype-stringify",
   "bugs": "https://github.com/rehypejs/rehype/issues",
   "funding": {
     "type": "opencollective",

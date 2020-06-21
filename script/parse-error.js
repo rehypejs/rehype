@@ -7,7 +7,7 @@ var errors = require('../packages/rehype-parse/errors.json')
 var repo = require('../package.json').repository
 
 var whatwg = 'https://html.spec.whatwg.org/multipage/parsing.html#parse-error-'
-var base = 'https://github.com/' + repo + '/blob/master'
+var base = 'https://github.com/' + repo + '/blob/main'
 
 var ignoreFixture = {
   surrogateInInputStream: true

@@ -131,11 +131,11 @@ abide by its terms.
 
 [health]: https://github.com/rehypejs/.github
 
-[contributing]: https://github.com/rehypejs/.github/blob/master/contributing.md
+[contributing]: https://github.com/rehypejs/.github/blob/HEAD/contributing.md
 
-[support]: https://github.com/rehypejs/.github/blob/master/support.md
+[support]: https://github.com/rehypejs/.github/blob/HEAD/support.md
 
-[coc]: https://github.com/rehypejs/.github/blob/master/code-of-conduct.md
+[coc]: https://github.com/rehypejs/.github/blob/HEAD/code-of-conduct.md
 
 [license]: license
 
@@ -151,15 +151,15 @@ abide by its terms.
 
 [twitter]: https://twitter.com/unifiedjs
 
-[parse]: https://github.com/rehypejs/rehype/tree/master/packages/rehype-parse
+[parse]: https://github.com/rehypejs/rehype/tree/main/packages/rehype-parse
 
-[stringify]: https://github.com/rehypejs/rehype/tree/master/packages/rehype-stringify
+[stringify]: https://github.com/rehypejs/rehype/tree/main/packages/rehype-stringify
 
-[api]: https://github.com/rehypejs/rehype/tree/master/packages/rehype
+[api]: https://github.com/rehypejs/rehype/tree/main/packages/rehype
 
-[cli]: https://github.com/rehypejs/rehype/tree/master/packages/rehype-cli
+[cli]: https://github.com/rehypejs/rehype/tree/main/packages/rehype-cli
 
-[plugins]: https://github.com/rehypejs/rehype/tree/master/doc/plugins.md
+[plugins]: https://github.com/rehypejs/rehype/tree/main/doc/plugins.md
 
 [ideas]: https://github.com/rehypejs/ideas
 

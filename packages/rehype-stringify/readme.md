@@ -156,17 +156,17 @@ abide by its terms.
 
 [health]: https://github.com/rehypejs/.github
 
-[contributing]: https://github.com/rehypejs/.github/blob/master/contributing.md
+[contributing]: https://github.com/rehypejs/.github/blob/HEAD/contributing.md
 
-[support]: https://github.com/rehypejs/.github/blob/master/support.md
+[support]: https://github.com/rehypejs/.github/blob/HEAD/support.md
 
-[coc]: https://github.com/rehypejs/.github/blob/master/code-of-conduct.md
+[coc]: https://github.com/rehypejs/.github/blob/HEAD/code-of-conduct.md
 
 [ideas]: https://github.com/rehypejs/ideas
 
 [awesome]: https://github.com/rehypejs/awesome-rehype
 
-[license]: https://github.com/rehypejs/rehype/blob/master/license
+[license]: https://github.com/rehypejs/rehype/blob/main/license
 
 [author]: https://wooorm.com
 
@@ -176,7 +176,7 @@ abide by its terms.
 
 [rehype]: https://github.com/rehypejs/rehype
 
-[processor]: https://github.com/rehypejs/rehype/tree/master/packages/rehype
+[processor]: https://github.com/rehypejs/rehype/tree/main/packages/rehype
 
 [compiler]: https://github.com/unifiedjs/unified#processorcompiler
 
@@ -184,7 +184,7 @@ abide by its terms.
 
 [hast-util-to-html]: https://github.com/syntax-tree/hast-util-to-html#tohtmlnode-options
 
-[rehype-dom-stringify]: https://github.com/rehypejs/rehype-dom/tree/master/packages/rehype-dom-stringify
+[rehype-dom-stringify]: https://github.com/rehypejs/rehype-dom/tree/HEAD/packages/rehype-dom-stringify
 
 [sanitize]: https://github.com/rehypejs/rehype-sanitize
 

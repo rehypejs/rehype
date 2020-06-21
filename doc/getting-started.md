@@ -112,18 +112,18 @@ no issues found
 
 [npm]: https://docs.npmjs.com/cli/install
 
-[api]: https://github.com/rehypejs/rehype/tree/master/packages/rehype
+[api]: https://github.com/rehypejs/rehype/tree/main/packages/rehype
 
-[plugins]: https://github.com/rehypejs/rehype/tree/master/doc/plugins.md
+[plugins]: https://github.com/rehypejs/rehype/tree/main/doc/plugins.md
 
 [unified]: https://github.com/unifiedjs/unified
 
 [website]: https://unifiedjs.com
 
-[parse]: https://github.com/rehypejs/rehype/tree/master/packages/rehype-parse
+[parse]: https://github.com/rehypejs/rehype/tree/main/packages/rehype-parse
 
-[stringify]: https://github.com/rehypejs/rehype/tree/master/packages/rehype-stringify
+[stringify]: https://github.com/rehypejs/rehype/tree/main/packages/rehype-stringify
 
 [unified-args]: https://github.com/unifiedjs/unified-args
 
-[cli]: https://github.com/rehypejs/rehype/tree/master/packages/rehype-cli
+[cli]: https://github.com/rehypejs/rehype/tree/main/packages/rehype-cli

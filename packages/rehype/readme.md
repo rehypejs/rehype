@@ -154,17 +154,17 @@ abide by its terms.
 
 [health]: https://github.com/rehypejs/.github
 
-[contributing]: https://github.com/rehypejs/.github/blob/master/contributing.md
+[contributing]: https://github.com/rehypejs/.github/blob/HEAD/contributing.md
 
-[support]: https://github.com/rehypejs/.github/blob/master/support.md
+[support]: https://github.com/rehypejs/.github/blob/HEAD/support.md
 
-[coc]: https://github.com/rehypejs/.github/blob/master/code-of-conduct.md
+[coc]: https://github.com/rehypejs/.github/blob/HEAD/code-of-conduct.md
 
 [ideas]: https://github.com/rehypejs/ideas
 
 [awesome]: https://github.com/rehypejs/awesome-rehype
 
-[license]: https://github.com/rehypejs/rehype/blob/master/license
+[license]: https://github.com/rehypejs/rehype/blob/main/license
 
 [author]: https://wooorm.com
 
@@ -174,13 +174,13 @@ abide by its terms.
 
 [hast]: https://github.com/syntax-tree/hast
 
-[parse]: https://github.com/rehypejs/rehype/blob/master/packages/rehype-parse
+[parse]: https://github.com/rehypejs/rehype/blob/main/packages/rehype-parse
 
-[stringify]: https://github.com/rehypejs/rehype/blob/master/packages/rehype-stringify
+[stringify]: https://github.com/rehypejs/rehype/blob/main/packages/rehype-stringify
 
-[rehype-dom]: https://github.com/rehypejs/rehype-dom/tree/master/packages/rehype-dom
+[rehype-dom]: https://github.com/rehypejs/rehype-dom/tree/HEAD/packages/rehype-dom
 
-[plugins]: https://github.com/rehypejs/rehype/blob/master/doc/plugins.md
+[plugins]: https://github.com/rehypejs/rehype/blob/main/doc/plugins.md
 
 [unified-use]: https://github.com/unifiedjs/unified#use
 
