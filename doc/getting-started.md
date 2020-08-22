@@ -4,7 +4,7 @@
 
 **rehype** transforms HTML.
 It’s an ecosystem of [plugins][].
-If you get stuck, [issues][] and [spectrum][] are good places to get help.
+If you get stuck, [issues][] and [discussions][] are good places to get help.
 
 rehype is built on [unified][], make sure to read it and its [website][] too.
 
@@ -108,7 +108,7 @@ no issues found
 
 [issues]: https://github.com/rehypejs/rehype/issues
 
-[spectrum]: https://spectrum.chat/unified/rehype
+[discussions]: https://github.com/rehypejs/rehype/discussions
 
 [npm]: https://docs.npmjs.com/cli/install
 

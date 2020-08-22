@@ -117,14 +117,14 @@ or specify it in a [configuration file][config-file-use].
 ## Create plugins
 
 Have an idea for a plugin?
-Post it on [spectrum][] or in [ideas][] and make it happen!
+Post it on [ideas][] and make it happen!
 
 To create a plugin, first read up on the [concept of plugins][unified-plugins].
 Then, read the [guide on “Creating a plugin with unified”][guide].
 Finally, take one of existing plugins, which looks similar to what you’re about
 to make, and work from there.
-If you get stuck, [spectrum][], [ideas][], and [issues][] are good places to get
-help.
+If you get stuck, [ideas][], [issues][], and [discussions][] are good places to
+get help.
 
 You should pick a name prefixed by `'rehype-'`, such as `rehype-lint`.
 
@@ -153,7 +153,7 @@ use `unist-util-`, and if it works with virtual files, use `vfile-`.
 
 [issues]: https://github.com/rehypejs/rehype/issues
 
-[spectrum]: https://spectrum.chat/unified/rehype
+[discussions]: https://github.com/rehypejs/rehype/discussions
 
 [guide]: https://unifiedjs.com/learn/guide/create-a-plugin/
 
