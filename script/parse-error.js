@@ -1,6 +1,8 @@
 'use strict'
 
 var u = require('unist-builder')
+var unified = require('unified')
+var parse = require('remark-parse')
 var zone = require('mdast-zone')
 var errors = require('../packages/rehype-parse/errors.json')
 
@@ -24,7 +26,11 @@ function transform(tree) {
 }
 
 function visit(start, nodes, end) {
-  return [start, u('list', {ordered: false}, Object.keys(errors).map(map)), end]
+  return [
+    start,
+    u('list', {ordered: false, spread: false}, Object.keys(errors).map(map)),
+    end
+  ]
 
   function map(name) {
     var info = errors[name]
@@ -33,8 +39,8 @@ function visit(start, nodes, end) {
     var head = u('inlineCode', name)
     var fields = [
       info.url === false ? head : u('link', {url: whatwg + kebab}, [head]),
-      u('text', ' — ' + reason)
-    ]
+      u('text', ' — ')
+    ].concat(unified().use(parse).parse(reason).children)
 
     if (!ignoreFixture[name]) {
       fields.push(

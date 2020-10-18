@@ -231,7 +231,7 @@
     "description": "Unexpected `%c`. Quote the attribute value to include it"
   },
   "unexpectedEqualsSignBeforeAttributeName": {
-    "reason": "Unexpected equals sign before attribute name ",
+    "reason": "Unexpected equals sign before attribute name",
     "description": "Unexpected `%c`. Add an attribute name before it"
   },
   "unexpectedNullCharacter": {
