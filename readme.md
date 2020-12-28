@@ -105,9 +105,9 @@ abide by its terms.
 
 [logo]: https://raw.githubusercontent.com/rehypejs/rehype/90b8f34/logo.svg?sanitize=true
 
-[build-badge]: https://img.shields.io/travis/rehypejs/rehype.svg
+[build-badge]: https://github.com/rehypejs/rehype/workflows/main/badge.svg
 
-[build]: https://travis-ci.org/rehypejs/rehype
+[build]: https://github.com/rehypejs/rehype/actions
 
 [coverage-badge]: https://img.shields.io/codecov/c/github/rehypejs/rehype.svg
 
