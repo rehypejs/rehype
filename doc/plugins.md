@@ -95,6 +95,8 @@ See [Create plugins][create] below.
     — less strict HTML parser
 *   [`rehype-wrap`](https://github.com/mrzmmr/rehype-wrap)
     — wrap selected elements with a given element
+*   [`rehype-wrap-all`](https://github.com/florentb/rehype-wrap-all)
+    — wrap all matching elements with a given element
 
 ## List of utilities
 
