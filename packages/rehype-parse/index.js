@@ -33,18 +33,22 @@ function parse(options) {
       verbose: settings.verbose
     })
 
-    function onerror(err) {
-      var code = err.code
+    function onerror(error) {
+      var code = error.code
       var name = camelcase(code)
       var setting = settings[name]
       var config = setting === undefined || setting === null ? true : setting
       var level = typeof config === 'number' ? config : config ? 1 : 0
       var start = {
-        line: err.startLine,
-        column: err.startCol,
-        offset: err.startOffset
+        line: error.startLine,
+        column: error.startCol,
+        offset: error.startOffset
       }
-      var end = {line: err.endLine, column: err.endCol, offset: err.endOffset}
+      var end = {
+        line: error.endLine,
+        column: error.endCol,
+        offset: error.endOffset
+      }
       var info
       var message
 
@@ -68,12 +72,12 @@ function parse(options) {
 
       function char($0, $1) {
         var offset = $1 ? -parseInt($1, 10) : 0
-        var char = doc.charAt(err.startOffset + offset)
+        var char = doc.charAt(error.startOffset + offset)
         return char === '`' ? '` ` `' : char
       }
 
       function encodedChar() {
-        var char = doc.charCodeAt(err.startOffset).toString(16).toUpperCase()
+        var char = doc.charCodeAt(error.startOffset).toString(16).toUpperCase()
 
         return '0x' + char
       }

@@ -9,8 +9,8 @@ var join = path.join
 
 var root = join(__dirname, '..', 'test', 'fixtures')
 
-fs.readdir(join(root), function (err, files) {
-  bail(err)
+fs.readdir(join(root), function (error, files) {
+  bail(error)
 
   files.forEach(function (name) {
     var base = join(root, name)
@@ -26,12 +26,12 @@ fs.readdir(join(root), function (err, files) {
       config = {}
     }
 
-    fs.readFile(join(base, 'index.html'), 'utf8', function (err, doc) {
+    fs.readFile(join(base, 'index.html'), 'utf8', function (error, doc) {
       var processor = rehype().use({settings: config})
       var tree = processor.parse(doc)
       var result = processor.stringify(tree)
 
-      bail(err)
+      bail(error)
 
       fs.writeFile(
         join(base, 'index.json'),
