@@ -103,7 +103,7 @@ abide by its terms.
 
 <!-- Definitions -->
 
-[logo]: https://raw.githubusercontent.com/rehypejs/rehype/90b8f34/logo.svg?sanitize=true
+[logo]: https://raw.githubusercontent.com/rehypejs/rehype/cb624bd/logo.svg?sanitize=true
 
 [build-badge]: https://github.com/rehypejs/rehype/workflows/main/badge.svg
 

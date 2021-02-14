@@ -136,7 +136,7 @@ use `unist-util-`, and if it works with virtual files, use `vfile-`.
 
 <!--Definitions:-->
 
-[logo]: https://raw.githubusercontent.com/rehypejs/rehype/90b8f34/logo.svg?sanitize=true
+[logo]: https://raw.githubusercontent.com/rehypejs/rehype/cb624bd/logo.svg?sanitize=true
 
 [hast-util]: https://github.com/syntax-tree/hast#list-of-utilities
 

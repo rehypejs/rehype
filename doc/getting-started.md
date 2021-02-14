@@ -104,7 +104,7 @@ no issues found
 
 <!-- Definitions -->
 
-[logo]: https://raw.githubusercontent.com/rehypejs/rehype/90b8f34/logo.svg?sanitize=true
+[logo]: https://raw.githubusercontent.com/rehypejs/rehype/cb624bd/logo.svg?sanitize=true
 
 [issues]: https://github.com/rehypejs/rehype/issues
 
