@@ -27,6 +27,8 @@ See [Create plugins][create] below.
     — add classes by selector
 *   [`rehype-annotate`](https://github.com/baldurbjarnason/rehype-annotate)
     — add W3C-style annotations
+*   [`rehype-attr`](https://github.com/jaywcjlove/rehype-attr)
+    — new syntax to add attributes to Markdown.
 *   [`rehype-autolink-headings`](https://github.com/rehypejs/rehype-autolink-headings)
     — add links to headings
 *   [`rehype-components`](https://github.com/marekweb/rehype-components)
