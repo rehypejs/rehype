@@ -6,10 +6,10 @@ var test = require('tape')
 var vfile = require('to-vfile')
 var clean = require('unist-util-remove-position')
 var hast = require('hast-util-assert')
-var unified = require('../packages/rehype/node_modules/unified')
-var parse = require('../packages/rehype-parse')
-var stringify = require('../packages/rehype-stringify')
-var rehype = require('../packages/rehype')
+var unified = require('../packages/rehype/node_modules/unified/index.js')
+var parse = require('../packages/rehype-parse/index.js')
+var stringify = require('../packages/rehype-stringify/index.js')
+var rehype = require('../packages/rehype/index.js')
 
 var fragment = {fragment: true}
 

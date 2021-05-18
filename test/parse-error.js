@@ -4,8 +4,8 @@ var fs = require('fs')
 var path = require('path')
 var test = require('tape')
 var vfile = require('to-vfile')
-var rehype = require('../packages/rehype')
-var p5errors = require('../packages/rehype-parse/node_modules/parse5/lib/common/error-codes')
+var rehype = require('../packages/rehype/index.js')
+var p5errors = require('../packages/rehype-parse/node_modules/parse5/lib/common/error-codes.js')
 var rerrors = require('../packages/rehype-parse/errors.json')
 
 // Related to https://github.com/inikulin/parse5/issues/255
@@ -50,10 +50,8 @@ test('parse-errors', function (t) {
           ruleId: 'surrogate-in-input-stream',
           file: 'index.html',
           fatal: false,
-          note:
-            'Unexpected code point `0xD800`. Do not use lone surrogate characters in HTML',
-          url:
-            'https://html.spec.whatwg.org/multipage/parsing.html#parse-error-surrogate-in-input-stream'
+          note: 'Unexpected code point `0xD800`. Do not use lone surrogate characters in HTML',
+          url: 'https://html.spec.whatwg.org/multipage/parsing.html#parse-error-surrogate-in-input-stream'
         }
       ],
       'should emit messages'

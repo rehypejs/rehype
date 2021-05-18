@@ -3,21 +3,23 @@
 var fs = require('fs')
 var path = require('path')
 var bail = require('bail')
-var rehype = require('../packages/rehype')
+var rehype = require('../packages/rehype/index.js')
 
 var join = path.join
 
 var root = join(__dirname, '..', 'test', 'fixtures')
 
 fs.readdir(join(root), function (error, files) {
+  var index = -1
+
   bail(error)
 
-  files.forEach(function (name) {
-    var base = join(root, name)
+  while (++index < files.length) {
+    var base = join(root, files[index])
     var config
 
-    if (name.charAt(0) === '.') {
-      return
+    if (files[index].charAt(0) === '.') {
+      continue
     }
 
     try {
@@ -45,5 +47,5 @@ fs.readdir(join(root), function (error, files) {
         fs.writeFile(join(base, 'result.html'), result, bail)
       }
     })
-  })
+  }
 })
