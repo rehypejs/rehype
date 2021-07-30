@@ -5,7 +5,7 @@
     "reason": "Missing quote before system identifier in doctype",
     "line": 1,
     "column": 23,
-    "location": {
+    "position": {
       "start": {
         "line": 1,
         "column": 23,

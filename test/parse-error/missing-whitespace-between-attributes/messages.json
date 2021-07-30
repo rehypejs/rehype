@@ -5,7 +5,7 @@
     "reason": "Missing whitespace between attributes",
     "line": 2,
     "column": 16,
-    "location": {
+    "position": {
       "start": {
         "line": 2,
         "column": 16,

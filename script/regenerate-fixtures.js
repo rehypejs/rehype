@@ -1,11 +1,11 @@
 import fs from 'fs'
 import path from 'path'
-import bail from 'bail'
-import rehype from '../packages/rehype/index.js'
+import {bail} from 'bail'
+import {rehype} from '../packages/rehype/index.js'
 
 const join = path.join
 
-const root = join(__dirname, '..', 'test', 'fixtures')
+const root = join(process.cwd(), 'test', 'fixtures')
 
 fs.readdir(join(root), (error, files) => {
   let index = -1

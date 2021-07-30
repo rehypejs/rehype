@@ -5,7 +5,7 @@
     "reason": "Unexpected slash in tag",
     "line": 2,
     "column": 8,
-    "location": {
+    "position": {
       "start": {
         "line": 2,
         "column": 8,

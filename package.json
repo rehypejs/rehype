@@ -10,19 +10,20 @@
   },
   "type": "module",
   "devDependencies": {
-    "bail": "^1.0.0",
+    "bail": "^2.0.0",
     "c8": "^7.0.0",
     "dtslint": "^4.0.0",
-    "hast-util-assert": "^2.0.0",
-    "lerna": "^3.0.0",
-    "mdast-zone": "^4.0.0",
+    "hast-util-assert": "^3.0.0",
+    "lerna": "^4.0.0",
+    "mdast-zone": "^5.0.0",
     "prettier": "^2.0.0",
     "remark-cli": "^9.0.0",
     "remark-preset-wooorm": "^8.0.0",
     "tape": "^5.0.0",
-    "to-vfile": "^6.0.0",
-    "unist-builder": "^2.0.0",
-    "unist-util-remove-position": "^3.0.0",
+    "to-vfile": "^7.0.0",
+    "unified": "^10.0.0",
+    "unist-builder": "^3.0.0",
+    "unist-util-remove-position": "^4.0.0",
     "xo": "^0.38.0"
   },
   "scripts": {
@@ -50,7 +51,7 @@
   "remarkConfig": {
     "plugins": [
       "preset-wooorm",
-      "./script/parse-error"
+      "./script/parse-error.js"
     ]
   }
 }

@@ -1,4 +1,4 @@
-import toHTML from 'hast-util-to-html'
+import {toHtml} from 'hast-util-to-html'
 
 export default function rehypeStringify(config) {
   const settings = Object.assign({}, config, this.data('settings'))
@@ -6,6 +6,6 @@ export default function rehypeStringify(config) {
   this.Compiler = compiler
 
   function compiler(tree) {
-    return toHTML(tree, settings)
+    return toHtml(tree, settings)
   }
 }

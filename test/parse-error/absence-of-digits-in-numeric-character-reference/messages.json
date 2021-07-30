@@ -5,7 +5,7 @@
     "reason": "Unexpected non-digit at start of numeric character reference",
     "line": 3,
     "column": 3,
-    "location": {
+    "position": {
       "start": {
         "line": 3,
         "column": 3,
@@ -30,7 +30,7 @@
     "reason": "Unexpected non-digit at start of numeric character reference",
     "line": 4,
     "column": 4,
-    "location": {
+    "position": {
       "start": {
         "line": 4,
         "column": 4,

@@ -5,7 +5,7 @@
     "reason": "Unexpected noncharacter code point referenced by character reference",
     "line": 3,
     "column": 9,
-    "location": {
+    "position": {
       "start": {
         "line": 3,
         "column": 9,

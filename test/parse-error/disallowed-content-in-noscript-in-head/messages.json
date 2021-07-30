@@ -5,7 +5,7 @@
     "reason": "Disallowed content inside `<noscript>` in `<head>`",
     "line": 3,
     "column": 11,
-    "location": {
+    "position": {
       "start": {
         "line": 3,
         "column": 11,

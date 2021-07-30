@@ -5,7 +5,7 @@
     "reason": "Unexpected too big numeric character reference",
     "line": 3,
     "column": 11,
-    "location": {
+    "position": {
       "start": {
         "line": 3,
         "column": 11,
@@ -30,7 +30,7 @@
     "reason": "Unexpected too big numeric character reference",
     "line": 4,
     "column": 11,
-    "location": {
+    "position": {
       "start": {
         "line": 4,
         "column": 11,

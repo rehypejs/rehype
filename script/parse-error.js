@@ -1,8 +1,8 @@
 import fs from 'fs'
-import u from 'unist-builder'
-import unified from 'unified'
+import {u} from 'unist-builder'
+import {unified} from 'unified'
 import parse from 'remark-parse'
-import zone from 'mdast-zone'
+import {zone} from 'mdast-zone'
 import {errors} from '../packages/rehype-parse/errors.js'
 
 const pkg = JSON.parse(fs.readFileSync('package.json'))

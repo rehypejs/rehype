@@ -37,7 +37,7 @@
     "index.js"
   ],
   "dependencies": {
-    "hast-util-to-html": "^7.1.1"
+    "hast-util-to-html": "^8.0.0"
   },
   "xo": false
 }

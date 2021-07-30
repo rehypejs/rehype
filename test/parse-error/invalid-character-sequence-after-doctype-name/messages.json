@@ -5,7 +5,7 @@
     "reason": "Invalid sequence after doctype name",
     "line": 1,
     "column": 16,
-    "location": {
+    "position": {
       "start": {
         "line": 1,
         "column": 16,

@@ -5,7 +5,7 @@
     "reason": "Incorrectly closed comment",
     "line": 3,
     "column": 9,
-    "location": {
+    "position": {
       "start": {
         "line": 3,
         "column": 9,

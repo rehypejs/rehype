@@ -5,7 +5,7 @@
     "reason": "Invalid character after system identifier in doctype",
     "line": 1,
     "column": 45,
-    "location": {
+    "position": {
       "start": {
         "line": 1,
         "column": 45,

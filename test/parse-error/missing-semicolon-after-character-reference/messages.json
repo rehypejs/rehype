@@ -5,7 +5,7 @@
     "reason": "Missing semicolon after character reference",
     "line": 3,
     "column": 5,
-    "location": {
+    "position": {
       "start": {
         "line": 3,
         "column": 5,

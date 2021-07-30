@@ -1,25 +1,28 @@
 import fs from 'fs'
 import path from 'path'
 import test from 'tape'
-import vfile from 'to-vfile'
-import clean from 'unist-util-remove-position'
-import hast from 'hast-util-assert'
-import unified from '../packages/rehype/node_modules/unified/index.js'
-import parse from '../packages/rehype-parse/index.js'
-import stringify from '../packages/rehype-stringify/index.js'
+import {readSync} from 'to-vfile'
+import {removePosition} from 'unist-util-remove-position'
+import {assert} from 'hast-util-assert'
+import {unified} from '../packages/rehype/node_modules/unified/index.js'
+import rehypeParse from '../packages/rehype-parse/index.js'
+import rehypeStringify from '../packages/rehype-stringify/index.js'
 import {rehype} from '../packages/rehype/index.js'
 
 const fragment = {fragment: true}
 
 test('rehype().parse(file)', (t) => {
   t.equal(
-    unified().use(parse).parse('Alfred').children.length,
+    unified().use(rehypeParse).parse('Alfred').children.length,
     1,
     'should accept a `string`'
   )
 
   t.deepEqual(
-    clean(unified().use(parse, fragment).parse('<img><span></span>'), true),
+    removePosition(
+      unified().use(rehypeParse, fragment).parse('<img><span></span>'),
+      true
+    ),
     {
       type: 'root',
       children: [
@@ -42,7 +45,10 @@ test('rehype().parse(file)', (t) => {
   )
 
   t.deepEqual(
-    clean(unified().use(parse, fragment).parse('<foo><span></span>'), true),
+    removePosition(
+      unified().use(rehypeParse, fragment).parse('<foo><span></span>'),
+      true
+    ),
     {
       type: 'root',
       children: [
@@ -71,7 +77,7 @@ test('rehype().parse(file)', (t) => {
 test('rehype().stringify(ast, file, options?)', (t) => {
   t.throws(
     () => {
-      unified().use(stringify).stringify(false)
+      unified().use(rehypeStringify).stringify(false)
     },
     /false/,
     'should throw when `ast` is not a node'
@@ -79,21 +85,23 @@ test('rehype().stringify(ast, file, options?)', (t) => {
 
   t.throws(
     () => {
-      unified().use(stringify).stringify({type: 'unicorn'})
+      unified().use(rehypeStringify).stringify({type: 'unicorn'})
     },
     /unicorn/,
     'should throw when `ast` is not a valid node'
   )
 
   t.equal(
-    unified().use(stringify).stringify({type: 'text', value: 'alpha < bravo'}),
+    unified()
+      .use(rehypeStringify)
+      .stringify({type: 'text', value: 'alpha < bravo'}),
     'alpha &#x3C; bravo',
     'should escape entities'
   )
 
   t.equal(
     unified()
-      .use(stringify, {entities: {}})
+      .use(rehypeStringify, {entities: {}})
       .stringify({type: 'text', value: 'alpha < bravo'}),
     'alpha &#x3C; bravo',
     'should encode entities (numbered by default)'
@@ -101,35 +109,35 @@ test('rehype().stringify(ast, file, options?)', (t) => {
 
   t.equal(
     unified()
-      .use(stringify, {entities: {useNamedReferences: true}})
+      .use(rehypeStringify, {entities: {useNamedReferences: true}})
       .stringify({type: 'text', value: 'alpha < bravo'}),
     'alpha &lt; bravo',
     'should encode entities (numbered by default)'
   )
 
   t.equal(
-    unified().use(stringify).stringify({type: 'element', tagName: 'img'}),
+    unified().use(rehypeStringify).stringify({type: 'element', tagName: 'img'}),
     '<img>',
     'should not close void elements'
   )
 
   t.equal(
     unified()
-      .use(stringify, {closeSelfClosing: true})
+      .use(rehypeStringify, {closeSelfClosing: true})
       .stringify({type: 'element', tagName: 'img'}),
     '<img />',
     'should close void elements if `closeSelfClosing` is given'
   )
 
   t.equal(
-    unified().use(stringify).stringify({type: 'element', tagName: 'foo'}),
+    unified().use(rehypeStringify).stringify({type: 'element', tagName: 'foo'}),
     '<foo></foo>',
     'should not close unknown elements by default'
   )
 
   t.equal(
     unified()
-      .use(stringify, {voids: 'foo'})
+      .use(rehypeStringify, {voids: 'foo'})
       .stringify({type: 'element', tagName: 'foo'}),
     '<foo>',
     'should close void elements if configured'
@@ -225,7 +233,7 @@ test('fixtures', (t) => {
     setImmediate(next) // Queue next.
 
     t.test(fixture, (st) => {
-      const file = vfile.readSync(path.join(fp, 'index.html'))
+      const file = readSync(path.join(fp, 'index.html'))
       let config = {}
       let tree
       let result
@@ -252,7 +260,7 @@ test('fixtures', (t) => {
         return
       }
 
-      hast(node)
+      assert(node)
 
       st.deepEqual(tree, node, 'should parse `' + fixture + '`')
 
@@ -266,8 +274,8 @@ test('fixtures', (t) => {
 
       if (config.reprocess !== false) {
         st.deepEqual(
-          clean(node),
-          clean(rehype().data('settings', config).parse(out)),
+          removePosition(node),
+          removePosition(rehype().data('settings', config).parse(out)),
           'should re-parse `' + fixture + '`'
         )
       }

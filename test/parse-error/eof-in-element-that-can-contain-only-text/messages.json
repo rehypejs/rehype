@@ -5,7 +5,7 @@
     "reason": "Unexpected end of file in element that can only contain text",
     "line": 4,
     "column": 1,
-    "location": {
+    "position": {
       "start": {
         "line": 4,
         "column": 1,

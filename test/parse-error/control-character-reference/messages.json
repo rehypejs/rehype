@@ -5,7 +5,7 @@
     "reason": "Unexpected control character reference",
     "line": 3,
     "column": 7,
-    "location": {
+    "position": {
       "start": {
         "line": 3,
         "column": 7,

@@ -1,7 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 import test from 'tape'
-import vfile from 'to-vfile'
+import {toVFile, readSync} from 'to-vfile'
 import {rehype} from '../packages/rehype/index.js'
 import p5errors from '../packages/rehype-parse/node_modules/parse5/lib/common/error-codes.js'
 import {errors as rerrors} from '../packages/rehype-parse/errors.js'
@@ -24,9 +24,9 @@ test('parse-errors', (t) => {
   const fixtures = fs.readdirSync(root)
 
   t.test('surrogate-in-input-stream', (st) => {
-    const file = vfile({
+    const file = toVFile({
       path: 'index.html',
-      contents: '<!doctype html>\n' + String.fromCharCode(0xd800)
+      value: '<!doctype html>\n' + String.fromCharCode(0xd800)
     })
 
     rehype().data('settings', {emitParseErrors: true}).parse(file)
@@ -40,7 +40,7 @@ test('parse-errors', (t) => {
           reason: 'Unexpected surrogate character',
           line: 2,
           column: 1,
-          location: {
+          position: {
             start: {line: 2, column: 1, offset: 16},
             end: {line: 2, column: 1, offset: 16}
           },
@@ -75,7 +75,7 @@ test('parse-errors', (t) => {
     setImmediate(next) // Queue next.
 
     t.test(fixture, (st) => {
-      const file = vfile.readSync(path.join(fp, 'index.html'), 'utf8')
+      const file = readSync(path.join(fp, 'index.html'), 'utf8')
       const messages = JSON.parse(
         fs.readFileSync(path.join(fp, 'messages.json'), 'utf8')
       )

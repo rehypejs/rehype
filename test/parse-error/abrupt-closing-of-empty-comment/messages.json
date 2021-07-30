@@ -5,7 +5,7 @@
     "reason": "Unexpected abruptly closed empty comment",
     "line": 3,
     "column": 15,
-    "location": {
+    "position": {
       "start": {
         "line": 3,
         "column": 15,
@@ -30,7 +30,7 @@
     "reason": "Unexpected abruptly closed empty comment",
     "line": 4,
     "column": 20,
-    "location": {
+    "position": {
       "start": {
         "line": 4,
         "column": 20,

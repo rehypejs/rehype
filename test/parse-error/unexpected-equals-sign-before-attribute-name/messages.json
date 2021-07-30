@@ -5,7 +5,7 @@
     "reason": "Unexpected equals sign before attribute name",
     "line": 3,
     "column": 16,
-    "location": {
+    "position": {
       "start": {
         "line": 3,
         "column": 16,
@@ -30,7 +30,7 @@
     "reason": "Unexpected character in attribute name",
     "line": 3,
     "column": 17,
-    "location": {
+    "position": {
       "start": {
         "line": 3,
         "column": 17,
@@ -55,7 +55,7 @@
     "reason": "Unexpected character in attribute name",
     "line": 3,
     "column": 21,
-    "location": {
+    "position": {
       "start": {
         "line": 3,
         "column": 21,
