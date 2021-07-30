@@ -7,7 +7,6 @@
  * @typedef {Partial<Record<ErrorCode, ErrorSeverity>>} ErrorFields
  *
  * @typedef ParseFields
- * @property {boolean|undefined} [position=true]
  * @property {boolean|undefined} [fragment=false]
  *   Specify whether to parse a fragment, instead of a complete document.
  *   In document mode, unopened `html`, `head`, and `body` elements are opened
@@ -41,8 +40,6 @@ const fatalities = {2: true, 1: false, 0: null}
 export default function rehypeParse(options) {
   const processorSettings = /** @type {Options} */ (this.data('settings'))
   const settings = Object.assign({}, options, processorSettings)
-  const position =
-    typeof settings.position === 'boolean' ? settings.position : true
 
   Object.assign(this, {Parser: parser})
 
@@ -51,7 +48,7 @@ export default function rehypeParse(options) {
     const fn = settings.fragment ? 'parseFragment' : 'parse'
     const onParseError = settings.emitParseErrors ? onerror : null
     const parse5 = new Parser5({
-      sourceCodeLocationInfo: position,
+      sourceCodeLocationInfo: true,
       onParseError,
       scriptingEnabled: false
     })
