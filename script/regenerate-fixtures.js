@@ -41,7 +41,9 @@ fs.readdir(path.join(root), (error, files) => {
       )
 
       if (result === doc) {
-        fs.unlink(path.join(base, 'result.html'), bail)
+        fs.unlink(path.join(base, 'result.html'), () => {
+          /* Empty */
+        })
       } else {
         fs.writeFile(path.join(base, 'result.html'), result, bail)
       }
