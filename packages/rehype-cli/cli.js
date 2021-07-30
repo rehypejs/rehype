@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import {createRequire} from 'node:module'
-import start from 'unified-args'
+import {args} from 'unified-args'
 import {rehype} from 'rehype'
 
 const require = createRequire(import.meta.url)
@@ -8,9 +8,9 @@ const require = createRequire(import.meta.url)
 const proc = require('rehype/package.json')
 const cli = require('./package.json')
 
-start({
-  // @ts-expect-error: fine.
-  processor: rehype,
+// @ts-expect-error: processor is fine.
+args({
+  processor: rehype(),
   name: proc.name,
   description: cli.description,
   version: [
