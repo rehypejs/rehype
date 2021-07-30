@@ -1,7 +1,8 @@
 #!/usr/bin/env node
+import {createRequire} from 'node:module'
 import start from 'unified-args'
 import {rehype} from 'rehype'
-import {createRequire} from 'module'
+
 const require = createRequire(import.meta.url)
 
 const proc = require('rehype/package.json')

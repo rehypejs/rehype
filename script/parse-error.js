@@ -4,7 +4,7 @@
  * @typedef {import('mdast').PhrasingContent} PhrasingContent
  */
 
-import fs from 'fs'
+import fs from 'node:fs'
 import {u} from 'unist-builder'
 import {unified} from 'unified'
 import parse from 'remark-parse'

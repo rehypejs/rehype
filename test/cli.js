@@ -1,5 +1,5 @@
-import path from 'path'
-import {exec} from 'child_process'
+import path from 'node:path'
+import {exec} from 'node:child_process'
 import test from 'tape'
 
 const join = path.join

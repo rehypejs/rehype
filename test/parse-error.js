@@ -1,5 +1,5 @@
-import fs from 'fs'
-import path from 'path'
+import fs from 'node:fs'
+import path from 'node:path'
 import test from 'tape'
 import {toVFile, readSync} from 'to-vfile'
 import {rehype} from '../packages/rehype/index.js'
@@ -27,7 +27,7 @@ test('parse-errors', (t) => {
   t.test('surrogate-in-input-stream', (st) => {
     const file = toVFile({
       path: 'index.html',
-      value: '<!doctype html>\n' + String.fromCharCode(0xd800)
+      value: '<!doctype html>\n' + String.fromCharCode(0xd8_00)
     })
 
     rehype().data('settings', {emitParseErrors: true}).parse(file)
