@@ -74,6 +74,9 @@ Support this effort and give back by sponsoring on [OpenCollective][collective]!
 
 ## Install
 
+This package is [ESM only](https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c):
+Node 12+ is needed to use it and it must be `import`ed instead of `require`d.
+
 [npm][]:
 
 ```sh
@@ -83,13 +86,15 @@ npm install rehype
 ## Use
 
 ```js
-var rehype = require('rehype')
-var report = require('vfile-reporter')
+import {reporter} from 'vfile-reporter'
+import {rehype} from 'rehype'
 
-rehype().process('<title>Hi</title><h2>Hello world!', function(err, file) {
-  console.log(report(err || file))
-  console.log(String(file))
-})
+rehype()
+  .process('<title>Hi</title><h2>Hello world!')
+  .then((file) => {
+    console.log(reporter(file))
+    console.log(String(file))
+  })
 ```
 
 Yields:
