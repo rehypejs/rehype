@@ -26,12 +26,15 @@
   "contributors": [
     "Titus Wormer <tituswormer@gmail.com> (https://wooorm.com)"
   ],
-  "files": [
-    "index.js",
-    "types/index.d.ts",
-    "errors.json"
-  ],
+  "sideEffects": false,
+  "type": "module",
+  "main": "index.js",
   "types": "types/index.d.ts",
+  "files": [
+    "types/index.d.ts",
+    "errors.js",
+    "index.js"
+  ],
   "dependencies": {
     "hast-util-from-parse5": "^6.0.0",
     "parse5": "^6.0.0"

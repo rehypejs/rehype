@@ -1,7 +1,5 @@
-'use strict'
+import unified from 'unified'
+import rehypeParse from 'rehype-parse'
+import rehypeStringify from 'rehype-stringify'
 
-var unified = require('unified')
-var parse = require('rehype-parse')
-var stringify = require('rehype-stringify')
-
-module.exports = unified().use(parse).use(stringify).freeze()
+export const rehype = unified().use(rehypeParse).use(rehypeStringify).freeze()

@@ -8,6 +8,7 @@
     "type": "opencollective",
     "url": "https://opencollective.com/unified"
   },
+  "type": "module",
   "devDependencies": {
     "bail": "^1.0.0",
     "c8": "^7.0.0",
@@ -42,8 +43,9 @@
   },
   "xo": {
     "prettier": true,
-    "esnext": false,
     "rules": {
+      "no-var": "off",
+      "prefer-arrow-callback": "off",
       "unicorn/no-array-callback-reference": "off",
       "unicorn/prefer-number-properties": "off",
       "unicorn/prefer-optional-catch-binding": "off",

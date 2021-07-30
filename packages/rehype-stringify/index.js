@@ -1,10 +1,6 @@
-'use strict'
+import toHTML from 'hast-util-to-html'
 
-var toHTML = require('hast-util-to-html')
-
-module.exports = stringify
-
-function stringify(config) {
+export default function rehypeStringify(config) {
   var settings = Object.assign({}, config, this.data('settings'))
 
   this.Compiler = compiler

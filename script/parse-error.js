@@ -1,12 +1,13 @@
-'use strict'
+import fs from 'fs'
+import u from 'unist-builder'
+import unified from 'unified'
+import parse from 'remark-parse'
+import zone from 'mdast-zone'
+import {errors} from '../packages/rehype-parse/errors.js'
 
-var u = require('unist-builder')
-var unified = require('unified')
-var parse = require('remark-parse')
-var zone = require('mdast-zone')
-var errors = require('../packages/rehype-parse/errors.json')
+const pkg = JSON.parse(fs.readFileSync('package.json'))
 
-var repo = require('../package.json').repository
+var repo = pkg.repository
 
 var whatwg = 'https://html.spec.whatwg.org/multipage/parsing.html#parse-error-'
 var base = 'https://github.com/' + repo + '/blob/main'
@@ -15,9 +16,7 @@ var ignoreFixture = {
   surrogateInInputStream: true
 }
 
-module.exports = parseErrors
-
-function parseErrors() {
+export default function remarkParseErrors() {
   return transform
 }
 
@@ -25,7 +24,7 @@ function transform(tree) {
   zone(tree, 'parse-error', visit)
 }
 
-function visit(start, nodes, end) {
+function visit(start, _, end) {
   return [
     start,
     u('list', {ordered: false, spread: false}, Object.keys(errors).map(map)),

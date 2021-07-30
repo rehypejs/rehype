@@ -1,8 +1,6 @@
-'use strict'
-
-var path = require('path')
-var exec = require('child_process').exec
-var test = require('tape')
+import path from 'path'
+import {exec} from 'child_process'
+import test from 'tape'
 
 var join = path.join
 

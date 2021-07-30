@@ -10,10 +10,6 @@
     "cli",
     "bin"
   ],
-  "dependencies": {
-    "rehype": "^11.0.0",
-    "unified-args": "^8.0.0"
-  },
   "repository": "https://github.com/rehypejs/rehype/tree/main/packages/rehype-cli",
   "bugs": "https://github.com/rehypejs/rehype/issues",
   "funding": {
@@ -24,12 +20,18 @@
   "contributors": [
     "Titus Wormer <tituswormer@gmail.com> (https://wooorm.com)"
   ],
+  "type": "module",
+  "main": "cli.js",
   "bin": {
     "rehype": "cli.js"
   },
   "files": [
     "cli.js"
   ],
+  "dependencies": {
+    "rehype": "^11.0.0",
+    "unified-args": "^8.0.0"
+  },
   "scripts": {},
   "xo": false
 }

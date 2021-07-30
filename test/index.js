@@ -1,7 +1,7 @@
 'use strict'
 
 /* eslint-disable import/no-unassigned-import */
-require('./api.js')
-require('./parse-error.js')
-require('./cli.js')
+import './api.js'
+import './parse-error.js'
+import './cli.js'
 /* eslint-enable import/no-unassigned-import */

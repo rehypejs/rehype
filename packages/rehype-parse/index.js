@@ -1,16 +1,12 @@
-'use strict'
-
-var fromParse5 = require('hast-util-from-parse5')
-var Parser5 = require('parse5/lib/parser')
-var errors = require('./errors.json')
+import fromParse5 from 'hast-util-from-parse5'
+import Parser5 from 'parse5/lib/parser/index.js'
+import {errors} from './errors.js'
 
 var base = 'https://html.spec.whatwg.org/multipage/parsing.html#parse-error-'
 
 var fatalities = {2: true, 1: false, 0: null}
 
-module.exports = parse
-
-function parse(options) {
+export default function rehypeParse(options) {
   var settings = Object.assign({}, options, this.data('settings'))
   var position = settings.position
 
@@ -23,13 +19,13 @@ function parse(options) {
     var onParseError = settings.emitParseErrors ? onerror : null
     var parse5 = new Parser5({
       sourceCodeLocationInfo: position,
-      onParseError: onParseError,
+      onParseError,
       scriptingEnabled: false
     })
 
     return fromParse5(parse5[fn](doc), {
       space: settings.space,
-      file: file,
+      file,
       verbose: settings.verbose
     })
 
@@ -56,7 +52,7 @@ function parse(options) {
         /* c8 ignore next */
         info = errors[name] || {reason: '', description: ''}
 
-        message = file.message(format(info.reason), {start: start, end: end})
+        message = file.message(format(info.reason), {start, end})
         message.source = 'parse-error'
         message.ruleId = code
         message.fatal = fatalities[level]

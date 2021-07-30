@@ -1,15 +1,13 @@
-'use strict'
-
-var fs = require('fs')
-var path = require('path')
-var test = require('tape')
-var vfile = require('to-vfile')
-var clean = require('unist-util-remove-position')
-var hast = require('hast-util-assert')
-var unified = require('../packages/rehype/node_modules/unified/index.js')
-var parse = require('../packages/rehype-parse/index.js')
-var stringify = require('../packages/rehype-stringify/index.js')
-var rehype = require('../packages/rehype/index.js')
+import fs from 'fs'
+import path from 'path'
+import test from 'tape'
+import vfile from 'to-vfile'
+import clean from 'unist-util-remove-position'
+import hast from 'hast-util-assert'
+import unified from '../packages/rehype/node_modules/unified/index.js'
+import parse from '../packages/rehype-parse/index.js'
+import stringify from '../packages/rehype-stringify/index.js'
+import {rehype} from '../packages/rehype/index.js'
 
 var fragment = {fragment: true}
 

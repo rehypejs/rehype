@@ -28,11 +28,14 @@
   "contributors": [
     "Titus Wormer <tituswormer@gmail.com> (https://wooorm.com)"
   ],
-  "files": [
-    "index.js",
-    "types/index.d.ts"
-  ],
+  "sideEffects": false,
+  "type": "module",
+  "main": "index.js",
   "types": "types/index.d.ts",
+  "files": [
+    "types/index.d.ts",
+    "index.js"
+  ],
   "dependencies": {
     "hast-util-to-html": "^7.1.1"
   },

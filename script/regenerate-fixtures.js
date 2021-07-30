@@ -1,9 +1,7 @@
-'use strict'
-
-var fs = require('fs')
-var path = require('path')
-var bail = require('bail')
-var rehype = require('../packages/rehype/index.js')
+import fs from 'fs'
+import path from 'path'
+import bail from 'bail'
+import rehype from '../packages/rehype/index.js'
 
 var join = path.join
 
