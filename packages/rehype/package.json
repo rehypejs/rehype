@@ -17,6 +17,7 @@
     "process"
   ],
   "dependencies": {
+    "@types/hast": "^2.0.0",
     "rehype-parse": "^7.0.0",
     "rehype-stringify": "^8.0.0",
     "unified": "^10.0.0"
@@ -35,11 +36,19 @@
   "sideEffects": false,
   "type": "module",
   "main": "index.js",
-  "types": "types/index.d.ts",
+  "types": "index.d.ts",
   "files": [
-    "types/index.d.ts",
+    "index.d.ts",
     "index.js"
   ],
-  "scripts": {},
-  "xo": false
+  "scripts": {
+    "build": "rimraf \"*.d.ts\" && tsc && type-coverage"
+  },
+  "xo": false,
+  "typeCoverage": {
+    "atLeast": 100,
+    "detail": true,
+    "strict": true,
+    "ignoreCatch": true
+  }
 }

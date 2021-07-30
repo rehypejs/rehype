@@ -1,3 +1,7 @@
+/**
+ * @typedef {import('hast').Root} Root
+ */
+
 import fs from 'fs'
 import path from 'path'
 import test from 'tape'
@@ -12,15 +16,47 @@ import {rehype} from '../packages/rehype/index.js'
 const fragment = {fragment: true}
 
 test('rehype().parse(file)', (t) => {
-  t.equal(
-    unified().use(rehypeParse).parse('Alfred').children.length,
-    1,
+  t.deepEqual(
+    unified().use(rehypeParse).parse('Alfred'),
+    {
+      type: 'root',
+      children: [
+        {
+          type: 'element',
+          tagName: 'html',
+          properties: {},
+          children: [
+            {type: 'element', tagName: 'head', properties: {}, children: []},
+            {
+              type: 'element',
+              tagName: 'body',
+              properties: {},
+              children: [
+                {
+                  type: 'text',
+                  value: 'Alfred',
+                  position: {
+                    start: {line: 1, column: 1, offset: 0},
+                    end: {line: 1, column: 7, offset: 6}
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      data: {quirksMode: true},
+      position: {
+        start: {line: 1, column: 1, offset: 0},
+        end: {line: 1, column: 7, offset: 6}
+      }
+    },
     'should accept a `string`'
   )
 
   t.deepEqual(
     removePosition(
-      unified().use(rehypeParse, fragment).parse('<img><span></span>'),
+      unified().use(rehypeParse, {fragment: true}).parse('<img><span></span>'),
       true
     ),
     {
@@ -77,6 +113,7 @@ test('rehype().parse(file)', (t) => {
 test('rehype().stringify(ast, file, options?)', (t) => {
   t.throws(
     () => {
+      // @ts-expect-error: incorrect value.
       unified().use(rehypeStringify).stringify(false)
     },
     /false/,
@@ -85,6 +122,7 @@ test('rehype().stringify(ast, file, options?)', (t) => {
 
   t.throws(
     () => {
+      // @ts-expect-error: unknown node.
       unified().use(rehypeStringify).stringify({type: 'unicorn'})
     },
     /unicorn/,
@@ -94,7 +132,10 @@ test('rehype().stringify(ast, file, options?)', (t) => {
   t.equal(
     unified()
       .use(rehypeStringify)
-      .stringify({type: 'text', value: 'alpha < bravo'}),
+      .stringify({
+        type: 'root',
+        children: [{type: 'text', value: 'alpha < bravo'}]
+      }),
     'alpha &#x3C; bravo',
     'should escape entities'
   )
@@ -102,7 +143,10 @@ test('rehype().stringify(ast, file, options?)', (t) => {
   t.equal(
     unified()
       .use(rehypeStringify, {entities: {}})
-      .stringify({type: 'text', value: 'alpha < bravo'}),
+      .stringify({
+        type: 'root',
+        children: [{type: 'text', value: 'alpha < bravo'}]
+      }),
     'alpha &#x3C; bravo',
     'should encode entities (numbered by default)'
   )
@@ -110,13 +154,21 @@ test('rehype().stringify(ast, file, options?)', (t) => {
   t.equal(
     unified()
       .use(rehypeStringify, {entities: {useNamedReferences: true}})
-      .stringify({type: 'text', value: 'alpha < bravo'}),
+      .stringify({
+        type: 'root',
+        children: [{type: 'text', value: 'alpha < bravo'}]
+      }),
     'alpha &lt; bravo',
     'should encode entities (numbered by default)'
   )
 
   t.equal(
-    unified().use(rehypeStringify).stringify({type: 'element', tagName: 'img'}),
+    unified()
+      .use(rehypeStringify)
+      .stringify({
+        type: 'root',
+        children: [{type: 'element', tagName: 'img', children: []}]
+      }),
     '<img>',
     'should not close void elements'
   )
@@ -124,21 +176,32 @@ test('rehype().stringify(ast, file, options?)', (t) => {
   t.equal(
     unified()
       .use(rehypeStringify, {closeSelfClosing: true})
-      .stringify({type: 'element', tagName: 'img'}),
+      .stringify({
+        type: 'root',
+        children: [{type: 'element', tagName: 'img', children: []}]
+      }),
     '<img />',
     'should close void elements if `closeSelfClosing` is given'
   )
 
   t.equal(
-    unified().use(rehypeStringify).stringify({type: 'element', tagName: 'foo'}),
+    unified()
+      .use(rehypeStringify)
+      .stringify({
+        type: 'root',
+        children: [{type: 'element', tagName: 'foo', children: []}]
+      }),
     '<foo></foo>',
     'should not close unknown elements by default'
   )
 
   t.equal(
     unified()
-      .use(rehypeStringify, {voids: 'foo'})
-      .stringify({type: 'element', tagName: 'foo'}),
+      .use(rehypeStringify, {voids: ['foo']})
+      .stringify({
+        type: 'root',
+        children: [{type: 'element', tagName: 'foo', children: []}]
+      }),
     '<foo>',
     'should close void elements if configured'
   )
@@ -234,14 +297,19 @@ test('fixtures', (t) => {
 
     t.test(fixture, (st) => {
       const file = readSync(path.join(fp, 'index.html'))
+      /** @type {{fragment?: boolean, reprocess?: boolean}} */
       let config = {}
+      /** @type {Root|undefined} */
       let tree
+      /** @type {string|undefined} */
       let result
 
       file.dirname = ''
 
       try {
-        config = JSON.parse(fs.readFileSync(path.join(fp, 'config.json')))
+        config = JSON.parse(
+          String(fs.readFileSync(path.join(fp, 'config.json')))
+        )
       } catch {}
 
       try {
@@ -251,11 +319,11 @@ test('fixtures', (t) => {
       const node = rehype().data('settings', config).parse(file)
 
       try {
-        tree = JSON.parse(fs.readFileSync(path.join(fp, 'index.json')))
+        tree = JSON.parse(String(fs.readFileSync(path.join(fp, 'index.json'))))
       } catch {
         fs.writeFileSync(
           path.join(fp, 'index.json'),
-          JSON.stringify(node, 0, 2) + '\n'
+          JSON.stringify(node, null, 2) + '\n'
         )
         return
       }

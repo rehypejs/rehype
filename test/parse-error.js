@@ -3,8 +3,9 @@ import path from 'path'
 import test from 'tape'
 import {toVFile, readSync} from 'to-vfile'
 import {rehype} from '../packages/rehype/index.js'
+// @ts-expect-error: untyped.
 import p5errors from '../packages/rehype-parse/node_modules/parse5/lib/common/error-codes.js'
-import {errors as rerrors} from '../packages/rehype-parse/errors.js'
+import {errors as rerrors} from '../packages/rehype-parse/lib/errors.js'
 
 // Related to https://github.com/inikulin/parse5/issues/255
 // and https://github.com/inikulin/parse5/pull/257.
@@ -76,6 +77,7 @@ test('parse-errors', (t) => {
 
     t.test(fixture, (st) => {
       const file = readSync(path.join(fp, 'index.html'), 'utf8')
+      /** @type {Error[]} */
       const messages = JSON.parse(
         fs.readFileSync(path.join(fp, 'messages.json'), 'utf8')
       )

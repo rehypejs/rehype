@@ -3,17 +3,16 @@ import path from 'path'
 import {bail} from 'bail'
 import {rehype} from '../packages/rehype/index.js'
 
-const join = path.join
+const root = path.join(process.cwd(), 'test', 'fixtures')
 
-const root = join(process.cwd(), 'test', 'fixtures')
-
-fs.readdir(join(root), (error, files) => {
+fs.readdir(path.join(root), (error, files) => {
   let index = -1
 
   bail(error)
 
   while (++index < files.length) {
-    const base = join(root, files[index])
+    const base = path.join(root, files[index])
+    /** @type {Record<string, unknown>|undefined} */
     let config
 
     if (files[index].charAt(0) === '.') {
@@ -21,12 +20,14 @@ fs.readdir(join(root), (error, files) => {
     }
 
     try {
-      config = JSON.parse(fs.readFileSync(join(base, 'config.json')))
+      config = JSON.parse(
+        String(fs.readFileSync(path.join(base, 'config.json')))
+      )
     } catch {
       config = {}
     }
 
-    fs.readFile(join(base, 'index.html'), 'utf8', (error, doc) => {
+    fs.readFile(path.join(base, 'index.html'), 'utf8', (error, doc) => {
       const processor = rehype().use({settings: config})
       const tree = processor.parse(doc)
       const result = processor.stringify(tree)
@@ -34,15 +35,15 @@ fs.readdir(join(root), (error, files) => {
       bail(error)
 
       fs.writeFile(
-        join(base, 'index.json'),
-        JSON.stringify(tree, 0, 2) + '\n',
+        path.join(base, 'index.json'),
+        JSON.stringify(tree, null, 2) + '\n',
         bail
       )
 
       if (result === doc) {
-        fs.unlink(join(base, 'result.html'), Function.prototype)
+        fs.unlink(path.join(base, 'result.html'), bail)
       } else {
-        fs.writeFile(join(base, 'result.html'), result, bail)
+        fs.writeFile(path.join(base, 'result.html'), result, bail)
       }
     })
   }

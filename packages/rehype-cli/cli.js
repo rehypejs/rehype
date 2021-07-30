@@ -8,6 +8,7 @@ const proc = require('rehype/package.json')
 const cli = require('./package.json')
 
 start({
+  // @ts-expect-error: fine.
   processor: rehype,
   name: proc.name,
   description: cli.description,

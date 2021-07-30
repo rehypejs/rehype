@@ -169,7 +169,7 @@ back when [**exiting**][exit].
 
 Emit parse errors while parsing on the [vfile][] (`boolean`, default: `false`).
 
-Setting this to true starts emitting [HTML parse errors][parse-errors].
+Setting this to `true` starts emitting [HTML parse errors][parse-errors].
 
 Specific rules can be turned off by setting them to `false` (or `0`).
 The default, when `emitParseErrors: true`, is `true` (or `1`), and means that
