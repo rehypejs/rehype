@@ -43,14 +43,6 @@
   },
   "xo": {
     "prettier": true,
-    "rules": {
-      "no-var": "off",
-      "prefer-arrow-callback": "off",
-      "unicorn/no-array-callback-reference": "off",
-      "unicorn/prefer-number-properties": "off",
-      "unicorn/prefer-optional-catch-binding": "off",
-      "unicorn/string-content": "off"
-    },
     "ignores": [
       "**/*.ts"
     ]

@@ -2,17 +2,17 @@ import path from 'path'
 import {exec} from 'child_process'
 import test from 'tape'
 
-var join = path.join
+const join = path.join
 
-test('rehype-cli', function (t) {
+test('rehype-cli', (t) => {
   t.plan(2)
 
-  t.test('should show help on `--help`', function (st) {
-    var bin = join('packages', 'rehype-cli', 'cli.js')
+  t.test('should show help on `--help`', (st) => {
+    const bin = join('packages', 'rehype-cli', 'cli.js')
 
     st.plan(2)
 
-    exec(bin + ' --help', function (error, stdout) {
+    exec(bin + ' --help', (error, stdout) => {
       st.ifErr(error)
       st.equal(
         stdout,
@@ -66,12 +66,12 @@ test('rehype-cli', function (t) {
     })
   })
 
-  t.test('should show version on `--version`', function (st) {
-    var bin = join('packages', 'rehype-cli', 'cli.js')
+  t.test('should show version on `--version`', (st) => {
+    const bin = join('packages', 'rehype-cli', 'cli.js')
 
     st.plan(3)
 
-    exec(bin + ' --version', function (error, stdout) {
+    exec(bin + ' --version', (error, stdout) => {
       st.ifErr(error)
 
       st.ok(

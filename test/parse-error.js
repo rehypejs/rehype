@@ -8,7 +8,7 @@ import {errors as rerrors} from '../packages/rehype-parse/errors.js'
 
 // Related to https://github.com/inikulin/parse5/issues/255
 // and https://github.com/inikulin/parse5/pull/257.
-test('coverage', function (t) {
+test('coverage', (t) => {
   t.deepEqual(
     Object.keys(p5errors).sort(),
     Object.keys(rerrors).sort(),
@@ -18,13 +18,13 @@ test('coverage', function (t) {
   t.end()
 })
 
-test('parse-errors', function (t) {
-  var index = -1
-  var root = path.join('test', 'parse-error')
-  var fixtures = fs.readdirSync(root)
+test('parse-errors', (t) => {
+  let index = -1
+  const root = path.join('test', 'parse-error')
+  const fixtures = fs.readdirSync(root)
 
-  t.test('surrogate-in-input-stream', function (st) {
-    var file = vfile({
+  t.test('surrogate-in-input-stream', (st) => {
+    const file = vfile({
       path: 'index.html',
       contents: '<!doctype html>\n' + String.fromCharCode(0xd800)
     })
@@ -58,8 +58,7 @@ test('parse-errors', function (t) {
 
   /* Check the next fixture. */
   function next() {
-    var fixture = fixtures[++index]
-    var fp
+    const fixture = fixtures[++index]
 
     if (!fixture) {
       t.end()
@@ -71,13 +70,13 @@ test('parse-errors', function (t) {
       return
     }
 
-    fp = path.join(root, fixture)
+    const fp = path.join(root, fixture)
 
     setImmediate(next) // Queue next.
 
-    t.test(fixture, function (st) {
-      var file = vfile.readSync(path.join(fp, 'index.html'), 'utf8')
-      var messages = JSON.parse(
+    t.test(fixture, (st) => {
+      const file = vfile.readSync(path.join(fp, 'index.html'), 'utf8')
+      const messages = JSON.parse(
         fs.readFileSync(path.join(fp, 'messages.json'), 'utf8')
       )
 

@@ -2,22 +2,22 @@ import fromParse5 from 'hast-util-from-parse5'
 import Parser5 from 'parse5/lib/parser/index.js'
 import {errors} from './errors.js'
 
-var base = 'https://html.spec.whatwg.org/multipage/parsing.html#parse-error-'
+const base = 'https://html.spec.whatwg.org/multipage/parsing.html#parse-error-'
 
-var fatalities = {2: true, 1: false, 0: null}
+const fatalities = {2: true, 1: false, 0: null}
 
 export default function rehypeParse(options) {
-  var settings = Object.assign({}, options, this.data('settings'))
-  var position = settings.position
+  const settings = Object.assign({}, options, this.data('settings'))
+  let position = settings.position
 
   position = typeof position === 'boolean' ? position : true
 
   this.Parser = parser
 
   function parser(doc, file) {
-    var fn = settings.fragment ? 'parseFragment' : 'parse'
-    var onParseError = settings.emitParseErrors ? onerror : null
-    var parse5 = new Parser5({
+    const fn = settings.fragment ? 'parseFragment' : 'parse'
+    const onParseError = settings.emitParseErrors ? onerror : null
+    const parse5 = new Parser5({
       sourceCodeLocationInfo: position,
       onParseError,
       scriptingEnabled: false
@@ -30,23 +30,23 @@ export default function rehypeParse(options) {
     })
 
     function onerror(error) {
-      var code = error.code
-      var name = camelcase(code)
-      var setting = settings[name]
-      var config = setting === undefined || setting === null ? true : setting
-      var level = typeof config === 'number' ? config : config ? 1 : 0
-      var start = {
+      const code = error.code
+      const name = camelcase(code)
+      const setting = settings[name]
+      const config = setting === undefined || setting === null ? true : setting
+      const level = typeof config === 'number' ? config : config ? 1 : 0
+      const start = {
         line: error.startLine,
         column: error.startCol,
         offset: error.startOffset
       }
-      var end = {
+      const end = {
         line: error.endLine,
         column: error.endCol,
         offset: error.endOffset
       }
-      var info
-      var message
+      let info
+      let message
 
       if (level) {
         /* c8 ignore next */
@@ -65,13 +65,16 @@ export default function rehypeParse(options) {
       }
 
       function char($0, $1) {
-        var offset = $1 ? -parseInt($1, 10) : 0
-        var char = doc.charAt(error.startOffset + offset)
+        const offset = $1 ? -Number.parseInt($1, 10) : 0
+        const char = doc.charAt(error.startOffset + offset)
         return char === '`' ? '` ` `' : char
       }
 
       function encodedChar() {
-        var char = doc.charCodeAt(error.startOffset).toString(16).toUpperCase()
+        const char = doc
+          .charCodeAt(error.startOffset)
+          .toString(16)
+          .toUpperCase()
 
         return '0x' + char
       }

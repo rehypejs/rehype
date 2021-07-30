@@ -3,18 +3,18 @@ import path from 'path'
 import bail from 'bail'
 import rehype from '../packages/rehype/index.js'
 
-var join = path.join
+const join = path.join
 
-var root = join(__dirname, '..', 'test', 'fixtures')
+const root = join(__dirname, '..', 'test', 'fixtures')
 
-fs.readdir(join(root), function (error, files) {
-  var index = -1
+fs.readdir(join(root), (error, files) => {
+  let index = -1
 
   bail(error)
 
   while (++index < files.length) {
-    var base = join(root, files[index])
-    var config
+    const base = join(root, files[index])
+    let config
 
     if (files[index].charAt(0) === '.') {
       continue
@@ -22,14 +22,14 @@ fs.readdir(join(root), function (error, files) {
 
     try {
       config = JSON.parse(fs.readFileSync(join(base, 'config.json')))
-    } catch (_) {
+    } catch {
       config = {}
     }
 
-    fs.readFile(join(base, 'index.html'), 'utf8', function (error, doc) {
-      var processor = rehype().use({settings: config})
-      var tree = processor.parse(doc)
-      var result = processor.stringify(tree)
+    fs.readFile(join(base, 'index.html'), 'utf8', (error, doc) => {
+      const processor = rehype().use({settings: config})
+      const tree = processor.parse(doc)
+      const result = processor.stringify(tree)
 
       bail(error)
 

@@ -9,9 +9,9 @@ import parse from '../packages/rehype-parse/index.js'
 import stringify from '../packages/rehype-stringify/index.js'
 import {rehype} from '../packages/rehype/index.js'
 
-var fragment = {fragment: true}
+const fragment = {fragment: true}
 
-test('rehype().parse(file)', function (t) {
+test('rehype().parse(file)', (t) => {
   t.equal(
     unified().use(parse).parse('Alfred').children.length,
     1,
@@ -68,9 +68,9 @@ test('rehype().parse(file)', function (t) {
   t.end()
 })
 
-test('rehype().stringify(ast, file, options?)', function (t) {
+test('rehype().stringify(ast, file, options?)', (t) => {
   t.throws(
-    function () {
+    () => {
       unified().use(stringify).stringify(false)
     },
     /false/,
@@ -78,7 +78,7 @@ test('rehype().stringify(ast, file, options?)', function (t) {
   )
 
   t.throws(
-    function () {
+    () => {
       unified().use(stringify).stringify({type: 'unicorn'})
     },
     /unicorn/,
@@ -136,7 +136,9 @@ test('rehype().stringify(ast, file, options?)', function (t) {
   )
 
   t.deepEqual(
-    rehype().processSync('<!doctypehtml>').messages.map(String),
+    rehype()
+      .processSync('<!doctypehtml>')
+      .messages.map((d) => String(d)),
     [],
     'should not emit parse errors by default'
   )
@@ -145,7 +147,7 @@ test('rehype().stringify(ast, file, options?)', function (t) {
     rehype()
       .data('settings', {emitParseErrors: true})
       .processSync('<!doctypehtml>')
-      .messages.map(String),
+      .messages.map((d) => String(d)),
     ['1:10-1:10: Missing whitespace before doctype name'],
     'should emit parse errors when `emitParseErrors: true`'
   )
@@ -157,7 +159,7 @@ test('rehype().stringify(ast, file, options?)', function (t) {
         missingWhitespaceBeforeDoctypeName: false
       })
       .processSync('<!doctypehtml>')
-      .messages.map(String),
+      .messages.map((d) => String(d)),
     [],
     'should ignore parse errors when the specific rule is turned off'
   )
@@ -169,7 +171,7 @@ test('rehype().stringify(ast, file, options?)', function (t) {
         missingWhitespaceBeforeDoctypeName: true
       })
       .processSync('<!doctypehtml>')
-      .messages.map(String),
+      .messages.map((d) => String(d)),
     ['1:10-1:10: Missing whitespace before doctype name'],
     'should emit parse errors when the specific rule is turned on'
   )
@@ -199,15 +201,14 @@ test('rehype().stringify(ast, file, options?)', function (t) {
   t.end()
 })
 
-test('fixtures', function (t) {
-  var index = -1
-  var root = path.join('test', 'fixtures')
-  var fixtures = fs.readdirSync(root)
+test('fixtures', (t) => {
+  let index = -1
+  const root = path.join('test', 'fixtures')
+  const fixtures = fs.readdirSync(root)
 
   /* Check the next fixture. */
   function next() {
-    var fixture = fixtures[++index]
-    var fp
+    const fixture = fixtures[++index]
 
     if (!fixture) {
       t.end()
@@ -219,33 +220,31 @@ test('fixtures', function (t) {
       return
     }
 
-    fp = path.join(root, fixture)
+    const fp = path.join(root, fixture)
 
     setImmediate(next) // Queue next.
 
-    t.test(fixture, function (st) {
-      var file = vfile.readSync(path.join(fp, 'index.html'))
-      var config = {}
-      var tree
-      var node
-      var out
-      var result
+    t.test(fixture, (st) => {
+      const file = vfile.readSync(path.join(fp, 'index.html'))
+      let config = {}
+      let tree
+      let result
 
       file.dirname = ''
 
       try {
         config = JSON.parse(fs.readFileSync(path.join(fp, 'config.json')))
-      } catch (_) {}
+      } catch {}
 
       try {
         result = fs.readFileSync(path.join(fp, 'result.html'), 'utf8')
-      } catch (_) {}
+      } catch {}
 
-      node = rehype().data('settings', config).parse(file)
+      const node = rehype().data('settings', config).parse(file)
 
       try {
         tree = JSON.parse(fs.readFileSync(path.join(fp, 'index.json')))
-      } catch (_) {
+      } catch {
         fs.writeFileSync(
           path.join(fp, 'index.json'),
           JSON.stringify(node, 0, 2) + '\n'
@@ -257,7 +256,7 @@ test('fixtures', function (t) {
 
       st.deepEqual(tree, node, 'should parse `' + fixture + '`')
 
-      out = rehype().data('settings', config).stringify(node)
+      const out = rehype().data('settings', config).stringify(node)
 
       if (result) {
         st.equal(out, result, 'should stringify `' + fixture + '`')
