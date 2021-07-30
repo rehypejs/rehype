@@ -53,10 +53,8 @@ function parse(options) {
       var message
 
       if (level) {
-        info = errors[name] || /* istanbul ignore next */ {
-          reason: '',
-          description: ''
-        }
+        /* c8 ignore next */
+        info = errors[name] || {reason: '', description: ''}
 
         message = file.message(format(info.reason), {start: start, end: end})
         message.source = 'parse-error'
