@@ -1,7 +1,5 @@
-node_modules
-coverage
+node_modules/
+coverage/
 .DS_Store
 *.log
-rehype.js
-rehype.min.js
 yarn.lock

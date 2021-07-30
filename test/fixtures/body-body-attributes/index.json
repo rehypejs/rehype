@@ -18,9 +18,7 @@
           "properties": {
             "id": "a",
             "title": "b",
-            "className": [
-              "c"
-            ],
+            "className": ["c"],
             "onClick": "e"
           },
           "children": [

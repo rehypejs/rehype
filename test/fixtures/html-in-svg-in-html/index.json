@@ -156,9 +156,7 @@
               "properties": {
                 "width": "200",
                 "height": "100",
-                "requiredExtensions": [
-                  "http://www.w3.org/1999/xhtml"
-                ]
+                "requiredExtensions": ["http://www.w3.org/1999/xhtml"]
               },
               "children": [
                 {
