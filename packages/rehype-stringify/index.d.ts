@@ -4,6 +4,6 @@ import type {Root} from 'hast'
 import type {Plugin} from 'unified'
 // Note: defining all nodes here, such as with `Root | Element | ...` seems
 // to trip TS up.
-const rehypeStringify: Plugin<[Options] | [], Root, string>
+export const rehypeStringify: Plugin<[Options] | [], Root, string>
 export default rehypeStringify
 export type {Options}
