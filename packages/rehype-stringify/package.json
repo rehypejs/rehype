@@ -1,6 +1,6 @@
 {
   "name": "rehype-stringify",
-  "version": "9.0.0",
+  "version": "9.0.1",
   "description": "rehype plugin to serialize HTML",
   "license": "MIT",
   "keywords": [
