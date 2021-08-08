@@ -1,5 +1,6 @@
 import fs from 'node:fs'
 import path from 'node:path'
+import process from 'node:process'
 import {bail} from 'bail'
 import {rehype} from '../packages/rehype/index.js'
 
