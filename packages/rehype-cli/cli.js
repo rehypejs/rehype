@@ -8,7 +8,6 @@ const require = createRequire(import.meta.url)
 const proc = require('rehype/package.json')
 const cli = require('./package.json')
 
-// @ts-expect-error: processor is fine.
 args({
   processor: rehype(),
   name: proc.name,
