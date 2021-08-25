@@ -2,10 +2,10 @@ import fs from 'node:fs'
 import path from 'node:path'
 import test from 'tape'
 import {toVFile, readSync} from 'to-vfile'
-import {rehype} from '../packages/rehype/index.js'
+import {rehype} from 'rehype'
 // @ts-expect-error: untyped.
-import p5errors from '../packages/rehype-parse/node_modules/parse5/lib/common/error-codes.js'
-import {errors as rerrors} from '../packages/rehype-parse/lib/errors.js'
+import p5errors from 'parse5/lib/common/error-codes.js'
+import {errors as rerrors} from 'rehype-parse/lib/errors.js'
 
 // Related to https://github.com/inikulin/parse5/issues/255
 // and https://github.com/inikulin/parse5/pull/257.
