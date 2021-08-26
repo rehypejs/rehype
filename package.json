@@ -14,7 +14,6 @@
     "bail": "^2.0.0",
     "c8": "^7.0.0",
     "hast-util-assert": "^3.0.0",
-    "lerna": "^4.0.0",
     "mdast-zone": "^5.0.0",
     "prettier": "^2.0.0",
     "remark-cli": "^10.0.0",
@@ -30,9 +29,14 @@
     "unist-util-remove-position": "^4.0.0",
     "xo": "^0.44.0"
   },
+  "workspaces": [
+    "packages/rehype-parse",
+    "packages/rehype-stringify",
+    "packages/rehype",
+    "packages/rehype-cli"
+  ],
   "scripts": {
-    "postinstall": "lerna bootstrap --no-ci",
-    "build-workspace": "lerna run build",
+    "build-workspace": "npm run build --workspaces",
     "build-monorepo": "rimraf \"*.d.ts\" \"{test,script}/**/*.d.ts\" && tsc && type-coverage",
     "build": "npm run build-workspace && npm run build-monorepo",
     "format": "remark . -qfo && prettier . -w --loglevel warn && xo --fix",

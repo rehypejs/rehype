@@ -8,10 +8,10 @@ import test from 'tape'
 import {readSync} from 'to-vfile'
 import {removePosition} from 'unist-util-remove-position'
 import {assert} from 'hast-util-assert'
-import {unified} from '../packages/rehype/node_modules/unified/index.js'
-import rehypeParse from '../packages/rehype-parse/index.js'
-import rehypeStringify from '../packages/rehype-stringify/index.js'
-import {rehype} from '../packages/rehype/index.js'
+import {unified} from 'unified'
+import rehypeParse from 'rehype-parse'
+import rehypeStringify from 'rehype-stringify'
+import {rehype} from 'rehype'
 
 const fragment = {fragment: true}
 
