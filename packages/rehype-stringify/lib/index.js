@@ -9,7 +9,7 @@ import {toHtml} from 'hast-util-to-html'
 /** @type {import('unified').Plugin<[Options]|void[], Node, string>} */
 export default function rehypeStringify(config) {
   const processorSettings = /** @type {Options} */ (this.data('settings'))
-  const settings = Object.assign({}, config, processorSettings)
+  const settings = Object.assign({}, processorSettings, config)
 
   Object.assign(this, {Compiler: compiler})
 

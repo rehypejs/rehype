@@ -55,6 +55,28 @@ test('rehype().parse(file)', (t) => {
   )
 
   t.deepEqual(
+    unified()
+      .data('settings', {fragment: true})
+      .use(rehypeParse, {fragment: false})
+      .use(rehypeStringify)
+      .processSync('a')
+      .toString(),
+    '<html><head></head><body>a</body></html>',
+    'should prefer options given to `rehypeParse` over `settings`'
+  )
+
+  t.deepEqual(
+    unified()
+      .data('settings', {quote: '"'})
+      .use(rehypeParse, {fragment: true})
+      .use(rehypeStringify, {quote: "'"})
+      .processSync('<a title="b">c</a>')
+      .toString(),
+    "<a title='b'>c</a>",
+    'should prefer options given to `rehypeStringify` over `settings`'
+  )
+
+  t.deepEqual(
     removePosition(
       unified().use(rehypeParse, {fragment: true}).parse('<img><span></span>'),
       true
