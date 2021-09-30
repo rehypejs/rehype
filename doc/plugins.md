@@ -73,6 +73,8 @@ See [Create plugins][create] below.
     — inject resolution `srcset` into images
 *   [`rehype-retext`](https://github.com/rehypejs/rehype-retext)
     — [`retext`](https://github.com/wooorm/retext) support
+*   [`rehype-rewrite`](https://github.com/jaywcjlove/rehype-rewrite)
+    — Rewrite element with rehype.
 *   [`rehype-sanitize`](https://github.com/rehypejs/rehype-sanitize)
     — sanitize HTML
 *   [`rehype-section`](https://github.com/agentofuser/rehype-section)
