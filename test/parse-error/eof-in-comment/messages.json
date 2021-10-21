@@ -5,7 +5,7 @@
     "reason": "Unexpected end of file in comment",
     "line": 4,
     "column": 1,
-    "location": {
+    "position": {
       "start": {
         "line": 4,
         "column": 1,

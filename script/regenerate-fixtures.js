@@ -1,49 +1,53 @@
-'use strict'
+import fs from 'node:fs'
+import path from 'node:path'
+import process from 'node:process'
+import {bail} from 'bail'
+import {rehype} from '../packages/rehype/index.js'
 
-var fs = require('fs')
-var path = require('path')
-var bail = require('bail')
-var rehype = require('../packages/rehype')
+const root = path.join(process.cwd(), 'test', 'fixtures')
 
-var join = path.join
+fs.readdir(path.join(root), (error, files) => {
+  let index = -1
 
-var root = join(__dirname, '..', 'test', 'fixtures')
-
-fs.readdir(join(root), function (error, files) {
   bail(error)
 
-  files.forEach(function (name) {
-    var base = join(root, name)
-    var config
+  while (++index < files.length) {
+    const base = path.join(root, files[index])
+    /** @type {Record<string, unknown>|undefined} */
+    let config
 
-    if (name.charAt(0) === '.') {
-      return
+    if (files[index].charAt(0) === '.') {
+      continue
     }
 
     try {
-      config = JSON.parse(fs.readFileSync(join(base, 'config.json')))
-    } catch (_) {
+      config = JSON.parse(
+        String(fs.readFileSync(path.join(base, 'config.json')))
+      )
+    } catch {
       config = {}
     }
 
-    fs.readFile(join(base, 'index.html'), 'utf8', function (error, doc) {
-      var processor = rehype().use({settings: config})
-      var tree = processor.parse(doc)
-      var result = processor.stringify(tree)
+    fs.readFile(path.join(base, 'index.html'), 'utf8', (error, doc) => {
+      const processor = rehype().use({settings: config})
+      const tree = processor.parse(doc)
+      const result = processor.stringify(tree)
 
       bail(error)
 
       fs.writeFile(
-        join(base, 'index.json'),
-        JSON.stringify(tree, 0, 2) + '\n',
+        path.join(base, 'index.json'),
+        JSON.stringify(tree, null, 2) + '\n',
         bail
       )
 
       if (result === doc) {
-        fs.unlink(join(base, 'result.html'), Function.prototype)
+        fs.unlink(path.join(base, 'result.html'), () => {
+          /* Empty */
+        })
       } else {
-        fs.writeFile(join(base, 'result.html'), result, bail)
+        fs.writeFile(path.join(base, 'result.html'), result, bail)
       }
     })
-  })
+  }
 })

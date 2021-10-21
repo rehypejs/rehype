@@ -8,40 +8,41 @@
     "type": "opencollective",
     "url": "https://opencollective.com/unified"
   },
+  "type": "module",
   "devDependencies": {
-    "bail": "^1.0.0",
-    "browserify": "^17.0.0",
-    "dtslint": "^4.0.0",
-    "hast-util-assert": "^2.0.0",
-    "lerna": "^3.0.0",
-    "mdast-zone": "^4.0.0",
-    "nyc": "^15.0.0",
+    "@types/tape": "^4.0.0",
+    "bail": "^2.0.0",
+    "c8": "^7.0.0",
+    "hast-util-assert": "^3.0.0",
+    "mdast-zone": "^5.0.0",
     "prettier": "^2.0.0",
-    "remark-cli": "^9.0.0",
-    "remark-preset-wooorm": "^8.0.0",
+    "remark-cli": "^10.0.0",
+    "remark-preset-wooorm": "^9.0.0",
+    "rimraf": "^3.0.0",
     "tape": "^5.0.0",
-    "tinyify": "^3.0.0",
-    "to-vfile": "^6.0.0",
-    "unist-builder": "^2.0.0",
-    "unist-util-remove-position": "^3.0.0",
-    "xo": "^0.37.0"
+    "to-vfile": "^7.0.0",
+    "type-coverage": "^2.0.0",
+    "type-fest": "^2.0.0",
+    "typescript": "^4.0.0",
+    "unified": "^10.0.0",
+    "unist-builder": "^3.0.0",
+    "unist-util-remove-position": "^4.0.0",
+    "xo": "^0.44.0"
   },
+  "workspaces": [
+    "packages/rehype-parse",
+    "packages/rehype-stringify",
+    "packages/rehype",
+    "packages/rehype-cli"
+  ],
   "scripts": {
-    "postinstall": "lerna bootstrap --no-ci",
-    "format": "remark . -qfo && prettier . --write && xo --fix",
-    "build-bundle": "browserify packages/rehype -s rehype > rehype.js",
-    "build-mangle": "browserify packages/rehype -p tinyify -s rehype > rehype.min.js",
-    "build": "npm run build-bundle && npm run build-mangle",
-    "test-api": "node test",
-    "test-coverage": "nyc --reporter lcov tape test/index.js",
-    "test-types": "dtslint packages/rehype-parse/types && dtslint packages/rehype-stringify/types && dtslint packages/rehype/types",
-    "test": "npm run format && npm run build && npm run test-coverage && npm run test-types"
-  },
-  "nyc": {
-    "check-coverage": true,
-    "lines": 100,
-    "functions": 100,
-    "branches": 100
+    "build-workspace": "npm run build --workspaces",
+    "build-monorepo": "rimraf \"*.d.ts\" \"{test,script}/**/*.d.ts\" && tsc && type-coverage",
+    "build": "npm run build-workspace && npm run build-monorepo",
+    "format": "remark . -qfo && prettier . -w --loglevel warn && xo --fix",
+    "test-api": "node --conditions development test/index.js",
+    "test-coverage": "c8 --check-coverage --branches 100 --functions 100 --lines 100 --statements 100 --reporter lcov node --conditions development test/index.js",
+    "test": "npm run build && npm run format && npm run test-coverage"
   },
   "prettier": {
     "tabWidth": 2,
@@ -53,22 +54,20 @@
   },
   "xo": {
     "prettier": true,
-    "esnext": false,
-    "rules": {
-      "unicorn/no-array-callback-reference": "off",
-      "unicorn/prefer-number-properties": "off",
-      "unicorn/prefer-optional-catch-binding": "off",
-      "unicorn/string-content": "off"
-    },
     "ignores": [
-      "rehype.js",
       "**/*.ts"
     ]
   },
   "remarkConfig": {
     "plugins": [
       "preset-wooorm",
-      "./script/parse-error"
+      "./script/parse-error.js"
     ]
+  },
+  "typeCoverage": {
+    "atLeast": 100,
+    "detail": true,
+    "strict": true,
+    "ignoreCatch": true
   }
 }

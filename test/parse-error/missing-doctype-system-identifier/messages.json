@@ -5,7 +5,7 @@
     "reason": "Missing system identifier in doctype",
     "line": 1,
     "column": 22,
-    "location": {
+    "position": {
       "start": {
         "line": 1,
         "column": 22,

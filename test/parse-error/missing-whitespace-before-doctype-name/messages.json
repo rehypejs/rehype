@@ -5,7 +5,7 @@
     "reason": "Missing whitespace before doctype name",
     "line": 1,
     "column": 10,
-    "location": {
+    "position": {
       "start": {
         "line": 1,
         "column": 10,

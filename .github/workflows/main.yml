@@ -11,11 +11,12 @@ jobs:
       - uses: dcodeIO/setup-node-nvm@master
         with:
           node-version: ${{matrix.node}}
+      - run: npm install -g npm
       - run: npm install
       - run: npm test
       - uses: codecov/codecov-action@v1
     strategy:
       matrix:
         node:
-          - lts/dubnium
+          - lts/erbium
           - node

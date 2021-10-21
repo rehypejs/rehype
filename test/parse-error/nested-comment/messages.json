@@ -5,7 +5,7 @@
     "reason": "Unexpected nested comment",
     "line": 3,
     "column": 10,
-    "location": {
+    "position": {
       "start": {
         "line": 3,
         "column": 10,

@@ -5,7 +5,7 @@
     "reason": "Invalid first character in tag name",
     "line": 3,
     "column": 2,
-    "location": {
+    "position": {
       "start": {
         "line": 3,
         "column": 2,
@@ -30,7 +30,7 @@
     "reason": "Invalid first character in tag name",
     "line": 3,
     "column": 7,
-    "location": {
+    "position": {
       "start": {
         "line": 3,
         "column": 7,

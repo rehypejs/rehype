@@ -5,7 +5,7 @@
     "reason": "Unexpected CDATA section in HTML",
     "line": 3,
     "column": 9,
-    "location": {
+    "position": {
       "start": {
         "line": 3,
         "column": 9,

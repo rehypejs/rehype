@@ -5,7 +5,7 @@
     "reason": "Incorrectly opened comment",
     "line": 3,
     "column": 3,
-    "location": {
+    "position": {
       "start": {
         "line": 3,
         "column": 3,
@@ -30,7 +30,7 @@
     "reason": "Incorrectly opened comment",
     "line": 4,
     "column": 3,
-    "location": {
+    "position": {
       "start": {
         "line": 4,
         "column": 3,

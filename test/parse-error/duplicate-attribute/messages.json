@@ -5,7 +5,7 @@
     "reason": "Unexpected duplicate attribute",
     "line": 2,
     "column": 15,
-    "location": {
+    "position": {
       "start": {
         "line": 2,
         "column": 15,

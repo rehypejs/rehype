@@ -5,7 +5,7 @@
     "reason": "Unexpected attribute on closing tag",
     "line": 2,
     "column": 45,
-    "location": {
+    "position": {
       "start": {
         "line": 2,
         "column": 45,

@@ -1,13 +1,15 @@
 #!/usr/bin/env node
-'use strict'
+import {createRequire} from 'node:module'
+import {args} from 'unified-args'
+import {rehype} from 'rehype'
 
-var start = require('unified-args')
-var processor = require('rehype')
-var proc = require('rehype/package.json')
-var cli = require('./package.json')
+const require = createRequire(import.meta.url)
 
-start({
-  processor: processor,
+const proc = require('rehype/package.json')
+const cli = require('./package.json')
+
+args({
+  processor: rehype(),
   name: proc.name,
   description: cli.description,
   version: [

@@ -3,9 +3,6 @@
   "children": [
     {
       "type": "doctype",
-      "name": "",
-      "public": null,
-      "system": null,
       "position": {
         "start": {
           "line": 1,

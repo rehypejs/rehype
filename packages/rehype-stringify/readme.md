@@ -66,6 +66,9 @@ Support this effort and give back by sponsoring on [OpenCollective][collective]!
 
 ## Install
 
+This package is [ESM only](https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c):
+Node 12+ is needed to use it and it must be `import`ed instead of `require`d.
+
 [npm][]:
 
 ```sh
@@ -75,26 +78,29 @@ npm install rehype-stringify
 ## Use
 
 ```js
-var unified = require('unified')
-var createStream = require('unified-stream')
-var parse = require('rehype-parse')
-var stringify = require('rehype-stringify')
+import {unified} from 'unified'
+import {stream} from 'unified-stream'
+import rehypeParse from 'rehype-parse'
+import rehypeStringify from 'rehype-stringify'
 
-var processor = unified()
-  .use(parse)
-  .use(stringify, {
+const processor = unified()
+  .use(rehypeParse)
+  .use(rehypeStringify, {
     quoteSmart: true,
     closeSelfClosing: true,
     omitOptionalTags: true,
     entities: {useShortestReferences: true}
   })
 
-process.stdin.pipe(createStream(processor)).pipe(process.stdout)
+process.stdin.pipe(stream(processor)).pipe(process.stdout)
 ```
 
 ## API
 
-### `processor.use(stringify[, options])`
+This package exports no identifiers.
+The default export is `rehypeStringify`.
+
+### `unified().use(rehypeStringify[, options])`
 
 Configure `processor` to serialize [**hast**][hast] syntax trees to HTML.
 

@@ -5,7 +5,7 @@
     "reason": "Unexpected closing tag with open child elements",
     "line": 3,
     "column": 19,
-    "location": {
+    "position": {
       "start": {
         "line": 3,
         "column": 19,

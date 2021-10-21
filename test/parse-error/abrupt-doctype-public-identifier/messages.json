@@ -5,7 +5,7 @@
     "reason": "Unexpected abruptly closed public identifier",
     "line": 1,
     "column": 27,
-    "location": {
+    "position": {
       "start": {
         "line": 1,
         "column": 27,
@@ -30,7 +30,7 @@
     "reason": "Unexpected non-conforming doctype declaration",
     "line": 1,
     "column": 1,
-    "location": {
+    "position": {
       "start": {
         "line": 1,
         "column": 1,

@@ -202,9 +202,7 @@
                   "type": "element",
                   "tagName": "label",
                   "properties": {
-                    "htmlFor": [
-                      "username"
-                    ]
+                    "htmlFor": ["username"]
                   },
                   "children": [
                     {
@@ -258,9 +256,7 @@
                   "tagName": "input",
                   "properties": {
                     "id": "username",
-                    "ariaDescribedBy": [
-                      "username-tip"
-                    ],
+                    "ariaDescribedBy": ["username-tip"],
                     "required": true
                   },
                   "children": [],
@@ -402,9 +398,7 @@
                   "type": "element",
                   "tagName": "label",
                   "properties": {
-                    "htmlFor": [
-                      "password"
-                    ]
+                    "htmlFor": ["password"]
                   },
                   "children": [
                     {
@@ -458,9 +452,7 @@
                   "tagName": "input",
                   "properties": {
                     "id": "password",
-                    "ariaDescribedBy": [
-                      "password-tip"
-                    ],
+                    "ariaDescribedBy": ["password-tip"],
                     "required": true
                   },
                   "children": [],

@@ -5,7 +5,7 @@
     "reason": "Missing attribute value",
     "line": 2,
     "column": 11,
-    "location": {
+    "position": {
       "start": {
         "line": 2,
         "column": 11,

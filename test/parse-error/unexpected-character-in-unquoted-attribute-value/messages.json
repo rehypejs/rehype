@@ -5,7 +5,7 @@
     "reason": "Unexpected character in unquoted attribute value",
     "line": 3,
     "column": 11,
-    "location": {
+    "position": {
       "start": {
         "line": 3,
         "column": 11,

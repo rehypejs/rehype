@@ -1,6 +1,6 @@
 {
   "name": "rehype-stringify",
-  "version": "8.0.0",
+  "version": "9.0.2",
   "description": "rehype plugin to serialize HTML",
   "license": "MIT",
   "keywords": [
@@ -28,13 +28,28 @@
   "contributors": [
     "Titus Wormer <tituswormer@gmail.com> (https://wooorm.com)"
   ],
+  "sideEffects": false,
+  "type": "module",
+  "main": "index.js",
+  "types": "index.d.ts",
   "files": [
-    "index.js",
-    "types/index.d.ts"
+    "lib/",
+    "index.d.ts",
+    "index.js"
   ],
-  "types": "types/index.d.ts",
   "dependencies": {
-    "hast-util-to-html": "^7.1.1"
+    "@types/hast": "^2.0.0",
+    "hast-util-to-html": "^8.0.0",
+    "unified": "^10.0.0"
   },
-  "xo": false
+  "scripts": {
+    "build": "rimraf \"lib/**/*.d.ts\" && tsc && type-coverage"
+  },
+  "xo": false,
+  "typeCoverage": {
+    "atLeast": 100,
+    "detail": true,
+    "strict": true,
+    "ignoreCatch": true
+  }
 }

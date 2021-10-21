@@ -83,13 +83,15 @@ npm install rehype
 `index.js` contains:
 
 ```js
-var rehype = require('rehype')
-var report = require('vfile-reporter')
+import {reporter} from 'vfile-reporter'
+import {rehype} from 'rehype'
 
-rehype().process('<title>Hi</title><h2>Hello world!', function(err, file) {
-  console.log(String(file))
-  console.log(report(err || file))
-})
+rehype()
+  .process('<title>Hi</title><h2>Hello world!')
+  .then((file) => {
+    console.log(String(file))
+    console.log(reporter(file))
+  })
 ```
 
 `node index.js` yields:
