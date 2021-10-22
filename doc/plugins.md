@@ -95,6 +95,8 @@ See [Create plugins][create] below.
     — rewrite URLs of `href` and `src` attributes
 *   [`rehype-url-inspector`](https://github.com/JS-DevTools/rehype-url-inspector)
     — inspect, validate, or rewrite URLs anywhere in the document
+*   [`rehype-video`](https://jaywcjlove.github.io/rehype-video)
+    — add improved video syntax: links to `.mp4` and `.mov` turn into videos
 *   [`rehype-webparser`](https://github.com/Prettyhtml/prettyhtml/tree/HEAD/packages/rehype-webparser)
     — less strict HTML parser
 *   [`rehype-wrap`](https://github.com/mrzmmr/rehype-wrap)
