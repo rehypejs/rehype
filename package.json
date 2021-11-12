@@ -9,6 +9,12 @@
     "url": "https://opencollective.com/unified"
   },
   "type": "module",
+  "workspaces": [
+    "packages/rehype-parse",
+    "packages/rehype-stringify",
+    "packages/rehype",
+    "packages/rehype-cli"
+  ],
   "devDependencies": {
     "@types/tape": "^4.0.0",
     "bail": "^2.0.0",
@@ -27,14 +33,8 @@
     "unified": "^10.0.0",
     "unist-builder": "^3.0.0",
     "unist-util-remove-position": "^4.0.0",
-    "xo": "^0.44.0"
+    "xo": "^0.46.0"
   },
-  "workspaces": [
-    "packages/rehype-parse",
-    "packages/rehype-stringify",
-    "packages/rehype",
-    "packages/rehype-cli"
-  ],
   "scripts": {
     "build-workspace": "npm run build --workspaces",
     "build-monorepo": "rimraf \"*.d.ts\" \"{test,script}/**/*.d.ts\" && tsc && type-coverage",
