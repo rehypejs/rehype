@@ -1,3 +1,1 @@
-import rehypeStringify from './lib/index.js'
-
-export default rehypeStringify
+export {default} from './lib/index.js'

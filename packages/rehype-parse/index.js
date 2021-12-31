@@ -1,3 +1,1 @@
-import rehypeParse from './lib/index.js'
-
-export default rehypeParse
+export {default} from './lib/index.js'

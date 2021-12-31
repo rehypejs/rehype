@@ -33,7 +33,7 @@
     "unified": "^10.0.0",
     "unist-builder": "^3.0.0",
     "unist-util-remove-position": "^4.0.0",
-    "xo": "^0.46.0"
+    "xo": "^0.47.0"
   },
   "scripts": {
     "build-workspace": "npm run build --workspaces",
@@ -56,7 +56,10 @@
     "prettier": true,
     "ignores": [
       "**/*.ts"
-    ]
+    ],
+    "rules": {
+      "unicorn/prefer-code-point": "off"
+    }
   },
   "remarkConfig": {
     "plugins": [
