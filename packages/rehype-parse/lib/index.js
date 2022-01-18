@@ -36,7 +36,7 @@ const base = 'https://html.spec.whatwg.org/multipage/parsing.html#parse-error-'
 
 const fatalities = {2: true, 1: false, 0: null}
 
-/** @type {import('unified').Plugin<[Options?] | void[], string, Root>} */
+/** @type {import('unified').Plugin<[Options?] | Array<void>, string, Root>} */
 export default function rehypeParse(options) {
   const processorSettings = /** @type {Options} */ (this.data('settings'))
   const settings = Object.assign({}, processorSettings, options)
