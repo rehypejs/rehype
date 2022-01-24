@@ -8,29 +8,174 @@
 [![Backers][backers-badge]][collective]
 [![Chat][chat-badge]][chat]
 
-**rehype** is an HTML processor powered by [plugins][] part of the [unified][]
-[collective][].
+**rehype** is a tool that transforms HTML with plugins.
+These plugins can inspect and change the HTML.
+You can use rehype on the server, the client, CLIs, deno, etc.
 
 ## Intro
 
-**rehype** is an ecosystem of [plugins][] for processing HTML to do all kinds of
-things: [format it][format], [minify it][minify], or [wrap it programmatically
-into a document][document].
+rehype is an ecosystem of plugins that work with HTML as structured data,
+specifically ASTs (abstract syntax trees).
+ASTs make it easy for programs to deal with HTML.
+We call those programs plugins.
+Plugins inspect and change trees.
+You can use the many existing plugins or you can make your own.
 
-*   Visit [`unifiedjs.com`][website] and try its [guides][] for an overview
-*   Read [unified][]’s readme for a technical intro
-*   Browse [awesome rehype][awesome] to find out more about the ecosystem
-*   Follow us on [Medium][] and [Twitter][] to see what we’re up to
-*   Check out [Contribute][] below to find out how to help out
+*   to learn HTML, see [MDN][] and [WHATWG HTML][html]
+*   for more about us, see [`unifiedjs.com`][site]
+*   for updates, see [Twitter][]
+*   for questions, see [support][]
+*   to help, see [contribute][] or [sponsor][] below
 
-This repository contains the following projects:
+## Contents
 
-*   [`rehype-parse`][parse] — Parse HTML documents to syntax trees
-*   [`rehype-stringify`][stringify] — Serialize syntax trees to HTML documents
-*   [`rehype`][api] — Programmatic interface with both `rehype-parse` and `rehype-stringify`
-*   [`rehype-cli`][cli] — Command-line interface wrapping `rehype`
+*   [What is this?](#what-is-this)
+*   [When should I use this?](#when-should-i-use-this)
+*   [Plugins](#plugins)
+*   [Types](#types)
+*   [Compatibility](#compatibility)
+*   [Security](#security)
+*   [Contribute](#contribute)
+*   [Sponsor](#sponsor)
+*   [License](#license)
 
-## Sponsors
+## What is this?
+
+You can use plugins to format or minify HTML:
+**In**:
+
+```html
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Saturn</title>
+  </head>
+  <body>
+    <h1>Saturn</h1>
+    <p>Saturn is a gas giant composed predominantly of hydrogen and helium.</p>
+  </body>
+</html>
+```
+
+**Out**:
+
+```html
+<!doctypehtml><html lang=en><meta charset=utf8><title>Saturn</title><h1>Saturn</h1><p>Saturn is a gas giant composed predominantly of hydrogen and helium.
+```
+
+You can use plugins to change HTML.
+**In**:
+
+```html
+<h1>Hi, Saturn!</h1>
+```
+
+**Plugin**:
+
+```js
+import {visit} from 'unist-util-visit'
+
+/** @type {import('unified').Plugin<[], import('hast').Root>} */
+function myRehypePluginToIncreaseHeadings() {
+  return (tree) => {
+    visit(tree, 'element', (node) => {
+      if (['h1', 'h2', 'h3', 'h4', 'h5'].includes(node.tagName)) {
+        node.tagName = 'h' + (Number(node.tagName.charAt(1)) + 1)
+      }
+    })
+  }
+}
+```
+
+**Out**:
+
+```html
+<h2>Hi, Saturn!</h2>
+```
+
+You can use rehype for many different things.
+**[unified][]** is the core project that transforms content with ASTs.
+**rehype** adds support for HTML to unified.
+**[hast][]** is the HTML AST that rehype uses.
+
+This GitHub repository is a monorepo that contains the following packages:
+
+*   [`rehype-parse`][rehype-parse]
+    — plugin to take HTML as input and turn it into a syntax tree (hast)
+*   [`rehype-stringify`][rehype-stringify]
+    — plugin to take a syntax tree (hast) and turn it into HTML as output
+*   [`rehype`][rehype-core]
+    — `unified`, `rehype-parse`, and `rehype-stringify`, useful when input and
+    output are HTML
+*   [`rehype-cli`][rehype-cli]
+    — CLI around `rehype` to inspect and format HTML in scripts
+
+## When should I use this?
+
+Depending on the input you have and output you want, you can use different parts
+of rehype.
+If the input is HTML, you can use `rehype-parse` with `unified`.
+If the output is HTML, you can use `rehype-stringify` with `unified`
+If both the input and output are HTML, you can use `rehype` on its own.
+When you want to inspect and format HTML files in a project, you can use
+`rehype-cli`.
+
+## Plugins
+
+rehype plugins deal with HTML.
+You can choose from the many plugins that already exist.
+Here are three good ways to find plugins:
+
+*   [`awesome-rehype`][awesome-rehype]
+    — selection of the most awesome projects
+*   [List of plugins][list-of-plugins]
+    — list of all plugins
+*   [`rehype-plugin` topic][topic]
+    — any tagged repo on GitHub
+
+Some plugins are maintained by us here in the `@rehypejs` organization while
+others are maintained by folks elsewhere.
+Anyone can make rehype plugins, so as always when choosing whether to include
+dependencies in your project, make sure to carefully assess the quality of
+rehype plugins too.
+
+## Types
+
+The rehype organization and the unified collective as a whole is fully typed
+with [TypeScript][].
+Types for hast are available in [`@types/hast`][types-hast].
+
+## Compatibility
+
+Projects maintained by the unified collective are compatible with all maintained
+versions of Node.js.
+As of now, that is Node.js 12.20+, 14.14+, and 16.0+.
+Our projects sometimes work with older versions, but this is not guaranteed.
+
+## Security
+
+As improper use of HTML can open you up to a [cross-site scripting (XSS)][xss]
+attacks, use of rehype can also be unsafe.
+Use [`rehype-sanitize`][rehype-sanitize] to make the tree safe.
+
+Use of rehype plugins could also open you up to other attacks.
+Carefully assess each plugin and the risks involved in using them.
+
+For info on how to submit a report, see our [security policy][security].
+
+## Contribute
+
+See [`contributing.md`][contributing] in [`rehypejs/.github`][health] for ways
+to get started.
+See [`support.md`][support] for ways to get help.
+Join us in [Discussions][chat] to chat with the community and contributors.
+
+This project has a [code of conduct][coc].
+By interacting with this repository, organization, or community you agree to
+abide by its terms.
+
+## Sponsor
 
 Support this effort and give back by sponsoring on [OpenCollective][collective]!
 
@@ -38,64 +183,67 @@ Support this effort and give back by sponsoring on [OpenCollective][collective]!
 
 <table>
 <tr valign="middle">
-<td width="20%" align="center" colspan="2">
-  <a href="https://www.gatsbyjs.org">Gatsby</a> 🥇<br><br>
-  <a href="https://www.gatsbyjs.org"><img src="https://avatars1.githubusercontent.com/u/12551863?s=256&v=4" width="128"></a>
-</td>
-<td width="20%" align="center" colspan="2">
-  <a href="https://vercel.com">Vercel</a> 🥇<br><br>
+<td width="20%" align="center" rowspan="2" colspan="2">
+  <a href="https://vercel.com">Vercel</a><br><br>
   <a href="https://vercel.com"><img src="https://avatars1.githubusercontent.com/u/14985020?s=256&v=4" width="128"></a>
 </td>
-<td width="20%" align="center" colspan="2">
+<td width="20%" align="center" rowspan="2" colspan="2">
+  <a href="https://motif.land">Motif</a><br><br>
+  <a href="https://motif.land"><img src="https://avatars1.githubusercontent.com/u/74457950?s=256&v=4" width="128"></a>
+</td>
+<td width="20%" align="center" rowspan="2" colspan="2">
+  <a href="https://www.hashicorp.com">HashiCorp</a><br><br>
+  <a href="https://www.hashicorp.com"><img src="https://avatars1.githubusercontent.com/u/761456?s=256&v=4" width="128"></a>
+</td>
+<td width="20%" align="center" rowspan="2" colspan="2">
+  <a href="https://www.gitbook.com">GitBook</a><br><br>
+  <a href="https://www.gitbook.com"><img src="https://avatars1.githubusercontent.com/u/7111340?s=256&v=4" width="128"></a>
+</td>
+<td width="20%" align="center" rowspan="2" colspan="2">
+  <a href="https://www.gatsbyjs.org">Gatsby</a><br><br>
+  <a href="https://www.gatsbyjs.org"><img src="https://avatars1.githubusercontent.com/u/12551863?s=256&v=4" width="128"></a>
+</td>
+</tr>
+<tr valign="middle">
+</tr>
+<tr valign="middle">
+<td width="20%" align="center" rowspan="2" colspan="2">
   <a href="https://www.netlify.com">Netlify</a><br><br>
   <!--OC has a sharper image-->
   <a href="https://www.netlify.com"><img src="https://images.opencollective.com/netlify/4087de2/logo/256.png" width="128"></a>
 </td>
 <td width="10%" align="center">
-  <a href="https://www.holloway.com">Holloway</a><br><br>
-  <a href="https://www.holloway.com"><img src="https://avatars1.githubusercontent.com/u/35904294?s=128&v=4" width="64"></a>
+  <a href="https://www.coinbase.com">Coinbase</a><br><br>
+  <a href="https://www.coinbase.com"><img src="https://avatars1.githubusercontent.com/u/1885080?s=256&v=4" width="64"></a>
 </td>
 <td width="10%" align="center">
   <a href="https://themeisle.com">ThemeIsle</a><br><br>
   <a href="https://themeisle.com"><img src="https://avatars1.githubusercontent.com/u/58979018?s=128&v=4" width="64"></a>
 </td>
 <td width="10%" align="center">
-  <a href="https://boosthub.io">Boost Hub</a><br><br>
-  <a href="https://boosthub.io"><img src="https://images.opencollective.com/boosthub/6318083/logo/128.png" width="64"></a>
-</td>
-<td width="10%" align="center">
   <a href="https://expo.io">Expo</a><br><br>
   <a href="https://expo.io"><img src="https://avatars1.githubusercontent.com/u/12504344?s=128&v=4" width="64"></a>
 </td>
+<td width="10%" align="center">
+  <a href="https://boostnote.io">Boost Note</a><br><br>
+  <a href="https://boostnote.io"><img src="https://images.opencollective.com/boosthub/6318083/logo/128.png" width="64"></a>
+</td>
+<td width="10%" align="center">
+  <a href="https://www.holloway.com">Holloway</a><br><br>
+  <a href="https://www.holloway.com"><img src="https://avatars1.githubusercontent.com/u/35904294?s=128&v=4" width="64"></a>
+</td>
+<td width="10%"></td>
+<td width="10%"></td>
+<td width="10%"></td>
 </tr>
 <tr valign="middle">
-<td width="100%" align="center" colspan="10">
+<td width="100%" align="center" colspan="8">
   <br>
   <a href="https://opencollective.com/unified"><strong>You?</strong></a>
   <br><br>
 </td>
 </tr>
 </table>
-
-## Security
-
-As **rehype** works on HTML, and improper use of HTML can open you up to a
-[cross-site scripting (XSS)][xss] attack, use of rehype can also be unsafe.
-Use [`rehype-sanitize`][sanitize] to make the tree safe.
-
-## Contribute
-
-See [`contributing.md`][contributing] in [`rehypejs/.github`][health] for ways
-to get started.
-See [`support.md`][support] for ways to get help.
-Ideas for new plugins and tools can be posted in [`rehypejs/ideas`][ideas].
-
-A curated list of awesome rehype resources can be found in [**awesome
-rehype**][awesome].
-
-This project has a [code of conduct][coc].
-By interacting with this repository, organization, or community you agree to
-abide by its terms.
 
 ## License
 
@@ -133,11 +281,13 @@ abide by its terms.
 
 [health]: https://github.com/rehypejs/.github
 
-[contributing]: https://github.com/rehypejs/.github/blob/HEAD/contributing.md
+[security]: https://github.com/rehypejs/.github/blob/main/security.md
 
-[support]: https://github.com/rehypejs/.github/blob/HEAD/support.md
+[contributing]: https://github.com/rehypejs/.github/blob/main/contributing.md
 
-[coc]: https://github.com/rehypejs/.github/blob/HEAD/code-of-conduct.md
+[support]: https://github.com/rehypejs/.github/blob/main/support.md
+
+[coc]: https://github.com/rehypejs/.github/blob/main/code-of-conduct.md
 
 [license]: license
 
@@ -145,36 +295,38 @@ abide by its terms.
 
 [unified]: https://github.com/unifiedjs/unified
 
-[website]: https://unifiedjs.com
+[types-hast]: https://github.com/DefinitelyTyped/DefinitelyTyped/tree/HEAD/types/hast
 
-[guides]: https://unifiedjs.com/#guides
+[xss]: https://en.wikipedia.org/wiki/Cross-site_scripting
 
-[medium]: https://medium.com/unifiedjs
+[typescript]: https://www.typescriptlang.org
+
+[mdn]: https://developer.mozilla.org/docs/Web/HTML
+
+[html]: https://html.spec.whatwg.org/multipage/
 
 [twitter]: https://twitter.com/unifiedjs
 
-[parse]: https://github.com/rehypejs/rehype/tree/main/packages/rehype-parse
+[site]: https://unifiedjs.com
 
-[stringify]: https://github.com/rehypejs/rehype/tree/main/packages/rehype-stringify
+[topic]: https://github.com/topics/rehype-plugin
 
-[api]: https://github.com/rehypejs/rehype/tree/main/packages/rehype
+[hast]: https://github.com/syntax-tree/hast
 
-[cli]: https://github.com/rehypejs/rehype/tree/main/packages/rehype-cli
+[awesome-rehype]: https://github.com/rehypejs/awesome-rehype
 
-[plugins]: https://github.com/rehypejs/rehype/tree/main/doc/plugins.md
+[rehype-sanitize]: https://github.com/rehypejs/rehype-sanitize
 
-[ideas]: https://github.com/rehypejs/ideas
+[rehype-parse]: packages/rehype-parse/
 
-[awesome]: https://github.com/rehypejs/awesome-rehype
+[rehype-stringify]: packages/rehype-stringify/
 
-[format]: https://github.com/rehypejs/rehype-format
+[rehype-core]: packages/rehype/
 
-[minify]: https://github.com/rehypejs/rehype-minify
+[rehype-cli]: packages/rehype-cli/
 
-[document]: https://github.com/rehypejs/rehype-document
-
-[sanitize]: https://github.com/rehypejs/rehype-sanitize
+[list-of-plugins]: doc/plugins.md#list-of-plugins
 
 [contribute]: #contribute
 
-[xss]: https://en.wikipedia.org/wiki/Cross-site_scripting
+[sponsor]: #sponsor

@@ -8,123 +8,104 @@
 [![Backers][backers-badge]][collective]
 [![Chat][chat-badge]][chat]
 
-[**rehype**][rehype] plugin to parse HTML.
-[Parser][] for [**unified**][unified].
-Parses HTML to [**hast**][hast] syntax trees.
-Used in the [**rehype** processor][processor] but can be used on its own as
-well.
+**[rehype][]** plugin to add support for parsing HTML input.
 
-If you’re in a browser, trust the content, and value a smaller bundle size, use
-[`rehype-dom-parse`][rehype-dom-parse].
+## Contents
 
-## Sponsors
+*   [What is this?](#what-is-this)
+*   [When should I use this?](#when-should-i-use-this)
+*   [Install](#install)
+*   [Use](#use)
+*   [API](#api)
+    *   [`unified().use(rehypeParse[, options])`](#unifieduserehypeparse-options)
+*   [Examples](#examples)
+    *   [Example: fragment versus document](#example-fragment-versus-document)
+    *   [Example: whitespace around and inside `<html>`](#example-whitespace-around-and-inside-html)
+    *   [Example: parse errors](#example-parse-errors)
+*   [Syntax](#syntax)
+*   [Syntax tree](#syntax-tree)
+*   [Types](#types)
+*   [Compatibility](#compatibility)
+*   [Security](#security)
+*   [Contribute](#contribute)
+*   [Sponsor](#sponsor)
+*   [License](#license)
 
-Support this effort and give back by sponsoring on [OpenCollective][collective]!
+## What is this?
 
-<!--lint ignore no-html-->
+This package is a [unified][] ([rehype][]) plugin that defines how to take HTML
+as input and turn it into a syntax tree.
+When it’s used, HTML can be parsed and other rehype plugins can be used after
+it.
 
-<table>
-<tr valign="middle">
-<td width="20%" align="center" colspan="2">
-  <a href="https://www.gatsbyjs.org">Gatsby</a> 🥇<br><br>
-  <a href="https://www.gatsbyjs.org"><img src="https://avatars1.githubusercontent.com/u/12551863?s=256&v=4" width="128"></a>
-</td>
-<td width="20%" align="center" colspan="2">
-  <a href="https://vercel.com">Vercel</a> 🥇<br><br>
-  <a href="https://vercel.com"><img src="https://avatars1.githubusercontent.com/u/14985020?s=256&v=4" width="128"></a>
-</td>
-<td width="20%" align="center" colspan="2">
-  <a href="https://www.netlify.com">Netlify</a><br><br>
-  <!--OC has a sharper image-->
-  <a href="https://www.netlify.com"><img src="https://images.opencollective.com/netlify/4087de2/logo/256.png" width="128"></a>
-</td>
-<td width="10%" align="center">
-  <a href="https://www.holloway.com">Holloway</a><br><br>
-  <a href="https://www.holloway.com"><img src="https://avatars1.githubusercontent.com/u/35904294?s=128&v=4" width="64"></a>
-</td>
-<td width="10%" align="center">
-  <a href="https://themeisle.com">ThemeIsle</a><br><br>
-  <a href="https://themeisle.com"><img src="https://avatars1.githubusercontent.com/u/58979018?s=128&v=4" width="64"></a>
-</td>
-<td width="10%" align="center">
-  <a href="https://boosthub.io">Boost Hub</a><br><br>
-  <a href="https://boosthub.io"><img src="https://images.opencollective.com/boosthub/6318083/logo/128.png" width="64"></a>
-</td>
-<td width="10%" align="center">
-  <a href="https://expo.io">Expo</a><br><br>
-  <a href="https://expo.io"><img src="https://avatars1.githubusercontent.com/u/12504344?s=128&v=4" width="64"></a>
-</td>
-</tr>
-<tr valign="middle">
-<td width="100%" align="center" colspan="10">
-  <br>
-  <a href="https://opencollective.com/unified"><strong>You?</strong></a>
-  <br><br>
-</td>
-</tr>
-</table>
+See [the monorepo readme][rehype] for info on what the rehype ecosystem is.
+
+## When should I use this?
+
+This plugin adds support to unified for parsing HTML.
+You can alternatively use [`rehype`][rehype-core] instead, which combines
+unified, this plugin, and [`rehype-stringify`][rehype-stringify].
+
+When you’re in a browser, trust your content, don’t need positional info, and
+value a smaller bundle size, you can use [`rehype-dom-parse`][rehype-dom-parse]
+instead.
+
+This plugin is built on [`parse5`][parse5] and
+[`hast-util-from-parse5`][hast-util-from-parse5], which deal with HTML-compliant
+tokenizing, parsing, and creating nodes.
+rehype focusses on making it easier to transform content by abstracting such
+internals away.
 
 ## Install
 
-This package is [ESM only](https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c):
-Node 12+ is needed to use it and it must be `import`ed instead of `require`d.
-
-[npm][]:
+This package is [ESM only][esm].
+In Node.js (version 12.20+, 14.14+, or 16.0+), install with [npm][]:
 
 ```sh
 npm install rehype-parse
 ```
 
-## Use
-
-This example shows how we can parse HTML with this module and configure it to
-emit parse errors except for duplicate attributes.
-Then we transform HTML to Markdown with [`rehype-remark`][rehype-remark] and
-finally serialize that Markdown with [`remark-stringify`][remark-stringify].
-
-Say we have the following file, `example.html`, with a few errors:
-
-```html
-<!doctypehtml>
-<title class="a" class="b">Hello…</title>
-<h1/>World!</h1>
-```
-
-…and our script, `example.js`, looks as follows:
+In Deno with [Skypack][]:
 
 ```js
-import {readSync} from 'to-vfile'
-import {reporter} from 'vfile-reporter'
+import rehypeParse from 'https://cdn.skypack.dev/rehype-parse@8?dts'
+```
+
+In browsers with [Skypack][]:
+
+```html
+<script type="module">
+  import rehypeParse from 'https://cdn.skypack.dev/rehype-parse@8?min'
+</script>
+```
+
+## Use
+
+Say we have the following module `example.js`:
+
+```js
 import {unified} from 'unified'
 import rehypeParse from 'rehype-parse'
 import rehypeRemark from 'rehype-remark'
 import remarkStringify from 'remark-stringify'
 
-const file = readSync('example.html')
+main()
 
-unified()
-  .use(rehypeParse, {emitParseErrors: true, duplicateAttribute: false})
-  .use(rehypeRemark)
-  .use(remarkStringify)
-  .process(file)
-  .then((file) => {
-    console.error(reporter(file))
-    console.log(String(file))
-  })
+async function main() {
+  const file = await unified()
+    .use(rehypeParse)
+    .use(rehypeRemark)
+    .use(remarkStringify)
+    .process('<h1>Hello, world!</h1>')
+
+  console.log(String(file))
+}
 ```
 
-Now, running `node example` yields:
-
-```txt
-example.html
-  1:10-1:10  warning  Missing whitespace before doctype name                      missing-whitespace-before-doctype-name                 parse-error
-    3:1-3:6  warning  Unexpected trailing slash on start tag of non-void element  non-void-html-element-start-tag-with-trailing-solidus  parse-error
-
-⚠ 2 warnings
-```
+…running that with `node example.js` yields:
 
 ```markdown
-# World!
+# Hello, world!
 ```
 
 ## API
@@ -134,49 +115,44 @@ The default export is `rehypeParse`.
 
 ### `unified().use(rehypeParse[, options])`
 
-Configure `processor` to parse HTML and create a [**hast**][hast] syntax tree.
+Add support for parsing HTML input.
 
 ##### `options`
 
+Configuration (optional).
+
 ###### `options.fragment`
 
-Specify whether to parse a fragment (`boolean`, default: `false`), instead of a
-complete document.
-In document mode, unopened `html`, `head`, and `body` elements are opened in
-just the right places.
+Specify whether to parse as a fragment (`boolean`, default: `false`).
+The default is to expect a whole document.
+In document mode, unopened `html`, `head`, and `body` elements are opened.
 
 ###### `options.space`
 
-> ⚠️ rehype is not an XML parser.
-> It support SVG as embedded in HTML, but not the features available in the rest
-> of XML/SVG.
-> Passing SVG files could strip useful information, but fragments of modern SVG
-> should be fine.
-
 Which space the document is in (`'svg'` or `'html'`, default: `'html'`).
 
-If an `svg` element is found in the HTML space, `parse` automatically
-switches to the SVG space when [**entering**][enter] the element, and switches
-back when [**exiting**][exit].
+When an `<svg>` element is found in the HTML space, `rehype-parse` already
+automatically switches to and from the SVG space when entering and exiting it.
 
-**Note**: make sure to set `fragment: true` if `space: 'svg'`.
+> 👉 **Note**: rehype is not an XML parser.
+> It supports SVG as embedded in HTML.
+> It does not support the features available in XML.
+> Passing SVG files might break but fragments of modern SVG should be fine.
+
+> 👉 **Note**: make sure to set `fragment: true` if `space: 'svg'`.
 
 ###### `options.emitParseErrors`
 
-> ⚠️ Parse errors are currently being added to HTML.
-> Not all errors emitted by parse5 (or rehype-parse) are specced yet.
-> Some documentation may still be missing.
+Emit [HTML parse errors][parse-errors] as warning messages
+(`boolean`, default: `false`).
 
-Emit parse errors while parsing on the [vfile][] (`boolean`, default: `false`).
-
-Setting this to `true` starts emitting [HTML parse errors][parse-errors].
-
-Specific rules can be turned off by setting them to `false` (or `0`).
+Specific rules can be turned off by setting their IDs in `options` to `false`
+(or `0`).
 The default, when `emitParseErrors: true`, is `true` (or `1`), and means that
 rules emit as warnings.
 Rules can also be configured with `2`, to turn them into fatal errors.
 
-The specific parse errors that are currently supported are detailed below:
+The list of parse errors:
 
 <!-- parse-error start -->
 
@@ -245,53 +221,267 @@ The specific parse errors that are currently supported are detailed below:
 
 ###### `options.verbose`
 
-Patch extra positional information (`boolean`, default: `false`).
-If specified, the following element:
+Add extra positional info (`boolean`, default: `false`).
 
-```html
-<img src="#" alt>
-```
+## Examples
 
-…has the following `data`:
+### Example: fragment versus document
+
+The following example shows the difference between parsing as a document and
+parsing as a fragment:
 
 ```js
-{ position:
-   { opening:
-      { start: { line: 1, column: 1, offset: 0 },
-        end: { line: 1, column: 18, offset: 17 } },
-     closing: null,
-     properties:
-      { src:
-         { start: { line: 1, column: 6, offset: 5 },
-           end: { line: 1, column: 13, offset: 12 } },
-        alt:
-         { start: { line: 1, column: 14, offset: 13 },
-           end: { line: 1, column: 17, offset: 16 } } } } }
+import {unified} from 'unified'
+import rehypeParse from 'rehype-parse'
+import rehypeStringify from 'rehype-stringify'
+
+main()
+
+async function main() {
+  const doc = '<title>Hi!</title><h1>Hello!</h1>'
+
+  console.log(
+    String(
+      await unified()
+        .use(rehypeParse, {fragment: true})
+        .use(rehypeStringify)
+        .process(doc)
+    )
+  )
+
+  console.log(
+    String(
+      await unified()
+        .use(rehypeParse, {fragment: false})
+        .use(rehypeStringify)
+        .process(doc)
+    )
+  )
+}
 ```
 
-### `parse.Parser`
+…yields:
 
-Access to the [parser][], if you need it.
+```html
+<title>Hi!</title><h1>Hello!</h1>
+```
+
+```html
+<html><head><title>Hi!</title></head><body><h1>Hello!</h1></body></html>
+```
+
+> 👉 **Note**: observe that when a whole document is expected (second example),
+> missing elements are opened and closed.
+
+### Example: whitespace around and inside `<html>`
+
+The following example shows how whitespace is handled when around and directly
+inside the `<html>` element:
+
+```js
+import {unified} from 'unified'
+import rehypeParse from 'rehype-parse'
+import rehypeStringify from 'rehype-stringify'
+
+main(`<!doctype html>
+<html lang=en>
+  <head>
+    <title>Hi!</title>
+  </head>
+  <body>
+    <h1>Hello!</h1>
+  </body>
+</html>`)
+
+async function main(doc) {
+  console.log(
+    String(await unified().use(rehypeParse).use(rehypeStringify).process(doc))
+  )
+}
+```
+
+…yields (where `␠` represents a space character):
+
+```html
+<!doctype html><html lang="en"><head>
+    <title>Hi!</title>
+  </head>
+  <body>
+    <h1>Hello!</h1>
+␠␠
+</body></html>
+```
+
+> 👉 **Note**: observe that the line ending before `<html>` is ignored, the line
+> ending and two spaces before `<head>` is moved inside it, and the line ending
+> after `</body>` is moved before it.
+
+This behavior is described by the HTML standard (see the section 13.2.6.4.1
+“The ‘initial’ insertion mode” and adjacent states) which rehype follows.
+
+The changes to this meaningless whitespace should not matter, except when
+formatting markup, in which case [`rehype-format`][rehype-format] can be used to
+improve the source code.
+
+### Example: parse errors
+
+The following example shows how HTML parse errors can be enabled and configured:
+
+```js
+import {reporter} from 'vfile-reporter'
+import {unified} from 'unified'
+import rehypeParse from 'rehype-parse'
+import rehypeStringify from 'rehype-stringify'
+
+main()
+
+async function main() {
+  const file = await unified()
+    .use(rehypeParse, {
+      emitParseErrors: true, // Emit all.
+      missingWhitespaceBeforeDoctypeName: 2, // Mark one as a fatal error.
+      nonVoidHtmlElementStartTagWithTrailingSolidus: false // Ignore one.
+    })
+    .use(rehypeStringify)
+    .process(`<!doctypehtml>
+<title class="a" class="b">Hello…</title>
+<h1/>World!</h1>`)
+
+  console.log(reporter(file))
+}
+```
+
+…yields:
+
+```html
+  1:10-1:10  error    Missing whitespace before doctype name  missing-whitespace-before-doctype-name  parse-error
+  2:23-2:23  warning  Unexpected duplicate attribute          duplicate-attribute                     parse-error
+
+2 messages (✖ 1 error, ⚠ 1 warning)
+```
+
+> 🧑‍🏫 **Info**: messages in unified are warnings instead of errors.
+> Other linters (such as ESLint) almost always use errors.
+> Why?
+> Those tools *only* check code style.
+> They don’t generate, transform, and format code, which is what rehype and
+> unified focus on, too.
+> Errors in unified mean the same as an exception in your JavaScript code: a
+> crash.
+> That’s why we use warnings instead, because we continue checking more HTML and
+> continue running more plugins.
+
+## Syntax
+
+HTML is parsed according to WHATWG HTML (the living standard), which is also
+followed by browsers such as Chrome and Firefox.
+
+## Syntax tree
+
+The syntax tree format used in rehype is [hast][].
+
+## Types
+
+This package is fully typed with [TypeScript][].
+The extra types `Options`, `ErrorCode`, and `ErrorSeverity` are exported.
+
+## Compatibility
+
+Projects maintained by the unified collective are compatible with all maintained
+versions of Node.js.
+As of now, that is Node.js 12.20+, 14.14+, and 16.0+.
+Our projects sometimes work with older versions, but this is not guaranteed.
 
 ## Security
 
 As **rehype** works on HTML, and improper use of HTML can open you up to a
 [cross-site scripting (XSS)][xss] attack, use of rehype can also be unsafe.
-Use [`rehype-sanitize`][sanitize] to make the tree safe.
+Use [`rehype-sanitize`][rehype-sanitize] to make the tree safe.
+
+Use of rehype plugins could also open you up to other attacks.
+Carefully assess each plugin and the risks involved in using them.
+
+For info on how to submit a report, see our [security policy][security].
 
 ## Contribute
 
 See [`contributing.md`][contributing] in [`rehypejs/.github`][health] for ways
 to get started.
 See [`support.md`][support] for ways to get help.
-Ideas for new plugins and tools can be posted in [`rehypejs/ideas`][ideas].
-
-A curated list of awesome rehype resources can be found in [**awesome
-rehype**][awesome].
 
 This project has a [code of conduct][coc].
 By interacting with this repository, organization, or community you agree to
 abide by its terms.
+
+## Sponsor
+
+Support this effort and give back by sponsoring on [OpenCollective][collective]!
+
+<!--lint ignore no-html-->
+
+<table>
+<tr valign="middle">
+<td width="20%" align="center" rowspan="2" colspan="2">
+  <a href="https://vercel.com">Vercel</a><br><br>
+  <a href="https://vercel.com"><img src="https://avatars1.githubusercontent.com/u/14985020?s=256&v=4" width="128"></a>
+</td>
+<td width="20%" align="center" rowspan="2" colspan="2">
+  <a href="https://motif.land">Motif</a><br><br>
+  <a href="https://motif.land"><img src="https://avatars1.githubusercontent.com/u/74457950?s=256&v=4" width="128"></a>
+</td>
+<td width="20%" align="center" rowspan="2" colspan="2">
+  <a href="https://www.hashicorp.com">HashiCorp</a><br><br>
+  <a href="https://www.hashicorp.com"><img src="https://avatars1.githubusercontent.com/u/761456?s=256&v=4" width="128"></a>
+</td>
+<td width="20%" align="center" rowspan="2" colspan="2">
+  <a href="https://www.gitbook.com">GitBook</a><br><br>
+  <a href="https://www.gitbook.com"><img src="https://avatars1.githubusercontent.com/u/7111340?s=256&v=4" width="128"></a>
+</td>
+<td width="20%" align="center" rowspan="2" colspan="2">
+  <a href="https://www.gatsbyjs.org">Gatsby</a><br><br>
+  <a href="https://www.gatsbyjs.org"><img src="https://avatars1.githubusercontent.com/u/12551863?s=256&v=4" width="128"></a>
+</td>
+</tr>
+<tr valign="middle">
+</tr>
+<tr valign="middle">
+<td width="20%" align="center" rowspan="2" colspan="2">
+  <a href="https://www.netlify.com">Netlify</a><br><br>
+  <!--OC has a sharper image-->
+  <a href="https://www.netlify.com"><img src="https://images.opencollective.com/netlify/4087de2/logo/256.png" width="128"></a>
+</td>
+<td width="10%" align="center">
+  <a href="https://www.coinbase.com">Coinbase</a><br><br>
+  <a href="https://www.coinbase.com"><img src="https://avatars1.githubusercontent.com/u/1885080?s=256&v=4" width="64"></a>
+</td>
+<td width="10%" align="center">
+  <a href="https://themeisle.com">ThemeIsle</a><br><br>
+  <a href="https://themeisle.com"><img src="https://avatars1.githubusercontent.com/u/58979018?s=128&v=4" width="64"></a>
+</td>
+<td width="10%" align="center">
+  <a href="https://expo.io">Expo</a><br><br>
+  <a href="https://expo.io"><img src="https://avatars1.githubusercontent.com/u/12504344?s=128&v=4" width="64"></a>
+</td>
+<td width="10%" align="center">
+  <a href="https://boostnote.io">Boost Note</a><br><br>
+  <a href="https://boostnote.io"><img src="https://images.opencollective.com/boosthub/6318083/logo/128.png" width="64"></a>
+</td>
+<td width="10%" align="center">
+  <a href="https://www.holloway.com">Holloway</a><br><br>
+  <a href="https://www.holloway.com"><img src="https://avatars1.githubusercontent.com/u/35904294?s=128&v=4" width="64"></a>
+</td>
+<td width="10%"></td>
+<td width="10%"></td>
+<td width="10%"></td>
+</tr>
+<tr valign="middle">
+<td width="100%" align="center" colspan="8">
+  <br>
+  <a href="https://opencollective.com/unified"><strong>You?</strong></a>
+  <br><br>
+</td>
+</tr>
+</table>
 
 ## License
 
@@ -325,48 +515,48 @@ abide by its terms.
 
 [chat]: https://github.com/rehypejs/rehype/discussions
 
+[security]: https://github.com/rehypejs/.github/blob/main/security.md
+
 [health]: https://github.com/rehypejs/.github
 
-[contributing]: https://github.com/rehypejs/.github/blob/HEAD/contributing.md
+[contributing]: https://github.com/rehypejs/.github/blob/main/contributing.md
 
-[support]: https://github.com/rehypejs/.github/blob/HEAD/support.md
+[support]: https://github.com/rehypejs/.github/blob/main/support.md
 
-[coc]: https://github.com/rehypejs/.github/blob/HEAD/code-of-conduct.md
-
-[ideas]: https://github.com/rehypejs/ideas
-
-[awesome]: https://github.com/rehypejs/awesome-rehype
+[coc]: https://github.com/rehypejs/.github/blob/main/code-of-conduct.md
 
 [license]: https://github.com/rehypejs/rehype/blob/main/license
 
 [author]: https://wooorm.com
 
+[esm]: https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c
+
 [npm]: https://docs.npmjs.com/cli/install
 
-[rehype-remark]: https://github.com/rehypejs/rehype-remark
-
-[remark-stringify]: https://github.com/remarkjs/remark/tree/HEAD/packages/remark-stringify
+[skypack]: https://www.skypack.dev
 
 [unified]: https://github.com/unifiedjs/unified
 
-[vfile]: https://github.com/vfile/vfile
-
-[parse-errors]: https://html.spec.whatwg.org/multipage/parsing.html#parse-errors
-
 [rehype]: https://github.com/rehypejs/rehype
-
-[processor]: https://github.com/rehypejs/rehype/tree/main/packages/rehype
 
 [hast]: https://github.com/syntax-tree/hast
 
-[rehype-dom-parse]: https://github.com/rehypejs/rehype-dom/tree/HEAD/packages/rehype-dom-parse
-
-[parser]: https://github.com/unifiedjs/unified#processorparser
-
-[enter]: https://github.com/syntax-tree/unist#enter
-
-[exit]: https://github.com/syntax-tree/unist#exit
-
-[sanitize]: https://github.com/rehypejs/rehype-sanitize
-
 [xss]: https://en.wikipedia.org/wiki/Cross-site_scripting
+
+[typescript]: https://www.typescriptlang.org
+
+[rehype-stringify]: ../rehype-stringify/
+
+[rehype-core]: ../rehype/
+
+[rehype-sanitize]: https://github.com/rehypejs/rehype-sanitize
+
+[hast-util-from-parse5]: https://github.com/syntax-tree/hast-util-from-parse5
+
+[parse-errors]: https://html.spec.whatwg.org/multipage/parsing.html#parse-errors
+
+[rehype-dom-parse]: https://github.com/rehypejs/rehype-dom/tree/main/packages/rehype-dom-parse
+
+[rehype-format]: https://github.com/rehypejs/rehype-format
+
+[parse5]: https://github.com/inikulin/parse5
