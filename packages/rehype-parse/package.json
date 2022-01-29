@@ -1,6 +1,6 @@
 {
   "name": "rehype-parse",
-  "version": "8.0.3",
+  "version": "8.0.4",
   "description": "rehype plugin to parse HTML",
   "license": "MIT",
   "keywords": [
