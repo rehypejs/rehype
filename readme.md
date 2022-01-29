@@ -41,7 +41,7 @@ You can use the many existing plugins or you can make your own.
 
 ## What is this?
 
-You can use plugins to format or minify HTML:
+You can use plugins to format or minify HTML.
 **In**:
 
 ```html
