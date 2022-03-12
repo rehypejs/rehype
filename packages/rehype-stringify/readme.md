@@ -50,6 +50,12 @@ This plugin is built on [`hast-util-to-html`][hast-util-to-html], which turns
 rehype focusses on making it easier to transform content by abstracting such
 internals away.
 
+A different plugin, [`rehype-format`][rehype-format], improves the readability
+of HTML source code as it adds insignificant but pretty whitespace between
+elements.
+There is also the preset [`rehype-minify`][rehype-minify] for when you want the
+inverse: minified and mangled HTML.
+
 ## Install
 
 This package is [ESM only][esm].
@@ -449,6 +455,10 @@ Support this effort and give back by sponsoring on [OpenCollective][collective]!
 [rehype-core]: ../rehype/
 
 [rehype-sanitize]: https://github.com/rehypejs/rehype-sanitize
+
+[rehype-format]: https://github.com/rehypejs/rehype-format
+
+[rehype-minify]: https://github.com/rehypejs/rehype-minify
 
 [rehype-dom-stringify]: https://github.com/rehypejs/rehype-dom/tree/main/packages/rehype-dom-stringify
 
