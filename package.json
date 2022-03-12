@@ -34,7 +34,7 @@
     "unified": "^10.0.0",
     "unist-builder": "^3.0.0",
     "unist-util-remove-position": "^4.0.0",
-    "xo": "^0.47.0"
+    "xo": "^0.48.0"
   },
   "scripts": {
     "build": "npm run build --workspaces && rimraf \"*.d.ts\" \"{test,script}/**/*.d.ts\" && tsc && type-coverage",
