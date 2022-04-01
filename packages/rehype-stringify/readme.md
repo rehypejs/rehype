@@ -65,17 +65,17 @@ In Node.js (version 12.20+, 14.14+, or 16.0+), install with [npm][]:
 npm install rehype-stringify
 ```
 
-In Deno with [Skypack][]:
+In Deno with [`esm.sh`][esmsh]:
 
 ```js
-import rehypeStringify from 'https://cdn.skypack.dev/rehype-stringify@9?dts'
+import rehypeStringify from 'https://esm.sh/rehype-stringify@9'
 ```
 
-In browsers with [Skypack][]:
+In browsers with [`esm.sh`][esmsh]:
 
 ```html
 <script type="module">
-  import rehypeStringify from 'https://cdn.skypack.dev/rehype-stringify@9?min'
+  import rehypeStringify from 'https://esm.sh/rehype-stringify@9?bundle'
 </script>
 ```
 
@@ -438,7 +438,7 @@ Support this effort and give back by sponsoring on [OpenCollective][collective]!
 
 [npm]: https://docs.npmjs.com/cli/install
 
-[skypack]: https://www.skypack.dev
+[esmsh]: https://esm.sh
 
 [unified]: https://github.com/unifiedjs/unified
 

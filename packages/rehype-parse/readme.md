@@ -65,17 +65,17 @@ In Node.js (version 12.20+, 14.14+, or 16.0+), install with [npm][]:
 npm install rehype-parse
 ```
 
-In Deno with [Skypack][]:
+In Deno with [`esm.sh`][esmsh]:
 
 ```js
-import rehypeParse from 'https://cdn.skypack.dev/rehype-parse@8?dts'
+import rehypeParse from 'https://esm.sh/rehype-parse@8'
 ```
 
-In browsers with [Skypack][]:
+In browsers with [`esm.sh`][esmsh]:
 
 ```html
 <script type="module">
-  import rehypeParse from 'https://cdn.skypack.dev/rehype-parse@8?min'
+  import rehypeParse from 'https://esm.sh/rehype-parse@8?bundle'
 </script>
 ```
 
@@ -533,7 +533,7 @@ Support this effort and give back by sponsoring on [OpenCollective][collective]!
 
 [npm]: https://docs.npmjs.com/cli/install
 
-[skypack]: https://www.skypack.dev
+[esmsh]: https://esm.sh
 
 [unified]: https://github.com/unifiedjs/unified
 

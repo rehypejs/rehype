@@ -64,17 +64,17 @@ In Node.js (version 12.20+, 14.14+, or 16.0+), install with [npm][]:
 npm install rehype
 ```
 
-In Deno with [Skypack][]:
+In Deno with [`esm.sh`][esmsh]:
 
 ```js
-import {rehype} from 'https://cdn.skypack.dev/rehype@12?dts'
+import {rehype} from 'https://esm.sh/rehype@12'
 ```
 
-In browsers with [Skypack][]:
+In browsers with [`esm.sh`][esmsh]:
 
 ```html
 <script type="module">
-  import {rehype} from 'https://cdn.skypack.dev/rehype@12?min'
+  import {rehype} from 'https://esm.sh/rehype@12?bundle'
 </script>
 ```
 
@@ -329,7 +329,7 @@ Support this effort and give back by sponsoring on [OpenCollective][collective]!
 
 [npm]: https://docs.npmjs.com/cli/install
 
-[skypack]: https://www.skypack.dev
+[esmsh]: https://esm.sh
 
 [unified]: https://github.com/unifiedjs/unified
 
