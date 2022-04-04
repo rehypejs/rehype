@@ -278,7 +278,7 @@ Not used in the SVG space.
 
 ## Syntax
 
-HTML is parsed according to WHATWG HTML (the living standard), which is also
+HTML is serialized according to WHATWG HTML (the living standard), which is also
 followed by browsers such as Chrome and Firefox.
 
 ## Syntax tree
