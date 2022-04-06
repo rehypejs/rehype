@@ -71,15 +71,11 @@ The list of plugins:
 *   [`rehype-inline`](https://github.com/marko-knoebl/rehype-inline)
     — inline JS, CSS, and image files
 *   [`rehype-inline-svg`](https://github.com/JS-DevTools/rehype-inline-svg)
-<<<<<<< HEAD
-    — Inlines and optimizes SVG images
+    — inline and optimize SVG images
 *   [`rehype-ignore`](https://github.com/jaywcjlove/rehype-ignore)
     — ignore content display via HTML comments.
-=======
-    — inline and optimize SVG images
 *   [`rehype-javascript-to-bottom`](https://github.com/rehypejs/rehype-minify/tree/main/packages/rehype-javascript-to-bottom)
     — move `<script>`s to the end of `<body>`
->>>>>>> re/main
 *   [`rehype-join-line`](https://github.com/unix/rehype-join-line)
     — resolve line breaks in Chinese paragraphs
 *   [`rehype-katex`](https://github.com/remarkjs/remark-math/tree/main/packages/rehype-katex)
@@ -189,11 +185,7 @@ The list of plugins:
 *   [`rehype-url-inspector`](https://github.com/JS-DevTools/rehype-url-inspector)
     — inspect, validate, or rewrite URLs anywhere in the document
 *   [`rehype-video`](https://jaywcjlove.github.io/rehype-video)
-<<<<<<< HEAD
-    — add improved video syntax: links to `.mp4` and `.mov` turn into videos
-=======
     — improved video syntax: links to `.mp4` and `.mov` turn into videos
->>>>>>> re/main
 *   [`rehype-webparser`](https://github.com/Prettyhtml/prettyhtml/tree/HEAD/packages/rehype-webparser)
     — less strict HTML parser
 *   [`rehype-widont`](https://github.com/radiojhero/rehype-widont)
