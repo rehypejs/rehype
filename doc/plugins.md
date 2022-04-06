@@ -47,6 +47,8 @@ See [Create plugins][create] below.
     — inline js, css and img files
 *   [`rehype-inline-svg`](https://github.com/JS-DevTools/rehype-inline-svg)
     — Inlines and optimizes SVG images
+*   [`rehype-ignore`](https://github.com/jaywcjlove/rehype-ignore)
+    — ignore content display via HTML comments.
 *   [`rehype-join-line`](https://github.com/unix/rehype-join-line)
     — resolve line breaks in Chinese paragraphs
 *   [`rehype-katex`](https://github.com/remarkjs/remark-math/tree/HEAD/packages/rehype-katex)
