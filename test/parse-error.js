@@ -77,9 +77,10 @@ test('parse-errors', (t) => {
 
     t.test(fixture, (st) => {
       const file = readSync(path.join(fp, 'index.html'), 'utf8')
-      /** @type {Error[]} */
+      /** @type {Array<Error>} */
       const messages = JSON.parse(
-        fs.readFileSync(path.join(fp, 'messages.json'), 'utf8')
+        // @ts-expect-error: xo removes `utf8` (because it’s not needed), ts wants it.
+        fs.readFileSync(path.join(fp, 'messages.json'))
       )
 
       file.dirname = ''

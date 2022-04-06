@@ -27,11 +27,11 @@ const ignoreFixture = {
   surrogateInInputStream: true
 }
 
-/** @type {import('unified').Plugin<void[], Root>} */
+/** @type {import('unified').Plugin<Array<void>, Root>} */
 export default function remarkParseErrors() {
   return (tree) => {
     zone(tree, 'parse-error', (start, _, end) => {
-      /** @type {ListItem[]} */
+      /** @type {Array<ListItem>} */
       const list = []
       /** @type {keyof errors} */
       let key
@@ -52,7 +52,7 @@ export default function remarkParseErrors() {
           }
 
           const head = u('inlineCode', key)
-          /** @type {PhrasingContent[]} */
+          /** @type {Array<PhrasingContent>} */
           const fields = [
             'url' in info && info.url === false
               ? head

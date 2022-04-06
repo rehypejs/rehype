@@ -6,7 +6,7 @@
 
 import {toHtml} from 'hast-util-to-html'
 
-/** @type {import('unified').Plugin<[Options]|void[], Node, string>} */
+/** @type {import('unified').Plugin<[Options?]|Array<void>, Node, string>} */
 export default function rehypeStringify(config) {
   const processorSettings = /** @type {Options} */ (this.data('settings'))
   const settings = Object.assign({}, processorSettings, config)
