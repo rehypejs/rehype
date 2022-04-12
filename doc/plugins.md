@@ -174,6 +174,8 @@ The list of plugins:
     — sort tailwind classes
 *   [`rehype-template`](https://github.com/nzt/rehype-template)
     — wrap content with template literal
+*   [`rehype-template`](https://github.com/viktor-yakubiv/rehype-template)
+    — replace tempalte strings with values from the dictionary
 *   [`rehype-toc`](https://github.com/JS-DevTools/rehype-toc)
     — add a table of contents (TOC) to the page
 *   [`rehype-truncate`](https://github.com/luk707/rehype-truncate)
