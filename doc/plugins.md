@@ -80,6 +80,8 @@ The list of plugins:
     — resolve line breaks in Chinese paragraphs
 *   [`rehype-katex`](https://github.com/remarkjs/remark-math/tree/main/packages/rehype-katex)
     — render math with KaTeX
+*   [`rehype-lodash-template`](https://github.com/viktor-yakubiv/rehype-lodash-template)
+    — replace template strings with values from the dictionary
 *   [`rehype-mathjax`](https://github.com/remarkjs/remark-math/tree/main/packages/rehype-mathjax)
     — render math with MathJax
 *   [`rehype-meta`](https://github.com/rehypejs/rehype-meta)
