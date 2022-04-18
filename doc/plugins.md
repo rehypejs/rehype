@@ -120,6 +120,8 @@ The list of plugins:
     — partials support for rehype
 *   [`rehype-picture`](https://github.com/rehypejs/rehype-picture)
     — wrap images in `<picture>`s
+*   [`rehype-postcss`](https://github.com/viktor-yakubiv/rehype-postcss)
+    — run PostCSS on `<style>` nodes and elements with a `style` attribute
 *   [`rehype-prevent-favicon-request`](https://github.com/rehypejs/rehype-minify/tree/main/packages/rehype-prevent-favicon-request)
     — prevent a request by setting an empty `favicon.ico`
 *   [`rehype-prism`](https://github.com/mapbox/rehype-prism)
