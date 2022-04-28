@@ -170,6 +170,8 @@ The list of plugins:
     — replace slot elements with injected content
 *   [`rehype-slug`](https://github.com/rehypejs/rehype-slug)
     — add `id`s to headings
+*   [`rehype-slug-custom-id`](https://github.com/unicorn-utterances/rehype-slug-custom-id)
+    — add `id`s to headings, also supports `{#custom-ids}`
 *   [`rehype-sort-attribute-values`](https://github.com/rehypejs/rehype-minify/tree/main/packages/rehype-sort-attribute-values)
     — sort attribute values
 *   [`rehype-sort-attributes`](https://github.com/rehypejs/rehype-minify/tree/main/packages/rehype-sort-attributes)
