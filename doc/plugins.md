@@ -74,6 +74,8 @@ The list of plugins:
     — inline and optimize SVG images
 *   [`rehype-ignore`](https://github.com/jaywcjlove/rehype-ignore)
     — ignore content display via HTML comments.
+*   [`rehype-jargon`](https://github.com/freesewing/freesewing/tree/develop/packages/rehype-jargon)
+    — inserts definitions for jargon terms
 *   [`rehype-javascript-to-bottom`](https://github.com/rehypejs/rehype-minify/tree/main/packages/rehype-javascript-to-bottom)
     — move `<script>`s to the end of `<body>`
 *   [`rehype-join-line`](https://github.com/unix/rehype-join-line)
