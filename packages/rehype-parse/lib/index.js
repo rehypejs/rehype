@@ -30,6 +30,8 @@
 // @ts-expect-error: remove when typed
 import Parser5 from 'parse5/lib/parser/index.js'
 import {fromParse5} from 'hast-util-from-parse5'
+import { parseDocument as parseWithHtmlparser2 } from 'htmlparser2';
+import {fromHtmlparser2} from 'hast-util-from-htmlparser2'
 import {errors} from './errors.js'
 
 const base = 'https://html.spec.whatwg.org/multipage/parsing.html#parse-error-'
@@ -41,10 +43,18 @@ export default function rehypeParse(options) {
   const processorSettings = /** @type {Options} */ (this.data('settings'))
   const settings = Object.assign({}, processorSettings, options)
 
-  Object.assign(this, {Parser: parser})
+  // TODO "async + dynamic import" or "add extra file for rehypeXmlParse"
+  // -> import parser only on demand (lazy import)
+
+  // xmlMode: same API as cheerio
+  // https://github.com/cheeriojs/cheerio
+
+  Object.assign(this, {
+    Parser: settings.xmlMode ? xmlParser : htmlParser
+  })
 
   /** @type {import('unified').ParserFunction<Root>} */
-  function parser(doc, file) {
+  function htmlParser(doc, file) {
     const fn = settings.fragment ? 'parseFragment' : 'parse'
     const onParseError = settings.emitParseErrors ? onerror : null
     const parse5 = new Parser5({
@@ -110,6 +120,16 @@ export default function rehypeParse(options) {
           )
       }
     }
+  }
+
+  /** @type {import('unified').ParserFunction<Root>} */
+  function xmlParser(doc, file) {
+    const tree = parseWithHtmlparser2(doc, {})
+    return fromHtmlparser2(tree, {
+      space: settings.space,
+      file,
+      verbose: settings.verbose
+    })
   }
 }
 
