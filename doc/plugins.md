@@ -54,6 +54,8 @@ The list of plugins:
     — add support for serializing HTML in browsers
 *   [`rehype-external-links`](https://github.com/rehypejs/rehype-external-links)
     — add rel (and target) to external links
+*   [`rehype-extract-meta`](https://github.com/gorango/rehype-extract-meta)
+    — extract meta data from an HTML document
 *   [`rehype-figure`](https://github.com/josestg/rehype-figure)
     — support figure and caption from images
 *   [`rehype-format`](https://github.com/rehypejs/rehype-format)
