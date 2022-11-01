@@ -182,6 +182,8 @@ The list of plugins:
     — sort attributes
 *   [`rehype-sort-tailwind-classes`](https://github.com/bitcrowd/rehype-sort-tailwind-classes)
     — sort tailwind classes
+*   [`rehype-starry-night-copy-collapse`](https://github.com/dospolov/rehype-starry-night-copy-collapse)
+    — Rehype [Starry Night](https://github.com/wooorm/starry-night) syntax highlighting plugin with "show more"/"show less" and "copy" buttons
 *   [`rehype-template`](https://github.com/nzt/rehype-template)
     — wrap content with template literal
 *   [`rehype-toc`](https://github.com/JS-DevTools/rehype-toc)
