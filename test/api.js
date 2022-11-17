@@ -229,9 +229,7 @@ test('rehype().stringify(ast, file, options?)', (t) => {
   )
 
   t.deepEqual(
-    rehype()
-      .processSync('<!doctypehtml>')
-      .messages.map((d) => String(d)),
+    rehype().processSync('<!doctypehtml>').messages.map(String),
     [],
     'should not emit parse errors by default'
   )
@@ -240,7 +238,7 @@ test('rehype().stringify(ast, file, options?)', (t) => {
     rehype()
       .data('settings', {emitParseErrors: true})
       .processSync('<!doctypehtml>')
-      .messages.map((d) => String(d)),
+      .messages.map(String),
     ['1:10-1:10: Missing whitespace before doctype name'],
     'should emit parse errors when `emitParseErrors: true`'
   )
@@ -252,7 +250,7 @@ test('rehype().stringify(ast, file, options?)', (t) => {
         missingWhitespaceBeforeDoctypeName: false
       })
       .processSync('<!doctypehtml>')
-      .messages.map((d) => String(d)),
+      .messages.map(String),
     [],
     'should ignore parse errors when the specific rule is turned off'
   )
@@ -264,7 +262,7 @@ test('rehype().stringify(ast, file, options?)', (t) => {
         missingWhitespaceBeforeDoctypeName: true
       })
       .processSync('<!doctypehtml>')
-      .messages.map((d) => String(d)),
+      .messages.map(String),
     ['1:10-1:10: Missing whitespace before doctype name'],
     'should emit parse errors when the specific rule is turned on'
   )
