@@ -164,8 +164,10 @@ The list of plugins:
     — rewrite element with rehype
 *   [`rehype-sanitize`](https://github.com/rehypejs/rehype-sanitize)
     — sanitize HTML
-*   [`rehype-sectionize`](https://github.com/hbsnow/rehype-sectionize)
+*   [`rehype-section`](https://github.com/agentofuser/rehype-section)
     — wrap headings and their contents into nested `<section>` elements
+*   [`rehype-sectionize`](https://github.com/hbsnow/rehype-sectionize)
+    — when heading has id, section with id wraps the heading and content
 *   [`rehype-shift-heading`](https://github.com/rehypejs/rehype-shift-heading)
     — change the rank of headings
 *   [`rehype-shiki`](https://github.com/rsclarke/rehype-shiki)
