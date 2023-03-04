@@ -27,8 +27,7 @@
  * @typedef {FromParse5Options & ParseFields & ErrorFields} Options
  */
 
-// @ts-expect-error: remove when typed
-import Parser5 from 'parse5/lib/parser/index.js'
+import {Parser as Parser5} from 'parse5'
 import {fromParse5} from 'hast-util-from-parse5'
 import {errors} from './errors.js'
 
