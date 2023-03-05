@@ -27,7 +27,7 @@
  * @typedef {FromParse5Options & ParseFields & ErrorFields} Options
  */
 
-import {Parser as Parser5} from 'parse5'
+import {parse, parseFragment} from 'parse5'
 import {fromParse5} from 'hast-util-from-parse5'
 import {errors} from './errors.js'
 
@@ -47,21 +47,23 @@ export default function rehypeParse(options) {
 
   /** @type {import('unified').ParserFunction<Root>} */
   function parser(doc, file) {
-    const fn = settings.fragment ? 'parseFragment' : 'parse'
+    const fn = settings.fragment ? parseFragment : parse
     const onParseError = settings.emitParseErrors ? onerror : null
-    const parse5 = new Parser5({
-      sourceCodeLocationInfo: true,
-      onParseError,
-      scriptingEnabled: false
-    })
 
     // @ts-expect-error: `parse5` returns document or fragment, which are always
     // mapped to roots.
-    return fromParse5(parse5[fn](doc), {
-      space: settings.space,
-      file,
-      verbose: settings.verbose
-    })
+    return fromParse5(
+      fn(doc, {
+        sourceCodeLocationInfo: true,
+        onParseError,
+        scriptingEnabled: false
+      }),
+      {
+        space: settings.space,
+        file,
+        verbose: settings.verbose
+      }
+    )
 
     /**
      * @param {{code: string, startLine: number, startCol: number, startOffset: number, endLine: number, endCol: number, endOffset: number}} error
