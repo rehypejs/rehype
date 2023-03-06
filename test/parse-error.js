@@ -3,8 +3,7 @@ import path from 'node:path'
 import test from 'tape'
 import {toVFile, readSync} from 'to-vfile'
 import {rehype} from 'rehype'
-// @ts-expect-error: untyped.
-import p5errors from 'parse5/lib/common/error-codes.js'
+import {ErrorCodes as p5errors} from 'parse5'
 import {errors as rerrors} from 'rehype-parse/lib/errors.js'
 
 // Related to https://github.com/inikulin/parse5/issues/255
