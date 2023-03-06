@@ -1,7 +1,7 @@
 [
   {
-    "message": "Incorrectly closed comment",
     "name": "index.html:3:9-3:9",
+    "message": "Incorrectly closed comment",
     "reason": "Incorrectly closed comment",
     "line": 3,
     "column": 9,
