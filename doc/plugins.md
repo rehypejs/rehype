@@ -38,6 +38,8 @@ The list of plugins:
     — add links to headings
 *   [`rehype-citation`](https://github.com/timlrx/rehype-citation)
     — add citation and bibliography from bibtex
+*   [`rehype-color-chips`](https://github.com/shreshthmohan/rehype-color-chips)
+    - add color chips to inline code blocks with color codes
 *   [`rehype-components`](https://github.com/marekweb/rehype-components)
     — render components (custom elements)
 *   [`rehype-concat-css-style`](https://github.com/rehypejs/rehype-minify/tree/main/packages/rehype-concat-css-style)
