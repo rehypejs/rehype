@@ -8,4 +8,5 @@ script/*.d.ts
 test/*.d.ts
 .DS_Store
 *.log
+tsconfig.tsbuildinfo
 yarn.lock

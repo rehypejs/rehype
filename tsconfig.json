@@ -1,6 +1,12 @@
 {
   "include": ["*.js", "script/**/*.js", "test/**/*.js"],
+  "references": [
+    {"path": "./packages/rehype"},
+    {"path": "./packages/rehype-parse"},
+    {"path": "./packages/rehype-stringify"}
+  ],
   "compilerOptions": {
+    "composite": true,
     "target": "es2021",
     "lib": ["es2021"],
     "module": "node16",
