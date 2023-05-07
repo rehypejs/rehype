@@ -90,6 +90,8 @@ The list of plugins:
     — replace template strings with values from the dictionary
 *   [`rehype-mathjax`](https://github.com/remarkjs/remark-math/tree/main/packages/rehype-mathjax)
     — render math with MathJax
+*   [`rehype-mermaidjs`](https://github.com/remcohaszing/rehype-mermaidjs)
+    — render mermaid diagrams
 *   [`rehype-meta`](https://github.com/rehypejs/rehype-meta)
     — add metadata to the head of a document
 *   [`rehype-minify`](https://github.com/rehypejs/rehype-minify)
