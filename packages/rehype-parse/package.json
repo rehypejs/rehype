@@ -42,7 +42,7 @@
     "unified": "^10.0.0"
   },
   "scripts": {
-    "build": "rimraf \"lib/**/*.d.ts\" && tsc && type-coverage"
+    "build": "tsc --build --clean && tsc --build && type-coverage"
   },
   "xo": false,
   "typeCoverage": {
