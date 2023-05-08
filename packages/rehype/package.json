@@ -42,7 +42,7 @@
     "index.js"
   ],
   "scripts": {
-    "build": "rimraf \"*.d.ts\" && tsc && type-coverage"
+    "build": "tsc --build --clean && tsc --build && type-coverage"
   },
   "xo": false,
   "typeCoverage": {
