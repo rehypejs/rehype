@@ -38,7 +38,7 @@
   "dependencies": {
     "@types/hast": "^2.0.0",
     "hast-util-from-parse5": "^7.0.0",
-    "parse5": "^6.0.0",
+    "parse5": "^7.0.0",
     "unified": "^10.0.0"
   },
   "scripts": {
