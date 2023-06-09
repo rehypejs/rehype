@@ -27,8 +27,7 @@
  * @typedef {FromParse5Options & ParseFields & ErrorFields} Options
  */
 
-// @ts-expect-error: remove when typed
-import Parser5 from 'parse5/lib/parser/index.js'
+import {Parser, parse, parseFragment} from 'parse5'
 import {fromParse5} from 'hast-util-from-parse5'
 import {errors} from './errors.js'
 
@@ -48,21 +47,24 @@ export default function rehypeParse(options) {
 
   /** @type {import('unified').ParserFunction<Root>} */
   function parser(doc, file) {
-    const fn = settings.fragment ? 'parseFragment' : 'parse'
-    const onParseError = settings.emitParseErrors ? onerror : null
-    const parse5 = new Parser5({
+    const parserOptions = {
       sourceCodeLocationInfo: true,
-      onParseError,
+      onParseError: settings.emitParseErrors ? onerror : null,
       scriptingEnabled: false
-    })
+    }
 
     // @ts-expect-error: `parse5` returns document or fragment, which are always
     // mapped to roots.
-    return fromParse5(parse5[fn](doc), {
-      space: settings.space,
-      file,
-      verbose: settings.verbose
-    })
+    return fromParse5(
+      settings.fragment
+        ? parseFragment(doc, parserOptions)
+        : parse(doc, parserOptions),
+      {
+        space: settings.space,
+        file,
+        verbose: settings.verbose
+      }
+    )
 
     /**
      * @param {{code: string, startLine: number, startCol: number, startOffset: number, endLine: number, endCol: number, endOffset: number}} error
