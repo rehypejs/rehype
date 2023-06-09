@@ -27,7 +27,7 @@
  * @typedef {FromParse5Options & ParseFields & ErrorFields} Options
  */
 
-import {Parser, parse, parseFragment} from 'parse5'
+import {parse, parseFragment} from 'parse5'
 import {fromParse5} from 'hast-util-from-parse5'
 import {errors} from './errors.js'
 
