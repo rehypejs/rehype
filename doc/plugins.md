@@ -144,6 +144,7 @@ The list of plugins:
     — compile to React
 *   [`rehype-remark`](https://github.com/rehypejs/rehype-remark)
     — remark support
+*   [`rehype-remove-images`](https://github.com/iloveitaly/rehype-remove-images)
 *   [`rehype-remove-comments`](https://github.com/rehypejs/rehype-minify/tree/main/packages/rehype-remove-comments)
     — remove comments
 *   [`rehype-remove-duplicate-attribute-values`](https://github.com/rehypejs/rehype-minify/tree/main/packages/rehype-remove-duplicate-attribute-values)
