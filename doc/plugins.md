@@ -8,10 +8,12 @@ This page lists existing plugins.
 
 ## Contents
 
-*   [List of plugins](#list-of-plugins)
-*   [List of utilities](#list-of-utilities)
-*   [Use plugins](#use-plugins)
-*   [Create plugins](#create-plugins)
+- [Plugins](#plugins)
+  - [Contents](#contents)
+  - [List of plugins](#list-of-plugins)
+  - [List of utilities](#list-of-utilities)
+  - [Use plugins](#use-plugins)
+  - [Create plugins](#create-plugins)
 
 ## List of plugins
 
@@ -144,7 +146,6 @@ The list of plugins:
     — compile to React
 *   [`rehype-remark`](https://github.com/rehypejs/rehype-remark)
     — remark support
-*   [`rehype-remove-images`](https://github.com/iloveitaly/rehype-remove-images)
 *   [`rehype-remove-comments`](https://github.com/rehypejs/rehype-minify/tree/main/packages/rehype-remove-comments)
     — remove comments
 *   [`rehype-remove-duplicate-attribute-values`](https://github.com/rehypejs/rehype-minify/tree/main/packages/rehype-remove-duplicate-attribute-values)
@@ -153,6 +154,7 @@ The list of plugins:
     — remove empty attributes
 *   [`rehype-remove-external-script-content`](https://github.com/rehypejs/rehype-minify/tree/main/packages/rehype-remove-external-script-content)
     — remove content on `<script>`s w/ `src`
+*   [`rehype-remove-images`](https://github.com/iloveitaly/rehype-remove-images)
 *   [`rehype-remove-meta-http-equiv`](https://github.com/rehypejs/rehype-minify/tree/main/packages/rehype-remove-meta-http-equiv)
     — replace certain `http-equiv`s with shorter alternatives
 *   [`rehype-remove-script-type-javascript`](https://github.com/rehypejs/rehype-minify/tree/main/packages/rehype-remove-script-type-javascript)
