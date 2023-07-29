@@ -8,12 +8,10 @@ This page lists existing plugins.
 
 ## Contents
 
-- [Plugins](#plugins)
-  - [Contents](#contents)
-  - [List of plugins](#list-of-plugins)
-  - [List of utilities](#list-of-utilities)
-  - [Use plugins](#use-plugins)
-  - [Create plugins](#create-plugins)
+*   [List of plugins](#list-of-plugins)
+*   [List of utilities](#list-of-utilities)
+*   [Use plugins](#use-plugins)
+*   [Create plugins](#create-plugins)
 
 ## List of plugins
 
