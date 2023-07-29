@@ -152,6 +152,7 @@ The list of plugins:
     — remove empty attributes
 *   [`rehype-remove-external-script-content`](https://github.com/rehypejs/rehype-minify/tree/main/packages/rehype-remove-external-script-content)
     — remove content on `<script>`s w/ `src`
+*   [`rehype-remove-images`](https://github.com/iloveitaly/rehype-remove-images)
 *   [`rehype-remove-meta-http-equiv`](https://github.com/rehypejs/rehype-minify/tree/main/packages/rehype-remove-meta-http-equiv)
     — replace certain `http-equiv`s with shorter alternatives
 *   [`rehype-remove-script-type-javascript`](https://github.com/rehypejs/rehype-minify/tree/main/packages/rehype-remove-script-type-javascript)
