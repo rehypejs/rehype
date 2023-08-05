@@ -28,8 +28,6 @@ The list of plugins:
 
 *   [`rehype-accessible-emojis`](https://github.com/GaiAma/Coding4GaiAma/tree/HEAD/packages/rehype-accessible-emojis)
     — make emojis accessible adding role & aria-label
-*   [`rehype-add-classes`](https://github.com/martypdx/rehype-add-classes)
-    — add classes by selector
 *   [`rehype-annotate`](https://github.com/baldurbjarnason/rehype-annotate)
     — add W3C-style annotations
 *   [`rehype-attr`](https://github.com/jaywcjlove/rehype-attr)
@@ -38,6 +36,8 @@ The list of plugins:
     — add links to headings
 *   [`rehype-citation`](https://github.com/timlrx/rehype-citation)
     — add citation and bibliography from bibtex
+*   [`rehype-class-names`](https://github.com/riderjensen/rehype-class-names)
+    — add classes by selector
 *   [`rehype-color-chips`](https://github.com/shreshthmohan/rehype-color-chips)
     — add color chips to inline code blocks with color codes
 *   [`rehype-components`](https://github.com/marekweb/rehype-components)
