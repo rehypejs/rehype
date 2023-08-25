@@ -1,16 +1,13 @@
-import fs from 'node:fs'
+import assert from 'node:assert/strict'
+import fs from 'node:fs/promises'
 import path from 'node:path'
 import process from 'node:process'
-import test from 'tape'
-import {toVFile, readSync} from 'to-vfile'
+import test from 'node:test'
+import {toVFile, read} from 'to-vfile'
 import {rehype} from 'rehype'
 
-test('parse-errors', (t) => {
-  let index = -1
-  const root = path.join('test', 'parse-error')
-  const fixtures = fs.readdirSync(root)
-
-  t.test('surrogate-in-input-stream', (st) => {
+test('parse-errors', async (t) => {
+  await t.test('surrogate-in-input-stream', () => {
     const file = toVFile({
       path: 'index.html',
       value: '<!doctype html>\n' + String.fromCharCode(0xd8_00)
@@ -19,7 +16,7 @@ test('parse-errors', (t) => {
     // @ts-expect-error: to do: type settings.
     rehype().data('settings', {emitParseErrors: true}).parse(file)
 
-    st.deepEqual(
+    assert.deepEqual(
       JSON.parse(JSON.stringify(file.messages)),
       [
         {
@@ -44,29 +41,25 @@ test('parse-errors', (t) => {
     )
   })
 
-  /* Check the next fixture. */
-  function next() {
-    const fixture = fixtures[++index]
+  let index = -1
+  const root = path.join('test', 'parse-error')
+  const fixtures = await fs.readdir(root)
 
-    if (!fixture) {
-      t.end()
-      return
-    }
+  while (++index < fixtures.length) {
+    const fixture = fixtures[index]
 
     if (fixture.charAt(0) === '.') {
-      setImmediate(next)
-      return
+      continue
     }
 
     const fp = path.join(root, fixture)
 
-    setImmediate(next) // Queue next.
-
-    t.test(fixture, (st) => {
-      const file = readSync(path.join(fp, 'index.html'), 'utf8')
+    // eslint-disable-next-line no-await-in-loop
+    await t.test(fixture, async () => {
+      const file = await read(path.join(fp, 'index.html'), 'utf8')
       /** @type {Array<Error>} */
       let expected = JSON.parse(
-        String(fs.readFileSync(path.join(fp, 'messages.json')))
+        String(await fs.readFile(path.join(fp, 'messages.json')))
       )
 
       file.dirname = ''
@@ -79,21 +72,17 @@ test('parse-errors', (t) => {
 
       if ('UPDATE' in process.env) {
         expected = actual
-        fs.writeFileSync(
+        await fs.writeFile(
           path.join(fp, 'messages.json'),
           JSON.stringify(expected, undefined, 2) + '\n'
         )
       }
 
-      st.deepEqual(
+      assert.deepEqual(
         actual,
         expected,
         'should emit messages for `' + fixture + '`'
       )
-
-      st.end()
     })
   }
-
-  next()
 })

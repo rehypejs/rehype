@@ -17,14 +17,13 @@
     "packages/rehype-cli"
   ],
   "devDependencies": {
-    "@types/tape": "^5.0.0",
+    "@types/node": "^20.0.0",
     "bail": "^2.0.0",
     "c8": "^8.0.0",
     "hast-util-assert": "^4.0.0",
     "prettier": "^3.0.0",
     "remark-cli": "^11.0.0",
     "remark-preset-wooorm": "^9.0.0",
-    "tape": "^5.0.0",
     "to-vfile": "^8.0.0",
     "type-coverage": "^2.0.0",
     "type-fest": "^4.0.0",
