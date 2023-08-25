@@ -8,7 +8,7 @@
 [![Backers][backers-badge]][collective]
 [![Chat][chat-badge]][chat]
 
-**[rehype][]** plugin to add support for serializing HTML.
+**[rehype][]** plugin to add support for serializing to HTML.
 
 ## Contents
 
@@ -18,6 +18,8 @@
 *   [Use](#use)
 *   [API](#api)
     *   [`unified().use(rehypeStringify[, options])`](#unifieduserehypestringify-options)
+    *   [`CharacterReferences`](#characterreferences)
+    *   [`Options`](#options)
 *   [Syntax](#syntax)
 *   [Syntax tree](#syntax-tree)
 *   [Types](#types)
@@ -38,15 +40,16 @@ See [the monorepo readme][rehype] for info on what the rehype ecosystem is.
 ## When should I use this?
 
 This plugin adds support to unified for serializing HTML.
-You can alternatively use [`rehype`][rehype-core] instead, which combines
-unified, [`rehype-parse`][rehype-parse], and this plugin.
+If you also need to parse HTML, you can alternatively use
+[`rehype`][rehype-core], which combines unified,
+[`rehype-parse`][rehype-parse], and this plugin.
 
-When you’re in a browser, trust your content, don’t need formatting options, and
-value a smaller bundle size, you can use
+When you are in a browser, trust your content, don’t need formatting options,
+and value a smaller bundle size, you can use
 [`rehype-dom-stringify`][rehype-dom-stringify] instead.
 
-This plugin is built on [`hast-util-to-html`][hast-util-to-html], which turns
-[hast][] syntax trees into a string.
+If you don’t use plugins and have access to a syntax tree, you can directly use
+[`hast-util-to-html`][hast-util-to-html], which is used inside this plugin.
 rehype focusses on making it easier to transform content by abstracting such
 internals away.
 
@@ -59,7 +62,7 @@ inverse: minified and mangled HTML.
 ## Install
 
 This package is [ESM only][esm].
-In Node.js (version 12.20+, 14.14+, or 16.0+), install with [npm][]:
+In Node.js (version 16+), install with [npm][]:
 
 ```sh
 npm install rehype-stringify
@@ -84,24 +87,20 @@ In browsers with [`esm.sh`][esmsh]:
 Say we have the following module `example.js`:
 
 ```js
-import {unified} from 'unified'
-import remarkParse from 'remark-parse'
-import remarkGfm from 'remark-gfm'
 import remarkRehype from 'remark-rehype'
 import rehypeStringify from 'rehype-stringify'
+import remarkGfm from 'remark-gfm'
+import remarkParse from 'remark-parse'
+import {unified} from 'unified'
 
-main()
+const file = await unified()
+  .use(remarkParse)
+  .use(remarkGfm)
+  .use(remarkRehype)
+  .use(rehypeStringify)
+  .process('# Hi\n\n*Hello*, world!')
 
-async function main() {
-  const file = await unified()
-    .use(remarkParse)
-    .use(remarkGfm)
-    .use(remarkRehype)
-    .use(rehypeStringify)
-    .process('# Hi\n\n*Hello*, world!')
-
-  console.log(String(file))
-}
+console.log(String(file))
 ```
 
 …running that with `node example.js` yields:
@@ -114,172 +113,130 @@ async function main() {
 ## API
 
 This package exports no identifiers.
-The default export is `rehypeStringify`.
+The default export is [`rehypeStringify`][api-rehype-stringify].
 
 ### `unified().use(rehypeStringify[, options])`
 
-Add support for serializing HTML.
-Options are passed to [`hast-util-to-html`][hast-util-to-html].
+Plugin to add support for serializing to HTML.
 
-##### `options`
+###### Parameters
 
-Configuration (optional).
+*   `options` ([`Options`][api-options], optional)
+    — configuration
 
-###### `options.entities`
+###### Returns
 
-Define how to create character references (`Object`, default: `{}`).
-Configuration is passed to [`stringify-entities`][stringify-entities].
-You can use the fields `useNamedReferences`, `useShortestReferences`, and
-`omitOptionalSemicolons`.
-You cannot use the fields `escapeOnly`, `attribute`, or `subset`).
+Nothing (`undefined`).
 
-###### `options.upperDoctype`
+### `CharacterReferences`
 
-Use a `<!DOCTYPE…` instead of `<!doctype…`.
-Useless except for XHTML (`boolean`, default: `false`).
+How to serialize character references (TypeScript type).
 
-###### `options.quote`
+> ⚠️ **Note**: `omitOptionalSemicolons` creates what HTML calls “parse errors”
+> but is otherwise still valid HTML — don’t use this except when building a
+> minifier.
+> Omitting semicolons is possible for certain named and numeric references in
+> some cases.
 
-Preferred quote to use (`'"'` or `'\''`, default: `'"'`).
+> ⚠️ **Note**: `useNamedReferences` can be omitted when using
+> `useShortestReferences`.
 
-###### `options.quoteSmart`
+###### Fields
 
-Use the other quote if that results in less bytes (`boolean`, default: `false`).
+*   `useNamedReferences` (`boolean`, default: `false`)
+    — prefer named character references (`&amp;`) where possible
+*   `omitOptionalSemicolons` (`boolean`, default: `false`)
+    — whether to omit semicolons when possible
+*   `useShortestReferences` (`boolean`, default: `false`)
+    — prefer the shortest possible reference, if that results in less bytes
 
-###### `options.preferUnquoted`
+### `Options`
 
-Leave attributes unquoted if that results in less bytes (`boolean`, default:
-`false`).
+Configuration (TypeScript type).
 
-Not used in the SVG space.
+> ⚠️ **Danger**: only set `allowDangerousCharacters` and `allowDangerousHtml` if
+> you completely trust the content.
 
-###### `options.omitOptionalTags`
+> 👉 **Note**: `allowParseErrors`, `bogusComments`, `tightAttributes`, and
+> `tightDoctype`
+> intentionally create parse errors in markup (how parse errors are handled is
+> well defined, so this works but isn’t pretty).
 
-Omit optional opening and closing tags (`boolean`, default: `false`).
-For example, in `<ol><li>one</li><li>two</li></ol>`, both `</li>` closing tags
-can be omitted.
-The first because it’s followed by another `li`, the last because it’s followed
-by nothing.
-
-Not used in the SVG space.
-
-###### `options.collapseEmptyAttributes`
-
-Collapse empty attributes: get `class` instead of `class=""` (`boolean`,
-default: `false`).
-
-Not used in the SVG space.
-
-> 👉 **Note**: boolean attributes (such as `hidden`) are always collapsed.
-
-###### `options.closeSelfClosing`
-
-Close self-closing nodes with an extra slash (`/`): `<img />` instead of
-`<img>` (`boolean`, default: `false`).
-See `tightSelfClosing` to control whether a space is used before the slash.
-
-Not used in the SVG space.
-
-###### `options.closeEmptyElements`
-
-Close SVG elements without any content with slash (`/`) on the opening tag
-instead of an end tag: `<circle />` instead of `<circle></circle>` (`boolean`,
-default: `false`).
-See `tightSelfClosing` to control whether a space is used before the slash.
-
-Not used in the HTML space.
-
-###### `options.tightSelfClosing`
-
-Do not use an extra space when closing self-closing elements: `<img/>` instead
-of `<img />` (`boolean`, default: `false`).
-
-> 👉 **Note**: only used if `closeSelfClosing: true` or
-> `closeEmptyElements: true`.
-
-###### `options.tightCommaSeparatedLists`
-
-Join known comma-separated attribute values with just a comma (`,`), instead of
-padding them on the right as well (`,␠`, where `␠` represents a space)
-(`boolean`, default: `false`).
-
-###### `options.tightAttributes`
-
-Join attributes together, without whitespace, if possible: get
-`class="a b"title="c d"` instead of `class="a b" title="c d"` to save bytes
-(`boolean`, default: `false`).
-
-Not used in the SVG space.
-
-> 👉 **Note**: intentionally creates parse errors in markup (how parse errors
-> are handled is well defined, so this works but isn’t pretty).
-
-###### `options.tightDoctype`
-
-Drop unneeded spaces in doctypes: `<!doctypehtml>` instead of `<!doctype html>`
-to save bytes (`boolean`, default: `false`).
-
-> 👉 **Note**: intentionally creates parse errors in markup (how parse errors
-> are handled is well defined, so this works but isn’t pretty).
-
-###### `options.bogusComments`
-
-Use “bogus comments” instead of comments to save byes: `<?charlie>` instead of
-`<!--charlie-->` (`boolean`, default: `false`).
-
-> 👉 **Note**: intentionally creates parse errors in markup (how parse errors
-> are handled is well defined, so this works but isn’t pretty).
-
-###### `options.allowParseErrors`
-
-Do not encode characters which cause parse errors (even though they work), to
-save bytes (`boolean`, default: `false`).
-
-Not used in the SVG space.
-
-> 👉 **Note**: intentionally creates parse errors in markup (how parse errors
-> are handled is well defined, so this works but isn’t pretty).
-
-###### `options.allowDangerousCharacters`
-
-Do not encode some characters which cause XSS vulnerabilities in older browsers
-(`boolean`, default: `false`).
-
-> ⚠️ **Danger**: only set this if you completely trust the content.
-
-###### `options.allowDangerousHtml`
-
-Allow `raw` nodes and insert them as raw HTML.
-When falsey, encodes `raw` nodes (`boolean`, default: `false`).
-
-> ⚠️ **Danger**: only set this if you completely trust the content.
-
-###### `options.space`
-
-Which space the document is in (`'svg'` or `'html'`, default: `'html'`).
-
-When an `<svg>` element is found in the HTML space, `rehype-stringify` already
-automatically switches to and from the SVG space when entering and exiting it.
-
-> 👉 **Note**: rehype is not an XML parser.
+> 👉 **Note**: this is not an XML serializer.
 > It supports SVG as embedded in HTML.
 > It does not support the features available in XML.
-> Passing SVG files might break but fragments of modern SVG should be fine.
+> Use [`xast-util-to-xml`][xast-util-to-xml] to serialize XML.
 
-###### `options.voids`
+###### Fields
 
-Tag names of elements to serialize without closing tag (`Array<string>`,
-default: [`html-void-elements`][html-void-elements]).
-
-Not used in the SVG space.
-
-> 👉 **Note**: It’s highly unlikely that you want to pass this.
-> It’s only really applicable to the `hast-util-to-html` utility.
+*   `allowDangerousCharacters` (`boolean`, default: `false`)
+    — do not encode some characters which cause XSS vulnerabilities in older
+    browsers
+*   `allowDangerousHtml` (`boolean`, default: `false`)
+    — allow [`Raw`][raw] nodes and insert them as raw HTML; when `false`, `Raw`
+    nodes are encoded
+*   `allowParseErrors` (`boolean`, default: `false`)
+    — do not encode characters which cause parse errors (even though they
+    work), to save bytes; not used in the SVG space.
+*   `bogusComments` (`boolean`, default: `false`)
+    — use “bogus comments” instead of comments to save byes: `<?charlie>`
+    instead of `<!--charlie-->`
+*   `characterReferences` ([`CharacterReferences`][api-character-references],
+    optional)
+    — configure how to serialize character references
+*   `closeEmptyElements` (`boolean`, default: `false`)
+    — close SVG elements without any content with slash (`/`) on the opening
+    tag instead of an end tag: `<circle />` instead of `<circle></circle>`;
+    see `tightSelfClosing` to control whether a space is used before the slash;
+    not used in the HTML space
+*   `closeSelfClosing` (`boolean`, default: `false`)
+    — close self-closing nodes with an extra slash (`/`): `<img />` instead of
+    `<img>`; see `tightSelfClosing` to control whether a space is used before
+    the slash; not used in the SVG space.
+*   `collapseEmptyAttributes` (`boolean`, default: `false`)
+    — collapse empty attributes: get `class` instead of `class=""`; not used in
+    the SVG space; boolean attributes (such as `hidden`) are always collapsed
+*   `omitOptionalTags` (`boolean`, default: `false`)
+    — omit optional opening and closing tags; to illustrate, in
+    `<ol><li>one</li><li>two</li></ol>`, both `</li>` closing tags can be
+    omitted, the first because it’s followed by another `li`, the last because
+    it’s followed by nothing; not used in the SVG space
+*   `preferUnquoted` (`boolean`, default: `false`)
+    — leave attributes unquoted if that results in less bytes; not used in the
+    SVG space
+*   `quote` (`'"'` or `"'"`, default: `'"'`)
+    — preferred quote to use
+*   `quoteSmart` (`boolean`, default: `false`)
+    — use the other quote if that results in less bytes
+*   `space` (`'html'` or `'svg'`, default: `'html'`)
+    — which space the document is in; when an `<svg>` element is found in the
+    HTML space, this package already automatically switches to and from the SVG
+*   `tightAttributes` (`boolean`, default: `false`)
+    — join attributes together, without whitespace, if possible: get
+    `class="a b"title="c d"` instead of `class="a b" title="c d"` to save
+    bytes; not used in the SVG space
+*   `tightCommaSeparatedLists` (`boolean`, default: `false`)
+    — join known comma-separated attribute values with just a comma (`,`),
+    instead of padding them on the right as well (`,␠`, where `␠` represents a
+    space)
+*   `tightDoctype` (`boolean`, default: `false`)
+    — drop unneeded spaces in doctypes: `<!doctypehtml>` instead of
+    `<!doctype html>` to save bytes
+*   `tightSelfClosing` (`boolean`, default: `false`).
+    — do not use an extra space when closing self-closing elements: `<img/>`
+    instead of `<img />`; only used if `closeSelfClosing: true` or
+    `closeEmptyElements: true`
+*   `upperDoctype` (`boolean`, default: `false`).
+    — use a `<!DOCTYPE…` instead of `<!doctype…`; useless except for XHTML
+*   `voids` (`Array<string>`, default:
+    [`html-void-elements`][html-void-elements])
+    — tag names of elements to serialize without closing tag; not used in the
+    SVG space
 
 ## Syntax
 
 HTML is serialized according to WHATWG HTML (the living standard), which is also
-followed by browsers such as Chrome and Firefox.
+followed by all browsers.
 
 ## Syntax tree
 
@@ -288,14 +245,19 @@ The syntax tree format used in rehype is [hast][].
 ## Types
 
 This package is fully typed with [TypeScript][].
-The extra types `Options` are exported.
+It exports the additional types
+[`CharacterReferences`][api-character-references] and
+[`Options`][api-options].
 
 ## Compatibility
 
-Projects maintained by the unified collective are compatible with all maintained
+Projects maintained by the unified collective are compatible with maintained
 versions of Node.js.
-As of now, that is Node.js 12.20+, 14.14+, and 16.0+.
-Our projects sometimes work with older versions, but this is not guaranteed.
+
+When we cut a new major release, we drop support for unmaintained versions of
+Node.
+This means we try to keep the current release line, `rehype-stringify@^9`,
+compatible with Node.js 12.
 
 ## Security
 
@@ -321,8 +283,6 @@ abide by its terms.
 ## Sponsor
 
 Support this effort and give back by sponsoring on [OpenCollective][collective]!
-
-<!--lint ignore no-html-->
 
 <table>
 <tr valign="middle">
@@ -409,9 +369,9 @@ Support this effort and give back by sponsoring on [OpenCollective][collective]!
 
 [downloads]: https://www.npmjs.com/package/rehype-stringify
 
-[size-badge]: https://img.shields.io/bundlephobia/minzip/rehype-stringify.svg
+[size-badge]: https://img.shields.io/bundlejs/size/rehype-stringify
 
-[size]: https://bundlephobia.com/result?p=rehype-stringify
+[size]: https://bundlejs.com/?q=rehype-stringify
 
 [sponsors-badge]: https://opencollective.com/unified/sponsors/badge.svg
 
@@ -467,6 +427,16 @@ Support this effort and give back by sponsoring on [OpenCollective][collective]!
 
 [hast-util-to-html]: https://github.com/syntax-tree/hast-util-to-html
 
-[stringify-entities]: https://github.com/wooorm/stringify-entities
+[xast-util-to-xml]: https://github.com/syntax-tree/xast-util-to-xml
 
 [html-void-elements]: https://github.com/wooorm/html-void-elements
+
+<!-- To do: use `remark-rehype` link if that’s released? -->
+
+[raw]: https://github.com/syntax-tree/mdast-util-to-hast?tab=readme-ov-file#raw
+
+[api-character-references]: #characterreferences
+
+[api-options]: #options
+
+[api-rehype-stringify]: #unifieduserehypestringify-options

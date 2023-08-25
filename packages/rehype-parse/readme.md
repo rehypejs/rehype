@@ -8,7 +8,7 @@
 [![Backers][backers-badge]][collective]
 [![Chat][chat-badge]][chat]
 
-**[rehype][]** plugin to add support for parsing HTML input.
+**[rehype][]** plugin to add support for parsing from HTML.
 
 ## Contents
 
@@ -18,6 +18,9 @@
 *   [Use](#use)
 *   [API](#api)
     *   [`unified().use(rehypeParse[, options])`](#unifieduserehypeparse-options)
+    *   [`ErrorCode`](#errorcode)
+    *   [`ErrorSeverity`](#errorseverity)
+    *   [`Options`](#options)
 *   [Examples](#examples)
     *   [Example: fragment versus document](#example-fragment-versus-document)
     *   [Example: whitespace around and inside `<html>`](#example-whitespace-around-and-inside-html)
@@ -43,23 +46,24 @@ See [the monorepo readme][rehype] for info on what the rehype ecosystem is.
 ## When should I use this?
 
 This plugin adds support to unified for parsing HTML.
-You can alternatively use [`rehype`][rehype-core] instead, which combines
-unified, this plugin, and [`rehype-stringify`][rehype-stringify].
+If you also need to serialize HTML, you can alternatively use
+[`rehype`][rehype-core], which combines unified, this plugin, and
+[`rehype-stringify`][rehype-stringify].
 
-When you’re in a browser, trust your content, don’t need positional info, and
+When you are in a browser, trust your content, don’t need positional info, and
 value a smaller bundle size, you can use [`rehype-dom-parse`][rehype-dom-parse]
 instead.
 
-This plugin is built on [`parse5`][parse5] and
-[`hast-util-from-parse5`][hast-util-from-parse5], which deal with HTML-compliant
-tokenizing, parsing, and creating nodes.
+If you don’t use plugins and want to access the syntax tree, you can directly
+use [`hast-util-from-html`][hast-util-from-html], which is used inside this
+plugin.
 rehype focusses on making it easier to transform content by abstracting such
 internals away.
 
 ## Install
 
 This package is [ESM only][esm].
-In Node.js (version 12.20+, 14.14+, or 16.0+), install with [npm][]:
+In Node.js (version 16+), install with [npm][]:
 
 ```sh
 npm install rehype-parse
@@ -84,22 +88,18 @@ In browsers with [`esm.sh`][esmsh]:
 Say we have the following module `example.js`:
 
 ```js
-import {unified} from 'unified'
 import rehypeParse from 'rehype-parse'
 import rehypeRemark from 'rehype-remark'
 import remarkStringify from 'remark-stringify'
+import {unified} from 'unified'
 
-main()
+const file = await unified()
+  .use(rehypeParse)
+  .use(rehypeRemark)
+  .use(remarkStringify)
+  .process('<h1>Hello, world!</h1>')
 
-async function main() {
-  const file = await unified()
-    .use(rehypeParse)
-    .use(rehypeRemark)
-    .use(remarkStringify)
-    .process('<h1>Hello, world!</h1>')
-
-  console.log(String(file))
-}
+console.log(String(file))
 ```
 
 …running that with `node example.js` yields:
@@ -111,54 +111,136 @@ async function main() {
 ## API
 
 This package exports no identifiers.
-The default export is `rehypeParse`.
+The default export is [`rehypeParse`][api-rehype-parse].
 
 ### `unified().use(rehypeParse[, options])`
 
-Add support for parsing HTML input.
+Plugin to add support for parsing from HTML.
 
-##### `options`
+###### Parameters
 
-Configuration (optional).
+*   `options` ([`Options`][api-options], optional)
+    — configuration
 
-###### `options.fragment`
+###### Returns
 
-Specify whether to parse as a fragment (`boolean`, default: `false`).
-The default is to expect a whole document.
-In document mode, unopened `html`, `head`, and `body` elements are opened.
+Nothing (`undefined`).
 
-###### `options.space`
+### `ErrorCode`
 
-Which space the document is in (`'svg'` or `'html'`, default: `'html'`).
+Known names of [parse errors][parse-errors] (TypeScript type).
 
-When an `<svg>` element is found in the HTML space, `rehype-parse` already
-automatically switches to and from the SVG space when entering and exiting it.
+For a bit more info on each error, see
+[`hast-util-from-html`][hast-util-from-html-errors].
 
-> 👉 **Note**: rehype is not an XML parser.
+###### Type
+
+```ts
+type ErrorCode =
+  | 'abandonedHeadElementChild'
+  | 'abruptClosingOfEmptyComment'
+  | 'abruptDoctypePublicIdentifier'
+  | 'abruptDoctypeSystemIdentifier'
+  | 'absenceOfDigitsInNumericCharacterReference'
+  | 'cdataInHtmlContent'
+  | 'characterReferenceOutsideUnicodeRange'
+  | 'closingOfElementWithOpenChildElements'
+  | 'controlCharacterInInputStream'
+  | 'controlCharacterReference'
+  | 'disallowedContentInNoscriptInHead'
+  | 'duplicateAttribute'
+  | 'endTagWithAttributes'
+  | 'endTagWithTrailingSolidus'
+  | 'endTagWithoutMatchingOpenElement'
+  | 'eofBeforeTagName'
+  | 'eofInCdata'
+  | 'eofInComment'
+  | 'eofInDoctype'
+  | 'eofInElementThatCanContainOnlyText'
+  | 'eofInScriptHtmlCommentLikeText'
+  | 'eofInTag'
+  | 'incorrectlyClosedComment'
+  | 'incorrectlyOpenedComment'
+  | 'invalidCharacterSequenceAfterDoctypeName'
+  | 'invalidFirstCharacterOfTagName'
+  | 'misplacedDoctype'
+  | 'misplacedStartTagForHeadElement'
+  | 'missingAttributeValue'
+  | 'missingDoctype'
+  | 'missingDoctypeName'
+  | 'missingDoctypePublicIdentifier'
+  | 'missingDoctypeSystemIdentifier'
+  | 'missingEndTagName'
+  | 'missingQuoteBeforeDoctypePublicIdentifier'
+  | 'missingQuoteBeforeDoctypeSystemIdentifier'
+  | 'missingSemicolonAfterCharacterReference'
+  | 'missingWhitespaceAfterDoctypePublicKeyword'
+  | 'missingWhitespaceAfterDoctypeSystemKeyword'
+  | 'missingWhitespaceBeforeDoctypeName'
+  | 'missingWhitespaceBetweenAttributes'
+  | 'missingWhitespaceBetweenDoctypePublicAndSystemIdentifiers'
+  | 'nestedComment'
+  | 'nestedNoscriptInHead'
+  | 'nonConformingDoctype'
+  | 'nonVoidHtmlElementStartTagWithTrailingSolidus'
+  | 'noncharacterCharacterReference'
+  | 'noncharacterInInputStream'
+  | 'nullCharacterReference'
+  | 'openElementsLeftAfterEof'
+  | 'surrogateCharacterReference'
+  | 'surrogateInInputStream'
+  | 'unexpectedCharacterAfterDoctypeSystemIdentifier'
+  | 'unexpectedCharacterInAttributeName'
+  | 'unexpectedCharacterInUnquotedAttributeValue'
+  | 'unexpectedEqualsSignBeforeAttributeName'
+  | 'unexpectedNullCharacter'
+  | 'unexpectedQuestionMarkInsteadOfTagName'
+  | 'unexpectedSolidusInTag'
+  | 'unknownNamedCharacterReference'
+```
+
+### `ErrorSeverity`
+
+Error severity (TypeScript type).
+
+*   `0` or `false`
+    — turn the parse error off
+*   `1` or `true`
+    — turn the parse error into a warning
+*   `2`
+    — turn the parse error into an actual error: processing stops
+
+###### Type
+
+```ts
+type ErrorSeverity = boolean | 0 | 1 | 2
+```
+
+### `Options`
+
+Configuration (TypeScript type).
+
+> 👉 **Note**: this is not an XML parser.
 > It supports SVG as embedded in HTML.
 > It does not support the features available in XML.
 > Passing SVG files might break but fragments of modern SVG should be fine.
+> Use [`xast-util-from-xml`][xast-util-from-xml] to parse XML.
 
-> 👉 **Note**: make sure to set `fragment: true` if `space: 'svg'`.
+###### Fields
 
-###### `options.emitParseErrors`
-
-Emit [HTML parse errors][parse-errors] as warning messages
-(`boolean`, default: `false`).
-
-Specific rules can be turned off by setting their IDs in `options` to `false`
-(or `0`).
-The default, when `emitParseErrors: true`, is `true` (or `1`), and means that
-rules emit as warnings.
-Rules can also be configured with `2`, to turn them into fatal errors.
-
-The list of parse errors:
-
-To do: remove this.
-
-###### `options.verbose`
-
-Add extra positional info (`boolean`, default: `false`).
+*   `fragment` (`boolean`, default: `false`)
+    — whether to parse as a fragment; by default unopened `html`, `head`, and
+    `body` elements are opened
+*   `emitParseErrors` (`boolean`, default: `false`)
+    — whether to emit [parse errors][parse-errors] while parsing
+*   `space` (`'html'` or `'svg'`, default: `'html'`)
+    — which space the document is in
+*   `verbose` (`boolean`, default: `false`)
+    — add extra positional info about attributes, start tags, and end tags
+*   [`[key in ErrorCode]`][api-error-code]
+    ([`ErrorSeverity`][api-error-severity], default: `1` if
+    `options.emitParseErrors`, otherwise `0`)
+    — configure specific [parse errors][parse-errors]
 
 ## Examples
 
@@ -168,33 +250,29 @@ The following example shows the difference between parsing as a document and
 parsing as a fragment:
 
 ```js
-import {unified} from 'unified'
 import rehypeParse from 'rehype-parse'
 import rehypeStringify from 'rehype-stringify'
+import {unified} from 'unified'
 
-main()
+const doc = '<title>Hi!</title><h1>Hello!</h1>'
 
-async function main() {
-  const doc = '<title>Hi!</title><h1>Hello!</h1>'
-
-  console.log(
-    String(
-      await unified()
-        .use(rehypeParse, {fragment: true})
-        .use(rehypeStringify)
-        .process(doc)
-    )
+console.log(
+  String(
+    await unified()
+      .use(rehypeParse, {fragment: true})
+      .use(rehypeStringify)
+      .process(doc)
   )
+)
 
-  console.log(
-    String(
-      await unified()
-        .use(rehypeParse, {fragment: false})
-        .use(rehypeStringify)
-        .process(doc)
-    )
+console.log(
+  String(
+    await unified()
+      .use(rehypeParse, {fragment: false})
+      .use(rehypeStringify)
+      .process(doc)
   )
-}
+)
 ```
 
 …yields:
@@ -216,11 +294,11 @@ The following example shows how whitespace is handled when around and directly
 inside the `<html>` element:
 
 ```js
-import {unified} from 'unified'
 import rehypeParse from 'rehype-parse'
 import rehypeStringify from 'rehype-stringify'
+import {unified} from 'unified'
 
-main(`<!doctype html>
+const doc = `<!doctype html>
 <html lang=en>
   <head>
     <title>Hi!</title>
@@ -228,13 +306,11 @@ main(`<!doctype html>
   <body>
     <h1>Hello!</h1>
   </body>
-</html>`)
+</html>`
 
-async function main(doc) {
-  console.log(
-    String(await unified().use(rehypeParse).use(rehypeStringify).process(doc))
-  )
-}
+console.log(
+  String(await unified().use(rehypeParse).use(rehypeStringify).process(doc))
+)
 ```
 
 …yields (where `␠` represents a space character):
@@ -265,34 +341,29 @@ improve the source code.
 The following example shows how HTML parse errors can be enabled and configured:
 
 ```js
-import {reporter} from 'vfile-reporter'
-import {unified} from 'unified'
 import rehypeParse from 'rehype-parse'
 import rehypeStringify from 'rehype-stringify'
+import {unified} from 'unified'
+import {reporter} from 'vfile-reporter'
 
-main()
-
-async function main() {
-  const file = await unified()
-    .use(rehypeParse, {
-      emitParseErrors: true, // Emit all.
-      missingWhitespaceBeforeDoctypeName: 2, // Mark one as a fatal error.
-      nonVoidHtmlElementStartTagWithTrailingSolidus: false // Ignore one.
-    })
-    .use(rehypeStringify)
-    .process(`<!doctypehtml>
+const file = await unified()
+  .use(rehypeParse, {
+    emitParseErrors: true, // Emit all.
+    missingWhitespaceBeforeDoctypeName: 2, // Mark one as a fatal error.
+    nonVoidHtmlElementStartTagWithTrailingSolidus: false // Ignore one.
+  })
+  .use(rehypeStringify).process(`<!doctypehtml>
 <title class="a" class="b">Hello…</title>
 <h1/>World!</h1>`)
 
-  console.log(reporter(file))
-}
+console.log(reporter(file))
 ```
 
 …yields:
 
 ```html
-  1:10-1:10  error    Missing whitespace before doctype name  missing-whitespace-before-doctype-name  parse-error
-  2:23-2:23  warning  Unexpected duplicate attribute          duplicate-attribute                     parse-error
+1:10-1:10 error   Missing whitespace before doctype name missing-whitespace-before-doctype-name hast-util-from-html
+2:23-2:23 warning Unexpected duplicate attribute         duplicate-attribute                    hast-util-from-html
 
 2 messages (✖ 1 error, ⚠ 1 warning)
 ```
@@ -311,7 +382,7 @@ async function main() {
 ## Syntax
 
 HTML is parsed according to WHATWG HTML (the living standard), which is also
-followed by browsers such as Chrome and Firefox.
+followed by all browsers.
 
 ## Syntax tree
 
@@ -320,18 +391,23 @@ The syntax tree format used in rehype is [hast][].
 ## Types
 
 This package is fully typed with [TypeScript][].
-The extra types `Options`, `ErrorCode`, and `ErrorSeverity` are exported.
+It exports the additional types [`ErrorCode`][api-error-code],
+[`ErrorSeverity`][api-error-severity], and
+[`Options`][api-options].
 
 ## Compatibility
 
-Projects maintained by the unified collective are compatible with all maintained
+Projects maintained by the unified collective are compatible with maintained
 versions of Node.js.
-As of now, that is Node.js 12.20+, 14.14+, and 16.0+.
-Our projects sometimes work with older versions, but this is not guaranteed.
+
+When we cut a new major release, we drop support for unmaintained versions of
+Node.
+This means we try to keep the current release line, `rehype-parse@^8`,
+compatible with Node.js 12.
 
 ## Security
 
-As **rehype** works on HTML, and improper use of HTML can open you up to a
+As **rehype** works on HTML and improper use of HTML can open you up to a
 [cross-site scripting (XSS)][xss] attack, use of rehype can also be unsafe.
 Use [`rehype-sanitize`][rehype-sanitize] to make the tree safe.
 
@@ -353,8 +429,6 @@ abide by its terms.
 ## Sponsor
 
 Support this effort and give back by sponsoring on [OpenCollective][collective]!
-
-<!--lint ignore no-html-->
 
 <table>
 <tr valign="middle">
@@ -441,9 +515,9 @@ Support this effort and give back by sponsoring on [OpenCollective][collective]!
 
 [downloads]: https://www.npmjs.com/package/rehype-parse
 
-[size-badge]: https://img.shields.io/bundlephobia/minzip/rehype-parse.svg
+[size-badge]: https://img.shields.io/bundlejs/size/rehype-parse
 
-[size]: https://bundlephobia.com/result?p=rehype-parse
+[size]: https://bundlejs.com/?q=rehype-parse
 
 [sponsors-badge]: https://opencollective.com/unified/sponsors/badge.svg
 
@@ -485,18 +559,28 @@ Support this effort and give back by sponsoring on [OpenCollective][collective]!
 
 [typescript]: https://www.typescriptlang.org
 
-[rehype-stringify]: ../rehype-stringify/
+[hast-util-from-html]: https://github.com/syntax-tree/hast-util-from-html
 
-[rehype-core]: ../rehype/
+[hast-util-from-html-errors]: https://github.com/syntax-tree/hast-util-from-html#optionskey-in-errorcode
 
-[rehype-sanitize]: https://github.com/rehypejs/rehype-sanitize
-
-[hast-util-from-parse5]: https://github.com/syntax-tree/hast-util-from-parse5
-
-[parse-errors]: https://html.spec.whatwg.org/multipage/parsing.html#parse-errors
+[xast-util-from-xml]: https://github.com/syntax-tree/xast-util-from-xml
 
 [rehype-dom-parse]: https://github.com/rehypejs/rehype-dom/tree/main/packages/rehype-dom-parse
 
 [rehype-format]: https://github.com/rehypejs/rehype-format
 
-[parse5]: https://github.com/inikulin/parse5
+[rehype-sanitize]: https://github.com/rehypejs/rehype-sanitize
+
+[parse-errors]: https://html.spec.whatwg.org/multipage/parsing.html#parse-errors
+
+[rehype-core]: ../rehype/
+
+[rehype-stringify]: ../rehype-stringify/
+
+[api-error-code]: #errorcode
+
+[api-error-severity]: #errorseverity
+
+[api-options]: #options
+
+[api-rehype-parse]: #unifieduserehypeparse-options

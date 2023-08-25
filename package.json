@@ -47,7 +47,11 @@
   },
   "remarkConfig": {
     "plugins": [
-      "remark-preset-wooorm"
+      "remark-preset-wooorm",
+      [
+        "remark-lint-no-html",
+        false
+      ]
     ]
   },
   "typeCoverage": {

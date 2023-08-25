@@ -8,8 +8,8 @@
 [![Backers][backers-badge]][collective]
 [![Chat][chat-badge]][chat]
 
-**[unified][]** processor with support for parsing HTML input and serializing
-HTML as output.
+**[unified][]** processor to add support for parsing from HTML and serializing
+to HTML.
 
 ## Contents
 
@@ -32,7 +32,7 @@ HTML as output.
 
 ## What is this?
 
-This package is a [unified][] processor with support for parsing HTML input
+This package is a [unified][] processor with support for parsing HTML as input
 and serializing HTML as output by using unified with
 [`rehype-parse`][rehype-parse] and [`rehype-stringify`][rehype-stringify].
 
@@ -58,7 +58,7 @@ line, you can use [`rehype-cli`][rehype-cli].
 ## Install
 
 This package is [ESM only][esm].
-In Node.js (version 12.20+, 14.14+, or 16.0+), install with [npm][]:
+In Node.js (version 16+), install with [npm][]:
 
 ```sh
 npm install rehype
@@ -86,12 +86,7 @@ Say we have the following module `example.js`:
 import {rehype} from 'rehype'
 import rehypeFormat from 'rehype-format'
 
-main()
-
-async function main() {
-  const file = await rehype()
-    .use(rehypeFormat)
-    .process(`<!doctype html>
+const file = await rehype().use(rehypeFormat).process(`<!doctype html>
         <html lang=en>
 <head>
     <title>Hi!</title>
@@ -101,8 +96,7 @@ async function main() {
 
 </body></html>`)
 
-  console.error(String(file))
-}
+console.error(String(file))
 ```
 
 …running that with `node example.js` yields:
@@ -121,13 +115,15 @@ async function main() {
 
 ## API
 
-This package exports the following identifier: `rehype`.
+This package exports the identifier [`rehype`][api-rehype].
 There is no default export.
 
 ### `rehype()`
 
-Create a new (unfrozen) unified processor that already uses `rehype-parse` and
-`rehype-stringify` and you can add more plugins to.
+Create a new unified processor that already uses
+[`rehype-parse`][rehype-parse] and [`rehype-stringify`][rehype-stringify].
+
+You can add more plugins with `use`.
 See [`unified`][unified] for more information.
 
 ## Examples
@@ -135,30 +131,30 @@ See [`unified`][unified] for more information.
 ### Example: passing options to `rehype-parse`, `rehype-stringify`
 
 When you use `rehype-parse` or `rehype-stringify` manually you can pass options
-to `use`.
+directly to them with `use`.
 Because both plugins are already used in `rehype`, that’s not possible.
 To define options for them, you can instead pass options to `data`:
 
 ```js
-import {reporter} from 'vfile-reporter'
 import {rehype} from 'rehype'
+import {reporter} from 'vfile-reporter'
 
-main()
+const file = await rehype()
+  .data('settings', {
+    emitParseErrors: true,
+    fragment: true,
+    preferUnquoted: true
+  })
+  .process('<div title="a" title="b"></div>')
 
-async function main() {
-  const file = await rehype()
-    .data('settings', {emitParseErrors: true, fragment: true, preferUnquoted: true})
-    .process('<div title="a" title="b"></div>')
-
-  console.error(reporter(file))
-  console.log(String(file))
-}
+console.error(reporter(file))
+console.log(String(file))
 ```
 
 …yields:
 
 ```txt
-  1:21-1:21  warning  Unexpected duplicate attribute  duplicate-attribute  parse-error
+1:21-1:21 warning Unexpected duplicate attribute duplicate-attribute hast-util-from-html
 
 ⚠ 1 warning
 ```
@@ -169,8 +165,8 @@ async function main() {
 
 ## Syntax
 
-HTML is parsed according to WHATWG HTML (the living standard), which is also
-followed by browsers such as Chrome and Firefox.
+HTML is parsed and serialized according to WHATWG HTML (the living standard),
+which is also followed by all browsers.
 
 ## Syntax tree
 
@@ -179,14 +175,17 @@ The syntax tree format used in rehype is [hast][].
 ## Types
 
 This package is fully typed with [TypeScript][].
-There are no extra types exported.
+It exports no additional types.
 
 ## Compatibility
 
-Projects maintained by the unified collective are compatible with all maintained
+Projects maintained by the unified collective are compatible with maintained
 versions of Node.js.
-As of now, that is Node.js 12.20+, 14.14+, and 16.0+.
-Our projects sometimes work with older versions, but this is not guaranteed.
+
+When we cut a new major release, we drop support for unmaintained versions of
+Node.
+This means we try to keep the current release line, `rehype@^12`, compatible
+with Node.js 12.
 
 ## Security
 
@@ -212,8 +211,6 @@ abide by its terms.
 ## Sponsor
 
 Support this effort and give back by sponsoring on [OpenCollective][collective]!
-
-<!--lint ignore no-html-->
 
 <table>
 <tr valign="middle">
@@ -300,9 +297,9 @@ Support this effort and give back by sponsoring on [OpenCollective][collective]!
 
 [downloads]: https://www.npmjs.com/package/rehype
 
-[size-badge]: https://img.shields.io/bundlephobia/minzip/rehype.svg
+[size-badge]: https://img.shields.io/bundlejs/size/rehype
 
-[size]: https://bundlephobia.com/result?p=rehype
+[size]: https://bundlejs.com/?q=rehype
 
 [sponsors-badge]: https://opencollective.com/unified/sponsors/badge.svg
 
@@ -353,3 +350,5 @@ Support this effort and give back by sponsoring on [OpenCollective][collective]!
 [rehype-sanitize]: https://github.com/rehypejs/rehype-sanitize
 
 [rehype-dom]: https://github.com/rehypejs/rehype-dom/tree/main/packages/rehype-dom
+
+[api-rehype]: #rehype-1

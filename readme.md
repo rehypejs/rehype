@@ -41,8 +41,7 @@ You can use the many existing plugins or you can make your own.
 
 ## What is this?
 
-You can use plugins to format or minify HTML.
-**In**:
+With this project and a plugin, you can turn this HTML:
 
 ```html
 <!doctype html>
@@ -58,26 +57,72 @@ You can use plugins to format or minify HTML.
 </html>
 ```
 
-**Out**:
+…into the following HTML:
 
 ```html
 <!doctypehtml><html lang=en><meta charset=utf8><title>Saturn</title><h1>Saturn</h1><p>Saturn is a gas giant composed predominantly of hydrogen and helium.
 ```
 
-You can use plugins to change HTML.
-**In**:
+<details><summary>Show example code</summary>
+
+```js
+import rehypeParse from 'rehype-parse'
+import rehypePresetMinify from 'rehype-preset-minify'
+import rehypeStringify from 'rehype-stringify'
+import {unified} from 'unified'
+
+const file = await unified()
+  .use(rehypeParse)
+  .use(rehypePresetMinify)
+  .use(rehypeStringify).process(`<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Saturn</title>
+  </head>
+  <body>
+    <h1>Saturn</h1>
+    <p>Saturn is a gas giant composed predominantly of hydrogen and helium.</p>
+  </body>
+</html>`)
+
+console.log(String(file))
+```
+
+</details>
+
+With another plugin, you can turn this HTML:
 
 ```html
 <h1>Hi, Saturn!</h1>
 ```
 
-**Plugin**:
+…into the following HTML:
+
+```html
+<h2>Hi, Saturn!</h2>
+```
+
+<details><summary>Show example code</summary>
 
 ```js
+import rehypeParse from 'rehype-parse'
+import rehypeStringify from 'rehype-stringify'
+import {unified} from 'unified'
 import {visit} from 'unist-util-visit'
 
-/** @type {import('unified').Plugin<[], import('hast').Root>} */
+const file = await unified()
+  .use(rehypeParse, {fragment: true})
+  .use(myRehypePluginToIncreaseHeadings)
+  .use(rehypeStringify)
+  .process('<h1>Hi, Saturn!</h1>')
+
+console.log(String(file))
+
 function myRehypePluginToIncreaseHeadings() {
+  /**
+   * @param {import('hast').Root} tree
+   */
   return function (tree) {
     visit(tree, 'element', function (node) {
       if (['h1', 'h2', 'h3', 'h4', 'h5'].includes(node.tagName)) {
@@ -88,11 +133,7 @@ function myRehypePluginToIncreaseHeadings() {
 }
 ```
 
-**Out**:
-
-```html
-<h2>Hi, Saturn!</h2>
-```
+</details>
 
 You can use rehype for many different things.
 **[unified][]** is the core project that transforms content with ASTs.
@@ -148,10 +189,12 @@ Types for hast are available in [`@types/hast`][types-hast].
 
 ## Compatibility
 
-Projects maintained by the unified collective are compatible with all maintained
+Projects maintained by the unified collective are compatible with maintained
 versions of Node.js.
-As of now, that is Node.js 12.20+, 14.14+, and 16.0+.
-Our projects sometimes work with older versions, but this is not guaranteed.
+
+When we cut a new major release, we drop support for unmaintained versions of
+Node.
+This means we try to keep the current release line compatible with Node.js 12.
 
 ## Security
 
@@ -178,8 +221,6 @@ abide by its terms.
 ## Sponsor
 
 Support this effort and give back by sponsoring on [OpenCollective][collective]!
-
-<!--lint ignore no-html-->
 
 <table>
 <tr valign="middle">
@@ -268,9 +309,9 @@ Support this effort and give back by sponsoring on [OpenCollective][collective]!
 
 [downloads]: https://www.npmjs.com/package/rehype
 
-[size-badge]: https://img.shields.io/bundlephobia/minzip/rehype.svg
+[size-badge]: https://img.shields.io/bundlejs/size/rehype
 
-[size]: https://bundlephobia.com/result?p=rehype
+[size]: https://bundlejs.com/?q=rehype
 
 [sponsors-badge]: https://opencollective.com/unified/sponsors/badge.svg
 

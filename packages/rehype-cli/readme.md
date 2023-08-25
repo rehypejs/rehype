@@ -43,7 +43,7 @@ If not, you can always use [`rehype`][rehype-core] itself manually in a script.
 ## Install
 
 This package is [ESM only][esm].
-In Node.js (version 12.20+, 14.14+, or 16.0+), install with [npm][]:
+In Node.js (version 16+), install with [npm][]:
 
 ```sh
 npm install rehype-cli
@@ -69,31 +69,32 @@ Usage: rehype [options] [path | glob ...]
 
 Options:
 
-  -h  --help                              output usage information
-  -v  --version                           output version number
-  -o  --output [path]                     specify output location
-  -r  --rc-path <path>                    specify configuration file
-  -i  --ignore-path <path>                specify ignore file
-  -s  --setting <settings>                specify settings
-  -e  --ext <extensions>                  specify extensions
-  -u  --use <plugins>                     use plugins
-  -w  --watch                             watch for changes and reprocess
-  -q  --quiet                             output only warnings and errors
-  -S  --silent                            output only errors
-  -f  --frail                             exit with 1 on warnings
-  -t  --tree                              specify input and output as syntax tree
-      --report <reporter>                 specify reporter
-      --file-path <path>                  specify path to process as
-      --ignore-path-resolve-from dir|cwd  resolve patterns in `ignore-path` from its directory or cwd
-      --ignore-pattern <globs>            specify ignore patterns
-      --silently-ignore                   do not fail when given ignored files
-      --tree-in                           specify input as syntax tree
-      --tree-out                          output syntax tree
-      --inspect                           output formatted syntax tree
-      --[no-]stdout                       specify writing to stdout (on by default)
       --[no-]color                        specify color in report (on by default)
       --[no-]config                       search for configuration files (on by default)
+  -e  --ext <extensions>                  specify extensions
+      --file-path <path>                  specify path to process as
+  -f  --frail                             exit with 1 on warnings
+  -h  --help                              output usage information
       --[no-]ignore                       search for ignore files (on by default)
+  -i  --ignore-path <path>                specify ignore file
+      --ignore-path-resolve-from cwd|dir  resolve patterns in `ignore-path` from its directory or cwd
+      --ignore-pattern <globs>            specify ignore patterns
+      --inspect                           output formatted syntax tree
+  -o  --output [path]                     specify output location
+  -q  --quiet                             output only warnings and errors
+  -r  --rc-path <path>                    specify configuration file
+      --report <reporter>                 specify reporter
+  -s  --setting <settings>                specify settings
+  -S  --silent                            output only errors
+      --silently-ignore                   do not fail when given ignored files
+      --[no-]stdout                       specify writing to stdout (on by default)
+  -t  --tree                              specify input and output as syntax tree
+      --tree-in                           specify input as syntax tree
+      --tree-out                          output syntax tree
+  -u  --use <plugins>                     use plugins
+      --verbose                           report extra info for messages
+  -v  --version                           output version number
+  -w  --watch                             watch for changes and reprocess
 
 Examples:
 
@@ -107,24 +108,27 @@ Examples:
   $ rehype . -o
 ```
 
-More information on all these options is available at
-[`unified-args`][unified-args], which does the work.
+More info on all these options is available at [`unified-args`][unified-args],
+which does the work.
 `rehype-cli` is `unified-args` preconfigured to:
 
-*   Load `rehype-` plugins
-*   Search for HTML extensions (`.html`, `.htm`, `.xht`, `.xhtml`)
-*   Ignore paths found in [`.rehypeignore` files][ignore-file]
-*   Load configuration from
+*   load `rehype-` plugins
+*   search for HTML extensions (`.html`, `.htm`, `.xht`, `.xhtml`)
+*   ignore paths found in [`.rehypeignore` files][ignore-file]
+*   load configuration from
     [`.rehyperc`, `.rehyperc.js`, etc files][config-file]
-*   Use configuration from
+*   use configuration from
     [`rehype` fields in `package.json` files][config-file]
 
 ## Compatibility
 
-Projects maintained by the unified collective are compatible with all maintained
+Projects maintained by the unified collective are compatible with maintained
 versions of Node.js.
-As of now, that is Node.js 12.20+, 14.14+, and 16.0+.
-Our projects sometimes work with older versions, but this is not guaranteed.
+
+When we cut a new major release, we drop support for unmaintained versions of
+Node.
+This means we try to keep the current release line, `rehype-cli@^11`,
+compatible with Node.js 12.
 
 ## Security
 
@@ -150,8 +154,6 @@ abide by its terms.
 ## Sponsor
 
 Support this effort and give back by sponsoring on [OpenCollective][collective]!
-
-<!--lint ignore no-html-->
 
 <table>
 <tr valign="middle">
@@ -276,8 +278,8 @@ Support this effort and give back by sponsoring on [OpenCollective][collective]!
 
 [rehype-sanitize]: https://github.com/rehypejs/rehype-sanitize
 
-[config-file]: https://github.com/unifiedjs/unified-engine/blob/main/doc/configure.md
+[config-file]: https://github.com/unifiedjs/unified-engine/blob/main/readme.md#config-files
 
-[ignore-file]: https://github.com/unifiedjs/unified-engine/blob/main/doc/ignore.md
+[ignore-file]: https://github.com/unifiedjs/unified-engine/blob/main/readme.md#ignore-files
 
 [unified-args]: https://github.com/unifiedjs/unified-args#cli

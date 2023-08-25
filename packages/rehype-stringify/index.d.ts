@@ -1,8 +1,8 @@
 import type {Root} from 'hast'
 import type {Plugin} from 'unified'
-import type {Options} from './lib/index.js'
+import type {Options} from 'hast-util-to-html'
 
-export type {Options} from './lib/index.js'
+export type {CharacterReferences, Options} from 'hast-util-to-html'
 
 /**
  * Plugin to add support for serializing as HTML.
