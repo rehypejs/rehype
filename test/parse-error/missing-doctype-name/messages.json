@@ -1,11 +1,11 @@
 [
   {
-    "message": "Missing doctype name",
-    "name": "index.html:1:10-1:10",
-    "reason": "Missing doctype name",
-    "line": 1,
     "column": 10,
-    "position": {
+    "fatal": false,
+    "message": "Missing doctype name",
+    "line": 1,
+    "name": "index.html:1:10-1:10",
+    "place": {
       "start": {
         "line": 1,
         "column": 10,
@@ -17,20 +17,20 @@
         "offset": 9
       }
     },
-    "source": "parse-error",
+    "reason": "Missing doctype name",
     "ruleId": "missing-doctype-name",
-    "file": "index.html",
-    "fatal": false,
+    "source": "hast-util-from-html",
     "note": "Unexpected doctype end at `>`. Expected `html` instead",
-    "url": "https://html.spec.whatwg.org/multipage/parsing.html#parse-error-missing-doctype-name"
+    "url": "https://html.spec.whatwg.org/multipage/parsing.html#parse-error-missing-doctype-name",
+    "file": "index.html"
   },
   {
-    "message": "Unexpected non-conforming doctype declaration",
-    "name": "index.html:1:1-1:11",
-    "reason": "Unexpected non-conforming doctype declaration",
-    "line": 1,
     "column": 1,
-    "position": {
+    "fatal": false,
+    "message": "Unexpected non-conforming doctype declaration",
+    "line": 1,
+    "name": "index.html:1:1-1:11",
+    "place": {
       "start": {
         "line": 1,
         "column": 1,
@@ -42,11 +42,10 @@
         "offset": 10
       }
     },
-    "source": "parse-error",
+    "reason": "Unexpected non-conforming doctype declaration",
     "ruleId": "non-conforming-doctype",
-    "file": "index.html",
-    "fatal": false,
+    "source": "hast-util-from-html",
     "note": "Expected `<!doctype html>` or `<!doctype html system \"about:legacy-compat\">`",
-    "url": null
+    "file": "index.html"
   }
 ]

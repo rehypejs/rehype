@@ -1,11 +1,11 @@
 [
   {
-    "message": "Unexpected end of file in element that can only contain text",
-    "name": "index.html:4:1-4:1",
-    "reason": "Unexpected end of file in element that can only contain text",
-    "line": 4,
     "column": 1,
-    "position": {
+    "fatal": false,
+    "message": "Unexpected end of file in element that can only contain text",
+    "line": 4,
+    "name": "index.html:4:1-4:1",
+    "place": {
       "start": {
         "line": 4,
         "column": 1,
@@ -17,11 +17,10 @@
         "offset": 84
       }
     },
-    "source": "parse-error",
+    "reason": "Unexpected end of file in element that can only contain text",
     "ruleId": "eof-in-element-that-can-contain-only-text",
-    "file": "index.html",
-    "fatal": false,
+    "source": "hast-util-from-html",
     "note": "Unexpected end of file. Expected text or a closing tag",
-    "url": null
+    "file": "index.html"
   }
 ]

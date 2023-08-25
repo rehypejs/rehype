@@ -1,11 +1,11 @@
 [
   {
-    "message": "Unexpected end of file",
-    "name": "index.html:4:1-4:1",
-    "reason": "Unexpected end of file",
-    "line": 4,
     "column": 1,
-    "position": {
+    "fatal": false,
+    "message": "Unexpected end of file",
+    "line": 4,
+    "name": "index.html:4:1-4:1",
+    "place": {
       "start": {
         "line": 4,
         "column": 1,
@@ -17,11 +17,10 @@
         "offset": 71
       }
     },
-    "source": "parse-error",
+    "reason": "Unexpected end of file",
     "ruleId": "open-elements-left-after-eof",
-    "file": "index.html",
-    "fatal": false,
+    "source": "hast-util-from-html",
     "note": "Unexpected end of file. Expected closing tag instead",
-    "url": null
+    "file": "index.html"
   }
 ]

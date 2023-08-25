@@ -1,11 +1,11 @@
 [
   {
-    "message": "Unexpected trailing slash on start tag of non-void element",
-    "name": "index.html:2:1-2:9",
-    "reason": "Unexpected trailing slash on start tag of non-void element",
-    "line": 2,
     "column": 1,
-    "position": {
+    "fatal": false,
+    "message": "Unexpected trailing slash on start tag of non-void element",
+    "line": 2,
+    "name": "index.html:2:1-2:9",
+    "place": {
       "start": {
         "line": 2,
         "column": 1,
@@ -17,11 +17,11 @@
         "offset": 24
       }
     },
-    "source": "parse-error",
+    "reason": "Unexpected trailing slash on start tag of non-void element",
     "ruleId": "non-void-html-element-start-tag-with-trailing-solidus",
-    "file": "index.html",
-    "fatal": false,
+    "source": "hast-util-from-html",
     "note": "Unexpected `/`. Expected `>` instead",
-    "url": "https://html.spec.whatwg.org/multipage/parsing.html#parse-error-non-void-html-element-start-tag-with-trailing-solidus"
+    "url": "https://html.spec.whatwg.org/multipage/parsing.html#parse-error-non-void-html-element-start-tag-with-trailing-solidus",
+    "file": "index.html"
   }
 ]

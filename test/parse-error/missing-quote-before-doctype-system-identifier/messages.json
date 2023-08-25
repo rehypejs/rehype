@@ -1,11 +1,11 @@
 [
   {
-    "message": "Missing quote before system identifier in doctype",
-    "name": "index.html:1:23-1:23",
-    "reason": "Missing quote before system identifier in doctype",
-    "line": 1,
     "column": 23,
-    "position": {
+    "fatal": false,
+    "message": "Missing quote before system identifier in doctype",
+    "line": 1,
+    "name": "index.html:1:23-1:23",
+    "place": {
       "start": {
         "line": 1,
         "column": 23,
@@ -17,11 +17,11 @@
         "offset": 22
       }
     },
-    "source": "parse-error",
+    "reason": "Missing quote before system identifier in doctype",
     "ruleId": "missing-quote-before-doctype-system-identifier",
-    "file": "index.html",
-    "fatal": false,
+    "source": "hast-util-from-html",
     "note": "Unexpected `b`. Expected `\"` or `'` instead",
-    "url": "https://html.spec.whatwg.org/multipage/parsing.html#parse-error-missing-quote-before-doctype-system-identifier"
+    "url": "https://html.spec.whatwg.org/multipage/parsing.html#parse-error-missing-quote-before-doctype-system-identifier",
+    "file": "index.html"
   }
 ]

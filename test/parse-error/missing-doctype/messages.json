@@ -1,11 +1,11 @@
 [
   {
-    "message": "Missing doctype before other content",
-    "name": "index.html:1:1-1:1",
-    "reason": "Missing doctype before other content",
-    "line": 1,
     "column": 1,
-    "position": {
+    "fatal": false,
+    "message": "Missing doctype before other content",
+    "line": 1,
+    "name": "index.html:1:1-1:1",
+    "place": {
       "start": {
         "line": 1,
         "column": 1,
@@ -17,11 +17,10 @@
         "offset": 0
       }
     },
-    "source": "parse-error",
+    "reason": "Missing doctype before other content",
     "ruleId": "missing-doctype",
-    "file": "index.html",
-    "fatal": false,
+    "source": "hast-util-from-html",
     "note": "Expected a `<!doctype html>` before anything else",
-    "url": null
+    "file": "index.html"
   }
 ]

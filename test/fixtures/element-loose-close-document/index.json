@@ -104,9 +104,9 @@
               "offset": 0
             },
             "end": {
-              "line": 7,
-              "column": 1,
-              "offset": 51
+              "line": 1,
+              "column": 20,
+              "offset": 19
             }
           }
         }

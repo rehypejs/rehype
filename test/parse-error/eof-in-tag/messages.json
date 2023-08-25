@@ -1,11 +1,11 @@
 [
   {
-    "message": "Unexpected end of file in tag",
-    "name": "index.html:4:1-4:1",
-    "reason": "Unexpected end of file in tag",
-    "line": 4,
     "column": 1,
-    "position": {
+    "fatal": false,
+    "message": "Unexpected end of file in tag",
+    "line": 4,
+    "name": "index.html:4:1-4:1",
+    "place": {
       "start": {
         "line": 4,
         "column": 1,
@@ -17,11 +17,11 @@
         "offset": 47
       }
     },
-    "source": "parse-error",
+    "reason": "Unexpected end of file in tag",
     "ruleId": "eof-in-tag",
-    "file": "index.html",
-    "fatal": false,
+    "source": "hast-util-from-html",
     "note": "Unexpected end of file. Expected `>` to close the tag",
-    "url": "https://html.spec.whatwg.org/multipage/parsing.html#parse-error-eof-in-tag"
+    "url": "https://html.spec.whatwg.org/multipage/parsing.html#parse-error-eof-in-tag",
+    "file": "index.html"
   }
 ]

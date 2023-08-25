@@ -1,11 +1,11 @@
 [
   {
-    "message": "Unexpected slash at end of closing tag",
-    "name": "index.html:2:45-2:45",
-    "reason": "Unexpected slash at end of closing tag",
-    "line": 2,
     "column": 45,
-    "position": {
+    "fatal": false,
+    "message": "Unexpected slash at end of closing tag",
+    "line": 2,
+    "name": "index.html:2:45-2:45",
+    "place": {
       "start": {
         "line": 2,
         "column": 45,
@@ -17,11 +17,11 @@
         "offset": 60
       }
     },
-    "source": "parse-error",
+    "reason": "Unexpected slash at end of closing tag",
     "ruleId": "end-tag-with-trailing-solidus",
-    "file": "index.html",
-    "fatal": false,
+    "source": "hast-util-from-html",
     "note": "Unexpected `/`. Expected `>` instead",
-    "url": "https://html.spec.whatwg.org/multipage/parsing.html#parse-error-end-tag-with-trailing-solidus"
+    "url": "https://html.spec.whatwg.org/multipage/parsing.html#parse-error-end-tag-with-trailing-solidus",
+    "file": "index.html"
   }
 ]

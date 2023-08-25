@@ -17,10 +17,10 @@
     "process"
   ],
   "dependencies": {
-    "@types/hast": "^2.0.0",
+    "@types/hast": "^3.0.0",
     "rehype-parse": "^8.0.0",
     "rehype-stringify": "^9.0.0",
-    "unified": "^10.0.0"
+    "unified": "^11.0.0"
   },
   "homepage": "https://github.com/rehypejs/rehype",
   "repository": "https://github.com/rehypejs/rehype/tree/main/packages/rehype",

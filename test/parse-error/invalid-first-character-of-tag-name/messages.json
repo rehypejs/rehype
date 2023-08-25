@@ -1,11 +1,11 @@
 [
   {
-    "message": "Invalid first character in tag name",
-    "name": "index.html:3:2-3:2",
-    "reason": "Invalid first character in tag name",
-    "line": 3,
     "column": 2,
-    "position": {
+    "fatal": false,
+    "message": "Invalid first character in tag name",
+    "line": 3,
+    "name": "index.html:3:2-3:2",
+    "place": {
       "start": {
         "line": 3,
         "column": 2,
@@ -17,20 +17,20 @@
         "offset": 68
       }
     },
-    "source": "parse-error",
+    "reason": "Invalid first character in tag name",
     "ruleId": "invalid-first-character-of-tag-name",
-    "file": "index.html",
-    "fatal": false,
+    "source": "hast-util-from-html",
     "note": "Unexpected `4`. Expected an ASCII letter instead",
-    "url": "https://html.spec.whatwg.org/multipage/parsing.html#parse-error-invalid-first-character-of-tag-name"
+    "url": "https://html.spec.whatwg.org/multipage/parsing.html#parse-error-invalid-first-character-of-tag-name",
+    "file": "index.html"
   },
   {
-    "message": "Invalid first character in tag name",
-    "name": "index.html:3:7-3:7",
-    "reason": "Invalid first character in tag name",
-    "line": 3,
     "column": 7,
-    "position": {
+    "fatal": false,
+    "message": "Invalid first character in tag name",
+    "line": 3,
+    "name": "index.html:3:7-3:7",
+    "place": {
       "start": {
         "line": 3,
         "column": 7,
@@ -42,11 +42,11 @@
         "offset": 73
       }
     },
-    "source": "parse-error",
+    "reason": "Invalid first character in tag name",
     "ruleId": "invalid-first-character-of-tag-name",
-    "file": "index.html",
-    "fatal": false,
+    "source": "hast-util-from-html",
     "note": "Unexpected `4`. Expected an ASCII letter instead",
-    "url": "https://html.spec.whatwg.org/multipage/parsing.html#parse-error-invalid-first-character-of-tag-name"
+    "url": "https://html.spec.whatwg.org/multipage/parsing.html#parse-error-invalid-first-character-of-tag-name",
+    "file": "index.html"
   }
 ]

@@ -1,11 +1,11 @@
 [
   {
-    "message": "Unexpected closing tag with open child elements",
-    "name": "index.html:3:19-3:30",
-    "reason": "Unexpected closing tag with open child elements",
-    "line": 3,
     "column": 19,
-    "position": {
+    "fatal": false,
+    "message": "Unexpected closing tag with open child elements",
+    "line": 3,
+    "name": "index.html:3:19-3:30",
+    "place": {
       "start": {
         "line": 3,
         "column": 19,
@@ -17,11 +17,10 @@
         "offset": 104
       }
     },
-    "source": "parse-error",
+    "reason": "Unexpected closing tag with open child elements",
     "ruleId": "closing-of-element-with-open-child-elements",
-    "file": "index.html",
-    "fatal": false,
+    "source": "hast-util-from-html",
     "note": "Unexpectedly closing tag. Expected other tags to be closed first",
-    "url": null
+    "file": "index.html"
   }
 ]

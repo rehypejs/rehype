@@ -1,11 +1,11 @@
 [
   {
-    "message": "Unexpected abruptly closed empty comment",
-    "name": "index.html:3:15-3:15",
-    "reason": "Unexpected abruptly closed empty comment",
-    "line": 3,
     "column": 15,
-    "position": {
+    "fatal": false,
+    "message": "Unexpected abruptly closed empty comment",
+    "line": 3,
+    "name": "index.html:3:15-3:15",
+    "place": {
       "start": {
         "line": 3,
         "column": 15,
@@ -17,20 +17,20 @@
         "offset": 77
       }
     },
-    "source": "parse-error",
+    "reason": "Unexpected abruptly closed empty comment",
     "ruleId": "abrupt-closing-of-empty-comment",
-    "file": "index.html",
-    "fatal": false,
+    "source": "hast-util-from-html",
     "note": "Unexpected `>` or `->`. Expected `-->` to close comments",
-    "url": "https://html.spec.whatwg.org/multipage/parsing.html#parse-error-abrupt-closing-of-empty-comment"
+    "url": "https://html.spec.whatwg.org/multipage/parsing.html#parse-error-abrupt-closing-of-empty-comment",
+    "file": "index.html"
   },
   {
-    "message": "Unexpected abruptly closed empty comment",
-    "name": "index.html:4:20-4:20",
-    "reason": "Unexpected abruptly closed empty comment",
-    "line": 4,
     "column": 20,
-    "position": {
+    "fatal": false,
+    "message": "Unexpected abruptly closed empty comment",
+    "line": 4,
+    "name": "index.html:4:20-4:20",
+    "place": {
       "start": {
         "line": 4,
         "column": 20,
@@ -42,11 +42,11 @@
         "offset": 99
       }
     },
-    "source": "parse-error",
+    "reason": "Unexpected abruptly closed empty comment",
     "ruleId": "abrupt-closing-of-empty-comment",
-    "file": "index.html",
-    "fatal": false,
+    "source": "hast-util-from-html",
     "note": "Unexpected `>` or `->`. Expected `-->` to close comments",
-    "url": "https://html.spec.whatwg.org/multipage/parsing.html#parse-error-abrupt-closing-of-empty-comment"
+    "url": "https://html.spec.whatwg.org/multipage/parsing.html#parse-error-abrupt-closing-of-empty-comment",
+    "file": "index.html"
   }
 ]

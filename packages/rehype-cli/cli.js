@@ -10,7 +10,7 @@ const proc = require('rehype/package.json')
 const cli = require('./package.json')
 
 args({
-  processor: rehype(),
+  processor: rehype,
   name: proc.name,
   description: cli.description,
   version: [

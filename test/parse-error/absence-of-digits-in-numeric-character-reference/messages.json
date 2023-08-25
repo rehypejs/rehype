@@ -1,11 +1,11 @@
 [
   {
-    "message": "Unexpected non-digit at start of numeric character reference",
-    "name": "index.html:3:3-3:3",
-    "reason": "Unexpected non-digit at start of numeric character reference",
-    "line": 3,
     "column": 3,
-    "position": {
+    "fatal": false,
+    "message": "Unexpected non-digit at start of numeric character reference",
+    "line": 3,
+    "name": "index.html:3:3-3:3",
+    "place": {
       "start": {
         "line": 3,
         "column": 3,
@@ -17,20 +17,20 @@
         "offset": 82
       }
     },
-    "source": "parse-error",
+    "reason": "Unexpected non-digit at start of numeric character reference",
     "ruleId": "absence-of-digits-in-numeric-character-reference",
-    "file": "index.html",
-    "fatal": false,
+    "source": "hast-util-from-html",
     "note": "Unexpected `a`. Expected `[0-9]` for decimal references or `[0-9a-fA-F]` for hexadecimal references",
-    "url": "https://html.spec.whatwg.org/multipage/parsing.html#parse-error-absence-of-digits-in-numeric-character-reference"
+    "url": "https://html.spec.whatwg.org/multipage/parsing.html#parse-error-absence-of-digits-in-numeric-character-reference",
+    "file": "index.html"
   },
   {
-    "message": "Unexpected non-digit at start of numeric character reference",
-    "name": "index.html:4:4-4:4",
-    "reason": "Unexpected non-digit at start of numeric character reference",
-    "line": 4,
     "column": 4,
-    "position": {
+    "fatal": false,
+    "message": "Unexpected non-digit at start of numeric character reference",
+    "line": 4,
+    "name": "index.html:4:4-4:4",
+    "place": {
       "start": {
         "line": 4,
         "column": 4,
@@ -42,11 +42,11 @@
         "offset": 90
       }
     },
-    "source": "parse-error",
+    "reason": "Unexpected non-digit at start of numeric character reference",
     "ruleId": "absence-of-digits-in-numeric-character-reference",
-    "file": "index.html",
-    "fatal": false,
+    "source": "hast-util-from-html",
     "note": "Unexpected `g`. Expected `[0-9]` for decimal references or `[0-9a-fA-F]` for hexadecimal references",
-    "url": "https://html.spec.whatwg.org/multipage/parsing.html#parse-error-absence-of-digits-in-numeric-character-reference"
+    "url": "https://html.spec.whatwg.org/multipage/parsing.html#parse-error-absence-of-digits-in-numeric-character-reference",
+    "file": "index.html"
   }
 ]

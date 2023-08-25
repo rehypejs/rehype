@@ -1,11 +1,11 @@
 [
   {
-    "message": "Unexpected nested `<noscript>` in `<head>`",
-    "name": "index.html:5:3-5:13",
-    "reason": "Unexpected nested `<noscript>` in `<head>`",
-    "line": 5,
     "column": 3,
-    "position": {
+    "fatal": false,
+    "message": "Unexpected nested `<noscript>` in `<head>`",
+    "line": 5,
+    "name": "index.html:5:3-5:13",
+    "place": {
       "start": {
         "line": 5,
         "column": 3,
@@ -17,20 +17,19 @@
         "offset": 120
       }
     },
-    "source": "parse-error",
+    "reason": "Unexpected nested `<noscript>` in `<head>`",
     "ruleId": "nested-noscript-in-head",
-    "file": "index.html",
-    "fatal": false,
+    "source": "hast-util-from-html",
     "note": "Unexpected `<noscript>`. Expected a closing tag or a meta element",
-    "url": null
+    "file": "index.html"
   },
   {
-    "message": "Unexpected unopened end tag",
-    "name": "index.html:6:1-6:12",
-    "reason": "Unexpected unopened end tag",
-    "line": 6,
     "column": 1,
-    "position": {
+    "fatal": false,
+    "message": "Unexpected unopened end tag",
+    "line": 6,
+    "name": "index.html:6:1-6:12",
+    "place": {
       "start": {
         "line": 6,
         "column": 1,
@@ -42,11 +41,10 @@
         "offset": 143
       }
     },
-    "source": "parse-error",
+    "reason": "Unexpected unopened end tag",
     "ruleId": "end-tag-without-matching-open-element",
-    "file": "index.html",
-    "fatal": false,
+    "source": "hast-util-from-html",
     "note": "Unexpected end tag. Expected no end tag or another end tag",
-    "url": null
+    "file": "index.html"
   }
 ]

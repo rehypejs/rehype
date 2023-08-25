@@ -1,11 +1,11 @@
 [
   {
-    "message": "Unexpected nested comment",
-    "name": "index.html:3:10-3:10",
-    "reason": "Unexpected nested comment",
-    "line": 3,
     "column": 10,
-    "position": {
+    "fatal": false,
+    "message": "Unexpected nested comment",
+    "line": 3,
+    "name": "index.html:3:10-3:10",
+    "place": {
       "start": {
         "line": 3,
         "column": 10,
@@ -17,11 +17,11 @@
         "offset": 55
       }
     },
-    "source": "parse-error",
+    "reason": "Unexpected nested comment",
     "ruleId": "nested-comment",
-    "file": "index.html",
-    "fatal": false,
+    "source": "hast-util-from-html",
     "note": "Unexpected `<!--`. Expected `-->`",
-    "url": "https://html.spec.whatwg.org/multipage/parsing.html#parse-error-nested-comment"
+    "url": "https://html.spec.whatwg.org/multipage/parsing.html#parse-error-nested-comment",
+    "file": "index.html"
   }
 ]

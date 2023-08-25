@@ -56,6 +56,7 @@ test('rehype().parse(file)', (t) => {
 
   t.deepEqual(
     unified()
+      // @ts-expect-error: to do: type `settings`.
       .data('settings', {fragment: true})
       .use(rehypeParse, {fragment: false})
       .use(rehypeStringify)
@@ -67,6 +68,7 @@ test('rehype().parse(file)', (t) => {
 
   t.deepEqual(
     unified()
+      // @ts-expect-error: to do: type `settings`.
       .data('settings', {quote: '"'})
       .use(rehypeParse, {fragment: true})
       .use(rehypeStringify, {quote: "'"})
@@ -76,11 +78,14 @@ test('rehype().parse(file)', (t) => {
     'should prefer options given to `rehypeStringify` over `settings`'
   )
 
+  const tree = unified()
+    .use(rehypeParse, {fragment: true})
+    .parse('<img><span></span>')
+
+  removePosition(tree, {force: true})
+
   t.deepEqual(
-    removePosition(
-      unified().use(rehypeParse, {fragment: true}).parse('<img><span></span>'),
-      true
-    ),
+    tree,
     {
       type: 'root',
       children: [
@@ -102,11 +107,11 @@ test('rehype().parse(file)', (t) => {
     'should close void elements'
   )
 
+  const tree2 = unified().use(rehypeParse, fragment).parse('<foo><span></span>')
+  removePosition(tree2, {force: true})
+
   t.deepEqual(
-    removePosition(
-      unified().use(rehypeParse, fragment).parse('<foo><span></span>'),
-      true
-    ),
+    tree2,
     {
       type: 'root',
       children: [
@@ -164,7 +169,7 @@ test('rehype().stringify(ast, file, options?)', (t) => {
 
   t.equal(
     unified()
-      .use(rehypeStringify, {entities: {}})
+      .use(rehypeStringify, {characterReferences: {}})
       .stringify({
         type: 'root',
         children: [{type: 'text', value: 'alpha < bravo'}]
@@ -175,7 +180,7 @@ test('rehype().stringify(ast, file, options?)', (t) => {
 
   t.equal(
     unified()
-      .use(rehypeStringify, {entities: {useNamedReferences: true}})
+      .use(rehypeStringify, {characterReferences: {useNamedReferences: true}})
       .stringify({
         type: 'root',
         children: [{type: 'text', value: 'alpha < bravo'}]
@@ -189,7 +194,9 @@ test('rehype().stringify(ast, file, options?)', (t) => {
       .use(rehypeStringify)
       .stringify({
         type: 'root',
-        children: [{type: 'element', tagName: 'img', children: []}]
+        children: [
+          {type: 'element', tagName: 'img', properties: {}, children: []}
+        ]
       }),
     '<img>',
     'should not close void elements'
@@ -200,7 +207,9 @@ test('rehype().stringify(ast, file, options?)', (t) => {
       .use(rehypeStringify, {closeSelfClosing: true})
       .stringify({
         type: 'root',
-        children: [{type: 'element', tagName: 'img', children: []}]
+        children: [
+          {type: 'element', tagName: 'img', properties: {}, children: []}
+        ]
       }),
     '<img />',
     'should close void elements if `closeSelfClosing` is given'
@@ -211,7 +220,9 @@ test('rehype().stringify(ast, file, options?)', (t) => {
       .use(rehypeStringify)
       .stringify({
         type: 'root',
-        children: [{type: 'element', tagName: 'foo', children: []}]
+        children: [
+          {type: 'element', tagName: 'foo', properties: {}, children: []}
+        ]
       }),
     '<foo></foo>',
     'should not close unknown elements by default'
@@ -222,7 +233,9 @@ test('rehype().stringify(ast, file, options?)', (t) => {
       .use(rehypeStringify, {voids: ['foo']})
       .stringify({
         type: 'root',
-        children: [{type: 'element', tagName: 'foo', children: []}]
+        children: [
+          {type: 'element', tagName: 'foo', properties: {}, children: []}
+        ]
       }),
     '<foo>',
     'should close void elements if configured'
@@ -236,6 +249,7 @@ test('rehype().stringify(ast, file, options?)', (t) => {
 
   t.deepEqual(
     rehype()
+      // @ts-expect-error: to do: type `settings`.
       .data('settings', {emitParseErrors: true})
       .processSync('<!doctypehtml>')
       .messages.map(String),
@@ -246,6 +260,7 @@ test('rehype().stringify(ast, file, options?)', (t) => {
   t.deepEqual(
     rehype()
       .data('settings', {
+        // @ts-expect-error: to do: type `settings`.
         emitParseErrors: true,
         missingWhitespaceBeforeDoctypeName: false
       })
@@ -258,6 +273,7 @@ test('rehype().stringify(ast, file, options?)', (t) => {
   t.deepEqual(
     rehype()
       .data('settings', {
+        // @ts-expect-error: to do: type `settings`.
         emitParseErrors: true,
         missingWhitespaceBeforeDoctypeName: true
       })
@@ -270,6 +286,7 @@ test('rehype().stringify(ast, file, options?)', (t) => {
   t.deepEqual(
     rehype()
       .data('settings', {
+        // @ts-expect-error: to do: type `settings`.
         emitParseErrors: true,
         missingWhitespaceBeforeDoctypeName: 2
       })
@@ -281,6 +298,7 @@ test('rehype().stringify(ast, file, options?)', (t) => {
   t.deepEqual(
     rehype()
       .data('settings', {
+        // @ts-expect-error: to do: type `settings`.
         emitParseErrors: true,
         missingWhitespaceBeforeDoctypeName: 1
       })
@@ -336,6 +354,7 @@ test('fixtures', (t) => {
         result = fs.readFileSync(path.join(fp, 'result.html'), 'utf8')
       } catch {}
 
+      // @ts-expect-error: to do: type `settings`.
       const node = rehype().data('settings', config).parse(file)
 
       try {
@@ -352,6 +371,7 @@ test('fixtures', (t) => {
 
       st.deepEqual(tree, node, 'should parse `' + fixture + '`')
 
+      // @ts-expect-error: to do: type `settings`.
       const out = rehype().data('settings', config).stringify(node)
 
       if (result) {
@@ -360,12 +380,14 @@ test('fixtures', (t) => {
         st.equal(out, String(file), 'should stringify `' + fixture + '` exact')
       }
 
+      removePosition(node)
+
+      // @ts-expect-error: to do: type `settings`.
+      const expected = rehype().data('settings', config).parse(out)
+      removePosition(expected)
+
       if (config.reprocess !== false) {
-        st.deepEqual(
-          removePosition(node),
-          removePosition(rehype().data('settings', config).parse(out)),
-          'should re-parse `' + fixture + '`'
-        )
+        st.deepEqual(node, expected, 'should re-parse `' + fixture + '`')
       }
 
       st.end()

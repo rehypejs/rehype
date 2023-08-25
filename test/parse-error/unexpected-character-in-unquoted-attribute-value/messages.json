@@ -1,11 +1,11 @@
 [
   {
-    "message": "Unexpected character in unquoted attribute value",
-    "name": "index.html:3:11-3:11",
-    "reason": "Unexpected character in unquoted attribute value",
-    "line": 3,
     "column": 11,
-    "position": {
+    "fatal": false,
+    "message": "Unexpected character in unquoted attribute value",
+    "line": 3,
+    "name": "index.html:3:11-3:11",
+    "place": {
       "start": {
         "line": 3,
         "column": 11,
@@ -17,11 +17,11 @@
         "offset": 90
       }
     },
-    "source": "parse-error",
+    "reason": "Unexpected character in unquoted attribute value",
     "ruleId": "unexpected-character-in-unquoted-attribute-value",
-    "file": "index.html",
-    "fatal": false,
+    "source": "hast-util-from-html",
     "note": "Unexpected `` ` ``. Quote the attribute value to include it",
-    "url": "https://html.spec.whatwg.org/multipage/parsing.html#parse-error-unexpected-character-in-unquoted-attribute-value"
+    "url": "https://html.spec.whatwg.org/multipage/parsing.html#parse-error-unexpected-character-in-unquoted-attribute-value",
+    "file": "index.html"
   }
 ]

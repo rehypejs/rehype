@@ -1,11 +1,11 @@
 [
   {
-    "message": "Unexpected NULL character referenced by character reference",
-    "name": "index.html:3:6-3:6",
-    "reason": "Unexpected NULL character referenced by character reference",
-    "line": 3,
     "column": 6,
-    "position": {
+    "fatal": false,
+    "message": "Unexpected NULL character referenced by character reference",
+    "line": 3,
+    "name": "index.html:3:6-3:6",
+    "place": {
       "start": {
         "line": 3,
         "column": 6,
@@ -17,11 +17,11 @@
         "offset": 61
       }
     },
-    "source": "parse-error",
+    "reason": "Unexpected NULL character referenced by character reference",
     "ruleId": "null-character-reference",
-    "file": "index.html",
-    "fatal": false,
+    "source": "hast-util-from-html",
     "note": "Unexpected code point. Do not use NULL characters in HTML",
-    "url": "https://html.spec.whatwg.org/multipage/parsing.html#parse-error-null-character-reference"
+    "url": "https://html.spec.whatwg.org/multipage/parsing.html#parse-error-null-character-reference",
+    "file": "index.html"
   }
 ]

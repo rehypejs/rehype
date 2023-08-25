@@ -1,11 +1,11 @@
 [
   {
-    "message": "Missing whitespace after public identifier in doctype",
-    "name": "index.html:1:22-1:22",
-    "reason": "Missing whitespace after public identifier in doctype",
-    "line": 1,
     "column": 22,
-    "position": {
+    "fatal": false,
+    "message": "Missing whitespace after public identifier in doctype",
+    "line": 1,
+    "name": "index.html:1:22-1:22",
+    "place": {
       "start": {
         "line": 1,
         "column": 22,
@@ -17,20 +17,20 @@
         "offset": 21
       }
     },
-    "source": "parse-error",
+    "reason": "Missing whitespace after public identifier in doctype",
     "ruleId": "missing-whitespace-after-doctype-public-keyword",
-    "file": "index.html",
-    "fatal": false,
+    "source": "hast-util-from-html",
     "note": "Unexpected `\"`. Expected ASCII whitespace instead",
-    "url": "https://html.spec.whatwg.org/multipage/parsing.html#parse-error-missing-whitespace-after-doctype-public-keyword"
+    "url": "https://html.spec.whatwg.org/multipage/parsing.html#parse-error-missing-whitespace-after-doctype-public-keyword",
+    "file": "index.html"
   },
   {
-    "message": "Unexpected non-conforming doctype declaration",
-    "name": "index.html:1:1-1:30",
-    "reason": "Unexpected non-conforming doctype declaration",
-    "line": 1,
     "column": 1,
-    "position": {
+    "fatal": false,
+    "message": "Unexpected non-conforming doctype declaration",
+    "line": 1,
+    "name": "index.html:1:1-1:30",
+    "place": {
       "start": {
         "line": 1,
         "column": 1,
@@ -42,11 +42,10 @@
         "offset": 29
       }
     },
-    "source": "parse-error",
+    "reason": "Unexpected non-conforming doctype declaration",
     "ruleId": "non-conforming-doctype",
-    "file": "index.html",
-    "fatal": false,
+    "source": "hast-util-from-html",
     "note": "Expected `<!doctype html>` or `<!doctype html system \"about:legacy-compat\">`",
-    "url": null
+    "file": "index.html"
   }
 ]

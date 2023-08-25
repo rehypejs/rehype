@@ -8,7 +8,7 @@ import {toHtml} from 'hast-util-to-html'
 
 /**
  * @this {import('unified').Processor}
- * @type {import('unified').Plugin<[Options?]|Array<void>, Node, string>}
+ * @type {import('unified').Plugin<[(Options | null | undefined)?], Node, string>}
  */
 export default function rehypeStringify(config) {
   const processorSettings = /** @type {Options} */ (this.data('settings'))
@@ -17,7 +17,7 @@ export default function rehypeStringify(config) {
   Object.assign(this, {Compiler: compiler})
 
   /**
-   * @type {import('unified').CompilerFunction<Node, string>}
+   * @type {import('unified').Compiler<Node, string>}
    */
   function compiler(tree) {
     return toHtml(tree, settings)

@@ -1,11 +1,11 @@
 [
   {
-    "message": "Unexpected slash in tag",
-    "name": "index.html:2:8-2:8",
-    "reason": "Unexpected slash in tag",
-    "line": 2,
     "column": 8,
-    "position": {
+    "fatal": false,
+    "message": "Unexpected slash in tag",
+    "line": 2,
+    "name": "index.html:2:8-2:8",
+    "place": {
       "start": {
         "line": 2,
         "column": 8,
@@ -17,11 +17,11 @@
         "offset": 23
       }
     },
-    "source": "parse-error",
+    "reason": "Unexpected slash in tag",
     "ruleId": "unexpected-solidus-in-tag",
-    "file": "index.html",
-    "fatal": false,
+    "source": "hast-util-from-html",
     "note": "Unexpected `/`. Expected it followed by `>` or in a quoted attribute value",
-    "url": "https://html.spec.whatwg.org/multipage/parsing.html#parse-error-unexpected-solidus-in-tag"
+    "url": "https://html.spec.whatwg.org/multipage/parsing.html#parse-error-unexpected-solidus-in-tag",
+    "file": "index.html"
   }
 ]

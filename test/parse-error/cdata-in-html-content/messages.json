@@ -1,11 +1,11 @@
 [
   {
-    "message": "Unexpected CDATA section in HTML",
-    "name": "index.html:3:9-3:9",
-    "reason": "Unexpected CDATA section in HTML",
-    "line": 3,
     "column": 9,
-    "position": {
+    "fatal": false,
+    "message": "Unexpected CDATA section in HTML",
+    "line": 3,
+    "name": "index.html:3:9-3:9",
+    "place": {
       "start": {
         "line": 3,
         "column": 9,
@@ -17,11 +17,11 @@
         "offset": 61
       }
     },
-    "source": "parse-error",
+    "reason": "Unexpected CDATA section in HTML",
     "ruleId": "cdata-in-html-content",
-    "file": "index.html",
-    "fatal": false,
+    "source": "hast-util-from-html",
     "note": "Unexpected `<![CDATA[` in HTML. Remove it, use a comment, or encode special characters instead",
-    "url": "https://html.spec.whatwg.org/multipage/parsing.html#parse-error-cdata-in-html-content"
+    "url": "https://html.spec.whatwg.org/multipage/parsing.html#parse-error-cdata-in-html-content",
+    "file": "index.html"
   }
 ]

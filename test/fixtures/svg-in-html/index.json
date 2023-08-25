@@ -244,9 +244,9 @@
               "offset": 90
             },
             "end": {
-              "line": 12,
-              "column": 1,
-              "offset": 235
+              "line": 10,
+              "column": 10,
+              "offset": 226
             }
           }
         }
@@ -258,9 +258,9 @@
           "offset": 16
         },
         "end": {
-          "line": 12,
-          "column": 1,
-          "offset": 235
+          "line": 11,
+          "column": 8,
+          "offset": 234
         }
       }
     }

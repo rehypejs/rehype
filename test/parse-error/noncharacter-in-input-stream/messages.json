@@ -1,11 +1,11 @@
 [
   {
-    "message": "Unexpected noncharacter character",
-    "name": "index.html:3:1-3:1",
-    "reason": "Unexpected noncharacter character",
-    "line": 3,
     "column": 1,
-    "position": {
+    "fatal": false,
+    "message": "Unexpected noncharacter character",
+    "line": 3,
+    "name": "index.html:3:1-3:1",
+    "place": {
       "start": {
         "line": 3,
         "column": 1,
@@ -17,11 +17,11 @@
         "offset": 60
       }
     },
-    "source": "parse-error",
+    "reason": "Unexpected noncharacter character",
     "ruleId": "noncharacter-in-input-stream",
-    "file": "index.html",
-    "fatal": false,
+    "source": "hast-util-from-html",
     "note": "Unexpected code point `0xFDD0`. Do not use noncharacters in HTML",
-    "url": "https://html.spec.whatwg.org/multipage/parsing.html#parse-error-noncharacter-in-input-stream"
+    "url": "https://html.spec.whatwg.org/multipage/parsing.html#parse-error-noncharacter-in-input-stream",
+    "file": "index.html"
   }
 ]

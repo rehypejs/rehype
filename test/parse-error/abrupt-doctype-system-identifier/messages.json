@@ -1,11 +1,11 @@
 [
   {
-    "message": "Unexpected abruptly closed system identifier",
-    "name": "index.html:1:55-1:55",
-    "reason": "Unexpected abruptly closed system identifier",
-    "line": 1,
     "column": 55,
-    "position": {
+    "fatal": false,
+    "message": "Unexpected abruptly closed system identifier",
+    "line": 1,
+    "name": "index.html:1:55-1:55",
+    "place": {
       "start": {
         "line": 1,
         "column": 55,
@@ -17,20 +17,20 @@
         "offset": 54
       }
     },
-    "source": "parse-error",
+    "reason": "Unexpected abruptly closed system identifier",
     "ruleId": "abrupt-doctype-system-identifier",
-    "file": "index.html",
-    "fatal": false,
+    "source": "hast-util-from-html",
     "note": "Unexpected `>`. Expected a closing `\"` or `'` after the identifier identifier",
-    "url": "https://html.spec.whatwg.org/multipage/parsing.html#parse-error-abrupt-doctype-system-identifier"
+    "url": "https://html.spec.whatwg.org/multipage/parsing.html#parse-error-abrupt-doctype-system-identifier",
+    "file": "index.html"
   },
   {
-    "message": "Unexpected non-conforming doctype declaration",
-    "name": "index.html:1:1-1:56",
-    "reason": "Unexpected non-conforming doctype declaration",
-    "line": 1,
     "column": 1,
-    "position": {
+    "fatal": false,
+    "message": "Unexpected non-conforming doctype declaration",
+    "line": 1,
+    "name": "index.html:1:1-1:56",
+    "place": {
       "start": {
         "line": 1,
         "column": 1,
@@ -42,11 +42,10 @@
         "offset": 55
       }
     },
-    "source": "parse-error",
+    "reason": "Unexpected non-conforming doctype declaration",
     "ruleId": "non-conforming-doctype",
-    "file": "index.html",
-    "fatal": false,
+    "source": "hast-util-from-html",
     "note": "Expected `<!doctype html>` or `<!doctype html system \"about:legacy-compat\">`",
-    "url": null
+    "file": "index.html"
   }
 ]

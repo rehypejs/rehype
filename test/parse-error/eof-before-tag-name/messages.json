@@ -1,11 +1,11 @@
 [
   {
-    "message": "Unexpected end of file",
-    "name": "index.html:3:2-3:2",
-    "reason": "Unexpected end of file",
-    "line": 3,
     "column": 2,
-    "position": {
+    "fatal": false,
+    "message": "Unexpected end of file",
+    "line": 3,
+    "name": "index.html:3:2-3:2",
+    "place": {
       "start": {
         "line": 3,
         "column": 2,
@@ -17,11 +17,11 @@
         "offset": 52
       }
     },
-    "source": "parse-error",
+    "reason": "Unexpected end of file",
     "ruleId": "eof-before-tag-name",
-    "file": "index.html",
-    "fatal": false,
+    "source": "hast-util-from-html",
     "note": "Unexpected end of file. Expected tag name instead",
-    "url": "https://html.spec.whatwg.org/multipage/parsing.html#parse-error-eof-before-tag-name"
+    "url": "https://html.spec.whatwg.org/multipage/parsing.html#parse-error-eof-before-tag-name",
+    "file": "index.html"
   }
 ]

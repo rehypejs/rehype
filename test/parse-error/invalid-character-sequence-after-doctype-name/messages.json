@@ -1,11 +1,11 @@
 [
   {
-    "message": "Invalid sequence after doctype name",
-    "name": "index.html:1:16-1:16",
-    "reason": "Invalid sequence after doctype name",
-    "line": 1,
     "column": 16,
-    "position": {
+    "fatal": false,
+    "message": "Invalid sequence after doctype name",
+    "line": 1,
+    "name": "index.html:1:16-1:16",
+    "place": {
       "start": {
         "line": 1,
         "column": 16,
@@ -17,11 +17,11 @@
         "offset": 15
       }
     },
-    "source": "parse-error",
+    "reason": "Invalid sequence after doctype name",
     "ruleId": "invalid-character-sequence-after-doctype-name",
-    "file": "index.html",
-    "fatal": false,
+    "source": "hast-util-from-html",
     "note": "Unexpected sequence at `b`. Expected `public` or `system`",
-    "url": "https://html.spec.whatwg.org/multipage/parsing.html#parse-error-invalid-character-sequence-after-doctype-name"
+    "url": "https://html.spec.whatwg.org/multipage/parsing.html#parse-error-invalid-character-sequence-after-doctype-name",
+    "file": "index.html"
   }
 ]

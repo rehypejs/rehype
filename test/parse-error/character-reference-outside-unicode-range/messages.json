@@ -1,11 +1,11 @@
 [
   {
-    "message": "Unexpected too big numeric character reference",
-    "name": "index.html:3:11-3:11",
-    "reason": "Unexpected too big numeric character reference",
-    "line": 3,
     "column": 11,
-    "position": {
+    "fatal": false,
+    "message": "Unexpected too big numeric character reference",
+    "line": 3,
+    "name": "index.html:3:11-3:11",
+    "place": {
       "start": {
         "line": 3,
         "column": 11,
@@ -17,20 +17,20 @@
         "offset": 83
       }
     },
-    "source": "parse-error",
+    "reason": "Unexpected too big numeric character reference",
     "ruleId": "character-reference-outside-unicode-range",
-    "file": "index.html",
-    "fatal": false,
+    "source": "hast-util-from-html",
     "note": "Unexpectedly high character reference. Expected character references to be at most hexadecimal 10ffff (or decimal 1114111)",
-    "url": "https://html.spec.whatwg.org/multipage/parsing.html#parse-error-character-reference-outside-unicode-range"
+    "url": "https://html.spec.whatwg.org/multipage/parsing.html#parse-error-character-reference-outside-unicode-range",
+    "file": "index.html"
   },
   {
-    "message": "Unexpected too big numeric character reference",
-    "name": "index.html:4:11-4:11",
-    "reason": "Unexpected too big numeric character reference",
-    "line": 4,
     "column": 11,
-    "position": {
+    "fatal": false,
+    "message": "Unexpected too big numeric character reference",
+    "line": 4,
+    "name": "index.html:4:11-4:11",
+    "place": {
       "start": {
         "line": 4,
         "column": 11,
@@ -42,11 +42,11 @@
         "offset": 94
       }
     },
-    "source": "parse-error",
+    "reason": "Unexpected too big numeric character reference",
     "ruleId": "character-reference-outside-unicode-range",
-    "file": "index.html",
-    "fatal": false,
+    "source": "hast-util-from-html",
     "note": "Unexpectedly high character reference. Expected character references to be at most hexadecimal 10ffff (or decimal 1114111)",
-    "url": "https://html.spec.whatwg.org/multipage/parsing.html#parse-error-character-reference-outside-unicode-range"
+    "url": "https://html.spec.whatwg.org/multipage/parsing.html#parse-error-character-reference-outside-unicode-range",
+    "file": "index.html"
   }
 ]

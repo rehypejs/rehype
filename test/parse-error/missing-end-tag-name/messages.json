@@ -1,11 +1,11 @@
 [
   {
-    "message": "Missing name in end tag",
-    "name": "index.html:3:3-3:3",
-    "reason": "Missing name in end tag",
-    "line": 3,
     "column": 3,
-    "position": {
+    "fatal": false,
+    "message": "Missing name in end tag",
+    "line": 3,
+    "name": "index.html:3:3-3:3",
+    "place": {
       "start": {
         "line": 3,
         "column": 3,
@@ -17,11 +17,11 @@
         "offset": 54
       }
     },
-    "source": "parse-error",
+    "reason": "Missing name in end tag",
     "ruleId": "missing-end-tag-name",
-    "file": "index.html",
-    "fatal": false,
+    "source": "hast-util-from-html",
     "note": "Unexpected `>`. Expected an ASCII letter instead",
-    "url": "https://html.spec.whatwg.org/multipage/parsing.html#parse-error-missing-end-tag-name"
+    "url": "https://html.spec.whatwg.org/multipage/parsing.html#parse-error-missing-end-tag-name",
+    "file": "index.html"
   }
 ]

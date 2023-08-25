@@ -1,11 +1,11 @@
 [
   {
-    "message": "Incorrectly closed comment",
-    "name": "index.html:3:9-3:9",
-    "reason": "Incorrectly closed comment",
-    "line": 3,
     "column": 9,
-    "position": {
+    "fatal": false,
+    "message": "Incorrectly closed comment",
+    "line": 3,
+    "name": "index.html:3:9-3:9",
+    "place": {
       "start": {
         "line": 3,
         "column": 9,
@@ -17,11 +17,11 @@
         "offset": 66
       }
     },
-    "source": "parse-error",
+    "reason": "Incorrectly closed comment",
     "ruleId": "incorrectly-closed-comment",
-    "file": "index.html",
-    "fatal": false,
+    "source": "hast-util-from-html",
     "note": "Unexpected `!`. Expected `-->` to close the comment",
-    "url": "https://html.spec.whatwg.org/multipage/parsing.html#parse-error-incorrectly-closed-comment"
+    "url": "https://html.spec.whatwg.org/multipage/parsing.html#parse-error-incorrectly-closed-comment",
+    "file": "index.html"
   }
 ]
