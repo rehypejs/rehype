@@ -40,9 +40,7 @@
     "hast-util-from-html": "^2.0.0",
     "unified": "^11.0.0"
   },
-  "scripts": {
-    "build": "tsc --build --clean && tsc --build && type-coverage"
-  },
+  "scripts": {},
   "xo": false,
   "typeCoverage": {
     "atLeast": 100,

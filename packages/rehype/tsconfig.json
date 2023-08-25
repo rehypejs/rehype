@@ -1,5 +1,4 @@
 {
   "extends": "../../tsconfig.json",
-  "include": ["*.js"],
-  "references": [{"path": "../rehype-parse"}, {"path": "../rehype-stringify"}]
+  "references": [{"path": "../rehype-parse/"}, {"path": "../rehype-stringify/"}]
 }

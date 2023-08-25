@@ -1,13 +1,28 @@
 #!/usr/bin/env node
-import {createRequire} from 'node:module'
+
+/**
+ * @typedef Pack
+ * @property {string} name
+ * @property {string} version
+ * @property {string} description
+ */
+
+import fs from 'node:fs/promises'
+import {resolve} from 'import-meta-resolve'
 import {rehype} from 'rehype'
-// eslint-disable-next-line import/order
 import {args} from 'unified-args'
 
-const require = createRequire(import.meta.url)
-
-const proc = require('rehype/package.json')
-const cli = require('./package.json')
+/** @type {Pack} */
+const proc = JSON.parse(
+  String(
+    // To do: this will break when we add export maps.
+    await fs.readFile(new URL(resolve('rehype/package.json', import.meta.url)))
+  )
+)
+/** @type {Pack} */
+const cli = JSON.parse(
+  String(await fs.readFile(new URL(resolve('./package.json', import.meta.url))))
+)
 
 args({
   processor: rehype,

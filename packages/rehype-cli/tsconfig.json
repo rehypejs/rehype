@@ -1,8 +1,4 @@
 {
   "extends": "../../tsconfig.json",
-  "include": ["*.js", "./package.json"],
-  "references": [{"path": "../rehype"}],
-  "compilerOptions": {
-    "resolveJsonModule": true
-  }
+  "references": [{"path": "../rehype/"}]
 }

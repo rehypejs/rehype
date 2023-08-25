@@ -35,7 +35,7 @@
     "xo": "^0.56.0"
   },
   "scripts": {
-    "build": "npm run build --workspaces && tsc --build --clean && tsc --build && type-coverage",
+    "build": "tsc --build --clean && tsc --build && type-coverage",
     "format": "remark . -qfo && prettier . -w --log-level warn && xo --fix",
     "test-api": "node --conditions development test/index.js",
     "test-coverage": "c8 --check-coverage --100 --reporter lcov npm run test-api",
@@ -50,10 +50,17 @@
     "trailingComma": "none"
   },
   "xo": {
-    "prettier": true,
-    "ignores": [
-      "**/*.ts"
+    "overrides": [
+      {
+        "files": [
+          "**/*.ts"
+        ],
+        "rules": {
+          "@typescript-eslint/ban-types": "off"
+        }
+      }
     ],
+    "prettier": true,
     "rules": {
       "unicorn/prefer-code-point": "off",
       "unicorn/prefer-string-replace-all": "off"

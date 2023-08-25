@@ -41,9 +41,7 @@
     "index.d.ts",
     "index.js"
   ],
-  "scripts": {
-    "build": "tsc --build --clean && tsc --build && type-coverage"
-  },
+  "scripts": {},
   "xo": false,
   "typeCoverage": {
     "atLeast": 100,
