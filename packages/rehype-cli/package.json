@@ -21,7 +21,7 @@
     "Titus Wormer <tituswormer@gmail.com> (https://wooorm.com)"
   ],
   "type": "module",
-  "main": "cli.js",
+  "exports": [],
   "bin": {
     "rehype": "cli.js"
   },
