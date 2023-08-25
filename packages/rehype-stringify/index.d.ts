@@ -1,11 +1,19 @@
-// This wrapper exists because JS in TS can’t export a `@type` of a function.
 import type {Root} from 'hast'
 import type {Plugin} from 'unified'
 import type {Options} from './lib/index.js'
 
 export type {Options} from './lib/index.js'
-// Note: defining all nodes here, such as with `Root | Element | ...` seems
-// to trip TS up.
+
+/**
+ * Plugin to add support for serializing as HTML.
+ *
+ * @this
+ *   Unified processor.
+ * @param
+ *   Configuration (optional).
+ * @returns
+ *   Nothing.
+ */
 declare const rehypeStringify: Plugin<
   [(Options | null | undefined)?],
   Root,

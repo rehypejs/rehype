@@ -78,8 +78,8 @@ import {visit} from 'unist-util-visit'
 
 /** @type {import('unified').Plugin<[], import('hast').Root>} */
 function myRehypePluginToIncreaseHeadings() {
-  return (tree) => {
-    visit(tree, 'element', (node) => {
+  return function (tree) {
+    visit(tree, 'element', function (node) {
       if (['h1', 'h2', 'h3', 'h4', 'h5'].includes(node.tagName)) {
         node.tagName = 'h' + (Number(node.tagName.charAt(1)) + 1)
       }

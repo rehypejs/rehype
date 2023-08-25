@@ -2,9 +2,13 @@
 
 /**
  * @typedef Pack
+ *   Minimum `package.json`.
  * @property {string} name
+ *   Name.
  * @property {string} version
+ *   Version.
  * @property {string} description
+ *   Description.
  */
 
 import fs from 'node:fs/promises'
@@ -25,16 +29,16 @@ const cli = JSON.parse(
 )
 
 args({
-  processor: rehype,
-  name: proc.name,
   description: cli.description,
+  extensions: ['html', 'htm', 'xht', 'xhtml'],
+  ignoreName: '.' + proc.name + 'ignore',
+  name: proc.name,
+  packageField: proc.name,
+  pluginPrefix: proc.name,
+  processor: rehype,
+  rcName: '.' + proc.name + 'rc',
   version: [
     proc.name + ': ' + proc.version,
     cli.name + ': ' + cli.version
-  ].join(', '),
-  pluginPrefix: proc.name,
-  packageField: proc.name,
-  rcName: '.' + proc.name + 'rc',
-  ignoreName: '.' + proc.name + 'ignore',
-  extensions: ['html', 'htm', 'xht', 'xhtml']
+  ].join(', ')
 })

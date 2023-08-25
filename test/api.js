@@ -4,22 +4,41 @@
 
 import assert from 'node:assert/strict'
 import fs from 'node:fs/promises'
-import path from 'node:path'
+import process from 'node:process'
 import test from 'node:test'
-import {read} from 'to-vfile'
-import {removePosition} from 'unist-util-remove-position'
 import {assert as hastAssert} from 'hast-util-assert'
-import {unified} from 'unified'
+import {rehype} from 'rehype'
 import rehypeParse from 'rehype-parse'
 import rehypeStringify from 'rehype-stringify'
-import {rehype} from 'rehype'
+import {unified} from 'unified'
+import {removePosition} from 'unist-util-remove-position'
+import {VFile} from 'vfile'
 
-const fragment = {fragment: true}
+test('rehype', async function (t) {
+  await t.test('should expose the public api of `rehype`', async function () {
+    assert.deepEqual(Object.keys(await import('rehype')).sort(), ['rehype'])
+  })
 
-test('rehype().parse(file)', () => {
-  assert.deepEqual(
-    unified().use(rehypeParse).parse('Alfred'),
-    {
+  await t.test(
+    'should expose the public api of `rehype-parse`',
+    async function () {
+      assert.deepEqual(Object.keys(await import('rehype-parse')).sort(), [
+        'default'
+      ])
+    }
+  )
+
+  await t.test(
+    'should expose the public api of `rehype-stringify`',
+    async function () {
+      assert.deepEqual(Object.keys(await import('rehype-stringify')).sort(), [
+        'default'
+      ])
+    }
+  )
+
+  await t.test('should accept a `string`', async function () {
+    assert.deepEqual(unified().use(rehypeParse).parse('Alfred'), {
       type: 'root',
       children: [
         {
@@ -51,338 +70,393 @@ test('rehype().parse(file)', () => {
         start: {line: 1, column: 1, offset: 0},
         end: {line: 1, column: 7, offset: 6}
       }
-    },
-    'should accept a `string`'
+    })
+  })
+
+  await t.test(
+    'should prefer options given to `rehypeParse` over `settings`',
+    async function () {
+      assert.deepEqual(
+        unified()
+          // @ts-expect-error: to do: type `settings`.
+          .data('settings', {fragment: true})
+          .use(rehypeParse, {fragment: false})
+          .use(rehypeStringify)
+          .processSync('a')
+          .toString(),
+        '<html><head></head><body>a</body></html>'
+      )
+    }
   )
 
-  assert.deepEqual(
-    unified()
-      // @ts-expect-error: to do: type `settings`.
-      .data('settings', {fragment: true})
-      .use(rehypeParse, {fragment: false})
-      .use(rehypeStringify)
-      .processSync('a')
-      .toString(),
-    '<html><head></head><body>a</body></html>',
-    'should prefer options given to `rehypeParse` over `settings`'
+  await t.test(
+    'should prefer options given to `rehypeStringify` over `settings`',
+    async function () {
+      assert.deepEqual(
+        unified()
+          // @ts-expect-error: to do: type `settings`.
+          .data('settings', {quote: '"'})
+          .use(rehypeParse, {fragment: true})
+          .use(rehypeStringify, {quote: "'"})
+          .processSync('<a title="b">c</a>')
+          .toString(),
+        "<a title='b'>c</a>"
+      )
+    }
   )
 
-  assert.deepEqual(
-    unified()
-      // @ts-expect-error: to do: type `settings`.
-      .data('settings', {quote: '"'})
-      .use(rehypeParse, {fragment: true})
-      .use(rehypeStringify, {quote: "'"})
-      .processSync('<a title="b">c</a>')
-      .toString(),
-    "<a title='b'>c</a>",
-    'should prefer options given to `rehypeStringify` over `settings`'
-  )
-
-  const tree = unified()
-    .use(rehypeParse, {fragment: true})
-    .parse('<img><span></span>')
-
-  removePosition(tree, {force: true})
-
-  assert.deepEqual(
-    tree,
-    {
-      type: 'root',
-      children: [
-        {
-          type: 'element',
-          tagName: 'img',
-          properties: {},
-          children: []
-        },
-        {
-          type: 'element',
-          tagName: 'span',
-          properties: {},
-          children: []
+  await t.test('should parse self-closing elements', async function () {
+    assert.deepEqual(
+      unified().use(rehypeParse, {fragment: true}).parse('<img><span></span>'),
+      {
+        type: 'root',
+        children: [
+          {
+            type: 'element',
+            tagName: 'img',
+            properties: {},
+            children: [],
+            position: {
+              start: {line: 1, column: 1, offset: 0},
+              end: {line: 1, column: 6, offset: 5}
+            }
+          },
+          {
+            type: 'element',
+            tagName: 'span',
+            properties: {},
+            children: [],
+            position: {
+              start: {line: 1, column: 6, offset: 5},
+              end: {line: 1, column: 19, offset: 18}
+            }
+          }
+        ],
+        data: {quirksMode: false},
+        position: {
+          start: {line: 1, column: 1, offset: 0},
+          end: {line: 1, column: 19, offset: 18}
         }
-      ],
-      data: {quirksMode: false}
-    },
-    'should close void elements'
-  )
+      }
+    )
+  })
 
-  const tree2 = unified().use(rehypeParse, fragment).parse('<foo><span></span>')
-  removePosition(tree2, {force: true})
-
-  assert.deepEqual(
-    tree2,
-    {
-      type: 'root',
-      children: [
+  await t.test(
+    'should not close unknown elements by default',
+    async function () {
+      assert.deepEqual(
+        unified()
+          .use(rehypeParse, {fragment: true})
+          .parse('<foo><span></span>'),
         {
-          type: 'element',
-          tagName: 'foo',
-          properties: {},
+          type: 'root',
           children: [
             {
               type: 'element',
-              tagName: 'span',
+              tagName: 'foo',
               properties: {},
-              children: []
+              children: [
+                {
+                  type: 'element',
+                  tagName: 'span',
+                  properties: {},
+                  children: [],
+                  position: {
+                    start: {line: 1, column: 6, offset: 5},
+                    end: {line: 1, column: 19, offset: 18}
+                  }
+                }
+              ],
+              position: {
+                start: {line: 1, column: 1, offset: 0},
+                end: {line: 1, column: 19, offset: 18}
+              }
             }
-          ]
+          ],
+          data: {quirksMode: false},
+          position: {
+            start: {line: 1, column: 1, offset: 0},
+            end: {line: 1, column: 19, offset: 18}
+          }
         }
-      ],
-      data: {quirksMode: false}
-    },
-    'should not close unknown elements by default'
+      )
+    }
+  )
+
+  await t.test(
+    'should throw when `tree` is not a valid node',
+    async function () {
+      assert.throws(function () {
+        // @ts-expect-error: unknown node.
+        unified().use(rehypeStringify).stringify({type: 'unicorn'})
+      }, /unicorn/)
+    }
+  )
+
+  await t.test('should escape character references', async function () {
+    assert.equal(
+      unified()
+        .use(rehypeStringify)
+        .stringify({
+          type: 'root',
+          children: [{type: 'text', value: 'alpha < bravo'}]
+        }),
+      'alpha &#x3C; bravo'
+    )
+  })
+
+  await t.test(
+    'should encode character references (numbered by default)',
+    async function () {
+      assert.equal(
+        unified()
+          .use(rehypeStringify, {characterReferences: {}})
+          .stringify({
+            type: 'root',
+            children: [{type: 'text', value: 'alpha < bravo'}]
+          }),
+        'alpha &#x3C; bravo'
+      )
+    }
+  )
+
+  await t.test('should encode character references (named)', async function () {
+    assert.equal(
+      unified()
+        .use(rehypeStringify, {
+          characterReferences: {useNamedReferences: true}
+        })
+        .stringify({
+          type: 'root',
+          children: [{type: 'text', value: 'alpha < bravo'}]
+        }),
+      'alpha &lt; bravo'
+    )
+  })
+
+  await t.test('should not close self-closing elements', async function () {
+    assert.equal(
+      unified()
+        .use(rehypeStringify)
+        .stringify({
+          type: 'root',
+          children: [
+            {type: 'element', tagName: 'img', properties: {}, children: []}
+          ]
+        }),
+      '<img>'
+    )
+  })
+
+  await t.test(
+    'should close self-closing elements if `closeSelfClosing` is given',
+    async function () {
+      assert.equal(
+        unified()
+          .use(rehypeStringify, {closeSelfClosing: true})
+          .stringify({
+            type: 'root',
+            children: [
+              {type: 'element', tagName: 'img', properties: {}, children: []}
+            ]
+          }),
+        '<img />'
+      )
+    }
+  )
+
+  await t.test(
+    'should not close unknown elements by default',
+    async function () {
+      assert.equal(
+        unified()
+          .use(rehypeStringify)
+          .stringify({
+            type: 'root',
+            children: [
+              {type: 'element', tagName: 'foo', properties: {}, children: []}
+            ]
+          }),
+        '<foo></foo>'
+      )
+    }
+  )
+
+  await t.test('should close given `voids`', async function () {
+    assert.equal(
+      unified()
+        .use(rehypeStringify, {voids: ['foo']})
+        .stringify({
+          type: 'root',
+          children: [
+            {type: 'element', tagName: 'foo', properties: {}, children: []}
+          ]
+        }),
+      '<foo>'
+    )
+  })
+
+  await t.test('should not emit parse errors by default', async function () {
+    assert.deepEqual(
+      rehype().processSync('<!doctypehtml>').messages.map(String),
+      []
+    )
+  })
+
+  await t.test(
+    'should emit parse errors when `emitParseErrors: true`',
+    async function () {
+      assert.deepEqual(
+        rehype()
+          // @ts-expect-error: to do: type `settings`.
+          .data('settings', {emitParseErrors: true})
+          .processSync('<!doctypehtml>')
+          .messages.map(String),
+        ['1:10-1:10: Missing whitespace before doctype name']
+      )
+    }
+  )
+
+  await t.test(
+    'should ignore parse errors when the specific rule is turned off',
+    async function () {
+      assert.deepEqual(
+        rehype()
+          .data('settings', {
+            // @ts-expect-error: to do: type `settings`.
+            emitParseErrors: true,
+            missingWhitespaceBeforeDoctypeName: false
+          })
+          .processSync('<!doctypehtml>')
+          .messages.map(String),
+        []
+      )
+    }
+  )
+
+  await t.test(
+    'should emit parse errors when the specific rule is turned on',
+    async function () {
+      assert.deepEqual(
+        rehype()
+          .data('settings', {
+            // @ts-expect-error: to do: type `settings`.
+            emitParseErrors: true,
+            missingWhitespaceBeforeDoctypeName: true
+          })
+          .processSync('<!doctypehtml>')
+          .messages.map(String),
+        ['1:10-1:10: Missing whitespace before doctype name']
+      )
+    }
+  )
+
+  await t.test(
+    'should emit fatal parse errors when the specific rule is `2`',
+    async function () {
+      assert.deepEqual(
+        rehype()
+          .data('settings', {
+            // @ts-expect-error: to do: type `settings`.
+            emitParseErrors: true,
+            missingWhitespaceBeforeDoctypeName: 2
+          })
+          .processSync('<!doctypehtml>').messages[0].fatal,
+        true
+      )
+    }
+  )
+
+  await t.test(
+    'should emit warning parse errors when the specific rule is `1`',
+    async function () {
+      assert.deepEqual(
+        rehype()
+          .data('settings', {
+            // @ts-expect-error: to do: type `settings`.
+            emitParseErrors: true,
+            missingWhitespaceBeforeDoctypeName: 1
+          })
+          .processSync('<!doctypehtml>').messages[0].fatal,
+        false
+      )
+    }
   )
 })
 
-test('rehype().stringify(ast, file, options?)', () => {
-  assert.throws(
-    () => {
-      // @ts-expect-error: incorrect value.
-      unified().use(rehypeStringify).stringify(false)
-    },
-    /false/,
-    'should throw when `ast` is not a node'
-  )
-
-  assert.throws(
-    () => {
-      // @ts-expect-error: unknown node.
-      unified().use(rehypeStringify).stringify({type: 'unicorn'})
-    },
-    /unicorn/,
-    'should throw when `ast` is not a valid node'
-  )
-
-  assert.equal(
-    unified()
-      .use(rehypeStringify)
-      .stringify({
-        type: 'root',
-        children: [{type: 'text', value: 'alpha < bravo'}]
-      }),
-    'alpha &#x3C; bravo',
-    'should escape entities'
-  )
-
-  assert.equal(
-    unified()
-      .use(rehypeStringify, {characterReferences: {}})
-      .stringify({
-        type: 'root',
-        children: [{type: 'text', value: 'alpha < bravo'}]
-      }),
-    'alpha &#x3C; bravo',
-    'should encode entities (numbered by default)'
-  )
-
-  assert.equal(
-    unified()
-      .use(rehypeStringify, {characterReferences: {useNamedReferences: true}})
-      .stringify({
-        type: 'root',
-        children: [{type: 'text', value: 'alpha < bravo'}]
-      }),
-    'alpha &lt; bravo',
-    'should encode entities (numbered by default)'
-  )
-
-  assert.equal(
-    unified()
-      .use(rehypeStringify)
-      .stringify({
-        type: 'root',
-        children: [
-          {type: 'element', tagName: 'img', properties: {}, children: []}
-        ]
-      }),
-    '<img>',
-    'should not close void elements'
-  )
-
-  assert.equal(
-    unified()
-      .use(rehypeStringify, {closeSelfClosing: true})
-      .stringify({
-        type: 'root',
-        children: [
-          {type: 'element', tagName: 'img', properties: {}, children: []}
-        ]
-      }),
-    '<img />',
-    'should close void elements if `closeSelfClosing` is given'
-  )
-
-  assert.equal(
-    unified()
-      .use(rehypeStringify)
-      .stringify({
-        type: 'root',
-        children: [
-          {type: 'element', tagName: 'foo', properties: {}, children: []}
-        ]
-      }),
-    '<foo></foo>',
-    'should not close unknown elements by default'
-  )
-
-  assert.equal(
-    unified()
-      .use(rehypeStringify, {voids: ['foo']})
-      .stringify({
-        type: 'root',
-        children: [
-          {type: 'element', tagName: 'foo', properties: {}, children: []}
-        ]
-      }),
-    '<foo>',
-    'should close void elements if configured'
-  )
-
-  assert.deepEqual(
-    rehype().processSync('<!doctypehtml>').messages.map(String),
-    [],
-    'should not emit parse errors by default'
-  )
-
-  assert.deepEqual(
-    rehype()
-      // @ts-expect-error: to do: type `settings`.
-      .data('settings', {emitParseErrors: true})
-      .processSync('<!doctypehtml>')
-      .messages.map(String),
-    ['1:10-1:10: Missing whitespace before doctype name'],
-    'should emit parse errors when `emitParseErrors: true`'
-  )
-
-  assert.deepEqual(
-    rehype()
-      .data('settings', {
-        // @ts-expect-error: to do: type `settings`.
-        emitParseErrors: true,
-        missingWhitespaceBeforeDoctypeName: false
-      })
-      .processSync('<!doctypehtml>')
-      .messages.map(String),
-    [],
-    'should ignore parse errors when the specific rule is turned off'
-  )
-
-  assert.deepEqual(
-    rehype()
-      .data('settings', {
-        // @ts-expect-error: to do: type `settings`.
-        emitParseErrors: true,
-        missingWhitespaceBeforeDoctypeName: true
-      })
-      .processSync('<!doctypehtml>')
-      .messages.map(String),
-    ['1:10-1:10: Missing whitespace before doctype name'],
-    'should emit parse errors when the specific rule is turned on'
-  )
-
-  assert.deepEqual(
-    rehype()
-      .data('settings', {
-        // @ts-expect-error: to do: type `settings`.
-        emitParseErrors: true,
-        missingWhitespaceBeforeDoctypeName: 2
-      })
-      .processSync('<!doctypehtml>').messages[0].fatal,
-    true,
-    'should emit fatal parse errors when the specific rule is `2`'
-  )
-
-  assert.deepEqual(
-    rehype()
-      .data('settings', {
-        // @ts-expect-error: to do: type `settings`.
-        emitParseErrors: true,
-        missingWhitespaceBeforeDoctypeName: 1
-      })
-      .processSync('<!doctypehtml>').messages[0].fatal,
-    false,
-    'should emit fatal parse errors when the specific rule is `1`'
-  )
-})
-
-test('fixtures', async (t) => {
+test('fixtures', async function (t) {
+  const root = new URL('fixtures/', import.meta.url)
   let index = -1
-  const root = path.join('test', 'fixtures')
-  const fixtures = await fs.readdir(root)
+  const folders = await fs.readdir(root)
 
-  while (++index < fixtures.length) {
-    const fixture = fixtures[index]
+  while (++index < folders.length) {
+    const folder = folders[index]
 
-    if (fixture.charAt(0) === '.') {
+    if (folder.charAt(0) === '.') {
       continue
     }
 
-    const fp = path.join(root, fixture)
+    await t.test(folder, async function () {
+      const base = new URL(folder + '/', root)
+      const configUrl = new URL('config.json', base)
+      const inputUrl = new URL('index.html', base)
+      const expectedTreeUrl = new URL('index.json', base)
+      const expectedOutputUrl = new URL('result.html', base)
 
-    // eslint-disable-next-line no-await-in-loop
-    await t.test(fixture, async () => {
-      const file = await read(path.join(fp, 'index.html'))
+      // To do: types of `Settings`.
       /** @type {{fragment?: boolean, reprocess?: boolean}} */
-      let config = {}
-      /** @type {Root|undefined} */
-      let tree
-      /** @type {string|undefined} */
-      let result
-
-      file.dirname = ''
+      let settings = {}
 
       try {
-        config = JSON.parse(
-          String(await fs.readFile(path.join(fp, 'config.json')))
-        )
+        settings = JSON.parse(String(await fs.readFile(configUrl)))
       } catch {}
 
-      try {
-        result = await fs.readFile(path.join(fp, 'result.html'), 'utf8')
-      } catch {}
+      // @ts-expect-error: To do: types of `Settings`.
+      const processor = rehype().data('settings', settings)
+      const input = new VFile({
+        basename: 'index.html',
+        value: await fs.readFile(inputUrl)
+      })
+      const actualTree = processor.parse(input)
+      const actualOutput = processor.stringify(actualTree, input)
 
-      // @ts-expect-error: to do: type `settings`.
-      const node = rehype().data('settings', config).parse(file)
+      hastAssert(actualTree)
+
+      /** @type {string} */
+      let expectedOutput
+      /** @type {Root} */
+      let expectedTree
 
       try {
-        tree = JSON.parse(
-          String(await fs.readFile(path.join(fp, 'index.json')))
-        )
+        expectedOutput = String(await fs.readFile(expectedOutputUrl))
+        if ('UPDATE' in process.env) throw new Error('Update')
       } catch {
+        expectedOutput = actualOutput
+        await fs.writeFile(expectedOutputUrl, expectedOutput)
+      }
+
+      try {
+        expectedTree = JSON.parse(String(await fs.readFile(expectedTreeUrl)))
+        if ('UPDATE' in process.env) throw new Error('Update')
+      } catch {
+        expectedTree = actualTree
         await fs.writeFile(
-          path.join(fp, 'index.json'),
-          JSON.stringify(node, null, 2) + '\n'
-        )
-        return
-      }
-
-      hastAssert(node)
-
-      assert.deepEqual(tree, node, 'should parse `' + fixture + '`')
-
-      // @ts-expect-error: to do: type `settings`.
-      const out = rehype().data('settings', config).stringify(node)
-
-      if (result) {
-        assert.equal(out, result, 'should stringify `' + fixture + '`')
-      } else {
-        assert.equal(
-          out,
-          String(file),
-          'should stringify `' + fixture + '` exact'
+          expectedTreeUrl,
+          JSON.stringify(expectedTree, undefined, 2) + '\n'
         )
       }
 
-      removePosition(node)
+      assert.deepEqual(actualTree, expectedTree)
+      assert.equal(actualOutput, expectedOutput)
 
-      // @ts-expect-error: to do: type `settings`.
-      const expected = rehype().data('settings', config).parse(out)
-      removePosition(expected)
-
-      if (config.reprocess !== false) {
-        assert.deepEqual(node, expected, 'should re-parse `' + fixture + '`')
+      if (settings.reprocess !== false) {
+        const reprocessedTree = rehype()
+          // @ts-expect-error: to do: type `settings`.
+          .data('settings', settings)
+          .parse(actualOutput)
+        removePosition(actualTree)
+        removePosition(reprocessedTree)
+        assert.deepEqual(actualTree, reprocessedTree)
       }
     })
   }

@@ -1,23 +1,30 @@
 /**
  * @typedef {import('hast').Root} Root
- * @typedef {Root|Root['children'][number]} Node
  * @typedef {import('hast-util-to-html').Options} Options
+ * @typedef {import('unified').Compiler<Root, string>} Compiler
  */
 
 import {toHtml} from 'hast-util-to-html'
 
 /**
- * @this {import('unified').Processor}
- * @type {import('unified').Plugin<[(Options | null | undefined)?], Node, string>}
+ * Plugin to add support for serializing as HTML.
+ *
+ * @param {Options | null | undefined} [options]
+ *   Configuration (optional).
+ * @returns {undefined}
+ *   Nothing.
  */
-export default function rehypeStringify(config) {
-  const processorSettings = /** @type {Options} */ (this.data('settings'))
-  const settings = Object.assign({}, processorSettings, config)
+export default function rehypeStringify(options) {
+  /** @type {import('unified').Processor<undefined, undefined, undefined, Root, string>} */
+  // @ts-expect-error: TS in JSDoc generates wrong types if `this` is typed regularly.
+  const self = this
+  const processorSettings = /** @type {Options} */ (self.data('settings'))
+  const settings = {...processorSettings, ...options}
 
-  Object.assign(this, {Compiler: compiler})
+  self.compiler = compiler
 
   /**
-   * @type {import('unified').Compiler<Node, string>}
+   * @type {Compiler}
    */
   function compiler(tree) {
     return toHtml(tree, settings)

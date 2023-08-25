@@ -1,0 +1,29 @@
+<form>
+  <!--See: http://heydonworks.com/practical_aria_examples/#input-tooltip-->
+  <style>
+    fieldset > div { position: relative }
+
+    [role="tooltip"] {
+      display: none;
+      padding: 0.25em;
+      background-color: black;
+      color: white;
+      z-index: 1;
+    }
+
+    input:focus + [role="tooltip"] { display: block; position: absolute }
+  </style>
+  <fieldset>
+    <legend>Login</legend>
+    <div>
+      <label for="username">Username</label>
+      <input id="username" aria-describedby="username-tip" required>
+      <div role="tooltip" id="username-tip">Your username is your email address</div>
+    </div>
+    <div>
+      <label for="password">Password</label>
+      <input id="password" aria-describedby="password-tip" required>
+      <div role="tooltip" id="password-tip">Was emailed to you when you signed up</div>
+    </div>
+  </fieldset>
+</form>

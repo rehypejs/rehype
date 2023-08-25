@@ -147,7 +147,7 @@ main()
 
 async function main() {
   const file = await rehype()
-    .data('settings', {fragment: true, emitParseErrors: true, preferUnquoted: true})
+    .data('settings', {emitParseErrors: true, fragment: true, preferUnquoted: true})
     .process('<div title="a" title="b"></div>')
 
   console.error(reporter(file))

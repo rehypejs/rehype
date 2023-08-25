@@ -1,17 +1,17 @@
 import assert from 'node:assert/strict'
-import path from 'node:path'
 import childProcess from 'node:child_process'
-import {promisify} from 'node:util'
 import test from 'node:test'
+import {promisify} from 'node:util'
+import {fileURLToPath} from 'node:url'
 
 const exec = promisify(childProcess.exec)
 
-const join = path.join
+test('rehype-cli', async function (t) {
+  const bin = fileURLToPath(
+    new URL('../packages/rehype-cli/cli.js', import.meta.url)
+  )
 
-test('rehype-cli', async (t) => {
-  await t.test('should show help on `--help`', async () => {
-    const bin = join('packages', 'rehype-cli', 'cli.js')
-
+  await t.test('should show help on `--help`', async function () {
     const result = await exec(bin + ' --help')
 
     assert.equal(
@@ -65,13 +65,10 @@ test('rehype-cli', async (t) => {
     )
   })
 
-  await t.test('should show version on `--version`', async () => {
-    const bin = join('packages', 'rehype-cli', 'cli.js')
-
+  await t.test('should show version on `--version`', async function () {
     const result = await exec(bin + ' --version')
 
     assert.match(result.stdout, /rehype: \d+\.\d+\.\d+/)
-
     assert.match(result.stdout, /rehype-cli: \d+\.\d+\.\d+/)
   })
 })
