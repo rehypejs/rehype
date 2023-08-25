@@ -1,4 +1,5 @@
 /**
+ * @typedef {import('unified').Settings} Settings
  * @typedef {import('hast').Root} Root
  */
 
@@ -78,7 +79,6 @@ test('rehype', async function (t) {
     async function () {
       assert.deepEqual(
         unified()
-          // @ts-expect-error: to do: type `settings`.
           .data('settings', {fragment: true})
           .use(rehypeParse, {fragment: false})
           .use(rehypeStringify)
@@ -94,7 +94,6 @@ test('rehype', async function (t) {
     async function () {
       assert.deepEqual(
         unified()
-          // @ts-expect-error: to do: type `settings`.
           .data('settings', {quote: '"'})
           .use(rehypeParse, {fragment: true})
           .use(rehypeStringify, {quote: "'"})
@@ -187,8 +186,10 @@ test('rehype', async function (t) {
     'should throw when `tree` is not a valid node',
     async function () {
       assert.throws(function () {
-        // @ts-expect-error: unknown node.
-        unified().use(rehypeStringify).stringify({type: 'unicorn'})
+        unified()
+          .use(rehypeStringify)
+          // @ts-expect-error: check how an unknown node is handled.
+          .stringify({type: 'unicorn'})
       }, /unicorn/)
     }
   )
@@ -308,7 +309,6 @@ test('rehype', async function (t) {
     async function () {
       assert.deepEqual(
         rehype()
-          // @ts-expect-error: to do: type `settings`.
           .data('settings', {emitParseErrors: true})
           .processSync('<!doctypehtml>')
           .messages.map(String),
@@ -323,7 +323,6 @@ test('rehype', async function (t) {
       assert.deepEqual(
         rehype()
           .data('settings', {
-            // @ts-expect-error: to do: type `settings`.
             emitParseErrors: true,
             missingWhitespaceBeforeDoctypeName: false
           })
@@ -340,7 +339,6 @@ test('rehype', async function (t) {
       assert.deepEqual(
         rehype()
           .data('settings', {
-            // @ts-expect-error: to do: type `settings`.
             emitParseErrors: true,
             missingWhitespaceBeforeDoctypeName: true
           })
@@ -357,7 +355,6 @@ test('rehype', async function (t) {
       assert.deepEqual(
         rehype()
           .data('settings', {
-            // @ts-expect-error: to do: type `settings`.
             emitParseErrors: true,
             missingWhitespaceBeforeDoctypeName: 2
           })
@@ -373,7 +370,6 @@ test('rehype', async function (t) {
       assert.deepEqual(
         rehype()
           .data('settings', {
-            // @ts-expect-error: to do: type `settings`.
             emitParseErrors: true,
             missingWhitespaceBeforeDoctypeName: 1
           })
@@ -403,15 +399,15 @@ test('fixtures', async function (t) {
       const expectedTreeUrl = new URL('index.json', base)
       const expectedOutputUrl = new URL('result.html', base)
 
-      // To do: types of `Settings`.
-      /** @type {{fragment?: boolean, reprocess?: boolean}} */
-      let settings = {}
+      /** @type {Settings & {reprocess?: boolean | null | undefined}} */
+      let config = {}
 
       try {
-        settings = JSON.parse(String(await fs.readFile(configUrl)))
+        config = JSON.parse(String(await fs.readFile(configUrl)))
       } catch {}
 
-      // @ts-expect-error: To do: types of `Settings`.
+      const {reprocess, ...settings} = config
+
       const processor = rehype().data('settings', settings)
       const input = new VFile({
         basename: 'index.html',
@@ -449,9 +445,8 @@ test('fixtures', async function (t) {
       assert.deepEqual(actualTree, expectedTree)
       assert.equal(actualOutput, expectedOutput)
 
-      if (settings.reprocess !== false) {
+      if (reprocess !== false) {
         const reprocessedTree = rehype()
-          // @ts-expect-error: to do: type `settings`.
           .data('settings', settings)
           .parse(actualOutput)
         removePosition(actualTree)

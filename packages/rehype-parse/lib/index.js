@@ -32,8 +32,7 @@ export default function rehypeParse(options) {
   /** @type {import('unified').Processor<Root>} */
   // @ts-expect-error: TS in JSDoc generates wrong types if `this` is typed regularly.
   const self = this
-  const processorSettings = /** @type {Options} */ (self.data('settings'))
-  const {emitParseErrors, ...settings} = {...processorSettings, ...options}
+  const {emitParseErrors, ...settings} = {...self.data('settings'), ...options}
 
   self.parser = parser
 

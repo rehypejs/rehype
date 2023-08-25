@@ -17,3 +17,8 @@ export type {Options} from './lib/index.js'
  */
 declare const rehypeParse: Plugin<[(Options | null | undefined)?], string, Root>
 export default rehypeParse
+
+// Add custom settings supported when `rehype-parse` is added.
+declare module 'unified' {
+  interface Settings extends Options {}
+}

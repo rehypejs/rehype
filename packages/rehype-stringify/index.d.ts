@@ -20,3 +20,8 @@ declare const rehypeStringify: Plugin<
   string
 >
 export default rehypeStringify
+
+// Add custom settings supported when `rehype-stringify` is added.
+declare module 'unified' {
+  interface Settings extends Options {}
+}

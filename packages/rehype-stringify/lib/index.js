@@ -18,8 +18,7 @@ export default function rehypeStringify(options) {
   /** @type {import('unified').Processor<undefined, undefined, undefined, Root, string>} */
   // @ts-expect-error: TS in JSDoc generates wrong types if `this` is typed regularly.
   const self = this
-  const processorSettings = /** @type {Options} */ (self.data('settings'))
-  const settings = {...processorSettings, ...options}
+  const settings = {...self.data('settings'), ...options}
 
   self.compiler = compiler
 
