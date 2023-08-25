@@ -4,16 +4,16 @@
   "description": "rehype plugin to parse HTML",
   "license": "MIT",
   "keywords": [
-    "unified",
+    "abstract",
+    "ast",
+    "html",
+    "parse",
+    "plugin",
     "rehype",
     "rehype-plugin",
-    "plugin",
-    "html",
-    "abstract",
     "syntax",
     "tree",
-    "ast",
-    "parse"
+    "unified"
   ],
   "homepage": "https://github.com/rehypejs/rehype",
   "repository": "https://github.com/rehypejs/rehype/tree/main/packages/rehype-parse",

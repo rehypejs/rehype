@@ -4,11 +4,11 @@
   "description": "CLI to process HTML with rehype",
   "license": "MIT",
   "keywords": [
-    "unified",
-    "rehype",
-    "html",
+    "bin",
     "cli",
-    "bin"
+    "html",
+    "rehype",
+    "unified"
   ],
   "repository": "https://github.com/rehypejs/rehype/tree/main/packages/rehype-cli",
   "bugs": "https://github.com/rehypejs/rehype/issues",

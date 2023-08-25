@@ -4,17 +4,17 @@
   "description": "HTML processor powered by plugins part of the unified collective",
   "license": "MIT",
   "keywords": [
-    "unified",
-    "rehype",
-    "html",
     "abstract",
+    "ast",
+    "html",
+    "parse",
+    "process",
+    "rehype",
+    "serialize",
+    "stringify",
     "syntax",
     "tree",
-    "ast",
-    "parse",
-    "stringify",
-    "serialize",
-    "process"
+    "unified"
   ],
   "dependencies": {
     "@types/hast": "^3.0.0",
