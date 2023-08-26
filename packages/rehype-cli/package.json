@@ -30,7 +30,7 @@
   ],
   "dependencies": {
     "import-meta-resolve": "^3.0.0",
-    "rehype": "^12.0.0",
+    "rehype": "^13.0.0",
     "unified-args": "^11.0.0"
   },
   "scripts": {},

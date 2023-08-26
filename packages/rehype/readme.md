@@ -67,14 +67,14 @@ npm install rehype
 In Deno with [`esm.sh`][esmsh]:
 
 ```js
-import {rehype} from 'https://esm.sh/rehype@12'
+import {rehype} from 'https://esm.sh/rehype@13'
 ```
 
 In browsers with [`esm.sh`][esmsh]:
 
 ```html
 <script type="module">
-  import {rehype} from 'https://esm.sh/rehype@12?bundle'
+  import {rehype} from 'https://esm.sh/rehype@13?bundle'
 </script>
 ```
 
