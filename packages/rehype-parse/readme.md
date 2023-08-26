@@ -72,14 +72,14 @@ npm install rehype-parse
 In Deno with [`esm.sh`][esmsh]:
 
 ```js
-import rehypeParse from 'https://esm.sh/rehype-parse@8'
+import rehypeParse from 'https://esm.sh/rehype-parse@9'
 ```
 
 In browsers with [`esm.sh`][esmsh]:
 
 ```html
 <script type="module">
-  import rehypeParse from 'https://esm.sh/rehype-parse@8?bundle'
+  import rehypeParse from 'https://esm.sh/rehype-parse@9?bundle'
 </script>
 ```
 
