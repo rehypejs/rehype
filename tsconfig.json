@@ -13,6 +13,7 @@
   "exclude": ["**/coverage/", "**/node_modules/"],
   "include": [
     "**/*.js",
+    "packages/rehype/index.d.ts",
     "packages/rehype-parse/index.d.ts",
     "packages/rehype-stringify/index.d.ts"
   ]

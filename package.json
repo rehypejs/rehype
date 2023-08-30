@@ -76,7 +76,8 @@
         ],
         "rules": {
           "@typescript-eslint/ban-types": "off",
-          "@typescript-eslint/consistent-type-definitions": "off"
+          "@typescript-eslint/consistent-type-definitions": "off",
+          "@typescript-eslint/triple-slash-reference": "off"
         }
       }
     ],

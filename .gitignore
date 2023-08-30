@@ -4,5 +4,6 @@ node_modules/
 *.log
 .DS_Store
 yarn.lock
+!packages/rehype/index.d.ts
 !packages/rehype-parse/index.d.ts
 !packages/rehype-stringify/index.d.ts

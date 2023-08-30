@@ -1,3 +1,4 @@
+// Note: types exposed from `index.d.ts`
 import rehypeParse from 'rehype-parse'
 import rehypeStringify from 'rehype-stringify'
 import {unified} from 'unified'
