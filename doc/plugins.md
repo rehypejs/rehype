@@ -169,6 +169,8 @@ The list of plugins:
     — rewrite element with rehype
 *   [`rehype-sanitize`](https://github.com/rehypejs/rehype-sanitize)
     — sanitize HTML
+*   [`rehype-semantic-images`](https://github.com/benjamincharity/rehype-semantic-images)
+    — Enrich HTML images with semantic elements and customizable features
 *   [`rehype-scroll-to-top`](https://github.com/benjamincharity/rehype-scroll-to-top)
     — customizable “Scroll to Top” and “Scroll to Bottom” links
 *   [`rehype-section`](https://github.com/agentofuser/rehype-section)
