@@ -169,8 +169,6 @@ The list of plugins:
     — rewrite element with rehype
 *   [`rehype-sanitize`](https://github.com/rehypejs/rehype-sanitize)
     — sanitize HTML
-*   [`rehype-semantic-images`](https://github.com/benjamincharity/rehype-semantic-images)
-    — Enrich HTML images with semantic elements and customizable features
 *   [`rehype-scroll-to-top`](https://github.com/benjamincharity/rehype-scroll-to-top)
     — customizable “Scroll to Top” and “Scroll to Bottom” links
 *   [`rehype-section`](https://github.com/agentofuser/rehype-section)
@@ -178,6 +176,8 @@ The list of plugins:
 *   [`rehype-sectionize`](https://github.com/hbsnow/rehype-sectionize)
     — wrap headings and their contents into nested `<section>` elements,
     with attributes
+*   [`rehype-semantic-images`](https://github.com/benjamincharity/rehype-semantic-images)
+    — enrich HTML images with semantic elements and customizable features
 *   [`rehype-shift-heading`](https://github.com/rehypejs/rehype-shift-heading)
     — change the rank of headings
 *   [`rehype-shiki`](https://github.com/rsclarke/rehype-shiki)
