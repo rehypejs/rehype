@@ -41,7 +41,6 @@
     "index.js"
   ],
   "scripts": {},
-  "xo": false,
   "typeCoverage": {
     "atLeast": 100,
     "detail": true,

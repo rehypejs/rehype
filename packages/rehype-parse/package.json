@@ -40,7 +40,6 @@
     "unified": "^11.0.0"
   },
   "scripts": {},
-  "xo": false,
   "typeCoverage": {
     "atLeast": 100,
     "detail": true,

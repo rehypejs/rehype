@@ -17,7 +17,7 @@ import {rehype} from 'rehype'
 import {args} from 'unified-args'
 
 /** @type {Pack} */
-const proc = JSON.parse(
+const rehypePackage = JSON.parse(
   String(
     await fs.readFile(
       new URL('package.json', resolve('rehype', import.meta.url))
@@ -26,21 +26,21 @@ const proc = JSON.parse(
 )
 
 /** @type {Pack} */
-const cli = JSON.parse(
+const cliPackage = JSON.parse(
   String(await fs.readFile(new URL('package.json', import.meta.url)))
 )
 
 args({
-  description: cli.description,
+  description: cliPackage.description,
   extensions: ['html', 'htm', 'xht', 'xhtml'],
-  ignoreName: '.' + proc.name + 'ignore',
-  name: proc.name,
-  packageField: proc.name,
-  pluginPrefix: proc.name,
+  ignoreName: '.' + rehypePackage.name + 'ignore',
+  name: rehypePackage.name,
+  packageField: rehypePackage.name,
+  pluginPrefix: rehypePackage.name,
   processor: rehype,
-  rcName: '.' + proc.name + 'rc',
+  rcName: '.' + rehypePackage.name + 'rc',
   version: [
-    proc.name + ': ' + proc.version,
-    cli.name + ': ' + cli.version
+    rehypePackage.name + ': ' + rehypePackage.version,
+    cliPackage.name + ': ' + cliPackage.version
   ].join(', ')
 })

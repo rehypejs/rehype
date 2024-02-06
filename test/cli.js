@@ -7,12 +7,12 @@ import {fileURLToPath} from 'node:url'
 const exec = promisify(childProcess.exec)
 
 test('rehype-cli', async function (t) {
-  const bin = fileURLToPath(
+  const binary = fileURLToPath(
     new URL('../packages/rehype-cli/cli.js', import.meta.url)
   )
 
   await t.test('should show help on `--help`', async function () {
-    const result = await exec(bin + ' --help')
+    const result = await exec(binary + ' --help')
 
     assert.equal(
       result.stdout,
@@ -66,7 +66,7 @@ test('rehype-cli', async function (t) {
   })
 
   await t.test('should show version on `--version`', async function () {
-    const result = await exec(bin + ' --version')
+    const result = await exec(binary + ' --version')
 
     assert.match(result.stdout, /rehype: \d+\.\d+\.\d+/)
     assert.match(result.stdout, /rehype-cli: \d+\.\d+\.\d+/)

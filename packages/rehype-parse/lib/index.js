@@ -45,8 +45,8 @@ export default function rehypeParse(options) {
   /**
    * @type {Parser}
    */
-  function parser(doc, file) {
-    return fromHtml(doc, {
+  function parser(document, file) {
+    return fromHtml(document, {
       ...settings,
       onerror: emitParseErrors
         ? function (message) {
