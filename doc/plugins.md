@@ -32,6 +32,8 @@ The list of plugins:
     — add W3C-style annotations
 *   [`rehype-attr`](https://github.com/jaywcjlove/rehype-attr)
     — new markdown syntax to add attributes.
+*   [`rehype-auto-ads`](https://github.com/robot-Inventor/rehype-auto-ads)
+    — inserts an ad code for each specified number of paragraphs
 *   [`rehype-autolink-headings`](https://github.com/rehypejs/rehype-autolink-headings)
     — add links to headings
 *   [`rehype-citation`](https://github.com/timlrx/rehype-citation)
