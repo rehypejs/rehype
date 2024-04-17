@@ -196,6 +196,8 @@ The list of plugins:
     — sort attributes
 *   [`rehype-sort-tailwind-classes`](https://github.com/bitcrowd/rehype-sort-tailwind-classes)
     — sort tailwind classes
+*   [`rehype-svgo`](https://github.com/TomerAberbach/rehype-svgo)
+    — optimize inline SVGs using [SVGO](https://github.com/svg/svgo)
 *   [`rehype-template`](https://github.com/nzt/rehype-template)
     — wrap content with template literal
 *   [`rehype-toc`](https://github.com/JS-DevTools/rehype-toc)
