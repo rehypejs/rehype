@@ -12,27 +12,27 @@
 
 ## Contents
 
-*   [What is this?](#what-is-this)
-*   [When should I use this?](#when-should-i-use-this)
-*   [Install](#install)
-*   [Use](#use)
-*   [API](#api)
-    *   [`unified().use(rehypeParse[, options])`](#unifieduserehypeparse-options)
-    *   [`ErrorCode`](#errorcode)
-    *   [`ErrorSeverity`](#errorseverity)
-    *   [`Options`](#options)
-*   [Examples](#examples)
-    *   [Example: fragment versus document](#example-fragment-versus-document)
-    *   [Example: whitespace around and inside `<html>`](#example-whitespace-around-and-inside-html)
-    *   [Example: parse errors](#example-parse-errors)
-*   [Syntax](#syntax)
-*   [Syntax tree](#syntax-tree)
-*   [Types](#types)
-*   [Compatibility](#compatibility)
-*   [Security](#security)
-*   [Contribute](#contribute)
-*   [Sponsor](#sponsor)
-*   [License](#license)
+* [What is this?](#what-is-this)
+* [When should I use this?](#when-should-i-use-this)
+* [Install](#install)
+* [Use](#use)
+* [API](#api)
+  * [`unified().use(rehypeParse[, options])`](#unifieduserehypeparse-options)
+  * [`ErrorCode`](#errorcode)
+  * [`ErrorSeverity`](#errorseverity)
+  * [`Options`](#options)
+* [Examples](#examples)
+  * [Example: fragment versus document](#example-fragment-versus-document)
+  * [Example: whitespace around and inside `<html>`](#example-whitespace-around-and-inside-html)
+  * [Example: parse errors](#example-parse-errors)
+* [Syntax](#syntax)
+* [Syntax tree](#syntax-tree)
+* [Types](#types)
+* [Compatibility](#compatibility)
+* [Security](#security)
+* [Contribute](#contribute)
+* [Sponsor](#sponsor)
+* [License](#license)
 
 ## What is this?
 
@@ -119,8 +119,8 @@ Plugin to add support for parsing from HTML.
 
 ###### Parameters
 
-*   `options` ([`Options`][api-options], optional)
-    — configuration
+* `options` ([`Options`][api-options], optional)
+  — configuration
 
 ###### Returns
 
@@ -203,12 +203,12 @@ type ErrorCode =
 
 Error severity (TypeScript type).
 
-*   `0` or `false`
-    — turn the parse error off
-*   `1` or `true`
-    — turn the parse error into a warning
-*   `2`
-    — turn the parse error into an actual error: processing stops
+* `0` or `false`
+  — turn the parse error off
+* `1` or `true`
+  — turn the parse error into a warning
+* `2`
+  — turn the parse error into an actual error: processing stops
 
 ###### Type
 
@@ -228,19 +228,19 @@ Configuration (TypeScript type).
 
 ###### Fields
 
-*   `fragment` (`boolean`, default: `false`)
-    — whether to parse as a fragment; by default unopened `html`, `head`, and
-    `body` elements are opened
-*   `emitParseErrors` (`boolean`, default: `false`)
-    — whether to emit [parse errors][parse-errors] while parsing
-*   `space` (`'html'` or `'svg'`, default: `'html'`)
-    — which space the document is in
-*   `verbose` (`boolean`, default: `false`)
-    — add extra positional info about attributes, start tags, and end tags
-*   [`[key in ErrorCode]`][api-error-code]
-    ([`ErrorSeverity`][api-error-severity], default: `1` if
-    `options.emitParseErrors`, otherwise `0`)
-    — configure specific [parse errors][parse-errors]
+* `fragment` (`boolean`, default: `false`)
+  — whether to parse as a fragment; by default unopened `html`, `head`, and
+  `body` elements are opened
+* `emitParseErrors` (`boolean`, default: `false`)
+  — whether to emit [parse errors][parse-errors] while parsing
+* `space` (`'html'` or `'svg'`, default: `'html'`)
+  — which space the document is in
+* `verbose` (`boolean`, default: `false`)
+  — add extra positional info about attributes, start tags, and end tags
+* [`[key in ErrorCode]`][api-error-code]
+  ([`ErrorSeverity`][api-error-severity], default: `1` if
+  `options.emitParseErrors`, otherwise `0`)
+  — configure specific [parse errors][parse-errors]
 
 ## Examples
 

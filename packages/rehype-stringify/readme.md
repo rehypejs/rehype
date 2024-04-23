@@ -12,22 +12,22 @@
 
 ## Contents
 
-*   [What is this?](#what-is-this)
-*   [When should I use this?](#when-should-i-use-this)
-*   [Install](#install)
-*   [Use](#use)
-*   [API](#api)
-    *   [`unified().use(rehypeStringify[, options])`](#unifieduserehypestringify-options)
-    *   [`CharacterReferences`](#characterreferences)
-    *   [`Options`](#options)
-*   [Syntax](#syntax)
-*   [Syntax tree](#syntax-tree)
-*   [Types](#types)
-*   [Compatibility](#compatibility)
-*   [Security](#security)
-*   [Contribute](#contribute)
-*   [Sponsor](#sponsor)
-*   [License](#license)
+* [What is this?](#what-is-this)
+* [When should I use this?](#when-should-i-use-this)
+* [Install](#install)
+* [Use](#use)
+* [API](#api)
+  * [`unified().use(rehypeStringify[, options])`](#unifieduserehypestringify-options)
+  * [`CharacterReferences`](#characterreferences)
+  * [`Options`](#options)
+* [Syntax](#syntax)
+* [Syntax tree](#syntax-tree)
+* [Types](#types)
+* [Compatibility](#compatibility)
+* [Security](#security)
+* [Contribute](#contribute)
+* [Sponsor](#sponsor)
+* [License](#license)
 
 ## What is this?
 
@@ -121,8 +121,8 @@ Plugin to add support for serializing to HTML.
 
 ###### Parameters
 
-*   `options` ([`Options`][api-options], optional)
-    — configuration
+* `options` ([`Options`][api-options], optional)
+  — configuration
 
 ###### Returns
 
@@ -143,12 +143,12 @@ How to serialize character references (TypeScript type).
 
 ###### Fields
 
-*   `useNamedReferences` (`boolean`, default: `false`)
-    — prefer named character references (`&amp;`) where possible
-*   `omitOptionalSemicolons` (`boolean`, default: `false`)
-    — whether to omit semicolons when possible
-*   `useShortestReferences` (`boolean`, default: `false`)
-    — prefer the shortest possible reference, if that results in less bytes
+* `useNamedReferences` (`boolean`, default: `false`)
+  — prefer named character references (`&amp;`) where possible
+* `omitOptionalSemicolons` (`boolean`, default: `false`)
+  — whether to omit semicolons when possible
+* `useShortestReferences` (`boolean`, default: `false`)
+  — prefer the shortest possible reference, if that results in less bytes
 
 ### `Options`
 
@@ -169,69 +169,69 @@ Configuration (TypeScript type).
 
 ###### Fields
 
-*   `allowDangerousCharacters` (`boolean`, default: `false`)
-    — do not encode some characters which cause XSS vulnerabilities in older
-    browsers
-*   `allowDangerousHtml` (`boolean`, default: `false`)
-    — allow [`Raw`][raw] nodes and insert them as raw HTML; when `false`, `Raw`
-    nodes are encoded
-*   `allowParseErrors` (`boolean`, default: `false`)
-    — do not encode characters which cause parse errors (even though they
-    work), to save bytes; not used in the SVG space.
-*   `bogusComments` (`boolean`, default: `false`)
-    — use “bogus comments” instead of comments to save byes: `<?charlie>`
-    instead of `<!--charlie-->`
-*   `characterReferences` ([`CharacterReferences`][api-character-references],
-    optional)
-    — configure how to serialize character references
-*   `closeEmptyElements` (`boolean`, default: `false`)
-    — close SVG elements without any content with slash (`/`) on the opening
-    tag instead of an end tag: `<circle />` instead of `<circle></circle>`;
-    see `tightSelfClosing` to control whether a space is used before the slash;
-    not used in the HTML space
-*   `closeSelfClosing` (`boolean`, default: `false`)
-    — close self-closing nodes with an extra slash (`/`): `<img />` instead of
-    `<img>`; see `tightSelfClosing` to control whether a space is used before
-    the slash; not used in the SVG space.
-*   `collapseEmptyAttributes` (`boolean`, default: `false`)
-    — collapse empty attributes: get `class` instead of `class=""`; not used in
-    the SVG space; boolean attributes (such as `hidden`) are always collapsed
-*   `omitOptionalTags` (`boolean`, default: `false`)
-    — omit optional opening and closing tags; to illustrate, in
-    `<ol><li>one</li><li>two</li></ol>`, both `</li>` closing tags can be
-    omitted, the first because it’s followed by another `li`, the last because
-    it’s followed by nothing; not used in the SVG space
-*   `preferUnquoted` (`boolean`, default: `false`)
-    — leave attributes unquoted if that results in less bytes; not used in the
-    SVG space
-*   `quote` (`'"'` or `"'"`, default: `'"'`)
-    — preferred quote to use
-*   `quoteSmart` (`boolean`, default: `false`)
-    — use the other quote if that results in less bytes
-*   `space` (`'html'` or `'svg'`, default: `'html'`)
-    — which space the document is in; when an `<svg>` element is found in the
-    HTML space, this package already automatically switches to and from the SVG
-*   `tightAttributes` (`boolean`, default: `false`)
-    — join attributes together, without whitespace, if possible: get
-    `class="a b"title="c d"` instead of `class="a b" title="c d"` to save
-    bytes; not used in the SVG space
-*   `tightCommaSeparatedLists` (`boolean`, default: `false`)
-    — join known comma-separated attribute values with just a comma (`,`),
-    instead of padding them on the right as well (`,␠`, where `␠` represents a
-    space)
-*   `tightDoctype` (`boolean`, default: `false`)
-    — drop unneeded spaces in doctypes: `<!doctypehtml>` instead of
-    `<!doctype html>` to save bytes
-*   `tightSelfClosing` (`boolean`, default: `false`).
-    — do not use an extra space when closing self-closing elements: `<img/>`
-    instead of `<img />`; only used if `closeSelfClosing: true` or
-    `closeEmptyElements: true`
-*   `upperDoctype` (`boolean`, default: `false`).
-    — use a `<!DOCTYPE…` instead of `<!doctype…`; useless except for XHTML
-*   `voids` (`Array<string>`, default:
-    [`html-void-elements`][html-void-elements])
-    — tag names of elements to serialize without closing tag; not used in the
-    SVG space
+* `allowDangerousCharacters` (`boolean`, default: `false`)
+  — do not encode some characters which cause XSS vulnerabilities in older
+  browsers
+* `allowDangerousHtml` (`boolean`, default: `false`)
+  — allow [`Raw`][raw] nodes and insert them as raw HTML; when `false`, `Raw`
+  nodes are encoded
+* `allowParseErrors` (`boolean`, default: `false`)
+  — do not encode characters which cause parse errors (even though they
+  work), to save bytes; not used in the SVG space.
+* `bogusComments` (`boolean`, default: `false`)
+  — use “bogus comments” instead of comments to save byes: `<?charlie>`
+  instead of `<!--charlie-->`
+* `characterReferences` ([`CharacterReferences`][api-character-references],
+  optional)
+  — configure how to serialize character references
+* `closeEmptyElements` (`boolean`, default: `false`)
+  — close SVG elements without any content with slash (`/`) on the opening
+  tag instead of an end tag: `<circle />` instead of `<circle></circle>`;
+  see `tightSelfClosing` to control whether a space is used before the slash;
+  not used in the HTML space
+* `closeSelfClosing` (`boolean`, default: `false`)
+  — close self-closing nodes with an extra slash (`/`): `<img />` instead of
+  `<img>`; see `tightSelfClosing` to control whether a space is used before
+  the slash; not used in the SVG space.
+* `collapseEmptyAttributes` (`boolean`, default: `false`)
+  — collapse empty attributes: get `class` instead of `class=""`; not used in
+  the SVG space; boolean attributes (such as `hidden`) are always collapsed
+* `omitOptionalTags` (`boolean`, default: `false`)
+  — omit optional opening and closing tags; to illustrate, in
+  `<ol><li>one</li><li>two</li></ol>`, both `</li>` closing tags can be
+  omitted, the first because it’s followed by another `li`, the last because
+  it’s followed by nothing; not used in the SVG space
+* `preferUnquoted` (`boolean`, default: `false`)
+  — leave attributes unquoted if that results in less bytes; not used in the
+  SVG space
+* `quote` (`'"'` or `"'"`, default: `'"'`)
+  — preferred quote to use
+* `quoteSmart` (`boolean`, default: `false`)
+  — use the other quote if that results in less bytes
+* `space` (`'html'` or `'svg'`, default: `'html'`)
+  — which space the document is in; when an `<svg>` element is found in the
+  HTML space, this package already automatically switches to and from the SVG
+* `tightAttributes` (`boolean`, default: `false`)
+  — join attributes together, without whitespace, if possible: get
+  `class="a b"title="c d"` instead of `class="a b" title="c d"` to save
+  bytes; not used in the SVG space
+* `tightCommaSeparatedLists` (`boolean`, default: `false`)
+  — join known comma-separated attribute values with just a comma (`,`),
+  instead of padding them on the right as well (`,␠`, where `␠` represents a
+  space)
+* `tightDoctype` (`boolean`, default: `false`)
+  — drop unneeded spaces in doctypes: `<!doctypehtml>` instead of
+  `<!doctype html>` to save bytes
+* `tightSelfClosing` (`boolean`, default: `false`).
+  — do not use an extra space when closing self-closing elements: `<img/>`
+  instead of `<img />`; only used if `closeSelfClosing: true` or
+  `closeEmptyElements: true`
+* `upperDoctype` (`boolean`, default: `false`).
+  — use a `<!DOCTYPE…` instead of `<!doctype…`; useless except for XHTML
+* `voids` (`Array<string>`, default:
+  [`html-void-elements`][html-void-elements])
+  — tag names of elements to serialize without closing tag; not used in the
+  SVG space
 
 ## Syntax
 

@@ -21,23 +21,23 @@ We call those programs plugins.
 Plugins inspect and change trees.
 You can use the many existing plugins or you can make your own.
 
-*   to learn HTML, see [MDN][] and [WHATWG HTML][html]
-*   for more about us, see [`unifiedjs.com`][site]
-*   for updates, see [Twitter][]
-*   for questions, see [support][]
-*   to help, see [contribute][] or [sponsor][] below
+* to learn HTML, see [MDN][] and [WHATWG HTML][html]
+* for more about us, see [`unifiedjs.com`][site]
+* for updates, see [Twitter][]
+* for questions, see [support][]
+* to help, see [contribute][] or [sponsor][] below
 
 ## Contents
 
-*   [What is this?](#what-is-this)
-*   [When should I use this?](#when-should-i-use-this)
-*   [Plugins](#plugins)
-*   [Types](#types)
-*   [Compatibility](#compatibility)
-*   [Security](#security)
-*   [Contribute](#contribute)
-*   [Sponsor](#sponsor)
-*   [License](#license)
+* [What is this?](#what-is-this)
+* [When should I use this?](#when-should-i-use-this)
+* [Plugins](#plugins)
+* [Types](#types)
+* [Compatibility](#compatibility)
+* [Security](#security)
+* [Contribute](#contribute)
+* [Sponsor](#sponsor)
+* [License](#license)
 
 ## What is this?
 
@@ -142,15 +142,15 @@ You can use rehype for many different things.
 
 This GitHub repository is a monorepo that contains the following packages:
 
-*   [`rehype-parse`][rehype-parse]
-    — plugin to take HTML as input and turn it into a syntax tree (hast)
-*   [`rehype-stringify`][rehype-stringify]
-    — plugin to take a syntax tree (hast) and turn it into HTML as output
-*   [`rehype`][rehype-core]
-    — `unified`, `rehype-parse`, and `rehype-stringify`, useful when input and
-    output are HTML
-*   [`rehype-cli`][rehype-cli]
-    — CLI around `rehype` to inspect and format HTML in scripts
+* [`rehype-parse`][rehype-parse]
+  — plugin to take HTML as input and turn it into a syntax tree (hast)
+* [`rehype-stringify`][rehype-stringify]
+  — plugin to take a syntax tree (hast) and turn it into HTML as output
+* [`rehype`][rehype-core]
+  — `unified`, `rehype-parse`, and `rehype-stringify`, useful when input and
+  output are HTML
+* [`rehype-cli`][rehype-cli]
+  — CLI around `rehype` to inspect and format HTML in scripts
 
 ## When should I use this?
 
@@ -168,12 +168,12 @@ rehype plugins deal with HTML.
 You can choose from the many plugins that already exist.
 Here are three good ways to find plugins:
 
-*   [`awesome-rehype`][awesome-rehype]
-    — selection of the most awesome projects
-*   [List of plugins][list-of-plugins]
-    — list of all plugins
-*   [`rehype-plugin` topic][topic]
-    — any tagged repo on GitHub
+* [`awesome-rehype`][awesome-rehype]
+  — selection of the most awesome projects
+* [List of plugins][list-of-plugins]
+  — list of all plugins
+* [`rehype-plugin` topic][topic]
+  — any tagged repo on GitHub
 
 Some plugins are maintained by us here in the `@rehypejs` organization while
 others are maintained by folks elsewhere.

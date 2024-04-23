@@ -11,16 +11,16 @@ Command line interface to inspect and change HTML files with **[rehype][]**.
 
 ## Contents
 
-*   [What is this?](#what-is-this)
-*   [When should I use this?](#when-should-i-use-this)
-*   [Install](#install)
-*   [Use](#use)
-*   [CLI](#cli)
-*   [Compatibility](#compatibility)
-*   [Security](#security)
-*   [Contribute](#contribute)
-*   [Sponsor](#sponsor)
-*   [License](#license)
+* [What is this?](#what-is-this)
+* [When should I use this?](#when-should-i-use-this)
+* [Install](#install)
+* [Use](#use)
+* [CLI](#cli)
+* [Compatibility](#compatibility)
+* [Security](#security)
+* [Contribute](#contribute)
+* [Sponsor](#sponsor)
+* [License](#license)
 
 ## What is this?
 
@@ -112,13 +112,13 @@ More info on all these options is available at [`unified-args`][unified-args],
 which does the work.
 `rehype-cli` is `unified-args` preconfigured to:
 
-*   load `rehype-` plugins
-*   search for HTML extensions (`.html`, `.htm`, `.xht`, `.xhtml`)
-*   ignore paths found in [`.rehypeignore` files][ignore-file]
-*   load configuration from
-    [`.rehyperc`, `.rehyperc.js`, etc files][config-file]
-*   use configuration from
-    [`rehype` fields in `package.json` files][config-file]
+* load `rehype-` plugins
+* search for HTML extensions (`.html`, `.htm`, `.xht`, `.xhtml`)
+* ignore paths found in [`.rehypeignore` files][ignore-file]
+* load configuration from
+  [`.rehyperc`, `.rehyperc.js`, etc files][config-file]
+* use configuration from
+  [`rehype` fields in `package.json` files][config-file]
 
 ## Compatibility
 
