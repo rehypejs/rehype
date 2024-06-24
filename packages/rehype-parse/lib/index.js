@@ -1,7 +1,7 @@
 /**
- * @typedef {import('hast').Root} Root
- * @typedef {import('hast-util-from-html').Options} FromHtmlOptions
- * @typedef {import('unified').Parser<Root>} Parser
+ * @import {Root} from 'hast'
+ * @import {Options as FromHtmlOptions} from 'hast-util-from-html'
+ * @import {Parser, Processor} from 'unified'
  */
 
 /**
@@ -35,7 +35,7 @@ import {fromHtml} from 'hast-util-from-html'
  *   Nothing.
  */
 export default function rehypeParse(options) {
-  /** @type {import('unified').Processor<Root>} */
+  /** @type {Processor<Root>} */
   // @ts-expect-error: TS in JSDoc generates wrong types if `this` is typed regularly.
   const self = this
   const {emitParseErrors, ...settings} = {...self.data('settings'), ...options}
@@ -43,7 +43,7 @@ export default function rehypeParse(options) {
   self.parser = parser
 
   /**
-   * @type {Parser}
+   * @type {Parser<Root>}
    */
   function parser(document, file) {
     return fromHtml(document, {

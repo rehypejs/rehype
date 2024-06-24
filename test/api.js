@@ -1,6 +1,6 @@
 /**
- * @typedef {import('unified').Settings} Settings
- * @typedef {import('hast').Root} Root
+ * @import {Settings} from 'unified'
+ * @import {Root} from 'hast'
  */
 
 import assert from 'node:assert/strict'

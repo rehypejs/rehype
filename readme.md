@@ -106,6 +106,10 @@ With another plugin, you can turn this HTML:
 <details><summary>Show example code</summary>
 
 ```js
+/**
+ * @import {Root} from 'hast'
+ */
+
 import rehypeParse from 'rehype-parse'
 import rehypeStringify from 'rehype-stringify'
 import {unified} from 'unified'
@@ -121,7 +125,7 @@ console.log(String(file))
 
 function myRehypePluginToIncreaseHeadings() {
   /**
-   * @param {import('hast').Root} tree
+   * @param {Root} tree
    */
   return function (tree) {
     visit(tree, 'element', function (node) {
