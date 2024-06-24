@@ -208,6 +208,9 @@ The list of plugins:
   — truncate HTML while preserving its structure
 * [`rehype-twemojify`](https://github.com/cliid/rehype-twemojify)
   — turn emoji shortcodes into twemoji
+* [`rehype-twoslash`](https://github.com/rehypejs/rehype-twoslash)
+  — process JavaScript and TypeScript code with `twoslash` and highlight it
+  with `starry-night`
 * [`rehype-urls`](https://github.com/brechtcs/rehype-urls)
   — rewrite URLs of `href` and `src` attributes
 * [`rehype-url-inspector`](https://github.com/JS-DevTools/rehype-url-inspector)
