@@ -68,6 +68,8 @@ The list of plugins:
   — syntax highlight code blocks with Highlight.js via `lowlight`
 * [`rehype-highlight-code-block`](https://github.com/mapbox/rehype-highlight-code-block)
   — syntax highlight code blocks with any function you provide
+* [`rehype-highlight-code-lines`](https://github.com/ipikuka/rehype-highlight-code-lines)
+  — add line numbers to code blocks; allow highlighting of desired code lines
 * [`rehype-infer-description-meta`](https://github.com/rehypejs/rehype-infer-description-meta)
   — infer file metadata from the contents of the document
 * [`rehype-infer-reading-time-meta`](https://github.com/rehypejs/rehype-infer-reading-time-meta)
