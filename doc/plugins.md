@@ -198,6 +198,9 @@ The list of plugins:
   — sort attributes
 * [`rehype-sort-tailwind-classes`](https://github.com/bitcrowd/rehype-sort-tailwind-classes)
   — sort tailwind classes
+* [`rehype-starry-night`](https://github.com/rehypejs/rehype-starry-night)
+  — apply syntax highlighting to code with
+  [`starry-night`](https://github.com/wooorm/starry-night)
 * [`rehype-svgo`](https://github.com/TomerAberbach/rehype-svgo)
   — optimize inline SVGs using [SVGO](https://github.com/svg/svgo)
 * [`rehype-template`](https://github.com/nzt/rehype-template)
