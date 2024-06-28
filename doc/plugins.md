@@ -203,6 +203,8 @@ The list of plugins:
   [`starry-night`](https://github.com/wooorm/starry-night)
 * [`rehype-svgo`](https://github.com/TomerAberbach/rehype-svgo)
   — optimize inline SVGs using [SVGO](https://github.com/svg/svgo)
+* [`rehype-table-data-label`](https://github.com/mvogelgesang/rehype-table-data-label)
+  - Create responsive tables by turning table headers into data-labels
 * [`rehype-template`](https://github.com/nzt/rehype-template)
   — wrap content with template literal
 * [`rehype-toc`](https://github.com/JS-DevTools/rehype-toc)
