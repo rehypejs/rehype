@@ -36,6 +36,8 @@ The list of plugins:
   — inserts an ad code for each specified number of paragraphs
 * [`rehype-autolink-headings`](https://github.com/rehypejs/rehype-autolink-headings)
   — add links to headings
+* [`rehype-callouts`](https://github.com/lin-stephanie/rehype-callouts)
+  — render blockquote-based callouts (admonitions/alerts)
 * [`rehype-citation`](https://github.com/timlrx/rehype-citation)
   — add citation and bibliography from bibtex
 * [`rehype-class-names`](https://github.com/riderjensen/rehype-class-names)
