@@ -31,6 +31,7 @@ test('parse errors', async function (t) {
       unified().use(rehypeParse, {emitParseErrors: true}).parse(input)
 
       /** @type {Array<unknown>} */
+      // eslint-disable-next-line unicorn/prefer-structured-clone -- cast to plain JSON.
       const actual = JSON.parse(JSON.stringify(input.messages))
 
       /** @type {Array<unknown>} */
@@ -61,7 +62,11 @@ test('parse errors', async function (t) {
 
     unified().use(rehypeParse, {emitParseErrors: true}).parse(file)
 
-    assert.deepEqual(JSON.parse(JSON.stringify(file.messages)), [
+    /** @type {Array<unknown>} */
+    // eslint-disable-next-line unicorn/prefer-structured-clone -- cast to plain JSON.
+    const actual = JSON.parse(JSON.stringify(file.messages))
+
+    assert.deepEqual(actual, [
       {
         column: 1,
         fatal: false,
