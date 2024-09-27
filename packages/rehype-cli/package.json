@@ -1,6 +1,6 @@
 {
   "name": "rehype-cli",
-  "version": "12.0.0",
+  "version": "12.0.1",
   "description": "CLI to process HTML with rehype",
   "license": "MIT",
   "keywords": [
