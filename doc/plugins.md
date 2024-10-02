@@ -182,6 +182,8 @@ The list of plugins:
 * [`rehype-sectionize`](https://github.com/hbsnow/rehype-sectionize)
   — wrap headings and their contents into nested `<section>` elements,
   with attributes
+* [`rehype-semantic-blockquotes`](https://github.com/nikitarevenco/rehype-semantic-blockquotes)
+  — new blockquote syntax to mention/cite sources in a semantically correct way
 * [`rehype-semantic-images`](https://github.com/benjamincharity/rehype-semantic-images)
   — enrich HTML images with semantic elements and customizable features
 * [`rehype-shift-heading`](https://github.com/rehypejs/rehype-shift-heading)
