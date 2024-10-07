@@ -95,7 +95,7 @@ The list of plugins:
 * [`rehype-katex`](https://github.com/remarkjs/remark-math/tree/main/packages/rehype-katex)
   — render math with KaTeX
 * [`rehype-katex-notranslate`](https://github.com/PrinOrange/rehype-katex-notranslate)
-  — Add the attribute translate="no" to the katex blocks to prevent the them from being translated by webpage translation tools.
+  — Add `translate="no"` to KaTeX blocks to prevent translation.
 * [`rehype-lodash-template`](https://github.com/viktor-yakubiv/rehype-lodash-template)
   — replace template strings with values from the dictionary
 * [`rehype-mathjax`](https://github.com/remarkjs/remark-math/tree/main/packages/rehype-mathjax)
