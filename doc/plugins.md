@@ -8,10 +8,12 @@ This page lists existing plugins.
 
 ## Contents
 
-* [List of plugins](#list-of-plugins)
-* [List of utilities](#list-of-utilities)
-* [Use plugins](#use-plugins)
-* [Create plugins](#create-plugins)
+- [Plugins](#plugins)
+  - [Contents](#contents)
+  - [List of plugins](#list-of-plugins)
+  - [List of utilities](#list-of-utilities)
+  - [Use plugins](#use-plugins)
+  - [Create plugins](#create-plugins)
 
 ## List of plugins
 
@@ -92,6 +94,8 @@ The list of plugins:
   — resolve line breaks in Chinese paragraphs
 * [`rehype-katex`](https://github.com/remarkjs/remark-math/tree/main/packages/rehype-katex)
   — render math with KaTeX
+* [`rehype-katex-notranslate`](https://github.com/PrinOrange/rehype-katex-notranslate)
+  — Add the attribute translate="no" to the katex blocks to prevent the them from being translated by webpage translation tools.
 * [`rehype-lodash-template`](https://github.com/viktor-yakubiv/rehype-lodash-template)
   — replace template strings with values from the dictionary
 * [`rehype-mathjax`](https://github.com/remarkjs/remark-math/tree/main/packages/rehype-mathjax)
