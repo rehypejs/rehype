@@ -43,7 +43,7 @@ The list of plugins:
 * [`rehype-class-names`](https://github.com/riderjensen/rehype-class-names)
   — add classes by selector
 * [`rehype-code-group`](https://github.com/ITZSHOAIB/rehype-code-group)
-  — group code blocks with highly customizable tabs. Works with any Code Syntax Highlighter.
+  — group code blocks (or any element) with highly customizable tabs.
 * [`rehype-color-chips`](https://github.com/shreshthmohan/rehype-color-chips)
   — add color chips to inline code blocks with color codes
 * [`rehype-components`](https://github.com/marekweb/rehype-components)
