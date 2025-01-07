@@ -238,6 +238,8 @@ The list of plugins:
   — wrap selected elements with a given element
 * [`rehype-wrap-all`](https://github.com/florentb/rehype-wrap-all)
   — wrap all matching elements with a given element
+* [`rehype-wrap-sibling`](https://github.com/jamesgeorgewilliams/rehype-wrap-sibling)
+  — wrap a selected element(s) and its sibling in a container element
 
 ## List of utilities
 
