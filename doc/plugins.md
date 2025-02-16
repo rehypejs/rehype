@@ -100,8 +100,8 @@ The list of plugins:
   — replace template strings with values from the dictionary
 * [`rehype-mathjax`](https://github.com/remarkjs/remark-math/tree/main/packages/rehype-mathjax)
   — render math with MathJax
-* [`rehype-mathml`](https://github.com/Daiji256/rehype-mathml)
-  — render math with MathML
+* [`@daiji256/rehype-mathml`](https://github.com/Daiji256/rehype-mathml)
+  — render math with MathML with the power of [Temml](https://temml.org/)
 * [`rehype-mermaidjs`](https://github.com/remcohaszing/rehype-mermaidjs)
   — render mermaid diagrams
 * [`rehype-meta`](https://github.com/rehypejs/rehype-meta)
