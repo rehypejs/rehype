@@ -1,7 +1,8 @@
 /**
  * @import {Root} from 'hast'
  * @import {Options as FromHtmlOptions} from 'hast-util-from-html'
- * @import {Parser, Processor} from 'unified'
+ * @import {Processor} from 'unified'
+ * @import {VFile} from 'vfile'
  */
 
 /**
@@ -29,21 +30,26 @@ import {fromHtml} from 'hast-util-from-html'
  * > Passing SVG files might break but fragments of modern SVG should be fine.
  * > Use [`xast-util-from-xml`][xast-util-from-xml] to parse XML.
  *
+ * @this {Processor<Root>}
+ *   Processor instance.
  * @param {Options | null | undefined} [options]
  *   Configuration (optional).
  * @returns {undefined}
  *   Nothing.
  */
 export default function rehypeParse(options) {
-  /** @type {Processor<Root>} */
-  // @ts-expect-error: TS in JSDoc generates wrong types if `this` is typed regularly.
   const self = this
   const {emitParseErrors, ...settings} = {...self.data('settings'), ...options}
 
   self.parser = parser
 
   /**
-   * @type {Parser<Root>}
+   * @param {string} document
+   *   Document.
+   * @param {VFile} file
+   *   File.
+   * @returns {Root}
+   *   Tree.
    */
   function parser(document, file) {
     return fromHtml(document, {

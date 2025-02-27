@@ -42,6 +42,8 @@ The list of plugins:
   — add citation and bibliography from bibtex
 * [`rehype-class-names`](https://github.com/riderjensen/rehype-class-names)
   — add classes by selector
+* [`rehype-code-group`](https://github.com/ITZSHOAIB/rehype-code-group)
+  — group code blocks (or any element) with highly customizable tabs.
 * [`rehype-color-chips`](https://github.com/shreshthmohan/rehype-color-chips)
   — add color chips to inline code blocks with color codes
 * [`rehype-components`](https://github.com/marekweb/rehype-components)
@@ -98,6 +100,8 @@ The list of plugins:
   — replace template strings with values from the dictionary
 * [`rehype-mathjax`](https://github.com/remarkjs/remark-math/tree/main/packages/rehype-mathjax)
   — render math with MathJax
+* [`rehype-mathml`](https://github.com/Daiji256/rehype-mathml)
+  — render math as MathML with [Temml](https://temml.org/)
 * [`rehype-mermaidjs`](https://github.com/remcohaszing/rehype-mermaidjs)
   — render mermaid diagrams
 * [`rehype-meta`](https://github.com/rehypejs/rehype-meta)
@@ -234,6 +238,8 @@ The list of plugins:
   — wrap selected elements with a given element
 * [`rehype-wrap-all`](https://github.com/florentb/rehype-wrap-all)
   — wrap all matching elements with a given element
+* [`rehype-wrap-sibling`](https://github.com/jamesgeorgewilliams/rehype-wrap-sibling)
+  — wrap a selected element(s) and its sibling in a container element
 
 ## List of utilities
 
