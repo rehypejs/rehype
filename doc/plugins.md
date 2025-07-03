@@ -104,12 +104,12 @@ The list of plugins:
   — render math with MathJax
 * [`rehype-mathml`](https://github.com/Daiji256/rehype-mathml)
   — render math as MathML with [Temml](https://temml.org/)
+* [`rehype-mdx-toc`](https://github.com/boning-w/rehype-mdx-toc)
+  — export the table of contents data into MDX module
 * [`rehype-mermaidjs`](https://github.com/remcohaszing/rehype-mermaidjs)
   — render mermaid diagrams
 * [`rehype-meta`](https://github.com/rehypejs/rehype-meta)
   — add metadata to the head of a document
-* [`rehype-mdx-toc`](https://github.com/boning-w/rehype-mdx-toc)
-  — export the table of contents data into MDX module
 * [`rehype-minify`](https://github.com/rehypejs/rehype-minify)
   — minify HTML
 * [`rehype-minify-attribute-whitespace`](https://github.com/rehypejs/rehype-minify/tree/main/packages/rehype-minify-attribute-whitespace)
