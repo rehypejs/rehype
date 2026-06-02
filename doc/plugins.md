@@ -148,6 +148,8 @@ The list of plugins:
   — wrap images in `<picture>`s
 * [`rehype-postcss`](https://github.com/viktor-yakubiv/rehype-postcss)
   — run PostCSS on `<style>` nodes and elements with a `style` attribute
+* [`rehype-pre-language`](https://github.com/ipikuka/rehype-pre-language)
+  — add language information into `<pre>` element as a property
 * [`rehype-prevent-favicon-request`](https://github.com/rehypejs/rehype-minify/tree/main/packages/rehype-prevent-favicon-request)
   — prevent a request by setting an empty `favicon.ico`
 * [`rehype-prism`](https://github.com/mapbox/rehype-prism)
