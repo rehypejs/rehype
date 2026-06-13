@@ -106,6 +106,8 @@ The list of plugins:
   — render math with MathJax
 * [`rehype-mathml`](https://github.com/Daiji256/rehype-mathml)
   — render math as MathML with [Temml](https://temml.org/)
+* [`rehype-merge-cells`](https://github.com/renbaoshuo/rehype-merge-cells)
+  — Merge adjacent table cells with same content.
 * [`rehype-mermaidjs`](https://github.com/remcohaszing/rehype-mermaidjs)
   — render mermaid diagrams
 * [`rehype-meta`](https://github.com/rehypejs/rehype-meta)
