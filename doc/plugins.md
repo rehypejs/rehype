@@ -98,6 +98,8 @@ The list of plugins:
   — render math with KaTeX
 * [`rehype-katex-notranslate`](https://github.com/PrinOrange/rehype-katex-notranslate)
   — add `translate="no"` to KaTeX blocks to prevent translation
+* [`rehype-lini`](https://github.com/monfa-red/rehype-lini)
+  — render Lini diagrams as inline SVG
 * [`rehype-lodash-template`](https://github.com/viktor-yakubiv/rehype-lodash-template)
   — replace template strings with values from the dictionary
 * [`rehype-mathjax`](https://github.com/remarkjs/remark-math/tree/main/packages/rehype-mathjax)
