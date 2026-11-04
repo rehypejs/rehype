@@ -223,6 +223,8 @@ The list of plugins:
   — add a table of contents (TOC) to the page
 * [`rehype-truncate`](https://github.com/luk707/rehype-truncate)
   — truncate HTML while preserving its structure
+* [`rehype-tsquare`](https://github.com/tsquare-js/markdown/tree/main/packages/rehype-tsquare)
+  — turn `tsquare` code blocks into UI wireframe images
 * [`rehype-twemojify`](https://github.com/cliid/rehype-twemojify)
   — turn emoji shortcodes into twemoji
 * [`rehype-twoslash`](https://github.com/rehypejs/rehype-twoslash)
